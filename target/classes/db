@@ -1,0 +1,9 @@
+#SQL Server\u8FDE\u63A5\u5B57\u7B26\u4E32
+#\u9A71\u52A8
+sqlserver.driver = com.microsoft.sqlserver.jdbc.SQLServerDriver
+#\u5730\u5740
+sqlserver.url = jdbc:sqlserver://localhost:1433;DatabaseName=teacherdb
+#\u7528\u6237\u540D
+sqlserver.username = sa
+#\u5BC6\u7801
+sqlserver.password = 123456

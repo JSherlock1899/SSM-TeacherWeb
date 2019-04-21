@@ -1,0 +1,67 @@
+@charset "utf-8";
+*{margin:0 auto;padding:0 auto;}
+a{text-decoration:none}
+body{height:auto}
+
+
+
+
+
+/*左侧导航栏*/
+.down-main{position: absolute;width: 100%;top: 50px;bottom: 0px;z-index: 100;}
+.left-full{ width:160px; display:block;}
+.right-full{ left:160px;}
+.left-off{ width:48px; display:block;}
+.right-off{ left:48px;}
+.right-product{position: absolute;top: 0px;bottom: 0px;right: 0px;background: #FFF;}
+.sidebar-fold{ height: 30px;width: 100%;background: #394555;color: #aeb9c2;text-align: center; height:30px; font-size: 12px;cursor: pointer;}
+.sidebar-fold span{ line-height:30px;}
+/*.left-main{ bottom: 0px; top:0px; position:absolute; background-color:#293038;}*/
+.left-main{ bottom: 0px; top:50px; z-index:100; position:fixed; background-color:#293038;}
+.sBox ul li{ list-style-type:none; position:relative;}
+
+.sBox ul{ padding:0px; position: relative; margin:0px;}
+.sBox ul li a{display: block;width: 100%;height: 40px;line-height: 40px;overflow: hidden; text-decoration:none; color:#FFF;}
+.sBox .sublist-icon{ width:48px; text-align:center;}
+.subNavBox .subNav{ height:40px; line-height:40px; color: #fff;}
+.subNavBox .subNav .title-icon{ width:48px; text-align:center;}
+.sBox .sublist-down{ background-color:#22282e;}
+.sBox .sublist-up{ background-color:#37424f;}
+.sBox .sublist-up ul{ display:none;}
+.sBox .sublist-title{ cursor:pointer; font-size: 12px;}
+.sBox .subNav:hover,.sBox ul li:hover{ background-color:#42515f;}
+.sBox span{ line-height:36px;}
+.sBox ul li .showtitle{ text-align:center; line-height:40px; position:absolute; z-index:100; background-color:#545f71; left:55px; padding:0px 10px 0px 10px; color:#FFF; min-width:100px; display:none;}
+.sBox ul li .showtitle img {position: absolute;left: -6px; top: 14px;}
+.left-off .sBox ul li .sub-title{ display:none;}
+.left-off .sBox .sublist-title{ display:none;}
+/*下拉内容*/
+.navbar-nav .dropdown .topbar-nav-list{ color:#000; font-size:12px;padding:10px; width:auto; white-space: nowrap;}
+.topbar-nav-col{vertical-align: top;padding: 0 10px; display:inline-block;}
+.topbar-nav-col .topbar-nav-item-title{margin: 3px 0px;color: #999;font-weight: 600; font-size:13px;}
+.topbar-nav-col ul li{ list-style:none; min-width: 160px;height: 28px;line-height: 28px;margin-bottom: 2px;}
+.dropdown-menu .topbar-nav-col ul{ padding-top:5px; padding-left:0px;}
+.topbar-nav-col ul li a{display: block;height: 100%;padding: 0 10px;text-decoration: none;color: #333;}
+.topbar-nav-col ul li a:hover{ background-color:#f2f2f2;}
+.topbar-nav-col .topbar-nav-item{ border-bottom:solid 1px #f2f2f2;} 
+.collapse{background:#2b3643;}
+/*搜索*/
+.select-main{margin-top:50px;margin-left:40px}
+#college{width:200px}
+#sdept,#starttime,#endtime{margin-left:30px;width:200px}
+#search{display:none}
+.searchTrigger{margin-left:150px;}
+.searchTrigger a{font-size:20px;}
+/*内容主体*/
+.table-entity{margin:0 auto;}
+.table-main{background:#fff;padding:1px 0;box-shadow: 5px 5px 1px #ccc;}
+.button-div{margin-bottom:20px}
+/*面包屑*/
+.breadcrumb{background:#fff;padding: 8px 15px;margin-bottom: 20px;list-style: none;border-radius: 4px;}
+/*教师*/
+.teacher-main{margin-left:3em;margin-top:1em}
+/*统计*/
+.bar{height:400px}
+/*表格*/
+.tdwidth{width:100px}
+.hide{display:hidden}

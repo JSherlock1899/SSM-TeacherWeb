@@ -1,0 +1,182 @@
+@charset "utf-8";
+/*自定义字体*/
+@font-face {
+	/*字体系列*/
+    font-family: 'adminthemesregular';
+    src: url('font/adminthemes-webfont.eot');
+    src: url('font/adminthemes-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/adminthemes-webfont.woff2') format('woff2'),
+         url('font/adminthemes-webfont.woff') format('woff'),
+         url('font/adminthemes-webfont.ttf') format('truetype'),
+         url('font/adminthemes-webfont.svg#adminthemesregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.logo img{
+	width: 15%;
+	height: 15%;
+}
+.layui-canvs{
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: -1;
+}
+.layui-layout-login{
+    width:350px;/*登陆框*/
+    height:300px;
+    overflow:hidden;/*溢出隐藏*/
+    margin:4% auto 0 auto;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;/*标题上内边距*/
+    padding-bottom: 20px;
+    box-shadow:0 -15px 30px #248591;/*登陆框阴影:深蓝*/
+    border-radius:5px;
+    z-index: 1000;
+    background-color: rgba(255,255,255,0.6);/*登陆框背景颜色透明度*/
+}
+.layui-layout-login h1{
+	font-size:30px;
+	font-weight:bold;
+	text-align:center;
+	color:#ea2314;/*标题字体颜色:红色*/
+	text-shadow:0 0 1px #c05b53;/*阴影:浅粉*/
+}
+.layui-layout-login h1 strong{
+	display:block;/*让对象成为块级元素*/
+}
+.layui-layout-login h1 em{
+	display:block;
+	font-size:16px;
+	margin-top:8px;
+}
+.layui-layout-login .larry-login{
+	margin:10px 0;
+	height:42px;
+	overflow:hidden;
+	position:relative;
+}
+.larry-login .login_txtbx{
+	font-size:14px;
+	height:26px;
+	line-height:26px;
+	padding:8px 5%;
+	width:90%;
+	text-indent:2em;
+	border:none;
+	background:#29afbf;/*输入框初始颜色:浅蓝*/
+	color: white;/*输入框光标颜色:白色*/
+}
+.larry-login  .login_txtbx::-webkit-input-placeholder {
+	color:#f4f4f4;
+	line-height:inherit;
+} 
+.larry-login  .login_txtbx:-moz-placeholder {
+	color:#f4f4f4;
+	line-height:inherit;
+} 
+.larry-login  .login_txtbx::-moz-placeholder {
+	color:#f4f4f4;
+	line-height:inherit;
+}
+.larry-login  .login_txtbx:focus{
+	background:#248591;/*输入框聚焦颜色:深蓝*/
+}
+.larry-login:before{
+	font-family:'adminthemesregular';
+	position:absolute;
+	top:0;
+	left:10px;
+	height:42px;
+	line-height:42px;
+	font-size:20px;
+	color:#1a6069;/*输入框图标颜色:深深蓝*/
+}
+.layui-user-icon:before{content:"u";}
+.layui-pwd-icon:before{content:"p";}
+.layui-val-icon:before{content:"n";}
+.layui-submit{
+	text-align: center;
+	padding-top: 13px;
+}
+.layui-submit .submit_btn{
+	width:30%;
+	height:42px;
+	border:none;
+	font-size:16px;
+	background:#FF5722;/*登陆按钮初始颜色：橘色*/
+	color:#f4f4f4;/*登陆字体颜色：白色*/
+	cursor: pointer;
+}
+.submit_btn:hover{
+	background:#248591;/*登陆按钮聚焦颜色：深蓝*/
+	color:#f4f4f4;
+}
+.layui-login-text{
+	margin:10px 0;
+	height:60px;
+	overflow:hidden;
+	position:relative;
+}
+.layui-login-text p{
+	color:#ea2314;
+	font-size:14px;
+	text-align:center;
+	margin:5px 0;
+}
+.layui-login-text a{
+	color:#197d9e;
+	font-size:14px;
+}
+.layui-login-text a:hover{
+	text-decoration: underline;
+}
+/*背景图片*/
+.screenbg {
+	position:fixed;
+	bottom:0;
+	left:0;
+	z-index:-999;
+	overflow:hidden;
+	width:100%;
+	height:100%;
+	min-height:100%;
+}
+.screenbg ul li {
+	display:block;
+	list-style:none;
+	position:fixed;
+	overflow:hidden;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:-1000;
+	float:right;
+}
+.screenbg ul a {
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+	display:inline-block;
+	margin:0;
+	padding:0;
+	cursor:default;
+}
+.screenbg a img {
+	vertical-align:middle;
+	display:inline;
+	border:none;
+	display:block;
+	list-style:none;
+	position:fixed;
+	overflow:hidden;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:-1000;
+	float:right;
+}
