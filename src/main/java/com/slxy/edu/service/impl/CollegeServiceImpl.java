@@ -15,7 +15,7 @@ import java.util.List;
  * @create: 2019-04-18 15:48
  **/
 
-@Service
+@Service("CollegeService")
 @Transactional
 public class CollegeServiceImpl implements ICollegeService {
 

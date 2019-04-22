@@ -1,47 +1,38 @@
 /**
  * 实现下拉框的值改变，查询的结果也改变
  */
+
 function ajaxSelect(option) {
-			var collegevalue = $('#college option:selected').val();// 选中的学院值
-			var sdeptValue = $('#sdept option:selected').val();// 选中的专业值
+			var cname = $('#college option:selected').val();// 选中的学院值
+			var dname = $('#sdept option:selected').val();// 选中的专业值
 			var starttime = $('#starttime').val();
 			var endtime = $('#endtime').val();
-			var selectByNameVal = $("#selectByNameVal").val();
-			var pageSizeSelect = $("#pageSizeSelect").val();
-			var currentPage = $("#currentPage").val();
-			document.getElementById("select_frame").src="../servlet/PageServlet?sdeptValue=" +sdeptValue 
-			+ "&collegevalue=" +collegevalue + "&starttime=" + starttime + "&endtime=" + endtime + "&selectByNameVal=" + selectByNameVal
-			+ "&pageSizeSelect=" + pageSizeSelect + "&currentPage=" + currentPage + "&option=" + option + "&teacher=admin";
-		}
+			var tname = $("#Tname").val();
+			var tmp = option;
+			const path = "http://"+document.location.host;  //通用
+			//将首字母大写
+			var tmp = option.charAt(0).toUpperCase() + option.slice(1)
+    		var url = path + "/" + option + "/find" + tmp + ".do";
+			console.log(url)
+			$.ajax({
+				url:url,
+				type:"post",
+				datatype:"json",
+				data:{
+					"cname" : cname,
+					"dname" : dname,
+					"starttime" : starttime,
+					"endtime" : endtime,
+					"tname" : tname,
+				},
+				success : function(msg){
+				},
+				error:function(msg){
+					alert('请求出现错误...');
+				}
+			});
+	}
 		
-		//当用户选择查询内容时，iframe跳转到对应页面
-		//也是为了设定一个参数来区分四个页面
-		function Projectchange(){
-			ajaxSelect("Project")
-			resetSelect()
-		    }
-			
-
-
-		function Paperchange(){
-			ajaxSelect("Paper")
-			resetSelect()
-			
-		}
-
-		function Honorchange(){
-			ajaxSelect("Honor")
-			resetSelect()
-		}
-
-		function Patentchange(){	
-			ajaxSelect("Patent")
-			resetSelect()		
-		}
-		function Teacherchange(){	
-			ajaxSelect("Teacher")
-			resetSelect()
-		}
 
 		//获取iframe中的src
 		function getSrc(){
@@ -54,18 +45,16 @@ function ajaxSelect(option) {
 
 
 		//查询框的值改变时动态改变查询内容
-		function CollegeSelectchange(){
+		function selectChange(){
 			var newcss = document.getElementById('select_frame').src;
-		    // var srcx = "xxx.ccom/id=2&aid=3";
 		    var reg = /.*aid\=([^\&]+).*/g;
 		    var result = newcss.replace(reg,"$1");
 		    //当已经进行过一次查询后将正确的url分割出来
-		    var firsturl = result.split('option='); //通过字符串分割得到option
-		    //根据url中是否含Page来判断是查询还是统计
-		    var judge = result.indexOf("PageServlet");			
-		    var judge1 = result.indexOf("StatisticsServlet");
-		    var judge2 = result.indexOf("AuditServlet");
-		    var option = firsturl[1];
+			var arr = new Array();
+            arr = result.split('/'); //通过字符串分割得到option
+            var option = arr[3];
+            //根据url中是否含find来判断是查询还是统计
+            var judge = result.indexOf("find");
 		    if(judge!=-1){
 		    	ajaxSelect(option);
 		    }else if(judge1!=-1){
@@ -77,15 +66,15 @@ function ajaxSelect(option) {
 
 		//分发到统计页面
 		function goStatistics(option){
-			var collegevalue = $('#college option:selected').val();// 选中的学院值
-			var sdeptValue = $('#sdept option:selected').val();// 选中的专业值
+			var cnamevalue = $('#cname option:selected').val();// 选中的学院值
+			var dnameValue = $('#dname option:selected').val();// 选中的专业值
 			var starttime = $('#starttime').val();
 			var endtime = $('#endtime').val();
 			var selectByNameVal = $("#selectByNameVal").val();
 			var pageSizeSelect = $("#pageSizeSelect").val();
 			var currentPage = $("#currentPage").val();
-			document.getElementById("select_frame").src="../servlet/StatisticsServlet?sdeptValue=" +sdeptValue 
-			+ "&collegevalue=" +collegevalue + "&starttime=" + starttime + "&endtime=" + endtime + "&selectByNameVal=" + selectByNameVal
+			document.getElementById("select_frame").src="../servlet/StatisticsServlet?dnameValue=" +dnameValue 
+			+ "&cnamevalue=" +cnamevalue + "&starttime=" + starttime + "&endtime=" + endtime + "&selectByNameVal=" + selectByNameVal
 			+ "&pageSizeSelect=" + pageSizeSelect + "&currentPage=" + currentPage + "&option=" + option;
 		}
 		
@@ -115,15 +104,15 @@ function ajaxSelect(option) {
 		
 		//分发到审核页面
 		function goAudit(option){
-			var collegevalue = $('#college option:selected').val();// 选中的学院值
-			var sdeptValue = $('#sdept option:selected').val();// 选中的专业值
+			var cnamevalue = $('#cname option:selected').val();// 选中的学院值
+			var dnameValue = $('#dname option:selected').val();// 选中的专业值
 			var starttime = $('#starttime').val();
 			var endtime = $('#endtime').val();
 			var selectByNameVal = $("#selectByNameVal").val();
 			var pageSizeSelect = $("#pageSizeSelect").val();
 			var currentPage = $("#currentPage").val();
-			document.getElementById("select_frame").src="../servlet/AuditServlet?sdept=" +sdeptValue 
-			+ "&college=" +collegevalue + "&starttime=" + starttime + "&endtime=" + endtime + "&selectByNameVal=" + selectByNameVal
+			document.getElementById("select_frame").src="../servlet/AuditServlet?dname=" +dnameValue 
+			+ "&cname=" +cnamevalue + "&starttime=" + starttime + "&endtime=" + endtime + "&selectByNameVal=" + selectByNameVal
 			+ "&pageSizeSelect=" + pageSizeSelect + "&currentPage=" + currentPage + "&option=" + option;
 		}
 		function ProjectAudit(){

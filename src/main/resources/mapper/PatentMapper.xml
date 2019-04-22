@@ -5,8 +5,24 @@
 <mapper namespace="com.slxy.edu.mapper.PatentMapper">
 
     <select id="selectAll" resultType="Patent" >
-        select * FROM Patent
-          
+        select Patname,Patsn,Patapdate,Patendate,Patgrad,Patremarks,Paccessory,paudit,message,inventor,Tname,Cname,Dname FROM Patent p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+          <where>
+              <if test="tname!=null and tname!=''">
+                  Tname = #{tname}
+              </if>
+              <if test="cname!=null and cname!=''">
+                  AND Cname = #{cname}
+              </if>
+              <if test="dname!=null and dname!=''">
+                  AND Dname = #{dname}
+              </if>
+              <if test="starttime!=null and starttime!=''">
+                  AND Patendate &gt;= #{starttime}
+              </if>
+              <if test="endtime!=null and endtime!=''">
+                  AND Patendate &lt;= #{endtime}
+              </if>
+          </where>
     </select>
 
 

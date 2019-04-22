@@ -1,11 +1,9 @@
 package com.slxy.edu.service;
 
 import com.slxy.edu.model.Patent;
+import com.slxy.edu.service.base.IBaseService;
 
-import java.util.List;
+public interface IPatentService extends IBaseService<Patent> {
 
-public interface IPatentService {
 
-    //查询所有数据
-    List<Patent> selectAll();
 }

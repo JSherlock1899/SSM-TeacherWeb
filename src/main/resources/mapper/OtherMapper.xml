@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.slxy.edu.mapper.OtherMapper">
+
+    <select id="selectAll" resultType="Patent" >
+        select Patname,Patnum,Patsn,Patapdate,Patendate,Patgrad,Patremarks,Paccessory,Tname,Cname,Dname FROM Patent p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+          <where>
+              <if test="tname!=null">
+                  Tname = #{tname}
+              </if>
+              <if test="cname!=null">
+                  AND Cname = #{cname}
+              </if>
+              <if test="dname!=null">
+                  AND Dname = #{dname}
+              </if>
+              <if test="starttime!=null">
+                  AND Patendate &gt;= #{starttime}
+              </if>
+              <if test="endtime!=null">
+                  AND Patendate &lt;= #{endtime}
+              </if>
+          </where>
+    </select>
+
+
+
+</mapper>

@@ -41,6 +41,7 @@ public class UserController {
             mv.addObject("admin",admin);
             mv.addObject("username", username);
             mv.addObject("Cname",Cname);
+            mv.addObject("collegeList",collegeList);
             mv.setViewName("admin/SchoolAdmin");
             return mv;
         }else {

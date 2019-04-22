@@ -1,7 +1,5 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@page import="java.sql.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="com.slxy.edu.model.Admin" %>
 <%@ page import="java.util.List" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -25,7 +23,6 @@
 		String Cname = (String) request.getAttribute("Cname");	//获取用户的所属学院
 		String grade = admin.getAgrad();	//获取用户的权限等级
 		String Aname = admin.getUsername(); //获取管理员名
-		List<String> collegeList = (List<String>) request.getAttribute("collegeList");
 	%>
 	<input type="hidden" id="Cname" value="<%=Cname %>"/>
 	<input type="hidden" id="grade" value="<%=grade %>"/>
@@ -63,31 +60,38 @@
 					<ul class="navContent" style="display: block">
 						<li>
 							<div class="showtitle" style="width: 100px;">项目查询</div> <a
-							href="../servlet/PageServlet?option=Project&college=<%=Cname %>&teacher=admin"
-							onclick="Projectchange()" class="active3" target="select_frame"><span
+								href="<%=request.getContextPath()%>/project/findProject.do"
+							class="active3" target="select_frame"><span
 								class="sublist-icon glyphicon glyphicon-search"></span><span
 								class="sub-title">项目查询</span></a>
 						</li>
 						<li>
 							<div class="showtitle" style="width: 100px;">论文查询</div> <a
-							href="../servlet/PageServlet?option=Paper&college=<%=Cname %>&teacher=admin"
-							onclick="Paperchange()" target="select_frame"><span
+								href="<%=request.getContextPath()%>/paper/findPaper.do"
+							target="select_frame"><span
 								class="sublist-icon glyphicon glyphicon-search"></span><span
 								class="sub-title">论文查询</span></a>
 						</li>
 						<li>
 							<div class="showtitle" style="width: 100px;">荣誉查询</div> <a
-							href="../servlet/PageServlet?option=Honor&college=<%=Cname %>&teacher=admin"
-							onclick="Honorchange()" target="select_frame"><span
+								href="<%=request.getContextPath()%>/honor/findHonor.do"
+							target="select_frame"><span
 								class="sublist-icon glyphicon glyphicon-search"></span><span
 								class="sub-title">荣誉查询</span></a>
 						</li>
 						<li>
 							<div class="showtitle" style="width: 100px;">专利查询</div> <a
 							href="<%=request.getContextPath()%>/patent/findPatent.do"
-							onclick="Patentchange()" target="select_frame"><span
+							target="select_frame"><span
 								class="sublist-icon glyphicon glyphicon-search"></span><span
 								class="sub-title">专利查询</span></a>
+						</li>
+						<li>
+							<div class="showtitle" style="width: 100px;">其他查询</div> <a
+								href="<%=request.getContextPath()%>/project/findProject.do"
+								onclick="Projectchange()" class="active3" target="select_frame"><span
+								class="sublist-icon glyphicon glyphicon-search"></span><span
+								class="sub-title">其他查询</span></a>
 						</li>
 					</ul>
 				</div>
@@ -204,30 +208,29 @@
 				<form role="search" class="navbar-form navbar-left">
 					<!-- 查询下拉框及按要求进行查询  -->
 					<select id="college" class="form-control" name="college"
-							onchange="CollegeSelectchange();move()">>
+							onchange="selectChange();move()">>
 						<%
 							if(Cname == null){
 						%>
 						<option value="请选择所在学院" id="selectCollege">请选择所在学院</option>
+						<c:forEach items="${collegeList}" var="collegeName">
+							<option value="${collegeName}">${collegeName}</option>
+						</c:forEach>
 						<%
-							for(String collegeName : collegeList){
-						%>
-						<option value="<%=collegeName%>"><%=collegeName%></option>
-						<%
-								}
-							}else {
+							}else{
 						%>
 						<option value="<%=Cname%>"><%=Cname%></option>
-						<%}%>
+						<%}
+						%>
 					</select>
-					<select id="sdept" class="form-control" onchange="CollegeSelectchange()">
+					<select id="sdept" class="form-control" onchange="selectChange()">
 						<option value="">请选择所在专业</option>
 					</select>
 					<div class="form-group">
 						<input type="date" class="form-control" id="starttime"
-							onchange="CollegeSelectchange()"> <input type="date"
-							class="form-control" id="endtime"
-							onchange="CollegeSelectchange()">
+							onchange="selectChange()"> 
+						<input type="date" class="form-control" id="endtime"
+							onchange="selectChange()">
 					</div>
 					<div class="searchTrigger form-group">
 						<a class="text-primary" onclick="searchShow()">精确搜索▼</a>
@@ -243,16 +246,16 @@
 				</div>
 				<div class="navbar-form navbar-left">
 					<div class="form-group">
-						<input type="text" class="form-control" id="selectByNameVal">
+						<input type="text" class="form-control" id="Tname">
 					</div>
 					<button class="btn btn-info" name="selectByName" id="selectByName"
-						onclick="CollegeSelectchange()">搜索</button>
+						onclick="selectChange()">搜索</button>
 				</div>
 				</nav>
 			</div>
 			<div class="table" class="col-md-12">
 
-				<iframe src="../servlet/StatisticsServlet?option=Project&college=<%=Cname %>&grade=<%=grade %>"
+				<iframe src="/patent/findPatent.do?college=<%=Cname %>&grade=<%=grade %>"
 				frameborder="1" class="qaq" id="select_frame" name="select_frame" frameborder="0" scrolling="no" width="1200px"
 					height="1800px" style="border: 0"></iframe>
 			</div>
