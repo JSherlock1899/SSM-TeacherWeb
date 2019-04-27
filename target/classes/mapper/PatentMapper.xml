@@ -7,19 +7,19 @@
     <select id="selectAll" resultType="Patent" >
         select Patname,Patsn,Patapdate,Patendate,Patgrad,Patremarks,Paccessory,paudit,message,inventor,Tname,Cname,Dname FROM Patent p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
           <where>
-              <if test="tname!=null and tname!=''">
+              <if test="tname!=null and tname!='' and tname!='null'">
                   Tname = #{tname}
               </if>
-              <if test="cname!=null and cname!=''">
+              <if test="cname!=null and cname!='' and cname!='null'">
                   AND Cname = #{cname}
               </if>
-              <if test="dname!=null and dname!=''">
+              <if test="dname!=null and dname!='' and dname!='null' and dname!='请选择所在专业'">
                   AND Dname = #{dname}
               </if>
-              <if test="starttime!=null and starttime!=''">
+              <if test="starttime!=null and starttime!='' and starttime!='null'">
                   AND Patendate &gt;= #{starttime}
               </if>
-              <if test="endtime!=null and endtime!=''">
+              <if test="endtime!=null and endtime!='' and endtime!='null'">
                   AND Patendate &lt;= #{endtime}
               </if>
           </where>

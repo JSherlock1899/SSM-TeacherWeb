@@ -22,7 +22,8 @@
 		Admin admin = (Admin) request.getAttribute("admin");
 		String Cname = (String) request.getAttribute("Cname");	//获取用户的所属学院
 		String grade = admin.getAgrad();	//获取用户的权限等级
-		String Aname = admin.getUsername(); //获取管理员名
+		String Aname = (String) request.getAttribute("username"); //获取管理员名
+		System.out.println("Cname：" + Cname + ".当前方法:JspClass.jsp_service_method()");
 	%>
 	<input type="hidden" id="Cname" value="<%=Cname %>"/>
 	<input type="hidden" id="grade" value="<%=grade %>"/>
@@ -59,39 +60,39 @@
 					</div>
 					<ul class="navContent" style="display: block">
 						<li>
-							<div class="showtitle" style="width: 100px;">项目查询</div> <a
-								href="<%=request.getContextPath()%>/project/findProject.do"
+							<div class="showtitle" style="width: 100px;">项目查询</div> <a onclick="Projectchange()"
+								href="<%=request.getContextPath()%>/project/findProject.do?cname=<%=Cname%>"
 							class="active3" target="select_frame"><span
 								class="sublist-icon glyphicon glyphicon-search"></span><span
 								class="sub-title">项目查询</span></a>
 						</li>
 						<li>
-							<div class="showtitle" style="width: 100px;">论文查询</div> <a
-								href="<%=request.getContextPath()%>/paper/findPaper.do"
-							target="select_frame"><span
+							<div class="showtitle" style="width: 100px;">成果查询</div> <a
+								href="<%=request.getContextPath()%>/paper/findPaper.do?cname=<%=Cname%>"
+							target="select_frame"  onclick="Paperchange()"><span
 								class="sublist-icon glyphicon glyphicon-search"></span><span
-								class="sub-title">论文查询</span></a>
+								class="sub-title">成果查询</span></a>
 						</li>
 						<li>
-							<div class="showtitle" style="width: 100px;">荣誉查询</div> <a
-								href="<%=request.getContextPath()%>/honor/findHonor.do"
+							<div class="showtitle" style="width: 100px;">荣誉查询</div> <a onclick="Honorchange()"
+								href="<%=request.getContextPath()%>/honor/findHonor.do?cname=<%=Cname%>"
 							target="select_frame"><span
 								class="sublist-icon glyphicon glyphicon-search"></span><span
 								class="sub-title">荣誉查询</span></a>
 						</li>
 						<li>
-							<div class="showtitle" style="width: 100px;">专利查询</div> <a
-							href="<%=request.getContextPath()%>/patent/findPatent.do"
+							<div class="showtitle" style="width: 100px;">专利查询</div> <a onclick="Patentchange()"
+							href="<%=request.getContextPath()%>/patent/findPatent.do?cname=<%=Cname%>"
 							target="select_frame"><span
 								class="sublist-icon glyphicon glyphicon-search"></span><span
 								class="sub-title">专利查询</span></a>
 						</li>
 						<li>
-							<div class="showtitle" style="width: 100px;">其他查询</div> <a
-								href="<%=request.getContextPath()%>/project/findProject.do"
-								onclick="Projectchange()" class="active3" target="select_frame"><span
+							<div class="showtitle" style="width: 150px;">其他成果查询</div> <a
+								href="<%=request.getContextPath()%>/other/findOther.do?cname=<%=Cname%>"
+								onclick="Otherchange()"  target="select_frame"><span
 								class="sublist-icon glyphicon glyphicon-search"></span><span
-								class="sub-title">其他查询</span></a>
+								class="sub-title">其他成果查询</span></a>
 						</li>
 					</ul>
 				</div>
@@ -109,11 +110,11 @@
 								class="sub-title">项目统计</span></a>
 						</li>
 						<li>
-							<div class="showtitle" style="width: 100px;">论文统计</div> <a
+							<div class="showtitle" style="width: 100px;">成果统计</div> <a
 							href="../servlet/StatisticsServlet?option=Paper&college=<%=Cname %>&grade=<%=grade %>"
 							onclick="PaperStatistics()" target="select_frame"><span
 								class="sublist-icon glyphicon glyphicon-stats"></span><span
-								class="sub-title">论文统计</span></a>
+								class="sub-title">成果统计</span></a>
 						</li>
 						<li>
 							<div class="showtitle" style="width: 100px;">荣誉统计</div> <a
@@ -145,11 +146,11 @@
 								class="sub-title">项目审核</span></a>
 						</li>
 						<li>
-							<div class="showtitle" style="width: 100px;">论文审核</div> <a
+							<div class="showtitle" style="width: 100px;">成果审核</div> <a
 							href="../servlet/AuditServlet?option=Paper&college=<%=Cname %>"
 							onclick="PaperAudit()" target="select_frame"><span
 								class="sublist-icon glyphicon glyphicon-check"></span><span
-								class="sub-title">论文审核</span></a>
+								class="sub-title">成果审核</span></a>
 						</li>
 						<li>
 							<div class="showtitle" style="width: 100px;">荣誉审核</div> <a
@@ -201,43 +202,46 @@
 		<div class="right-product right-off select-main">
 
 			<div class="container-fluid">
-				<nav class="navbar navbar-default" role="navigation">
-				<div class="navbar-header">
-					<a href="#" class="navbar-brand">模糊搜索</a>
-				</div>
-				<form role="search" class="navbar-form navbar-left">
-					<!-- 查询下拉框及按要求进行查询  -->
-					<select id="college" class="form-control" name="college"
-							onchange="selectChange();move()">>
-						<%
-							if(Cname == null){
-						%>
-						<option value="请选择所在学院" id="selectCollege">请选择所在学院</option>
-						<c:forEach items="${collegeList}" var="collegeName">
-							<option value="${collegeName}">${collegeName}</option>
-						</c:forEach>
-						<%
-							}else{
-						%>
-						<option value="<%=Cname%>"><%=Cname%></option>
-						<%}
-						%>
-					</select>
-					<select id="sdept" class="form-control" onchange="selectChange()">
-						<option value="">请选择所在专业</option>
-					</select>
-					<div class="form-group">
-						<input type="date" class="form-control" id="starttime"
-							onchange="selectChange()"> 
-						<input type="date" class="form-control" id="endtime"
-							onchange="selectChange()">
-					</div>
-					<div class="searchTrigger form-group">
-						<a class="text-primary" onclick="searchShow()">精确搜索▼</a>
-					</div>
+				<div class="row">
+					<nav class="navbar navbar-default" role="navigation">
+						<div class="navbar-header">
+							<a href="#" class="navbar-brand">模糊搜索</a>
+						</div>
+						<form role="search" class="navbar-form navbar-left">
+							<!-- 查询下拉框及按要求进行查询  -->
+							<select id="college" class="form-control" name="college"
+									onchange="move();selectChange()">>
+								<%
+									if(Cname == null){
+								%>
+								<option value="">请选择所在学院</option>
+								<c:forEach items="${collegeList}" var="collegeName">
+									<option value="${collegeName}">${collegeName}</option>
+								</c:forEach>
+								<%
+								}else{
+								%>
+								<option value="<%=Cname%>"><%=Cname%></option>
+								<%}
+								%>
+							</select>
+							<select id="sdept" class="form-control" onchange="selectChange()">
+								<option value="">请选择所在专业</option>
+							</select>
+							<div class="form-group">
+								<input type="date" class="form-control" id="starttime"
+									   onchange="selectChange()">
+								<input type="date" class="form-control" id="endtime"
+									   onchange="selectChange()">
+							</div>
+							<div class="searchTrigger form-group">
+								<a class="text-primary" onclick="searchShow()">精确搜索▼</a>
+							</div>
 
-				</form>
-				</nav>
+						</form>
+					</nav>
+				</div>
+
 			</div>
 			<div id="search" class="container-fluid">
 				<nav class="navbar navbar-default" role="navigation">
@@ -255,7 +259,7 @@
 			</div>
 			<div class="table" class="col-md-12">
 
-				<iframe src="/patent/findPatent.do?college=<%=Cname %>&grade=<%=grade %>"
+				<iframe src="/patent/findPatent.do?cname=<%=Cname %>&grade=<%=grade %>"
 				frameborder="1" class="qaq" id="select_frame" name="select_frame" frameborder="0" scrolling="no" width="1200px"
 					height="1800px" style="border: 0"></iframe>
 			</div>

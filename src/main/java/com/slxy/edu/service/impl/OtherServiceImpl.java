@@ -1,7 +1,7 @@
 package com.slxy.edu.service.impl;
 
 import com.slxy.edu.mapper.OtherMapper;
-import com.slxy.edu.model.Patent;
+import com.slxy.edu.model.Other;
 import com.slxy.edu.service.IOtherService;
 import com.slxy.edu.service.base.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,34 +19,36 @@ import java.util.List;
 
 @Service("OtherService")
 @Transactional
-public class OtherServiceImpl extends BaseServiceImpl<Patent>  implements IOtherService {
+public class OtherServiceImpl extends BaseServiceImpl<Other>  implements IOtherService {
 
     @Autowired
     OtherMapper otherMapper;
 
     @Override
-    public Patent findById(Integer id) {
+    public Other findById(Integer id) {
         return null;
     }
 
     @Override
-    public Patent deletById(Integer id) {
+    public Other deletById(Integer id) {
         return null;
     }
 
     @Override
-    public void update(Patent scope) {
+    public void update(Other scope) {
 
     }
 
     @Override
-    public void insert(Patent scope) {
+    public void insert(Other scope) {
 
     }
 
+   
+
     @Override
-    public List<Patent> selectAll(String cname, String dname, String starttime, String endtime, String tname) {
-        List<Patent> patentList = otherMapper.selectAll(cname,dname,starttime,endtime,tname);
+    public List<Other> selectAll(String cname, String dname, String starttime, String endtime, String tname) {
+        List<Other> patentList = otherMapper.selectAll(cname,dname,starttime,endtime,tname);
         return patentList;
     }
 }

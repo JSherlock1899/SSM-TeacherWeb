@@ -162,26 +162,6 @@ $(document).on("click","#nopass",function(){
         }
 	})
 })
-
-	
-	   
-	    
-	    
-								
-			
-		
-		
-		$(function(){
-			var totalPage = $('#totalPage').val();
-			var currentPage = $('#currentPage').val();
-			if(currentPage == 1){					//首页和尾页时分别隐藏对应按钮
-				$('#pre').css("display","none");
-			}
-			
-			if(currentPage == totalPage ){
-				$('#next').css("display","none");
-			}
-		})
 		
 		
 		

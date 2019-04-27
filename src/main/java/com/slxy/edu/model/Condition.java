@@ -1,7 +1,5 @@
 package com.slxy.edu.model;
 
-import java.util.Date;
-
 /**
  * @program: TeacherWeb
  * @description: 查询的条件类
@@ -13,12 +11,12 @@ public class Condition {
 
     private String cname;
     private String dname;
-    private Date starttime;
-    private Date endtime;
+    private String starttime;
+    private String endtime;
     private String tname;
 
 
-    public Condition(String cname, String dname, Date starttime, Date endtime, String tname) {
+    public Condition(String cname, String dname, String starttime, String endtime, String tname) {
         this.cname = cname;
         this.dname = dname;
         this.starttime = starttime;
@@ -45,19 +43,19 @@ public class Condition {
         this.dname = dname;
     }
 
-    public Date getStarttime() {
+    public String getStarttime() {
         return starttime;
     }
 
-    public void setStarttime(Date starttime) {
+    public void setStarttime(String starttime) {
         this.starttime = starttime;
     }
 
-    public Date getEndtime() {
+    public String getEndtime() {
         return endtime;
     }
 
-    public void setEndtime(Date endtime) {
+    public void setEndtime(String endtime) {
         this.endtime = endtime;
     }
 

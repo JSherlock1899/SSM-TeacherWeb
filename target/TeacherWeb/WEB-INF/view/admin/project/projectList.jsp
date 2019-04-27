@@ -1,11 +1,10 @@
-
-<%@page import="java.util.List" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8" %>
-<%@page import="java.sql.ResultSet" %>
+         pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ page import="com.github.pagehelper.PageInfo" %>
+<%@ page import="java.util.List" %>
 <%@ page import="com.slxy.edu.model.Project" %>
-<%@ page import="com.slxy.edu.model.Patent" %>
+<%@ page import="com.slxy.edu.model.Condition" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,144 +12,127 @@
     <title>专利查询</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/CSS/bootstrap.css">
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/ajaxPatentData.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/ajaxProjectData.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/commonUse.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/bootstrap-table.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/ajaxSelect.js"></script>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/CSS/style.css">
 </head>
 <body>
-    <%
-        PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
-        List<Patent> patents = pageInfo.getList();
-    %>
-    <div class="table-main col-md-12">
-    <div class="col-md-4">
+<%
+    PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
+    List<Project> projects = pageInfo.getList();
+    Condition condition = (Condition) request.getAttribute("condition");
+%>
+<div class="table-main col-md-12">
+    <div class="col-md-4" >
         <ol class="breadcrumb">
             <li><a href="#">主页</a></li>
             <li><a href="#">查询</a></li>
-            <li class="active">专利查询</li>
+            <li class="active">项目查询</li>
         </ol>
     </div>
     <div class="row">
-    <div class="col-md-11 col-md-offset-1 ">
-    <div class="col-md-10 button-div form-inline">
-        <input type="button" value="新建记录" id="addMsg" class="btn btn-success">
-        <a href="../servlet/DownloadTemplate?count=4" class="btn btn-success">下载模板</a>
-        <form method="post" enctype="multipart/form-data"
-              action="../servlet/UploadFileServlet?tally=1&count=4&grade=<%=grade %>" class="form-group importform">
-            <input type="file" id="myfile" name="myfile" class="btn btn-info" style="display: none"
-                   onchange="$('.importform').submit()">
-            <input type="button" name="" value="导入" class="btn btn-info" id="importButton">
-        </form>
-        <form action="../servlet/SelectExport" method="post" id="PatentForm" class="form-group">
-            <input type="hidden" name="count" value="4">
-            <input type="submit" value="导出" id="submitChecked" class="btn btn-info">
-            <a class="btn btn-warning" href="../servlet/SelectExport?all=all&count=4">导出全部数据</a>
-            <input type="file" id="file" name="file" class="btn btn-info" style="display: none" onchange="submitFile()">
-            <input type="button" name="" value="上传文件" class="btn btn-warning" id="imporFileButton">
+        <div class="col-md-11 col-md-offset-1 ">
+            <div class="col-md-10 button-div form-inline">
+                <a href="../servlet/DownloadTemplate?count=4" class="btn btn-success">下载模板</a>
+                <form method="post" enctype="multipart/form-data" action="" class="form-group importform">
+                    <input type="file" id="file" name="file" class="btn btn-info" style="display: none" onchange="$('.importform').submit()">
+                    <input type="button" name="" value="导入"  class="btn btn-info" id="imporFileButton">
+                </form>
+                <form action=""  method="post" id="ProjectForm" class="form-group">
+                    <input type="submit" value="导出" id="submitChecked" class="btn btn-info">
+
+            </div>
+            <table border="1" id="table" class="table table-striped table-bordered table-hover table-condensed">
+                <tr class="info">
+                    <th>项目编号</th>
+                    <th>项目名称</th>
+                    <th>负责人</th>
+                    <th>成员</th>
+                    <th>级别</th>
+                    <th>类型</th>
+                    <th>经费</th>
+                    <th>立项时间</th>
+                    <th>结题时间</th>
+                    <th>科研状态</th>
+                    <th>合同类型</th>
+                    <th>备注</th>
+                    <th>附件</th>
+                </tr>
+                <c:forEach items="${projects}" var="projects">
+                    <tr>
+                        <td>${projects.psn}</td>
+                        <td>${projects.pname}</td>
+                        <td>${projects.pleader}</td>
+                        <td>${projects.pmember}</td>
+                        <td>${projects.pgrad}</td>
+                        <td>${projects.pkind}</td>
+                        <td>${projects.pmoney}</td>
+                        <td>${projects.pstatime}</td>
+                        <td>${projects.pendtime}</td>
+                        <td>${projects.pcondition}</td>
+                        <td>${projects.contractType}</td>
+                        <td>${projects.premarks}</td>
+                        <td>
+                            <a href="">查看附件</a>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
+            </form>
+            <!--显示分页信息-->
+            <div class="row">
+                <!--点击分页-->
+                <div>
+                    <ul class="pagination">
+                        <li><a href="${pageContext.request.contextPath}/project/findProject.do?pn=1&cname=<%=condition.getCname()%>
+                            &dname=<%=condition.getDname()%>&starttime=<%=condition.getStarttime()%>&endtime=<%=condition.getEndtime()%>&tname=<%=condition.gettname()%>">首页</a></li>
+                        <!--上一页-->
+                        <li>
+                            <c:if test="${pageInfo.hasPreviousPage}">
+                                <a href="${pageContext.request.contextPath}/project/findProject.do?pn=${pageInfo.pageNum-1}&cname=<%=condition.getCname()%>
+                            &dname=<%=condition.getDname()%>&starttime=<%=condition.getStarttime()%>&endtime=<%=condition.getEndtime()%>&tname=<%=condition.gettname()%>" aria-label="Previous">
+                                    <span aria-hidden="true">«</span>
+                                </a>
+                            </c:if>
+                        </li>
+                        <c:forEach items="${pageInfo.navigatepageNums}" var="page_num">
+                            <c:if test="${page_num == pageInfo.pageNum}">
+                                <li class="active"><a href="${pageContext.request.contextPath}/project/findProject.do?pn=1&cname=<%=condition.getCname()%>
+                            &dname=<%=condition.getDname()%>&starttime=<%=condition.getStarttime()%>&endtime=<%=condition.getEndtime()%>&tname=<%=condition.gettname()%>">${page_num}</a></li>
+                            </c:if>
+                            <c:if test="${page_num != pageInfo.pageNum}">
+                                <li><a href="${pageContext.request.contextPath}/project/findProject.do?pn=${page_num}&cname=<%=condition.getCname()%>
+                            &dname=<%=condition.getDname()%>&starttime=<%=condition.getStarttime()%>&endtime=<%=condition.getEndtime()%>&tname=<%=condition.gettname()%>">${page_num}</a></li>
+                            </c:if>
+                        </c:forEach>
+                        <!--下一页-->
+                        <li>
+                            <c:if test="${pageInfo.hasNextPage}">
+                                <a href="${pageContext.request.contextPath}/project/findProject.do?pn=${pageInfo.pageNum+1}&cname=<%=condition.getCname()%>
+                            &dname=<%=condition.getDname()%>&starttime=<%=condition.getStarttime()%>&endtime=<%=condition.getEndtime()%>&tname=<%=condition.gettname()%>"
+                                   aria-label="Next">
+                                    <span aria-hidden="true">»</span>
+                                </a>
+                            </c:if>
+                        </li>
+                        <li><a href="${pageContext.request.contextPath}/project/findProject.do?pn=${pageInfo.pages}&cname=<%=condition.getCname()%>
+                            &dname=<%=condition.getDname()%>&starttime=<%=condition.getStarttime()%>&endtime=<%=condition.getEndtime()%>&tname=<%=condition.gettname()%>">尾页</a></li>
+                        <!--文字信息-->
+                        <div class="form-group pull-right">
+                            <span>当前第 ${pageInfo.pageNum} 页.总共 ${pageInfo.pages} 页</span>
+                            <input type="text" class="pageVal" style="width:100px;">
+                            <button type="submit" class="btn btn-default " onclick="skipPage()">GO</button>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-    <table border="1" id="table" class="table table-striped table-bordered table-hover table-condensed">
-    <tr class="info">
-        <th><input type="checkbox" id="checkAll"/></th>
-        <th>名称</th>
-        <th>发明人</th>
-        <th>专利权人</th>
-        <th>授权号</th>
-        <th>申请时间</th>
-        <th>授权时间</th>
-        <th>级别</th>
-        <th>备注</th>
-        <th>附件</th>
-        <th>操作</th>
-    </tr>
-    
-    <c:forEach items="${patents}" var="patents">
-        <td>
-    
-        <td>${patents.patname}</td>
-    
-        <td>${patents.inventor}</td>
-    
-        <td>${patents.Tname}</td>
-    
-        <td>${patents.patsn}</td>
-    
-        <td>${patents.patapdate}</td>
-        <td>${patents.patendate}</td>
+</div>
+<script type="text/javascript">
 
-        <td>${patents.patgrad}</td>
-
-        <td>${patents.patremarks}</td>
-        <td>1</td>
-        <tr>
-    
-        </table>
-        <nav aria-label="Page navigation">
-        <ul class="pagination" style="display:block">
-        <li>
-    
-        </li>
-        <li>
-        <a href="../servlet/PageServlet?option=Patent&currentPage=1" id="homePage">首页</a>
-        </li>
-        <li>
-        <a aria-label="Previous" id="pre" class="prenextpage" href="../servlet/PageServlet?option=Patent&currentPage=<%=currentPage - 1%>&pageSize=5
-        &collegevalue=<%=college%>&sdeptValue=<%=sdept%>&starttime=<%=starttime%>&endtime=<%=endtime%>
-        &selectByNameVal=<%=Tname%>">
-        <span >&laquo;</span>
-        </a>
-        </li>
-        <li><a class="page" href="../servlet/PageServlet?option=Patent&currentPage=<%=pageArr[0]%>&pageSize=5
-        &collegevalue=<%=college%>&sdeptValue=<%=sdept%>&starttime=<%=starttime%>&endtime=<%=endtime%>
-        &selectByNameVal=<%=Tname%>"><%=pageArr[0]%></a></li>
-        <li><a class="page" href="../servlet/PageServlet?option=Patent&currentPage=<%=pageArr[1]%>&pageSize=5
-        &collegevalue=<%=college%>&sdeptValue=<%=sdept%>&starttime=<%=starttime%>&endtime=<%=endtime%>
-        &selectByNameVal=<%=Tname%>"><%=pageArr[1]%></a></li>
-        <li><a class="page" href="../servlet/PageServlet?option=Patent&currentPage=<%=pageArr[2]%>&pageSize=5
-        &collegevalue=<%=college%>&sdeptValue=<%=sdept%>&starttime=<%=starttime%>&endtime=<%=endtime%>
-        &selectByNameVal=<%=Tname%>"><%=pageArr[2]%></a></li>
-        <li><a class="page" href="../servlet/PageServlet?option=Patent&currentPage=<%=pageArr[3]%>&pageSize=5
-        &collegevalue=<%=college%>&sdeptValue=<%=sdept%>&starttime=<%=starttime%>&endtime=<%=endtime%>
-        &selectByNameVal=<%=Tname%>"><%=pageArr[3]%></a></li>
-        <li><a class="page" href="../servlet/PageServlet?option=Patent&currentPage=<%=pageArr[4]%>&pageSize=5
-        &collegevalue=<%=college%>&sdeptValue=<%=sdept%>&starttime=<%=starttime%>&endtime=<%=endtime%>
-        &selectByNameVal=<%=Tname%>"><%=pageArr[4]%></a></li>
-        <li>
-        <a id="next" aria-label="Next" class="prenextpage" href="../servlet/PageServlet?option=Patent&currentPage=<%=currentPage + 1%>&pageSize=5
-        &collegevalue=<%=college%>&sdeptValue=<%=sdept%>&starttime=<%=starttime%>&endtime=<%=endtime%>
-        &selectByNameVal=<%=Tname%>">
-        <span>&raquo;</span>
-        </a>
-        </li>
-        <li><a href="../servlet/PageServlet?option=Patent&currentPage=<%=totalPage %>" id="endPage" >尾页</a></li>
-        <li><span>当前第<%=currentPage %>页，共<%=totalRecord %>条记录</span></li>
-        </ul>
-        </nav>
-        </form>
-        <div class="form-group pull-right">
-        共<%=totalPage %>页
-        <input type="text" class="pageVal" style="width:100px;">
-        <button type="submit" class="btn btn-default " onclick="skipPage()">GO</button>
-        </div>
-        </div>
-        </div>
-        </div>
-        <script type="text/javascript">
-    
-    
-        //点击上传文件时打开文件上传选择窗口
-        $(function(){
-        $('#imporFileButton').on("click",function(){
-        $('#file').click();
-        })
-        })
-    
-        function submitFile(){
-        $('#PatentForm').attr("action","../servlet/UploadFileServlet?&count=4&grade=<%=grade%>");
-        $('#PatentForm').attr("enctype","multipart/form-data");
-        $('#PatentForm').submit();
-        }
-    </script>
-    </body> 
- </html>
+</script>
+</body>
+</html>

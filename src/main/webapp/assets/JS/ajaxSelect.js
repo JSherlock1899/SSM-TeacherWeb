@@ -2,7 +2,7 @@
  * 实现下拉框的值改变，查询的结果也改变
  */
 
-function ajaxSelect(option) {
+function goSelect(option) {
 			var cname = $('#college option:selected').val();// 选中的学院值
 			var dname = $('#sdept option:selected').val();// 选中的专业值
 			var starttime = $('#starttime').val();
@@ -13,11 +13,13 @@ function ajaxSelect(option) {
 			//将首字母大写
 			var tmp = option.charAt(0).toUpperCase() + option.slice(1)
     		var url = path + "/" + option + "/find" + tmp + ".do";
-			console.log(url)
+    		document.getElementById("select_frame").src=url+"?cname=" + cname
+			+ "&dname=" + dname + "&starttime=" + starttime + "&endtime=" + endtime + "&tname=" + tname;
 			$.ajax({
 				url:url,
 				type:"post",
 				datatype:"json",
+                async:false,
 				data:{
 					"cname" : cname,
 					"dname" : dname,
@@ -32,20 +34,44 @@ function ajaxSelect(option) {
 				}
 			});
 	}
-		
 
-		//获取iframe中的src
-		function getSrc(){
-			var newcss = document.getElementById('select_frame').src;
-		    // var srcx = "xxx.ccom/id=2&aid=3";
-		    var reg = /.*aid\=([^\&]+).*/g;
-		    var result = newcss.replace(reg,"$1");
+		//当用户选择查询内容时，iframe跳转到对应页面
+		//也是为了设定一个参数来区分四个页面
+		function Projectchange(){
+			goSelect("project")
+			resetSelect()
 		}
 		
+		function Paperchange(){
+			goSelect("paper")
+			resetSelect()
+
+		}
+
+		function Honorchange(){
+			goSelect("honor")
+			resetSelect()
+		}
+
+		function Patentchange(){
+			goSelect("patent")
+			resetSelect()
+		}
+
+		function Otherchange(){
+			goSelect("other")
+			resetSelect()
+		}
+
+		function Teacherchange(){
+			goSelect("Teacher")
+			resetSelect()
+		}
 
 
 		//查询框的值改变时动态改变查询内容
 		function selectChange(){
+            //获取iframe中的src
 			var newcss = document.getElementById('select_frame').src;
 		    var reg = /.*aid\=([^\&]+).*/g;
 		    var result = newcss.replace(reg,"$1");
@@ -53,10 +79,11 @@ function ajaxSelect(option) {
 			var arr = new Array();
             arr = result.split('/'); //通过字符串分割得到option
             var option = arr[3];
+            console.log(option)
             //根据url中是否含find来判断是查询还是统计
             var judge = result.indexOf("find");
 		    if(judge!=-1){
-		    	ajaxSelect(option);
+		    	goSelect(option);
 		    }else if(judge1!=-1){
 		    	goStatistics(option);
 		    }else if(judge2!=-1){

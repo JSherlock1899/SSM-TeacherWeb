@@ -5,21 +5,21 @@
 <mapper namespace="com.slxy.edu.mapper.HonorMapper">
 
     <select id="selectAll" resultType="Honor" >
-        select Hsn,Hname,Hwinner,Hdate,Hcompany,Hgrad,Hreward,Hremarks,Cname,Dname FROM Honor h JOIN Teacher t ON h.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+        select Hsn,Hname,Hwinner,Hdate,Hcompany,Hgrad,Hremarks,Haudit,Haccessory,message,department,Cname,Dname,Tname FROM Honor h JOIN Teacher t ON h.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
         <where>
-            <if test="tname!=null">
+            <if test="tname!=null and tname!='' and tname!='null'">
                 Tname = #{tname}
             </if>
-            <if test="cname!=null">
+            <if test="cname!=null and cname!='' and cname!='null'">
                 AND Cname = #{cname}
             </if>
-            <if test="dname!=null">
+            <if test="dname!=null and dname!='' and dname!='null' and dname!='请选择所在专业'">
                 AND Dname = #{dname}
             </if>
-            <if test="starttime!=null">
+            <if test="starttime!=null and starttime!='' and starttime!='null'">
                 AND Hdate &gt;= #{starttime}
             </if>
-            <if test="endtime!=null">
+            <if test="endtime!=null and endtime!='' and endtime!='null'">
                 AND Hdate &lt;= #{endtime}
             </if>
         </where>

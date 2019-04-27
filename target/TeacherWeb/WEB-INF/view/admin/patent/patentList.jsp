@@ -1,10 +1,10 @@
-<%@page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" isELIgnored="false" %>
-<%@page import="java.sql.ResultSet" %>
 <%@ page import="com.github.pagehelper.PageInfo" %>
+<%@ page import="java.util.List" %>
 <%@ page import="com.slxy.edu.model.Patent" %>
+<%@ page import="com.slxy.edu.model.Condition" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -22,6 +22,7 @@
 <%
     PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
     List<Patent> patents = pageInfo.getList();
+    Condition condition = (Condition) request.getAttribute("condition");
 %>
 <div class="table-main col-md-12">
     <div class="col-md-4" >
@@ -72,55 +73,55 @@
                 </c:forEach>
             </table>
             </form>
-            <div class="form-group pull-right">
-                <input type="text" class="pageVal" style="width:100px;">
-                <button type="submit" class="btn btn-default " onclick="skipPage()">GO</button>
+            <!--显示分页信息-->
+            <div class="row">
+                <!--点击分页-->
+                <div>
+                    <ul class="pagination">
+                        <li><a href="${pageContext.request.contextPath}/patent/findPatent.do?pn=1&cname=<%=condition.getCname()%>
+                            &dname=<%=condition.getDname()%>&starttime=<%=condition.getStarttime()%>&endtime=<%=condition.getEndtime()%>&tname=<%=condition.gettname()%>">首页</a></li>
+                        <!--上一页-->
+                        <li>
+                            <c:if test="${pageInfo.hasPreviousPage}">
+                                <a href="${pageContext.request.contextPath}/patent/findPatent.do?pn=${pageInfo.pageNum-1}&cname=<%=condition.getCname()%>
+                            &dname=<%=condition.getDname()%>&starttime=<%=condition.getStarttime()%>&endtime=<%=condition.getEndtime()%>&tname=<%=condition.gettname()%>" aria-label="Previous">
+                                    <span aria-hidden="true">«</span>
+                                </a>
+                            </c:if>
+                        </li>
+                        <c:forEach items="${pageInfo.navigatepageNums}" var="page_num">
+                            <c:if test="${page_num == pageInfo.pageNum}">
+                                <li class="active"><a href="${pageContext.request.contextPath}/patent/findPatent.do?pn=1&cname=<%=condition.getCname()%>
+                            &dname=<%=condition.getDname()%>&starttime=<%=condition.getStarttime()%>&endtime=<%=condition.getEndtime()%>&tname=<%=condition.gettname()%>">${page_num}</a></li>
+                            </c:if>
+                            <c:if test="${page_num != pageInfo.pageNum}">
+                                <li><a href="${pageContext.request.contextPath}/patent/findPatent.do?pn=${page_num}&cname=<%=condition.getCname()%>
+                            &dname=<%=condition.getDname()%>&starttime=<%=condition.getStarttime()%>&endtime=<%=condition.getEndtime()%>&tname=<%=condition.gettname()%>">${page_num}</a></li>
+                            </c:if>
+                        </c:forEach>
+                        <!--下一页-->
+                        <li>
+                            <c:if test="${pageInfo.hasNextPage}">
+                                <a href="${pageContext.request.contextPath}/patent/findPatent.do?pn=${pageInfo.pageNum+1}&cname=<%=condition.getCname()%>
+                            &dname=<%=condition.getDname()%>&starttime=<%=condition.getStarttime()%>&endtime=<%=condition.getEndtime()%>&tname=<%=condition.gettname()%>"
+                                   aria-label="Next">
+                                    <span aria-hidden="true">»</span>
+                                </a>
+                            </c:if>
+                        </li>
+                        <li><a href="${pageContext.request.contextPath}/patent/findPatent.do?pn=${pageInfo.pages}&cname=<%=condition.getCname()%>
+                            &dname=<%=condition.getDname()%>&starttime=<%=condition.getStarttime()%>&endtime=<%=condition.getEndtime()%>&tname=<%=condition.gettname()%>">尾页</a></li>
+                        <!--文字信息-->
+                        <div class="form-group pull-right">
+                            <span>当前第 ${pageInfo.pageNum} 页.总共 ${pageInfo.pages} 页</span>
+                            <input type="text" class="pageVal" style="width:100px;">
+                            <button type="submit" class="btn btn-default " onclick="skipPage()">GO</button>
+                        </div>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-    <!--显示分页信息-->
-    <div class="row">
-        <!--文字信息-->
-        <div class="col-md-6">
-            当前第 ${pageInfo.pageNum} 页.总共 ${pageInfo.pages} 页.一共 ${pageInfo.total} 条记录
-        </div>
-        <!--点击分页-->
-        <div class="col-md-6">
-            <nav aria-label="Page navigation">
-                <ul class="pagination">
-                    <li><a href="${pageContext.request.contextPath}/patent/findPatent.do?pn=1">首页</a></li>
-                    <!--上一页-->
-                    <li>
-                        <c:if test="${pageInfo.hasPreviousPage}">
-                            <a href="${pageContext.request.contextPath}/patent/findPatent.do?pn=${pageInfo.pageNum-1}" aria-label="Previous">
-                                <span aria-hidden="true">«</span>
-                            </a>
-                        </c:if>
-                    </li>
-                    <!--循环遍历连续显示的页面，若是当前页就高亮显示，并且没有链接-->
-                    <c:forEach items="${pageInfo.navigatepageNums}" var="page_num">
-                        <c:if test="${page_num == pageInfo.pageNum}">
-                            <li class="active"><a href="#">${page_num}</a></li>
-                        </c:if>
-                        <c:if test="${page_num != pageInfo.pageNum}">
-                            <li><a href="${pageContext.request.contextPath}/patent/findPatent.do?pn=${page_num}">${page_num}</a></li>
-                        </c:if>
-                    </c:forEach>
-                    <!--下一页-->
-                    <li>
-                        <c:if test="${pageInfo.hasNextPage}">
-                            <a href="${pageContext.request.contextPath}/patent/findPatent.do?pn=${pageInfo.pageNum+1}"
-                               aria-label="Next">
-                                <span aria-hidden="true">»</span>
-                            </a>
-                        </c:if>
-                    </li>
-                    <li><a href="${pageContext.request.contextPath}/patent/findPatent.do?pn=${pageInfo.pages}">尾页</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-
 </div>
 <script type="text/javascript">
 

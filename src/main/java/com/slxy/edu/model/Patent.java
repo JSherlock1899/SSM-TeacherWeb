@@ -1,15 +1,13 @@
 package com.slxy.edu.model;
 
 
-import java.sql.Date;
-
 public class Patent {
 
   private long patnum;
   private String patname;
   private String patsn;
-  private java.sql.Date patapdate;
-  private java.sql.Date patendate;
+  private String patapdate;
+  private String patendate;
   private String patgrad;
   private String patremarks;
   private String tsn;
@@ -21,7 +19,7 @@ public class Patent {
   private String cname;
   private String dnane;
 
-  public Patent(long patnum, String patname, String patsn, Date patapdate, Date patendate, String patgrad, String patremarks, String tsn, String paccessory, String paudit, String message, String inventor) {
+  public Patent(long patnum, String patname, String patsn, String patapdate, String patendate, String patgrad, String patremarks, String tsn, String paccessory, String paudit, String message, String inventor) {
     this.patnum = patnum;
     this.patname = patname;
     this.patsn = patsn;
@@ -36,7 +34,7 @@ public class Patent {
     this.inventor = inventor;
   }
 
-  public Patent(String patname, String patsn, Date patapdate, Date patendate, String patgrad, String patremarks, String paccessory, String paudit, String message, String inventor, String tname, String cname, String dnane) {
+  public Patent(String patname, String patsn, String patapdate, String patendate, String patgrad, String patremarks, String paccessory, String paudit, String message, String inventor, String tname, String cname, String dnane) {
     this.patname = patname;
     this.patsn = patsn;
     this.patapdate = patapdate;
@@ -76,19 +74,19 @@ public class Patent {
     this.patsn = patsn;
   }
 
-  public Date getPatapdate() {
+  public String getpatapdate() {
     return patapdate;
   }
 
-  public void setPatapdate(Date patapdate) {
+  public void setpatapdate(String patapdate) {
     this.patapdate = patapdate;
   }
 
-  public Date getPatendate() {
+  public String getpatendate() {
     return patendate;
   }
 
-  public void setPatendate(Date patendate) {
+  public void setpatendate(String patendate) {
     this.patendate = patendate;
   }
 

@@ -5,22 +5,22 @@
 <mapper namespace="com.slxy.edu.mapper.ProjectMapper">
 
     <select id="selectAll" resultType="Project" >
-        select Psn,Pname,Pleader,Pmember,Pgrad,Pkind,Pmoney,Pstatime,Pcondition,Pendtime,Premarks,Tname,Cname,Dname FROM Project p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+        select Psn,Pname,Pmember,Pgrad,Pkind,Pmoney,Pstatime,Pcondition,Pendtime,Premarks,t.Tsn,Pleader,Paccessory,Paudit,message,contractType,Tname,Cname,Dname FROM Project p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
           <where>
-              <if test="tname!=null">
+              <if test="tname!=null and tname!='' and tname!='null'">
                   Tname = #{tname}
               </if>
-              <if test="cname!=null">
+              <if test="cname!=null and cname!='' and cname!='null'">
                   AND Cname = #{cname}
               </if>
-              <if test="dname!=null">
+              <if test="dname!=null and dname!='' and dname!='null' and dname!='请选择所在专业'">
                   AND Dname = #{dname}
               </if>
-              <if test="starttime!=null">
+              <if test="starttime!=null and starttime!='' and starttime!='null'">
                   AND Pstatime &gt;= #{starttime}
               </if>
-              <if test="endtime!=null">
-                  AND Pstatime &lt;= #{endtime}
+              <if test="endtime!=null and endtime!='' and endtime!='null'">
+                  AND Pendtime &lt;= #{endtime}
               </if>
           </where>
     </select>

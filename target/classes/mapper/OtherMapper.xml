@@ -4,25 +4,25 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.slxy.edu.mapper.OtherMapper">
 
-    <select id="selectAll" resultType="Patent" >
-        select Patname,Patnum,Patsn,Patapdate,Patendate,Patgrad,Patremarks,Paccessory,Tname,Cname,Dname FROM Patent p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
-          <where>
-              <if test="tname!=null">
-                  Tname = #{tname}
-              </if>
-              <if test="cname!=null">
-                  AND Cname = #{cname}
-              </if>
-              <if test="dname!=null">
-                  AND Dname = #{dname}
-              </if>
-              <if test="starttime!=null">
-                  AND Patendate &gt;= #{starttime}
-              </if>
-              <if test="endtime!=null">
-                  AND Patendate &lt;= #{endtime}
-              </if>
-          </where>
+    <select id="selectAll" resultType="Other" >
+        select other_name,other_date,publisher,accessory,audit,message,other_type,other_describe,Tname,Cname,Dname FROM Other o JOIN Teacher t ON o.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+        <where>
+            <if test="tname!=null and tname!='' and tname!='null'">
+                Tname = #{tname}
+            </if>
+            <if test="cname!=null and cname!='' and cname!='null'">
+                AND Cname = #{cname}
+            </if>
+            <if test="dname!=null and dname!='' and dname!='null' and dname!='请选择所在专业'">
+                AND Dname = #{dname}
+            </if>
+            <if test="starttime!=null and starttime!='' and starttime!='null'">
+                AND other_date &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!='' and endtime!='null'">
+                AND other_date &lt;= #{endtime}
+            </if>
+        </where>
     </select>
 
 

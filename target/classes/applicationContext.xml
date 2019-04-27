@@ -15,6 +15,8 @@
 
     <!--自动扫描Service-->
     <context:component-scan base-package="com.slxy.edu.service"/>
+    <!--自动扫描util-->
+    <context:component-scan base-package="com.slxy.edu.util"/>
 
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="location" value="classpath:db"></property>
@@ -42,7 +44,6 @@
         <property name="plugins">
             <array>
                 <bean class="com.github.pagehelper.PageInterceptor">
-                    <!-- 这里的几个配置主要演示如何使用，如果不理解，一定要去掉下面的配置 -->
                     <property name="properties">
                         <value>
                             helperDialect=sqlserver

@@ -8,15 +8,36 @@ public class Paper {
   private String paname;
   private String pawriter;
   private String papublish;
-  private java.sql.Date padate;
+  private String padate;
   private String pagrad;
   private String tsn;
   private String paremarks;
   private String paudit;
-  private String pdisvol;
+  private String pdisvol; //期卷页
   private String paccessory;
   private String message;
+  private String dependence;  //依赖项目
+  private String tname;
+  private String cname;
+  private String dnane;
 
+  public Paper(String pasearchnum, String paname, String pawriter, String papublish, String padate, String pagrad, String paremarks, String paudit, String pdisvol, String paccessory, String message, String dependence, String tname, String cname, String dnane) {
+    this.pasearchnum = pasearchnum;
+    this.paname = paname;
+    this.pawriter = pawriter;
+    this.papublish = papublish;
+    this.padate = padate;
+    this.pagrad = pagrad;
+    this.paremarks = paremarks;
+    this.paudit = paudit;
+    this.pdisvol = pdisvol;
+    this.paccessory = paccessory;
+    this.message = message;
+    this.dependence = dependence;
+    this.tname = tname;
+    this.cname = cname;
+    this.dnane = dnane;
+  }
 
   public long getPanum() {
     return panum;
@@ -26,7 +47,6 @@ public class Paper {
     this.panum = panum;
   }
 
-
   public String getPasearchnum() {
     return pasearchnum;
   }
@@ -34,7 +54,6 @@ public class Paper {
   public void setPasearchnum(String pasearchnum) {
     this.pasearchnum = pasearchnum;
   }
-
 
   public String getPaname() {
     return paname;
@@ -44,7 +63,6 @@ public class Paper {
     this.paname = paname;
   }
 
-
   public String getPawriter() {
     return pawriter;
   }
@@ -52,7 +70,6 @@ public class Paper {
   public void setPawriter(String pawriter) {
     this.pawriter = pawriter;
   }
-
 
   public String getPapublish() {
     return papublish;
@@ -62,15 +79,13 @@ public class Paper {
     this.papublish = papublish;
   }
 
-
-  public java.sql.Date getPadate() {
+  public String getPadate() {
     return padate;
   }
 
-  public void setPadate(java.sql.Date padate) {
+  public void setPadate(String padate) {
     this.padate = padate;
   }
-
 
   public String getPagrad() {
     return pagrad;
@@ -80,7 +95,6 @@ public class Paper {
     this.pagrad = pagrad;
   }
 
-
   public String getTsn() {
     return tsn;
   }
@@ -88,7 +102,6 @@ public class Paper {
   public void setTsn(String tsn) {
     this.tsn = tsn;
   }
-
 
   public String getParemarks() {
     return paremarks;
@@ -98,7 +111,6 @@ public class Paper {
     this.paremarks = paremarks;
   }
 
-
   public String getPaudit() {
     return paudit;
   }
@@ -106,7 +118,6 @@ public class Paper {
   public void setPaudit(String paudit) {
     this.paudit = paudit;
   }
-
 
   public String getPdisvol() {
     return pdisvol;
@@ -116,7 +127,6 @@ public class Paper {
     this.pdisvol = pdisvol;
   }
 
-
   public String getPaccessory() {
     return paccessory;
   }
@@ -124,7 +134,6 @@ public class Paper {
   public void setPaccessory(String paccessory) {
     this.paccessory = paccessory;
   }
-
 
   public String getMessage() {
     return message;
@@ -134,4 +143,35 @@ public class Paper {
     this.message = message;
   }
 
+  public String getDependence() {
+    return dependence;
+  }
+
+  public void setDependence(String dependence) {
+    this.dependence = dependence;
+  }
+
+  public String getTname() {
+    return tname;
+  }
+
+  public void setTname(String tname) {
+    this.tname = tname;
+  }
+
+  public String getCname() {
+    return cname;
+  }
+
+  public void setCname(String cname) {
+    this.cname = cname;
+  }
+
+  public String getDnane() {
+    return dnane;
+  }
+
+  public void setDnane(String dnane) {
+    this.dnane = dnane;
+  }
 }

@@ -80,11 +80,14 @@
 		function move(){								//实现各院系的两级联动
 			//院管理员所属学院
 			var college = $('#Cname').val();
-			if(college == "null" || college == null){
+			var collegeName;
+			if(college == "null" || college == null || college == ""){
 				collegeName = $('#college option:selected').val();
 			}else{
 				collegeName = college;
 			}
+			console.log(collegeName)
+			console.log("1")
 		    var sdept = document.getElementById("sdept");
 		    var add;		
 		    //用来存储各学院的专业信息
