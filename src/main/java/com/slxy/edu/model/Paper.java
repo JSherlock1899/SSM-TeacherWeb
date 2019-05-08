@@ -21,7 +21,7 @@ public class Paper {
   private String cname;
   private String dnane;
 
-  public Paper(String pasearchnum, String paname, String pawriter, String papublish, String padate, String pagrad, String paremarks, String paudit, String pdisvol, String paccessory, String message, String dependence, String tname, String cname, String dnane) {
+  public Paper(String pasearchnum, String paname, String pawriter, String papublish, String padate, String pagrad, String paremarks, String paudit, String pdisvol, String paccessory, String message, String dependence, String tname, String cname, String dnane,String tsn) {
     this.pasearchnum = pasearchnum;
     this.paname = paname;
     this.pawriter = pawriter;
@@ -37,6 +37,53 @@ public class Paper {
     this.tname = tname;
     this.cname = cname;
     this.dnane = dnane;
+    this.tsn = tsn;
+  }
+
+  public Paper(String pasearchnum, String paname, String pawriter, String papublish, String padate, String pagrad, String paremarks, String pdisvol, String paccessory, String dependence, String tname) {
+    this.pasearchnum = pasearchnum;
+    this.paname = paname;
+    this.pawriter = pawriter;
+    this.papublish = papublish;
+    this.padate = padate;
+    this.pagrad = pagrad;
+    this.paremarks = paremarks;
+    this.pdisvol = pdisvol;
+    this.paccessory = paccessory;
+    this.dependence = dependence;
+    this.tname = tname;
+  }
+
+  public Paper(String pasearchnum, String paname, String pawriter, String papublish, String padate, String pagrad, String tsn, String paremarks, String paudit, String pdisvol, String paccessory, String message, String dependence,String tname) {
+    this.pasearchnum = pasearchnum;
+    this.paname = paname;
+    this.pawriter = pawriter;
+    this.papublish = papublish;
+    this.padate = padate;
+    this.pagrad = pagrad;
+    this.tsn = tsn;
+    this.paremarks = paremarks;
+    this.paudit = paudit;
+    this.pdisvol = pdisvol;
+    this.paccessory = paccessory;
+    this.message = message;
+    this.dependence = dependence;
+    this.tname = tname;
+  }
+
+  public Paper(String pasearchnum, String paname, String pawriter, String papublish, String padate, String pagrad, String tsn, String paremarks, String paudit, String pdisvol, String message, String dependence) {
+    this.pasearchnum = pasearchnum;
+    this.paname = paname;
+    this.pawriter = pawriter;
+    this.papublish = papublish;
+    this.padate = padate;
+    this.pagrad = pagrad;
+    this.tsn = tsn;
+    this.paremarks = paremarks;
+    this.paudit = paudit;
+    this.pdisvol = pdisvol;
+    this.message = message;
+    this.dependence = dependence;
   }
 
   public long getPanum() {

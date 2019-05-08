@@ -5,6 +5,33 @@
 <mapper namespace="com.slxy.edu.mapper.PaperMapper">
 
     <select id="selectAll" resultType="Paper" >
+        select Pasearchnum,Paname,Pawriter,Papublish,Padate,Pagrad,Paremarks,Pdisvol,Paccessory,Paudit,message,dependence,Cname,Dname,Tname,t.Tsn FROM Paper p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+          <where>
+              <if test="tname!=null and tname!='' and tname!='null'">
+                  Tname = #{tname}
+              </if>
+              <if test="cname!=null and cname!='' and cname!='null'">
+                  AND Cname = #{cname}
+              </if>
+              <if test="dname!=null and dname!='' and dname!='null' and dname!='请选择所在专业'">
+                  AND Dname = #{dname}
+              </if>
+              <if test="starttime!=null and starttime!='' and starttime!='null'">
+                  AND Padate &gt;= #{starttime}
+              </if>
+              <if test="endtime!=null and endtime!='' and endtime!='null'">
+                  AND Padate &lt;= #{endtime}
+              </if>
+              <if test="cname!=null">
+                  AND Paudit = '1'
+              </if>
+              <if test="cname==null">
+                  AND Paudit = '1'
+              </if>
+          </where>
+    </select>
+
+    <select id="selectAllUnaudit" resultType="Paper" >
         select Pasearchnum,Paname,Pawriter,Papublish,Padate,Pagrad,Paremarks,Pdisvol,Paccessory,Paudit,message,dependence,Cname,Dname,Tname FROM Paper p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
           <where>
               <if test="tname!=null and tname!='' and tname!='null'">
@@ -22,9 +49,187 @@
               <if test="endtime!=null and endtime!='' and endtime!='null'">
                   AND Padate &lt;= #{endtime}
               </if>
+              <if test="cname!=null">
+                  AND Paudit = '0'
+              </if>
+              <if test="cname==null">
+                  AND Paudit = '0'
+              </if>
           </where>
     </select>
 
+    <select id="selectByMajorKey" resultType="Paper">
+        select Pasearchnum,Paname,Pawriter,Papublish,Padate,Pagrad,t.Tsn,Paremarks,Pdisvol,Paccessory,Paudit,message,dependence,Tname FROM Paper p JOIN Teacher t ON p.Tsn = t.Tsn WHERE Pasearchnum = #{Pasearchnum}
+    </select>
 
+    <!--更新数据，重新提交-->
+    <update id="updateOne"  parameterType="com.slxy.edu.model.Paper">
+        UPDATE Paper
+        SET paname = #{entity.paname},
+        pawriter = #{entity.pawriter},
+        papublish = #{entity.papublish},
+        pdisvol = #{entity.pdisvol},
+        padate = #{entity.padate},
+        pagrad = #{entity.pagrad},
+        paremarks = #{entity.paremarks},
+        dependence = #{entity.dependence},
+        tsn = #{entity.tsn},
+        paudit = #{entity.paudit}
+        WHERE pasearchnum = #{entity.pasearchnum};
+    </update>
 
+    <insert id="insertOne" parameterType="com.slxy.edu.model.Paper">
+        insert into Paper (Pasearchnum,Paname,Pawriter,Papublish,Pdisvol,Padate,Pagrad,dependence,Paremarks,Tsn,Paudit)
+        VALUES (#{entity.pasearchnum},
+        #{entity.paname},
+        #{entity.pawriter},
+        #{entity.papublish},
+        #{entity.pdisvol},
+        #{entity.padate},
+        #{entity.pagrad},
+        #{entity.paremarks},
+        #{entity.dependence},
+        #{entity.tsn},
+        #{entity.paudit})
+    </insert>
+
+    <!--导出excel-->
+    <select id="selectExcel" resultType="ExcelPaper" >
+        select pasearchnum,paname,t.Tsn,Tname,pawriter,papublish,padate,pagrad,pdisvol,dependence,Cname,Dname,Tedubackground,JobTitle,paremarks FROM Paper p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+        <where>
+            <if test="tname!=null and tname!='' and tname!='null'">
+                Tname = #{tname}
+            </if>
+            <if test="cname!=null and cname!='' and cname!='null'">
+                AND Cname = #{cname}
+            </if>
+            <if test="dname!=null and dname!='' and dname!='null' and dname!='请选择所在专业'">
+                AND Dname = #{dname}
+            </if>
+            <if test="starttime!=null and starttime!='' and starttime!='null'">
+                AND Padate &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!='' and endtime!='null'">
+                AND Padate &lt;= #{endtime}
+            </if>
+            <if test="cname!=null">
+                AND Paudit = '1'
+            </if>
+            <if test="cname==null">
+                AND Paudit = '1'
+            </if>
+
+        </where>
+    </select>
+
+    <!--审核-->
+    <update id="pass">
+        UPDATE Paper SET Paudit = '1' , message = #{message} WHERE Pasearchnum = #{majorkey}
+    </update>
+
+    <update id="nopass">
+        UPDATE Paper SET Paudit = '2' , message = #{message} WHERE Pasearchnum = #{majorkey}
+    </update>
+
+    <!--保存附件路径-->
+    <update id="savePath">
+        update Paper set Paccessory = #{path} WHERE Pasearchnum = #{majorkey}
+    </update>
+
+    <!--查询附件路径-->
+    <select id="getPath" resultType="String">
+        SELECT Paccessory FROM Paper WHERE Pasearchnum = #{majorkey}
+    </select>
+
+    <!--查询各学院项目数目-->
+    <select id="getCollegeCount" resultType="java.util.HashMap">
+        select a.Cname,COUNT(b.Cname) as count from (select Cname from College) a left join
+        (select Cname from Paper p join Teacher t on p.Tsn = t.Tsn join College c on t.Csn = c.Csn
+        <where>
+            <if test="starttime!=null and starttime!='' and starttime!='null'">
+                Padate &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!='' and endtime!='null'">
+                and Padate &lt;= #{endtime}
+            </if>
+        </where>
+        )b on a.Cname = b.Cname group by a.Cname
+    </select>
+
+    <!--查询各专业项目数目-->
+    <select id="getSdeptCount" resultType="java.util.HashMap">
+        select a.Dname,COUNT(b.Dname) as count from
+        (select Dname from Sdept s  join College c on c.Csn = s.Csn
+        <where>
+            <if test="cname!=null and cname!='' and cname!='null'">
+                and Cname = #{cname}
+            </if>
+        </where>
+        ) as a  left join (select Dname from Paper p join Teacher t on p.Tsn = t.Tsn
+        join College c on t.Csn = c.Csn join Sdept s on t.Dsn = s.Dsn
+        <where>
+            <if test="starttime!=null and starttime!='' and starttime!='null'">
+                Padate &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!='' and endtime!='null'">
+                and Padate &lt;= #{endtime}
+            </if>
+            <if test="cname!=null and cname!='' and cname!='null'">
+                and Cname = #{cname}
+            </if>
+        </where>
+        ) as b on a.Dname = b.Dname group by a.Dname
+    </select>
+
+    <!--查询近年来的各学院项目数-->
+    <select id="getRecentYearsCount" resultType="java.util.HashMap">
+        select a.Cname,COUNT(b.Cname) as count from (select Cname from College) a left join
+        (select Cname from Paper p JOIN Teacher t on p.Tsn = t.Tsn join College c on t.Csn = c.Csn
+        <where>
+            <if test="starttime!=null and starttime!='' and starttime!='null'">
+                Padate &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!='' and endtime!='null'">
+                and Padate &lt;= #{endtime}
+            </if>
+        </where>
+        ) b on a.Cname = b.Cname group by a.Cname
+    </select>
+
+    <!--查询近年来的各专业项目数-->
+    <select id="getRecentYearsSdeptCount" resultType="java.util.HashMap">
+        select a.Dname,COUNT(b.Dname) as count from
+        (select Dname from Sdept s  join College c on c.Csn = s.Csn
+        <where>
+            <if test="cname!=null and cname!='' and cname!='null'">
+                and Cname = #{cname}
+            </if>
+        </where>
+        ) as a  left join (select Dname from Paper p join Teacher t on p.Tsn = t.Tsn
+        join College c on t.Csn = c.Csn join Sdept s on t.Dsn = s.Dsn
+        <where>
+            <if test="starttime!=null and starttime!='' and starttime!='null'">
+                Padate &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!='' and endtime!='null'">
+                and Padate &lt;= #{endtime}
+            </if>
+            <if test="cname!=null and cname!='' and cname!='null'">
+                and Cname = #{cname}
+            </if>
+        </where>
+        ) as b on a.Dname = b.Dname group by a.Dname
+    </select>
+
+    <!--导入excel-->
+    <insert id="importExcel" parameterType="java.util.List">
+        insert into Paper
+        (pasearchnum,paname,tsn,pawriter,papublish,padate,pagrad,pdisvol,dependence,paremarks
+        )values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.pasearchnum,jdbcType=CHAR},#{item.paname,jdbcType=CHAR},#{item.tsn,jdbcType=CHAR},#{item.pawriter,jdbcType=CHAR},#{item.papublish,jdbcType=CHAR}
+            ,#{item.padate,jdbcType=CHAR} ,#{item.pagrad,jdbcType=CHAR} ,#{item.pdisvol,jdbcType=CHAR} ,#{item.dependence,jdbcType=CHAR} ,#{item.paremarks,jdbcType=CHAR}
+          )
+        </foreach>
+    </insert>
 </mapper>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<excel id="honor" code="honor" name="荣誉信息导入">
+    <colgroup>
+        <col index="A" width='17em'></col>
+        <col index="B" width='17em'></col>
+        <col index="C" width='17em'></col>
+        <col index="D" width='17em'></col>
+        <col index="E" width='17em'></col>
+        <col index="F" width='17em'></col> 
+        <col index="G" width='17em'></col>              
+        <col index="H" width='17em'></col>              
+        <col index="I" width='17em'></col>
+    </colgroup>
+    <title>
+        <tr height="16px">
+            <td rowspan="1" colspan="9" value="荣誉信息导入" />
+        </tr>
+    </title>
+    <thead>
+        <tr height="16px">
+        	<th value="编号" />
+            <th value="名称" />
+            <th value="工号" />
+            <th value="第一完成单位" />
+            <th value="时间" />
+            <th value="授奖单位" />
+            <th value="级别" />
+            <th value="备注" />            
+        </tr>
+    </thead>
+    <tbody>
+        <tr height="16px" firstrow="2" firstcol="0" repeat="5">
+            <td type="string" isnullable="false" maxlength="30" />
+            <td type="string" isnullable="false" maxlength="30" />
+            <td type="string" isnullable="false" maxlength="30" />
+            <td type="string" isnullable="true" maxlength="30" />
+            <td type="string" isnullable="true" maxlength="30" />
+            <td type="string" isnullable="true" maxlength="30" />
+             <td type="string" isnullable="true" maxlength="30" />
+             <td type="string" isnullable="true" maxlength="30" />
+        </tr>
+    </tbody>
+</excel>

@@ -5,10 +5,10 @@
 <mapper namespace="com.slxy.edu.mapper.PatentMapper">
 
     <select id="selectAll" resultType="Patent" >
-        select Patname,Patsn,Patapdate,Patendate,Patgrad,Patremarks,Paccessory,paudit,message,inventor,Tname,Cname,Dname FROM Patent p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+        select Patname,Patsn,Patapdate,Patendate,Patgrad,Patremarks,Paccessory,Paudit,message,inventor,Tname,Cname,Dname FROM Patent p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
           <where>
               <if test="tname!=null and tname!='' and tname!='null'">
-                  Tname = #{tname}
+                  AND Tname = #{tname}
               </if>
               <if test="cname!=null and cname!='' and cname!='null'">
                   AND Cname = #{cname}
@@ -22,9 +22,206 @@
               <if test="endtime!=null and endtime!='' and endtime!='null'">
                   AND Patendate &lt;= #{endtime}
               </if>
+              <if test="cname!=null">
+                  AND Paudit = '1'
+              </if>
+              <if test="cname==null">
+                  AND Paudit = '1'
+              </if>
           </where>
     </select>
 
+    <select id="selectAllUnaudit" resultType="Patent" >
+        select Patname,Patsn,Patapdate,Patendate,Patgrad,Patremarks,Paccessory,Paudit,message,inventor,Tname,Cname,Dname FROM Patent p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+        <where>
+            <if test="tname!=null and tname!='' and tname!='null'">
+                AND Tname = #{tname}
+            </if>
+            <if test="cname!=null and cname!='' and cname!='null'">
+                AND Cname = #{cname}
+            </if>
+            <if test="dname!=null and dname!='' and dname!='null' and dname!='请选择所在专业'">
+                AND Dname = #{dname}
+            </if>
+            <if test="starttime!=null and starttime!='' and starttime!='null'">
+                AND Patendate &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!='' and endtime!='null'">
+                AND Patendate &lt;= #{endtime}
+            </if>
+            <if test="cname!=null">
+                AND Paudit = '0'
+            </if>
+            <if test="cname==null">
+                AND Paudit = '0'
+            </if>
+        </where>
+    </select>
+
+    <select id="selectExcel" resultType="ExcelPatent" >
+        select Patname,Patsn,Patapdate,Patendate,Patgrad,inventor,t.Tsn,Tname,Cname,Dname,Tedubackground,JobTitle,Patremarks FROM Patent p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+        <where>
+            <if test="tname!=null and tname!='' and tname!='null'">
+                Tname = #{tname}
+            </if>
+            <if test="cname!=null and cname!='' and cname!='null'">
+                AND Cname = #{cname}
+            </if>
+            <if test="dname!=null and dname!='' and dname!='null' and dname!='请选择所在专业'">
+                AND Dname = #{dname}
+            </if>
+            <if test="starttime!=null and starttime!='' and starttime!='null'">
+                AND Patendate &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!='' and endtime!='null'">
+                AND Patendate &lt;= #{endtime}
+            </if>
+            <if test="cname!=null">
+                AND Paudit = '1'
+            </if>
+            <if test="cname==null">
+                AND Paudit = '1'
+            </if>
+
+        </where>
+    </select>
+
+    <insert id="insertOne" parameterType="com.slxy.edu.model.Patent">
+        insert into Patent (Patname,Patsn,inventor,Tsn,Patapdate,Patendate,Patgrad,Patremarks)
+        VALUES (#{entity.patname},
+                #{entity.patsn},
+                #{entity.inventor},
+                #{entity.tsn},
+                #{entity.patapdate},
+                #{entity.patendate},
+                #{entity.patgrad},
+                #{entity.patremarks})
+    </insert>
+
+    <select id="selectByMajorKey" resultType="Patent">
+        SELECT Patname,Patsn,Patapdate,Patendate,Patgrad,Patremarks,Paccessory,Paudit,message,inventor,Tname FROM Patent p JOIN Teacher t ON p.Tsn = t.Tsn WHERE Patsn = #{Pastn}
+    </select>
 
 
+    <update id="updateOne"  parameterType="com.slxy.edu.model.Patent">
+        UPDATE Patent
+        SET patname = #{entity.patname},
+        inventor = #{entity.inventor},
+        tsn = #{entity.tsn},
+        patapdate = #{entity.patapdate},
+        patendate = #{entity.patendate},
+        patgrad = #{entity.patgrad},
+        patremarks = #{entity.patremarks}
+        WHERE Patsn = #{entity.patsn};
+    </update>
+
+    <update id="pass">
+        UPDATE Patent SET Paudit = '1' , message = #{message} WHERE Patsn = #{majorkey}
+    </update>
+
+    <update id="nopass">
+        UPDATE Patent SET Paudit = '2' , message = #{message} WHERE Patsn = #{majorkey}
+    </update>
+
+    <!--保存附件路径-->
+    <update id="savePath">
+        update Patent set Paccessory = #{path} WHERE Patsn = #{majorkey}
+    </update>
+
+    <!--查询附件路径-->
+    <select id="getPath" resultType="String">
+        SELECT Paccessory FROM Patent WHERE Patsn = #{majorkey}
+    </select>
+
+    <!--查询各学院项目数目-->
+    <select id="getCollegeCount" resultType="java.util.HashMap">
+        select a.Cname,COUNT(b.Cname) as count from (select Cname from College) a left join
+        (select Cname from Patent p join Teacher t on p.Tsn = t.Tsn join College c on t.Csn = c.Csn
+        <where>
+            <if test="starttime!=null and starttime!='' and starttime!='null'">
+                Patendate &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!='' and endtime!='null'">
+                and Patendate &lt;= #{endtime}
+            </if>
+        </where>
+        )b on a.Cname = b.Cname group by a.Cname
+    </select>
+
+    <!--查询各专业项目数目-->
+    <select id="getSdeptCount" resultType="java.util.HashMap">
+        select a.Dname,COUNT(b.Dname) as count from
+        (select Dname from Sdept s  join College c on c.Csn = s.Csn
+            <where>
+                <if test="cname!=null and cname!='' and cname!='null'">
+                    and Cname = #{cname}
+                </if>
+            </where>
+        ) as a  left join (select Dname from Patent p join Teacher t on p.Tsn = t.Tsn
+        join College c on t.Csn = c.Csn join Sdept s on t.Dsn = s.Dsn
+            <where>
+                <if test="starttime!=null and starttime!='' and starttime!='null'">
+                    Patendate &gt;= #{starttime}
+                </if>
+                <if test="endtime!=null and endtime!='' and endtime!='null'">
+                    and Patendate &lt;= #{endtime}
+                </if>
+                <if test="cname!=null and cname!='' and cname!='null'">
+                    and Cname = #{cname}
+                </if>
+            </where>
+        ) as b on a.Dname = b.Dname group by a.Dname
+    </select>
+
+    <!--查询近年来的各学院项目数-->
+    <select id="getRecentYearsCount" resultType="java.util.HashMap">
+        select a.Cname,COUNT(b.Cname) as count from (select Cname from College) a left join
+        (select Cname from Patent p JOIN Teacher t on p.Tsn = t.Tsn join College c on t.Csn = c.Csn
+        <where>
+            <if test="starttime!=null and starttime!='' and starttime!='null'">
+                Patendate &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!='' and endtime!='null'">
+                and Patendate &lt;= #{endtime}
+            </if>
+        </where>
+        ) b on a.Cname = b.Cname group by a.Cname
+    </select>
+
+    <!--查询近年来的各专业项目数-->
+    <select id="getRecentYearsSdeptCount" resultType="java.util.HashMap">
+        select a.Dname,COUNT(b.Dname) as count from
+        (select Dname from Sdept s  join College c on c.Csn = s.Csn
+            <where>
+                <if test="cname!=null and cname!='' and cname!='null'">
+                    and Cname = #{cname}
+                </if>
+            </where>
+        ) as a  left join (select Dname from Patent p join Teacher t on p.Tsn = t.Tsn
+        join College c on t.Csn = c.Csn join Sdept s on t.Dsn = s.Dsn
+        <where>
+            <if test="starttime!=null and starttime!='' and starttime!='null'">
+                Patendate &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!='' and endtime!='null'">
+                and Patendate &lt;= #{endtime}
+            </if>
+            <if test="cname!=null and cname!='' and cname!='null'">
+                and Cname = #{cname}
+            </if>
+        </where>
+        ) as b on a.Dname = b.Dname group by a.Dname
+    </select>
+
+    <!--导入excel-->
+    <insert id="importExcel" parameterType="java.util.List">
+        insert into Patent
+        (patname,patsn,patapdate,patendate,patgrad,tsn,inventor,patremarks
+        )values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.patname,jdbcType=CHAR},#{item.patsn,jdbcType=CHAR},#{item.patapdate,jdbcType=CHAR},#{item.patendate,jdbcType=CHAR},#{item.patgrad,jdbcType=CHAR}
+            ,#{item.tsn,jdbcType=CHAR} ,#{item.inventor,jdbcType=CHAR} ,#{item.patremarks,jdbcType=CHAR}
+            )
+        </foreach>
+    </insert>
 </mapper>

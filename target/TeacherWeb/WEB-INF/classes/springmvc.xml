@@ -3,12 +3,12 @@
         xmlns="http://www.springframework.org/schema/beans"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:context="http://www.springframework.org/schema/context"
-        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+        xmlns:mvc="http://www.springframework.org/schema/mvc"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 
     <!-- 1.注解扫描位置-->
     <context:component-scan base-package="com.slxy.edu.controller" />
-
 
 
     <!-- 2.配置映射处理和适配器-->
@@ -39,7 +39,6 @@
     <!--<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">-->
         <!--<property name="maxUploadSize" value="2048000"/>-->
     <!--</bean>-->
-
     <!--配置拦截器-->
     <!--<mvc:interceptors>-->
         <!--&lt;!&ndash;配置登录拦截器&ndash;&gt;-->
@@ -47,7 +46,27 @@
             <!--<mvc:mapping path="/**"/>-->
             <!--&lt;!&ndash;排除&ndash;&gt;-->
             <!--&lt;!&ndash;<mvc:exclude-mapping path=""&ndash;&gt;-->
-            <!--<bean class="com.slxy.edu.web.interceptor.LoginInterceptor"/>-->
+            <!--<bean class="org.springframework.web.servlet.HandlerInterceptor"></bean>-->
         <!--</mvc:interceptor>-->
     <!--</mvc:interceptors>-->
+    <!--避免ajax请求出现406错误-->
+    <bean id="fastJsonHttpMessageConverter"
+          class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <value>application/json;charset=UTF-8</value>
+            </list>
+        </property>
+    </bean>
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>application/json;charset=UTF-8</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
 </beans>

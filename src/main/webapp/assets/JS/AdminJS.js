@@ -86,8 +86,6 @@
 			}else{
 				collegeName = college;
 			}
-			console.log(collegeName)
-			console.log("1")
 		    var sdept = document.getElementById("sdept");
 		    var add;		
 		    //用来存储各学院的专业信息

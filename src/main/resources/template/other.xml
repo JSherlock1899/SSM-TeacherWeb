@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<excel id="paper" code="paper" name="其他成果信息导入">
+    <colgroup>
+        <col index="A" width='17em'></col>
+        <col index="B" width='17em'></col>
+        <col index="C" width='17em'></col>
+        <col index="D" width='17em'></col>
+        <col index="E" width='17em'></col>
+        <col index="F" width='17em'></col> 
+    </colgroup>
+    <title>
+        <tr height="16px">
+            <td rowspan="1" colspan="6" value="其他成果信息导入" />
+        </tr>
+    </title>
+    <thead>
+        <tr height="16px">
+        	<th value="名称" />
+            <th value="工号" />
+            <th value="类型" />
+            <th value="日期" />
+            <th value="发表单位" />
+            <th value="成果描述" />
+        </tr>
+    </thead>
+    <tbody>
+        <tr height="16px" firstrow="2" firstcol="0" repeat="6">
+            <td type="string" isnullable="false" maxlength="30" />
+            <td type="string" isnullable="false" maxlength="30" />
+            <td type="string" isnullable="false" maxlength="30" />
+            <td type="string" isnullable="false" maxlength="30" />
+            <td type="string" isnullable="false" maxlength="30" />
+        </tr>
+    </tbody>
+</excel>

@@ -22,9 +22,221 @@
               <if test="endtime!=null and endtime!='' and endtime!='null'">
                   AND Pendtime &lt;= #{endtime}
               </if>
+              <if test="cname!=null">
+                  AND Paudit = '1'
+              </if>
+              <if test="cname==null">
+                  AND Paudit = '1'
+              </if>
           </where>
     </select>
 
+    <select id="selectAllUnaudit" resultType="Project" >
+        select Psn,Pname,Pmember,Pgrad,Pkind,Pmoney,Pstatime,Pcondition,Pendtime,Premarks,t.Tsn,Pleader,Paccessory,Paudit,message,contractType,Tname,Cname,Dname FROM Project p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+          <where>
+              <if test="tname!=null and tname!='' and tname!='null'">
+                  Tname = #{tname}
+              </if>
+              <if test="cname!=null and cname!='' and cname!='null'">
+                  AND Cname = #{cname}
+              </if>
+              <if test="dname!=null and dname!='' and dname!='null' and dname!='请选择所在专业'">
+                  AND Dname = #{dname}
+              </if>
+              <if test="starttime!=null and starttime!='' and starttime!='null'">
+                  AND Pstatime &gt;= #{starttime}
+              </if>
+              <if test="endtime!=null and endtime!='' and endtime!='null'">
+                  AND Pendtime &lt;= #{endtime}
+              </if>
+              <if test="cname!=null">
+                  AND Paudit = '0'
+              </if>
+              <if test="cname==null">
+                  AND Paudit = '0'
+              </if>
+          </where>
+    </select>
+
+    <select id="selectExcel" resultType="ExcelProject" >
+        select Psn,Pname,t.Tsn,tname,Pmember,Pcondition,Pgrad,Pkind,Pmoney,Pstatime,Pendtime,contractType,Cname,Dname,Tedubackground,JobTitle,Premarks FROM Project p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+          <where>
+              <if test="tname!=null and tname!='' and tname!='null'">
+                  Tname = #{tname}
+              </if>
+              <if test="cname!=null and cname!='' and cname!='null'">
+                  AND Cname = #{cname}
+              </if>
+              <if test="dname!=null and dname!='' and dname!='null' and dname!='请选择所在专业'">
+                  AND Dname = #{dname}
+              </if>
+              <if test="starttime!=null and starttime!='' and starttime!='null'">
+                  AND Pstatime &gt;= #{starttime}
+              </if>
+              <if test="endtime!=null and endtime!='' and endtime!='null'">
+                  AND Pendtime &lt;= #{endtime}
+              </if>
+              <if test="cname!=null">
+                  AND Paudit = '1'
+              </if>
+              <if test="cname==null">
+                  AND Paudit = '1'
+              </if>
+
+          </where>
+    </select>
+
+    <select id="selectByMajorKey" resultType="Project">
+        select Psn,Pname,Pmember,Pgrad,Pkind,Pmoney,Pstatime,Pcondition,Pendtime,Premarks,Pleader,Paccessory,Paudit,message,contractType,Tname FROM Project p JOIN Teacher t ON p.Tsn = t.Tsn WHERE Psn = #{Psn}
+    </select>
+
+    <!--更新数据，重新提交-->
+    <update id="updateOne"  parameterType="com.slxy.edu.model.Project">
+        UPDATE Project
+        SET pleader = #{entity.pleader},
+        tsn = #{entity.tsn},
+        pmember = #{entity.pmember},
+        pgrad = #{entity.pgrad},
+        pkind = #{entity.pkind},
+        contractType = #{entity.contractType},
+        pmoney = #{entity.pmoney},
+        pstatime = #{entity.pstatime},
+        pcondition = #{entity.pcondition},
+        pendtime = #{entity.pendtime},
+        premarks = #{entity.premarks},
+        paudit = #{entity.paudit}
+        WHERE psn = #{entity.psn};
+    </update>
+
+    <insert id="insertOne" parameterType="com.slxy.edu.model.Project">
+        insert into Project (Psn,Pleader,Pname,Pmember,Pgrad,Pkind,contractType,Pmoney,Pstatime,Pcondition,Pendtime,Premarks,Tsn,Paudit)
+        VALUES (#{entity.psn},
+        #{entity.pleader},
+        #{entity.pname},
+        #{entity.pmember},
+        #{entity.pgrad},
+        #{entity.pkind},
+        #{entity.contractType},
+        #{entity.pmoney},
+        #{entity.pstatime},
+        #{entity.pcondition},
+        #{entity.pendtime},
+        #{entity.premarks},
+        #{entity.tsn},
+        #{entity.paudit})
+    </insert>
+
+    <!--审核-->
+    <update id="pass">
+        UPDATE Project SET Paudit = '1' , message = #{message} WHERE Psn = #{majorkey}
+    </update>
+
+    <update id="nopass">
+        UPDATE Project SET Paudit = '2' , message = #{message} WHERE Psn = #{majorkey}
+    </update>
+
+    <!--保存附件路径-->
+    <update id="savePath">
+        update Project set Paccessory = #{path} WHERE Psn = #{majorkey}
+    </update>
+
+    <!--查询附件路径-->
+    <select id="getPath" resultType="String">
+        SELECT Paccessory FROM Project WHERE Psn = #{majorkey}
+    </select>
+
+
+    <!--查询各学院项目数目-->
+    <select id="getCollegeCount" resultType="java.util.HashMap">
+        select a.Cname,COUNT(b.Cname) as count from (select Cname from College) a left join
+        (select Cname from Project p join Teacher t on p.Tsn = t.Tsn join College c on t.Csn = c.Csn
+        <where>
+            <if test="starttime!=null and starttime!='' and starttime!='null'">
+                Pstatime &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!='' and endtime!='null'">
+                and Pstatime &lt;= #{endtime}
+            </if>
+        </where>
+        )b on a.Cname = b.Cname group by a.Cname
+    </select>
+
+    <!--查询各专业项目数目-->
+    <select id="getSdeptCount" resultType="java.util.HashMap">
+        select a.Dname,COUNT(b.Dname) as count from
+        (select Dname from Sdept s  join College c on c.Csn = s.Csn
+        <where>
+            <if test="cname!=null and cname!='' and cname!='null'">
+                and Cname = #{cname}
+            </if>
+        </where>
+        ) as a  left join (select Dname from Project p join Teacher t on p.Tsn = t.Tsn
+        join College c on t.Csn = c.Csn join Sdept s on t.Dsn = s.Dsn
+        <where>
+            <if test="starttime!=null and starttime!='' and starttime!='null'">
+                Pstatime &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!='' and endtime!='null'">
+                and Pstatime &lt;= #{endtime}
+            </if>
+            <if test="cname!=null and cname!='' and cname!='null'">
+                and Cname = #{cname}
+            </if>
+        </where>
+        ) as b on a.Dname = b.Dname group by a.Dname
+    </select>
+
+    <!--查询近年来的各学院项目数-->
+    <select id="getRecentYearsCount" resultType="java.util.HashMap">
+        select a.Cname,COUNT(b.Cname) as count from (select Cname from College) a left join
+        (select Cname from Project p JOIN Teacher t on p.Tsn = t.Tsn join College c on t.Csn = c.Csn
+        <where>
+            <if test="starttime!=null and starttime!='' and starttime!='null'">
+                Pstatime &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!='' and endtime!='null'">
+                and Pstatime &lt;= #{endtime}
+            </if>
+        </where>
+        ) b on a.Cname = b.Cname group by a.Cname
+    </select>
+
+    <!--查询近年来的各专业项目数-->
+    <select id="getRecentYearsSdeptCount" resultType="java.util.HashMap">
+        select a.Dname,COUNT(b.Dname) as count from
+        (select Dname from Sdept s  join College c on c.Csn = s.Csn
+        <where>
+            <if test="cname!=null and cname!='' and cname!='null'">
+                and Cname = #{cname}
+            </if>
+        </where>
+        ) as a  left join (select Dname from Project p join Teacher t on p.Tsn = t.Tsn
+        join College c on t.Csn = c.Csn join Sdept s on t.Dsn = s.Dsn
+        <where>
+            <if test="starttime!=null and starttime!='' and starttime!='null'">
+                Pstatime &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!='' and endtime!='null'">
+                and Pstatime &lt;= #{endtime}
+            </if>
+            <if test="cname!=null and cname!='' and cname!='null'">
+                and Cname = #{cname}
+            </if>
+        </where>
+        ) as b on a.Dname = b.Dname group by a.Dname
+    </select>
+
+    <!--导入excel-->
+    <insert id="importExcel" parameterType="java.util.List">
+        insert into Project
+        (Psn,Pname,Tsn,Pmember,Pcondition,Pgrad,Pkind,Pmoney,Pstatime,Pendtime,contractType,Premarks
+        )values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.Psn,jdbcType=CHAR},#{item.Pname,jdbcType=CHAR},#{item.Tsn,jdbcType=CHAR},#{item.Pmember,jdbcType=CHAR},#{item.Pcondition,jdbcType=CHAR}
+            ,#{item.Pgrad,jdbcType=CHAR} ,#{item.Pkind,jdbcType=CHAR} ,#{item.Pmoney,jdbcType=CHAR} ,#{item.Pstatime,jdbcType=CHAR} ,#{item.Pendtime,jdbcType=CHAR}
+            ,#{item.contractType,jdbcType=CHAR} ,#{item.Premarks,jdbcType=CHAR})
+        </foreach>
+    </insert>
 
 
 </mapper>

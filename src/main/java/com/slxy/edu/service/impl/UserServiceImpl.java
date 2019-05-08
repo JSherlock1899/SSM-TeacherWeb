@@ -2,6 +2,7 @@ package com.slxy.edu.service.impl;
 
 import com.slxy.edu.mapper.UserMapper;
 import com.slxy.edu.model.Admin;
+import com.slxy.edu.model.Teacher;
 import com.slxy.edu.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,19 +25,48 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public int adminLoginCheck(String username,String password) {
-        int result = userMapper.adminLoginCheck(username,password);
-        return result;
+        return userMapper.adminLoginCheck(username,password);
     }
 
     @Override
     public int teacherLoginCheck(String username,String password) {
-        int result = userMapper.teacherLoginCheck(username,password);
-        return result;
+        return userMapper.teacherLoginCheck(username,password);
     }
 
     @Override
     public Admin getAdminGrade(String Aname) {
-        Admin admin = userMapper.getAdminGrade(Aname);
-        return admin;
+        return userMapper.getAdminGrade(Aname);
+    }
+
+    @Override
+    public Teacher getTeacherInformation(String Tsn) {
+        return userMapper.getTeacherInformation(Tsn);
+    }
+
+    @Override
+    public boolean verifyAdminPassword(String Aname, String oldPassword) {
+        String password = userMapper.verifyAdminPassword(Aname,oldPassword);
+        System.out.println("password的值是：" + password + ".当前方法:UserServiceImpl.verifyAdminPassword()");
+        if(password == null){
+            return false;
+        }else {
+            return password.trim().equals(oldPassword);
+        }
+    }
+
+    @Override
+    public boolean verifyTeacherPassword(String Tsn, String oldPassword) {
+        String password = userMapper.verifyTeacherPassword(Tsn,oldPassword);
+        return password.trim().equals(oldPassword);
+    }
+
+    @Override
+    public int alterAdminPassword(String Aname, String newPassword) {
+        return userMapper.alterAdminPassword(Aname,newPassword);
+    }
+
+    @Override
+    public int alterTeacherPassword(String Tsn, String newPassword) {
+        return userMapper.alterTeacherPassword(Tsn,newPassword);
     }
 }

@@ -1,14 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="com.slxy.edu.model.Admin" %>
-<%@ page import="java.util.List" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/CSS/bootstrap.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/CSS/style.css">
 <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/ajaxSelect.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/ajax/ajaxSelect.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/AdminJS.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/commonUse.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/bootstrap.min.js"></script>
@@ -20,10 +19,9 @@
 
 	<%
 		Admin admin = (Admin) request.getAttribute("admin");
-		String Cname = (String) request.getAttribute("Cname");	//获取用户的所属学院
+		String Cname = (String) request.getSession().getAttribute("cname");	//获取用户的所属学院
 		String grade = admin.getAgrad();	//获取用户的权限等级
 		String Aname = (String) request.getAttribute("username"); //获取管理员名
-		System.out.println("Cname：" + Cname + ".当前方法:JspClass.jsp_service_method()");
 	%>
 	<input type="hidden" id="Cname" value="<%=Cname %>"/>
 	<input type="hidden" id="grade" value="<%=grade %>"/>
@@ -42,7 +40,7 @@
 		</ul>
 
 		<ul class="nav navbar-nav pull-right">
-			<li class="li-border"><a href="../login.jsp"
+			<li class="li-border"><a href="<%=request.getContextPath()%>/user/exitLogin.do"
 				class="mystyle-color"> 退出登录 </a></li>
 		</ul>
 	</div>
@@ -88,7 +86,7 @@
 								class="sub-title">专利查询</span></a>
 						</li>
 						<li>
-							<div class="showtitle" style="width: 150px;">其他成果查询</div> <a
+							<div class="showtitle" style="width: 130px;">其他成果查询</div> <a
 								href="<%=request.getContextPath()%>/other/findOther.do?cname=<%=Cname%>"
 								onclick="Otherchange()"  target="select_frame"><span
 								class="sublist-icon glyphicon glyphicon-search"></span><span
@@ -104,31 +102,38 @@
 					<ul class="navContent" style="display: none">
 						<li>
 							<div class="showtitle" style="width: 100px;">项目统计</div> <a
-							href="../servlet/StatisticsServlet?option=Project&college=<%=Cname %>&grade=<%=grade %>"
+							href="<%=request.getContextPath()%>/project/Statistics.do?grade=<%=grade %>"
 							onclick="ProjectStatistics()" target="select_frame"><span
 								class="sublist-icon glyphicon  glyphicon-stats"></span><span
 								class="sub-title">项目统计</span></a>
 						</li>
 						<li>
 							<div class="showtitle" style="width: 100px;">成果统计</div> <a
-							href="../servlet/StatisticsServlet?option=Paper&college=<%=Cname %>&grade=<%=grade %>"
+								href="<%=request.getContextPath()%>/paper/Statistics.do?grade=<%=grade %>"
 							onclick="PaperStatistics()" target="select_frame"><span
 								class="sublist-icon glyphicon glyphicon-stats"></span><span
 								class="sub-title">成果统计</span></a>
 						</li>
 						<li>
 							<div class="showtitle" style="width: 100px;">荣誉统计</div> <a
-							href="../servlet/StatisticsServlet?option=Honor&college=<%=Cname %>&grade=<%=grade %>"
+								href="<%=request.getContextPath()%>/honor/Statistics.do?grade=<%=grade %>"
 							onclick="HonorStatistics()" target="select_frame"><span
 								class="sublist-icon glyphicon glyphicon-stats"></span><span
 								class="sub-title">荣誉统计</span></a>
 						</li>
 						<li>
 							<div class="showtitle" style="width: 100px;">专利统计</div> <a
-							href="../servlet/StatisticsServlet?option=Patent&college=<%=Cname %>&grade=<%=grade %>"
+								href="<%=request.getContextPath()%>/patent/Statistics.do?grade=<%=grade %>"
 							onclick="PatentStatistics()" target="select_frame"><span
 								class="sublist-icon glyphicon glyphicon-stats"></span><span
 								class="sub-title">专利统计</span></a>
+						</li>
+						<li>
+							<div class="showtitle" style="width: 130px;">其他成果统计</div> <a
+								href="<%=request.getContextPath()%>/other/Statistics.do?grade=<%=grade %>"
+							onclick="OtherStatistics()" target="select_frame"><span
+								class="sublist-icon glyphicon glyphicon-stats"></span><span
+								class="sub-title">其他成果统计</span></a>
 						</li>
 					</ul>
 				</div>
@@ -140,31 +145,38 @@
 					<ul class="navContent" style="display: none">
 						<li>
 							<div class="showtitle" style="width: 100px;">项目审核</div> <a
-							href="../servlet/AuditServlet?option=Project&college=<%=Cname %>"
+								href="<%=request.getContextPath()%>/project/audit.do?cname=<%=Cname%>"
 							onclick="ProjectAudit()" target="select_frame"><span
 								class="sublist-icon glyphicon glyphicon-check"></span><span
 								class="sub-title">项目审核</span></a>
 						</li>
 						<li>
 							<div class="showtitle" style="width: 100px;">成果审核</div> <a
-							href="../servlet/AuditServlet?option=Paper&college=<%=Cname %>"
+								href="<%=request.getContextPath()%>/paper/audit.do?cname=<%=Cname%>"
 							onclick="PaperAudit()" target="select_frame"><span
 								class="sublist-icon glyphicon glyphicon-check"></span><span
 								class="sub-title">成果审核</span></a>
 						</li>
 						<li>
 							<div class="showtitle" style="width: 100px;">荣誉审核</div> <a
-							href="../servlet/AuditServlet?option=Honor&college=<%=Cname %>"
+								href="<%=request.getContextPath()%>/honor/audit.do?cname=<%=Cname%>"
 							onclick="HonorAudit()" target="select_frame"><span
 								class="sublist-icon glyphicon glyphicon-check"></span><span
 								class="sub-title">荣誉审核</span></a>
 						</li>
 						<li>
 							<div class="showtitle" style="width: 100px;">专利审核</div> <a
-							href="../servlet/AuditServlet?option=Patent&college=<%=Cname %>"
+							href="<%=request.getContextPath()%>/patent/audit.do?cname=<%=Cname%>"
 							onclick="PatentAudit()" target="select_frame"><span
 								class="sublist-icon glyphicon glyphicon-check"></span><span
 								class="sub-title">专利审核</span></a>
+						</li>
+						<li>
+							<div class="showtitle" style="width: 130px;">其他成果审核</div> <a
+							href="<%=request.getContextPath()%>/other/audit.do?cname=<%=Cname%>"
+							onclick="OtherAudit()" target="select_frame"><span
+								class="sublist-icon glyphicon glyphicon-check"></span><span
+								class="sub-title">其他成果审核</span></a>
 						</li>
 					</ul>
 				</div>
@@ -176,7 +188,7 @@
 					<ul class="navContent" style="display: none">
 						<li>
 							<div class="showtitle" style="width: 100px;">教师管理</div> <a
-							href="../servlet/PageServlet?option=Teacher&college=<%=Cname %>&teacher=admin"
+							href="<%=request.getContextPath()%>/teacher/findTeacher.do"
 							onclick="Teacherchange()" target="select_frame"><span
 								class="sublist-icon glyphicon glyphicon-user"></span><span
 								class="sub-title">教师管理</span></a>
@@ -190,7 +202,7 @@
 						</li>
 						<li>
 							<div class="showtitle" style="width: 100px;">密码管理</div> <a
-							href="../School/Other/alterPassword.jsp" 
+								href="<%=request.getContextPath()%>/user/password.do"
 							 target="select_frame"><span
 								class="sublist-icon glyphicon  glyphicon-asterisk"></span><span
 								class="sub-title">密码管理</span></a>
@@ -259,14 +271,13 @@
 			</div>
 			<div class="table" class="col-md-12">
 
-				<iframe src="/patent/findPatent.do?cname=<%=Cname %>&grade=<%=grade %>"
-				frameborder="1" class="qaq" id="select_frame" name="select_frame" frameborder="0" scrolling="no" width="1200px"
+				<iframe src="<%=request.getContextPath()%>/patent/Statistics.do?grade=<%=grade %>"
+				frameborder="1"  id="select_frame" name="select_frame" frameborder="0" scrolling="no" width="1200px"
 					height="1800px" style="border: 0"></iframe>
 			</div>
 
 		</div>
 	</div>
 
-	</div>
 </body>
 </html>

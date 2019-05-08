@@ -15,7 +15,7 @@ public class Other {
   private String tname;
   private String cname;
   private String dnane;
-  
+
   public Other(String other_name, String other_date, String publisher, String accessory, String audit, String message, String other_type, String other_describe, String tname, String cname, String dnane) {
     this.other_name = other_name;
     this.other_date = other_date;
@@ -28,6 +28,57 @@ public class Other {
     this.tname = tname;
     this.cname = cname;
     this.dnane = dnane;
+  }
+
+    public Other(String other_name, String tsn, String other_date, String publisher, String accessory, String audit, String message, String other_type, String other_describe, String tname, String cname, String dnane) {
+        this.other_name = other_name;
+        this.tsn = tsn;
+        this.other_date = other_date;
+        this.publisher = publisher;
+        this.accessory = accessory;
+        this.audit = audit;
+        this.message = message;
+        this.other_type = other_type;
+        this.other_describe = other_describe;
+        this.tname = tname;
+        this.cname = cname;
+        this.dnane = dnane;
+    }
+
+
+
+    public Other(String other_name, String tsn, String other_date, String publisher, String accessory, String audit, String message, String other_type, String other_describe,String tname) {
+    this.other_name = other_name;
+    this.tsn = tsn;
+    this.other_date = other_date;
+    this.publisher = publisher;
+    this.accessory = accessory;
+    this.audit = audit;
+    this.message = message;
+    this.other_type = other_type;
+    this.other_describe = other_describe;
+    this.tname = tname;
+  }
+
+
+    public Other(String other_name, String other_date, String other_type, String publisher, String other_describe, String tsn, String audit,String message) {
+        this.other_name = other_name;
+        this.tsn = tsn;
+        this.other_date = other_date;
+        this.publisher = publisher;
+        this.audit = audit;
+        this.other_type = other_type;
+        this.other_describe = other_describe;
+    }
+
+  public Other(String other_name, String tsn, String other_date, String publisher, String accessory, String other_type, String other_describe) {
+    this.other_name = other_name;
+    this.tsn = tsn;
+    this.other_date = other_date;
+    this.publisher = publisher;
+    this.accessory = accessory;
+    this.other_type = other_type;
+    this.other_describe = other_describe;
   }
 
   public String getOther_name() {

@@ -22,9 +22,212 @@
             <if test="endtime!=null and endtime!='' and endtime!='null'">
                 AND Hdate &lt;= #{endtime}
             </if>
+            <if test="cname!=null">
+                AND Haudit = '0'
+            </if>
+            <if test="cname==null">
+                AND Haudit = '0'
+            </if>
         </where>
     </select>
 
 
+    <select id="selectAllUnaudit" resultType="Honor" >
+        select Hsn,Hname,Hwinner,Hdate,Hcompany,Hgrad,Hremarks,Haudit,Haccessory,message,department,Cname,Dname,Tname FROM Honor h JOIN Teacher t ON h.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+        <where>
+            <if test="tname!=null and tname!='' and tname!='null'">
+                Tname = #{tname}
+            </if>
+            <if test="cname!=null and cname!='' and cname!='null'">
+                AND Cname = #{cname}
+            </if>
+            <if test="dname!=null and dname!='' and dname!='null' and dname!='请选择所在专业'">
+                AND Dname = #{dname}
+            </if>
+            <if test="starttime!=null and starttime!='' and starttime!='null'">
+                AND Hdate &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!='' and endtime!='null'">
+                AND Hdate &lt;= #{endtime}
+            </if>
+            <if test="cname!=null">
+                AND Haudit = '0'
+            </if>
+            <if test="cname==null">
+                AND Haudit = '0'
+            </if>
+        </where>
+    </select>
 
+    <select id="selectByMajorKey" resultType="Honor">
+        select Hsn,Hname,Hwinner,Hdate,Hcompany,Hgrad,Hremarks,Haudit,Haccessory,message,department,Tname FROM Honor h JOIN Teacher t ON h.Tsn = t.Tsn WHERE Hsn = #{Hsn}
+    </select>
+
+    <!--更新数据，重新提交-->
+    <update id="updateOne"  parameterType="com.slxy.edu.model.Honor">
+        UPDATE Honor
+        SET hname = #{entity.hname},
+        hwinner = #{entity.hwinner},
+        hdate = #{entity.hdate},
+        hcompany = #{entity.hcompany},
+        department = #{entity.department},
+        hgrad = #{entity.hgrad},
+        tsn = #{entity.tsn},
+        haudit = #{entity.haudit}
+        WHERE hsn = #{entity.hsn}
+    </update>
+
+    <insert id="insertOne" parameterType="com.slxy.edu.model.Honor">
+        insert into Honor (Hsn,Hname,Hwinner,Hdate,Hcompany,department,Hgrad,Hremarks,Tsn,Haudit)
+        VALUES (#{entity.hsn},
+        #{entity.hname},
+        #{entity.hwinner},
+        #{entity.hdate},
+        #{entity.hcompany},
+        #{entity.department},
+        #{entity.hgrad},
+        #{entity.hremarks},
+        #{entity.tsn},
+        #{entity.haudit})
+    </insert>
+
+    <!--导出excel-->
+    <select id="selectExcel" resultType="ExcelHonor" >
+        select hsn,hname,t.Tsn,Tname,department,hdate,hcompany,hgrad,Cname,Dname,Tedubackground,JobTitle,hremarks FROM Honor h JOIN Teacher t ON h.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+        <where>
+            <if test="tname!=null and tname!='' and tname!='null'">
+                Tname = #{tname}
+            </if>
+            <if test="cname!=null and cname!='' and cname!='null'">
+                AND Cname = #{cname}
+            </if>
+            <if test="dname!=null and dname!='' and dname!='null' and dname!='请选择所在专业'">
+                AND Dname = #{dname}
+            </if>
+            <if test="starttime!=null and starttime!='' and starttime!='null'">
+                AND Hdate &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!='' and endtime!='null'">
+                AND Hdate &lt;= #{endtime}
+            </if>
+            <if test="cname!=null">
+                AND Haudit = '1'
+            </if>
+            <if test="cname==null">
+                AND Haudit = '1'
+            </if>
+
+        </where>
+    </select>
+
+    <!--审核-->
+    <update id="pass">
+        UPDATE Honor SET Haudit = '1' , message = #{message} WHERE Hsn = #{majorkey}
+    </update>
+
+    <update id="nopass">
+        UPDATE Honor SET Haudit = '2' , message = #{message} WHERE Hsn = #{majorkey}
+    </update>
+
+    <!--保存附件路径-->
+    <update id="savePath">
+        update Honor set Haccessory = #{path} WHERE Hsn = #{majorkey}
+    </update>
+
+    <!--查询附件路径-->
+    <select id="getPath" resultType="String">
+        SELECT Haccessory FROM Honor WHERE Hsn = #{majorkey}
+    </select>
+
+    <!--查询各学院项目数目-->
+    <select id="getCollegeCount" resultType="java.util.HashMap">
+        select a.Cname,COUNT(b.Cname) as count from (select Cname from College) a left join
+        (select Cname from Honor p join Teacher t on p.Tsn = t.Tsn join College c on t.Csn = c.Csn
+        <where>
+            <if test="starttime!=null and starttime!='' and starttime!='null'">
+                Hdate &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!='' and endtime!='null'">
+                and Hdate &lt;= #{endtime}
+            </if>
+        </where>
+        )b on a.Cname = b.Cname group by a.Cname
+    </select>
+
+    <!--查询各专业项目数目-->
+    <select id="getSdeptCount" resultType="java.util.HashMap">
+        select a.Dname,COUNT(b.Dname) as count from
+        (select Dname from Sdept s  join College c on c.Csn = s.Csn
+        <where>
+            <if test="cname!=null and cname!='' and cname!='null'">
+                and Cname = #{cname}
+            </if>
+        </where>
+        ) as a  left join (select Dname from Honor p join Teacher t on p.Tsn = t.Tsn
+        join College c on t.Csn = c.Csn join Sdept s on t.Dsn = s.Dsn
+        <where>
+            <if test="starttime!=null and starttime!='' and starttime!='null'">
+                Hdate &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!='' and endtime!='null'">
+                and Hdate &lt;= #{endtime}
+            </if>
+            <if test="cname!=null and cname!='' and cname!='null'">
+                and Cname = #{cname}
+            </if>
+        </where>
+        ) as b on a.Dname = b.Dname group by a.Dname
+    </select>
+
+    <!--查询近年来的各学院项目数-->
+    <select id="getRecentYearsCount" resultType="java.util.HashMap">
+        select a.Cname,COUNT(b.Cname) as count from (select Cname from College) a left join
+        (select Cname from Honor p JOIN Teacher t on p.Tsn = t.Tsn join College c on t.Csn = c.Csn
+        <where>
+            <if test="starttime!=null and starttime!='' and starttime!='null'">
+                Hdate &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!='' and endtime!='null'">
+                and Hdate &lt;= #{endtime}
+            </if>
+        </where>
+        ) b on a.Cname = b.Cname group by a.Cname
+    </select>
+
+    <!--查询近年来的各专业项目数-->
+    <select id="getRecentYearsSdeptCount" resultType="java.util.HashMap">
+        select a.Dname,COUNT(b.Dname) as count from
+        (select Dname from Sdept s  join College c on c.Csn = s.Csn
+        <where>
+            <if test="cname!=null and cname!='' and cname!='null'">
+                and Cname = #{cname}
+            </if>
+        </where>
+        ) as a  left join (select Dname from Honor p join Teacher t on p.Tsn = t.Tsn
+        join College c on t.Csn = c.Csn join Sdept s on t.Dsn = s.Dsn
+        <where>
+            <if test="starttime!=null and starttime!='' and starttime!='null'">
+                Hdate &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!='' and endtime!='null'">
+                and Hdate &lt;= #{endtime}
+            </if>
+            <if test="cname!=null and cname!='' and cname!='null'">
+                and Cname = #{cname}
+            </if>
+        </where>
+        ) as b on a.Dname = b.Dname group by a.Dname
+    </select>
+
+    <!--导入excel-->
+    <insert id="importExcel" parameterType="java.util.List">
+        insert into Honor
+        (hsn,hname,tsn,department,hdate,hcompany,hgrad,hremarks
+        )values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.hsn,jdbcType=CHAR},#{item.hname,jdbcType=CHAR},#{item.tsn,jdbcType=CHAR},#{item.department,jdbcType=CHAR}
+            ,#{item.hdate,jdbcType=CHAR},#{item.hcompany,jdbcType=CHAR},#{item.hgrad,jdbcType=CHAR},#{item.hremarks,jdbcType=CHAR}
+            )
+        </foreach>
+    </insert>
 </mapper>

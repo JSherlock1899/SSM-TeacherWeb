@@ -24,6 +24,12 @@ public class Condition {
         this.tname = tname;
     }
 
+    public Condition(String cname, String dname, String tname) {
+        this.cname = cname;
+        this.dname = dname;
+        this.tname = tname;
+    }
+
     public Condition() {
     }
 

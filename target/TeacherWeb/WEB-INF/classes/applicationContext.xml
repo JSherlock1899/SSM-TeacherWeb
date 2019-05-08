@@ -2,6 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
@@ -11,23 +12,24 @@
 		http://www.springframework.org/schema/aop
 		http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 		http://www.springframework.org/schema/tx
-		http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+		http://www.springframework.org/schema/tx/spring-tx-4.3.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <!--自动扫描Service-->
     <context:component-scan base-package="com.slxy.edu.service"/>
-    <!--自动扫描util-->
-    <context:component-scan base-package="com.slxy.edu.util"/>
 
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="location" value="classpath:db"></property>
     </bean>
 
     <!-- 配置数据源 -->
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="${sqlserver.driver}"></property>
-        <property name="url" value="${sqlserver.url}"></property>
-        <property name="username" value="${sqlserver.username}"></property>
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <!-- 注入相应的属性 -->
+        <property name="DriverClass" value="${sqlserver.driver}"></property>
+        <property name="jdbcUrl" value="${sqlserver.url}"></property>
+        <property name="user" value="${sqlserver.username}"></property>
         <property name="password" value="${sqlserver.password}"></property>
+        <!--连接关闭时默认将所有未提交的操作回滚。Default: false -->
+        <property name="autoCommitOnClose" value="false"></property>
     </bean>
     <!-- 配置sessionFactory -->
     <bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactoryBean">
@@ -53,6 +55,7 @@
                 </bean>
             </array>
         </property>
+
     </bean>
 
     <!--自动生成dao,mapper-->
@@ -64,10 +67,17 @@
 
 
     <!-- 配置事务-->
-    <!-- 5.配置事务管理器 -->
-    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"/>
+    <!-- 创建事务管理对象 -->
+    <bean id="tx" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
     </bean>
-    <!-- 6.开启事务注解-->
-    <tx:annotation-driven></tx:annotation-driven>
+    <!-- 启用注解事务 -->
+    <tx:annotation-driven transaction-manager="tx" />
+
+
+
+
+
+
+
 </beans>

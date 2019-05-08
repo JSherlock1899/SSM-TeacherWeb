@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.slxy.edu.mapper.TeacherMapper">
+
+    <select id="selectProject" resultType="Project" >
+        select Psn,Pname,Pmember,Pgrad,Pkind,Pmoney,Pstatime,Pcondition,Pendtime,Premarks,Pleader,Paccessory,contractType,Tname FROM Project p JOIN Teacher t ON p.Tsn = t.Tsn
+          <where>
+              <if test="tsn!=null">
+                  p.Tsn = #{tsn}
+              </if>
+          </where>
+    </select>
+
+    <select id="selectPaper" resultType="Paper" >
+        select Pasearchnum,Paname,Pawriter,Papublish,Padate,Pagrad,Paremarks,Pdisvol,Paccessory,dependence,Tname FROM Paper p JOIN Teacher t ON p.Tsn = t.Tsn
+        <where>
+            <if test="tsn!=null">
+                p.Tsn = #{tsn}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectHonor" resultType="Honor" >
+        select Hsn,Hname,Hwinner,Hdate,Hcompany,Hgrad,Hremarks,Haccessory,department,Tname FROM Honor h JOIN Teacher t ON h.Tsn = t.Tsn
+        <where>
+            <if test="tsn!=null">
+                h.Tsn = #{tsn}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectPatent" resultType="Patent" >
+        select Patname,Patsn,Patapdate,Patendate,Patgrad,Patremarks,Paccessory,paudit,message,inventor,Tname FROM Patent p JOIN Teacher t ON p.Tsn = t.Tsn
+        <where>
+            <if test="tsn!=null">
+                p.Tsn = #{tsn}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectOther" resultType="Other" >
+        select other_name,other_date,publisher,accessory,other_type,other_describe,Tname,o.Tsn FROM Other o JOIN Teacher t ON o.Tsn = t.Tsn
+        <where>
+            <if test="tsn!=null">
+                o.Tsn = #{tsn}
+            </if>
+        </where>
+    </select>
+
+
+    <!--导出excel-->
+    <select id="exportProject" resultType="ExcelProject" >
+        select Psn,Pname,t.Tsn,Tname,Pmember,Pcondition,Pgrad,Pkind,Pmoney,Pstatime,Pendtime,contractType,Cname,Dname,Tedubackground,JobTitle,Premarks FROM Project p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+        <where>
+            <if test="tsn!=null">
+                p.Tsn = #{tsn}
+            </if>
+        </where>
+    </select>
+
+    <select id="exportPaper" resultType="ExcelPaper" >
+        select pasearchnum,paname,t.Tsn,Tname,pawriter,papublish,padate,pagrad,pdisvol,dependence,Cname,Dname,Tedubackground,JobTitle,paremarks FROM Paper p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+        <where>
+            <if test="tsn!=null">
+                p.Tsn = #{tsn}
+            </if>
+        </where>
+    </select>
+
+    <select id="exportHonor" resultType="ExcelHonor" >
+        select hsn,hname,t.Tsn,Tname,department,hdate,hcompany,hgrad,Cname,Dname,Tedubackground,JobTitle,hremarks FROM Honor h JOIN Teacher t ON h.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+        <where>
+            <if test="tsn!=null">
+                h.Tsn = #{tsn}
+            </if>
+        </where>
+    </select>
+    <select id="exportPatent" resultType="ExcelPatent" >
+        select Patname,Patsn,Patapdate,Patendate,Patgrad,inventor,t.Tsn,Tname,Cname,Dname,Tedubackground,JobTitle,Patremarks FROM Patent p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+        <where>
+            <if test="tsn!=null">
+                p.Tsn = #{tsn}
+            </if>
+        </where>
+    </select>
+
+    <select id="exportOther" resultType="ExcelOther" >
+        select other_name,t.tsn,Tname,other_type,other_date,publisher,Cname,Dname,Tedubackground,JobTitle,other_describe FROM Other o JOIN Teacher t ON o.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+        <where>
+            <if test="tsn!=null">
+                o.Tsn = #{tsn}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectCollegeByTsn" resultType="String" >
+        select Cname FROM Teacher t  JOIN College c ON c.Csn = t.Csn
+        <where>
+            <if test="tsn!=null">
+                t.Tsn = #{tsn}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectAll" resultType="Teacher" >
+        select Tsn,Tname,Tsex,Tdegree,Tedubackground,Tresdirection,Tdateofbirth,JobTitle,Cname,Dname FROM Teacher t JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+        <where>
+            <if test="tname!=null and tname!='' and tname!='null'">
+                AND Tname = #{tname}
+            </if>
+            <if test="cname!=null and cname!='' and cname!='null'">
+                AND Cname = #{cname}
+            </if>
+            <if test="dname!=null and dname!='' and dname!='null' and dname!='请选择所在专业'">
+                AND Dname = #{dname}
+            </if>
+        </where>
+    </select>
+
+    <!--修改教师信息-->
+    <update id="update">
+        UPDATE Teacher SET Tname=#{entity.tname},
+        Tsex=#{entity.tsex},Tdegree=#{entity.tdegree},
+        Tedubackground=#{entity.tedubackground},
+        Tresdirection=#{entity.tresdirection},
+        Tdateofbirth=#{entity.tdateofbirth},
+        JobTitle=#{entity.jobTitle},
+        Csn=#{entity.csn},
+        Dsn=#{entity.dsn}
+        WHERE Tsn=#{entity.tsn}
+    </update>
+
+    <!--获取当前教师的学院号-->
+    <select id="getCsn" resultType="String">
+        select c.Csn from College c join Sdept s on c.Csn = s.Csn where s.Dname = #{Dname}
+    </select>
+
+    <!--获取当前教师的专业号-->
+    <select id="getDsn" resultType="String">
+        select Dsn from College c join Sdept s on c.Csn = s.Csn where s.Dname = #{Dname}
+    </select>
+
+    <!--导入excel-->
+    <insert id="importExcel" parameterType="java.util.List">
+        insert into Teacher
+        (Tsn,Tname,Tsex,Tdegree,Tedubackground,Tresdirection,Tdateofbirth,JobTitle,Csn,Dsn)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.tsn,jdbcType=CHAR},#{item.tname,jdbcType=CHAR},#{item.tsex,jdbcType=CHAR},#{item.tdegree,jdbcType=CHAR},#{item.tedubackground,jdbcType=CHAR}
+            ,#{item.tresdirection,jdbcType=CHAR} ,#{item.tdateofbirth,jdbcType=CHAR} ,#{item.jobTitle,jdbcType=CHAR},#{item.csn,jdbcType=CHAR} ,#{item.dsn,jdbcType=CHAR}
+            )
+        </foreach>
+    </insert>
+</mapper>

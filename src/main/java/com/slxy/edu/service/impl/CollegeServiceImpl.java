@@ -24,14 +24,12 @@ public class CollegeServiceImpl implements ICollegeService {
 
     @Override
     public List<String> selectAllCollegeName() {
-        List<String> collegeList = collegeMapper.selectAllCollegeName();
-        return collegeList;
+        return collegeMapper.selectAllCollegeName();
     }
 
     @Override
     public String getCname(String Csn) {
-        String Cname = collegeMapper.getCname(Csn);
-        return Cname;
+        return collegeMapper.getCname(Csn);
     }
 
 

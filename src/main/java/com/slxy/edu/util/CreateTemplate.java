@@ -12,6 +12,7 @@ import org.jdom.input.SAXBuilder;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.net.URL;
 import java.util.List;
 
 public class CreateTemplate {
@@ -41,8 +42,8 @@ public class CreateTemplate {
     @SuppressWarnings("unchecked")
     public  void createExcel(HttpServletResponse response,String name) {
         // 获取解析xml文件路径
-        String path =  this.getClass().getResource("").getPath() + "template/" + name + ".xml";
-        File file = new File(path);
+        URL url = CreateTemplate.class.getClassLoader().getResource("template/" + name + ".xml");
+        File file = new File(url.getFile());
         SAXBuilder builder = new SAXBuilder();
         try {
             // 解析xml文件
@@ -136,9 +137,9 @@ public class CreateTemplate {
             FileOutputStream stream = FileUtils.openOutputStream(tempFile);
             wb.write(stream);
             stream.close();
-            CommonUtil commonUtil = new CommonUtil();
+            CommonUtils commonUtils = new CommonUtils();
             String filepath = "D://" + templateName + ".xls";
-            commonUtil.download(filepath, response);
+            commonUtils.download(filepath, response);
         } catch (Exception e) {
             e.printStackTrace();
         }

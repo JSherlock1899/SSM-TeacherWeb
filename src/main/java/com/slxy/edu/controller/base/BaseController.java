@@ -16,6 +16,7 @@ public class BaseController<T> {
     public static String HONOR_PAGE;
     public static String PATENT_PAGE;
     public static String OTHER_PAGE;
+    public static String[] yearsArr = {"2015","2016","2017","2018","2019","2020"};
 
     public static final String PROJECT = "findProject.do";
     public static final String PAPER = "findPaper.do";

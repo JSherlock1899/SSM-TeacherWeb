@@ -12,16 +12,15 @@
     <title>其他成果查询</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/CSS/bootstrap.css">
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/ajaxOtherData.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/ajax/ajaxOtherData.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/commonUse.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/bootstrap-table.js"></script>
-    <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/ajaxSelect.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/ajax/ajaxSelect.js"></script>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/CSS/style.css">
 </head>
 <body>
 <%
     PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
-    List<Other> others = pageInfo.getList();
     Condition condition = (Condition) request.getAttribute("condition");
 %>
 <div class="table-main col-md-12">
@@ -35,14 +34,15 @@
     <div class="row">
         <div class="col-md-11 col-md-offset-1 ">
             <div class="col-md-10 button-div form-inline">
-                <a href="../servlet/DownloadTemplate?count=4" class="btn btn-success">下载模板</a>
-                <form method="post" enctype="multipart/form-data" action="" class="form-group importform">
+                <a href="<%=request.getContextPath()%>/poi/getTemplate.do?name=other" class="btn btn-success">下载模板</a>
+                <form method="post" enctype="multipart/form-data" action="<%=request.getContextPath()%>/other/importExcel.do" class="form-group importform">
                     <input type="file" id="file" name="file" class="btn btn-info" style="display: none" onchange="$('.importform').submit()">
-                    <input type="button" name="" value="导入"  class="btn btn-info" id="imporFileButton">
+                    <input type="button" name="" value="导入"  class="btn btn-info" id="importFileButton">
                 </form>
-                <form action=""  method="post" id="OtherForm" class="form-group">
+                <form action="<%=request.getContextPath()%>/other/export.do?&cname=<%=condition.getCname()%>
+                            &dname=<%=condition.getDname()%>&starttime=<%=condition.getStarttime()%>&endtime=<%=condition.getEndtime()%>&tname=<%=condition.gettname()%>"  method="post" id="ProjectForm" class="form-group">
                     <input type="submit" value="导出" id="submitChecked" class="btn btn-info">
-
+                </form>
             </div>
             <table border="1" id="table" class="table table-striped table-bordered table-hover table-condensed">
                 <tr class="info">
@@ -63,7 +63,8 @@
                         <td>${others.publisher}</td>
                         <td>${others.other_describe}</td>
                         <td>
-                            <a href="">查看附件</a>
+                            <a href="/file/download.do?model=other&majorkey=${others.other_name}&name=${others.other_name}" class="Download">查看附件</a>
+                            <input type="hidden" class="accessoryPath" value="${others.accessory}"/>
                         </td>
                     </tr>
                 </c:forEach>
@@ -107,20 +108,40 @@
                         </li>
                         <li><a href="${pageContext.request.contextPath}/other/findOther.do?pn=${pageInfo.pages}&cname=<%=condition.getCname()%>
                             &dname=<%=condition.getDname()%>&starttime=<%=condition.getStarttime()%>&endtime=<%=condition.getEndtime()%>&tname=<%=condition.gettname()%>">尾页</a></li>
-                        <!--文字信息-->
-                        <div class="form-group pull-right">
-                            <span>当前第 ${pageInfo.pageNum} 页.总共 ${pageInfo.pages} 页</span>
-                            <input type="text" class="pageVal" style="width:100px;">
-                            <button type="submit" class="btn btn-default " onclick="skipPage()">GO</button>
-                        </div>
                     </ul>
+                    <!--文字信息-->
+                    <div class="form-group pull-right">
+                        <span>当前第 ${pageInfo.pageNum} 页.总共 ${pageInfo.pages} 页</span>
+                        <input type="text" class="pageVal" style="width:100px;margin-top: 25px;">
+                        <button type="submit" class="btn btn-default" style="margin-right: 20px" id="skipPage">GO</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <script type="text/javascript">
-
+    //跳转到指定页码
+    $(document).on("click","#skipPage",function () {
+        //页码输入框输入的数
+        var pageVal = $('.pageVal').val();
+        //总页数
+        var totalPage = $('#totalPage').val();
+        if(pageVal > totalPage){
+            alert('请输入正确的页码！');
+            return
+        }
+        if(pageVal == ""){
+            alert('页码不能为空！');
+            return
+        }
+        if(!isNaN(pageVal)){
+            window.location.href = "${pageContext.request.contextPath}/other/findOther.do?pn=" + pageVal + "&cname=<%=condition.getCname()%>\n" +
+                "&dname=<%=condition.getDname()%>&starttime=<%=condition.getStarttime()%>&endtime=<%=condition.getEndtime()%>&tname=<%=condition.gettname()%>";
+        }else {
+            alert('请输入数字！')
+        }
+    })
 </script>
 </body>
 </html>

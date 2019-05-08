@@ -26,45 +26,38 @@
 			                document.getElementById("search").style.display = "block";
 			            }
 			        }
-		
-		
-	
-	    
-	    
-	    //处理分页页码问题
-	    $(function(){
-	    	var totalPage = $('#totalPage').val();
-	    	var currentPage = $('#currentPage').val();
-	    	if(totalPage < 3){
-	    		$('#page3').hide();
-	    	}
-	    	if(totalPage<2){
-	    		$('#page2').hide();
-	    	}
-	    	if(currentPage == 1){					//首页和尾页时分别隐藏对应按钮
-				$('#pre').css("display","none");
-			}
-			
-			if(currentPage == totalPage){
-				$('#next').css("display","none");
-			}
-	    })
-	    
 
-	    //点击上传文件时打开文件上传选择窗口
-	    $(function(){
-	    	$('#imporFileButton').on("click",function(){
-	    		$('#file').click();
-	    	})
-	    })
-		
-	    //验证是否存在附件
-		$(document).on("click",".Download",function(ev){
-			var accessoryPath = $(this).closest("tr").find(".accessoryPath").val();
-	    	if(accessoryPath == "" || accessoryPath == null || accessoryPath == "null"){
-	    		alert('尚未上传附件！');
-	    		ev.preventDefault();
-	    		return;
-	    	}
-		})
-	   
+
+	//验证是否存在附件
+	$(document).on("click",".Download",function(ev){
+		var accessoryPath = $(this).closest("tr").find(".accessoryPath").val();
+		var accessoryPath1 = $(".accessoryPath").val();
+		if(accessoryPath == "" || accessoryPath == null || accessoryPath == "null"){
+			alert('尚未上传附件！');
+			ev.preventDefault();
+			return;
+		}
+		if(accessoryPath1 == "" || accessoryPath1 == null || accessoryPath1 == "null"){
+			alert('尚未上传附件！');
+			ev.preventDefault();
+			return;
+		}
+	})
+
+
+//点击上传文件时打开文件上传选择窗口
+$(function(){
+    $(document).on("click","#importFileButton",function(){
+        $('#file').click();
+    })
+})
+
+
+
+function checkNubmer(input) {
+    var nubmer = $("#suerId").val();
+    var re = /^[0-9]+.?[0-9]*/;//判断字符串是否为数字//判断正整数/[1−9]+[0−9]∗]∗/
+    if (!re.test(nubmer)) {
+        alert("请输入数字");
+    }
+}

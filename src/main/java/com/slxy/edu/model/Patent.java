@@ -8,7 +8,7 @@ public class Patent {
   private String patsn;
   private String patapdate;
   private String patendate;
-  private String patgrad;
+  private String patgrad; //类型
   private String patremarks;
   private String tsn;
   private String paccessory;
@@ -50,6 +50,32 @@ public class Patent {
     this.dnane = dnane;
   }
 
+  public Patent(String patname, String patsn, String patapdate, String patendate, String patgrad, String patremarks, String paccessory, String paudit, String message, String inventor, String tname) {
+    this.patname = patname;
+    this.patsn = patsn;
+    this.patapdate = patapdate;
+    this.patendate = patendate;
+    this.patgrad = patgrad;
+    this.paccessory = paccessory;
+    this.patremarks = patremarks;
+    this.paudit = paudit;
+    this.message = message;
+    this.inventor = inventor;
+    this.tname = tname;
+  }
+
+  public Patent(String patname, String patsn, String patapdate, String patendate, String patgrad, String patremarks, String inventor, String tsn,String paudit) {
+    this.patname = patname;
+    this.patsn = patsn;
+    this.patapdate = patapdate;
+    this.patendate = patendate;
+    this.patgrad = patgrad;
+    this.patremarks = patremarks;
+    this.inventor = inventor;
+    this.tsn = tsn;
+    this.paudit = paudit;
+  }
+
   public long getPatnum() {
     return patnum;
   }
@@ -72,22 +98,6 @@ public class Patent {
 
   public void setPatsn(String patsn) {
     this.patsn = patsn;
-  }
-
-  public String getpatapdate() {
-    return patapdate;
-  }
-
-  public void setpatapdate(String patapdate) {
-    this.patapdate = patapdate;
-  }
-
-  public String getpatendate() {
-    return patendate;
-  }
-
-  public void setpatendate(String patendate) {
-    this.patendate = patendate;
   }
 
   public String getPatgrad() {
@@ -168,5 +178,21 @@ public class Patent {
 
   public void setDnane(String dnane) {
     this.dnane = dnane;
+  }
+
+  public String getPatapdate() {
+    return patapdate;
+  }
+
+  public void setPatapdate(String patapdate) {
+    this.patapdate = patapdate;
+  }
+
+  public String getPatendate() {
+    return patendate;
+  }
+
+  public void setPatendate(String patendate) {
+    this.patendate = patendate;
   }
 }

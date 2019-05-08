@@ -1,8 +1,5 @@
 package com.slxy.edu.service.base;
 
-import com.slxy.edu.mapper.PatentMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-
 /**
  * @program: TeacherWeb
  * @description:
@@ -12,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public abstract class BaseServiceImpl<T> implements IBaseService<T> {
 
-    @Autowired
-    protected PatentMapper patentMapper;
+//    @Autowired
+//    protected PatentMapper patentMapper;
+
 }

@@ -26,5 +26,23 @@
         select * from Admin where Aname=#{username}
     </select>
 
+    <select id="getTeacherInformation" resultType="Teacher" >
+        select * from Teacher where Tsn=#{Tsn}
+    </select>
 
+    <select id="verifyAdminPassword" resultType="String">
+        select Apsw from Admin where Aname = #{Aname}
+    </select>
+
+    <select id="verifyTeacherPassword" resultType="String">
+        select Tpsw from Teacher where Tsn = #{Tsn}
+    </select>
+
+    <update id="alterAdminPassword">
+        update Admin set Apsw = #{newPassword} where Aname = #{Aname}
+    </update>
+
+    <update id="alterTeacherPassword">
+        update Teacher set Tpsw = #{newPassword} where Tsn = #{Tsn}
+    </update>
 </mapper>

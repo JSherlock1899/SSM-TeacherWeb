@@ -39,6 +39,7 @@
     <poi-ooxml.version>3.8</poi-ooxml.version>
     <jdom.version>1.1</jdom.version>
     <commons-lang3.version>3.3.1</commons-lang3.version>
+    <json.version>2.4.0</json.version>
   </properties>
 
   <dependencies>
@@ -77,7 +78,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
-      <version>${spring.version}</version>
+      <version>4.3.14.RELEASE</version>
     </dependency>
     <!-- expression -->
     <dependency>
@@ -224,6 +225,24 @@
       <artifactId>jdom</artifactId>
       <version>${jdom.version}</version>
     </dependency>
+    <!--json-->
+    <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>1.2.7</version>
+    </dependency>
+      <!-- https://mvnrepository.com/artifact/org.json/json -->
+      <!--<dependency>-->
+          <!--<groupId>org.json</groupId>-->
+          <!--<artifactId>json</artifactId>-->
+          <!--<version>20160810</version>-->
+      <!--</dependency>-->
+      <dependency>
+          <groupId>org.apache.commons</groupId>
+          <artifactId>commons-collections4</artifactId>
+          <version>4.1</version>
+      </dependency>
   </dependencies>
 
   <build>

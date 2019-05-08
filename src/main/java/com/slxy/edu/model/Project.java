@@ -3,7 +3,7 @@ package com.slxy.edu.model;
 
 public class Project {
 
-    private Integer pnum;
+  private Integer pnum;
   private String psn;
   private String pname;
   private String pmember;
@@ -19,7 +19,7 @@ public class Project {
   private String paccessory;
   private String paudit;
   private String message;
-  private String contractType;
+  private String contractType;//合同类型
   private String tname;
   private String cname;
   private String dnane;
@@ -46,7 +46,60 @@ public class Project {
     this.dnane = dnane;
   }
 
-  public Integer getPnum() {
+  public Project(String psn, String pname, String pmember, String pgrad, String pkind, Integer pmoney, String pstatime, String pcondition, String pendtime, String premarks, String pleader, String paccessory, String contractType, String tname) {
+    this.psn = psn;
+    this.pname = pname;
+    this.pmember = pmember;
+    this.pgrad = pgrad;
+    this.pkind = pkind;
+    this.pmoney = pmoney;
+    this.pstatime = pstatime;
+    this.pcondition = pcondition;
+    this.pendtime = pendtime;
+    this.premarks = premarks;
+    this.pleader = pleader;
+    this.paccessory = paccessory;
+    this.contractType = contractType;
+    this.tname = tname;
+  }
+
+  public Project(String psn, String pname, String pmember, String pgrad, String pkind, Integer pmoney, String pstatime, String pcondition, String pendtime, String premarks, String pleader, String paccessory, String paudit, String message, String contractType, String tname) {
+    this.psn = psn;
+    this.pname = pname;
+    this.pmember = pmember;
+    this.pgrad = pgrad;
+    this.pkind = pkind;
+    this.pmoney = pmoney;
+    this.pstatime = pstatime;
+    this.pcondition = pcondition;
+    this.pendtime = pendtime;
+    this.premarks = premarks;
+    this.pleader = pleader;
+    this.paccessory = paccessory;
+    this.paudit = paudit;
+    this.message = message;
+    this.contractType = contractType;
+    this.tname = tname;
+  }
+
+    public Project(String psn, String pleader, String pname, String pmember, String pgrad, String pkind, String contractType, Integer pmoney, String pstatime, String pcondition, String pendtime, String premarks, String tsn, String paudit) {
+      this.psn = psn;
+      this.pname = pname;
+      this.pmember = pmember;
+      this.pgrad = pgrad;
+      this.pkind = pkind;
+      this.pmoney = pmoney;
+      this.pstatime = pstatime;
+      this.pcondition = pcondition;
+      this.pendtime = pendtime;
+      this.premarks = premarks;
+      this.tsn = tsn;
+      this.pleader = pleader;
+      this.paudit = paudit;
+      this.contractType = contractType;
+    }
+
+    public Integer getPnum() {
     return pnum;
   }
 

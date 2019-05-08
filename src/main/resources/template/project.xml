@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<excel id="project" code="project" name="项目信息导入">
+    <colgroup>
+        <col index="A" width='17em'></col>
+        <col index="B" width='17em'></col>
+        <col index="C" width='17em'></col>
+        <col index="D" width='17em'></col>
+        <col index="E" width='17em'></col>
+        <col index="F" width='17em'></col> 
+        <col index="G" width='17em'></col>              
+        <col index="H" width='17em'></col>              
+        <col index="I" width='17em'></col>
+        <col index="J" width='17em'></col>
+        <col index="K" width='17em'></col> 
+        <col index="L" width='17em'></col>
+        <col index="M" width='17em'></col>
+    </colgroup>
+    <title>
+        <tr height="16px">
+            <td rowspan="1" colspan="13" value="项目信息导入" />
+        </tr>
+    </title>
+	<thead>
+        <tr height="16px">
+        	<th value="项目编号" />
+            <th value="项目名称" />
+            <th value="工号" />
+            <th value="成员" />
+            <th value="科研状态" />
+            <th value="级别" />
+            <th value="类型" />
+            <th value="经费" />
+            <th value="立项时间" />
+            <th value="结题时间" />
+            <th value="合同类型" />
+            <th value="备注" />            
+        </tr>
+    </thead>
+    <tbody>
+        <tr height="16px" firstrow="2" firstcol="0" repeat="5">
+            <td type="string" isnullable="false" maxlength="30" />
+            <td type="string" isnullable="false" maxlength="30" />
+            <td type="string" isnullable="false" maxlength="30" />
+            <td type="string" isnullable="true" maxlength="30"  />
+            <td type="string" isnullable="true" maxlength="30"  />
+            <td type="string" isnullable="true" maxlength="30"  />
+            <td type="string" isnullable="true" maxlength="30"  />
+             <td type="string" isnullable="true" maxlength="30"  />
+             <td type="string" isnullable="true" maxlength="30"  />
+            <td type="string" isnullable="true" maxlength="30"  />
+             <td type="string" isnullable="true" maxlength="30"  />
+             <td type="string" isnullable="true" maxlength="30"  />
+        </tr>
+    </tbody>
+</excel>

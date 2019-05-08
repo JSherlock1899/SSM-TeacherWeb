@@ -38,7 +38,51 @@ public class Honor {
     this.dnane = dnane;
   }
 
-  public long getHnum() {
+  public Honor(String hsn, String hname, String hwinner, String hdate, String hcompany, String hgrad, String hremarks, String haccessory, String department, String tname) {
+    this.hsn = hsn;
+    this.hname = hname;
+    this.hwinner = hwinner;
+    this.hdate = hdate;
+    this.hcompany = hcompany;
+    this.hgrad = hgrad;
+    this.hremarks = hremarks;
+    this.haccessory = haccessory;
+    this.department = department;
+    this.tname = tname;
+  }
+
+  public Honor(String hsn, String hname, String hwinner, String hdate, String hcompany, String hgrad, String hremarks, String tsn, String haudit, String message, String department,String tname) {
+    this.hsn = hsn;
+    this.hname = hname;
+    this.hwinner = hwinner;
+    this.hdate = hdate;
+    this.hcompany = hcompany;
+    this.hgrad = hgrad;
+    this.hremarks = hremarks;
+    this.tsn = tsn;
+    this.haudit = haudit;
+    this.message = message;
+    this.department = department;
+    this.tname = tname;
+  }
+
+  public Honor(String hsn, String hname, String hwinner, String hdate, String hcompany, String hgrad, String hremarks,  String haudit, String haccessory, String message, String department) {
+    this.hsn = hsn;
+    this.hname = hname;
+    this.hwinner = hwinner;
+    this.hdate = hdate;
+    this.hcompany = hcompany;
+    this.hgrad = hgrad;
+    this.hremarks = hremarks;
+    this.haudit = haudit;
+    this.haccessory = haccessory;
+    this.message = message;
+    this.department = department;
+  }
+
+
+
+    public long getHnum() {
     return hnum;
   }
 
