@@ -3,29 +3,6 @@
  */
 
 
-//删
-$(document).on("click",".delete",function(e,url){
-        var Hsn = $(this).closest("tr").find(".Hsn").text();
-        $.ajax({
-        	url:"../servlet/HonorServlet?value=1",
-            type:"post",
-            datatype:"json",
-            data:{
-                "Hsn" : Hsn
-            },
-            success : function(msg){
-                
-                    alert("删除成功");
-                    $(e.target).closest("tr").fadeOut();
-                    window.location.reload();
-            },
-            error:function(msg){  
-                alert('请求出现错误...');  
-            }
-        });
-    });
-
-
 $(document).on("click","#btn_update",function () {
     $("#myModalLabel").text("修改荣誉信息");
     $('#myModal').modal();
@@ -196,7 +173,6 @@ $(document).on("click","#pass",function(){
         },
         success : function(result){
             alert("操作成功");
-            location.reload();
         },
         error:function(result){
             alert('请求出现错误...');
@@ -218,7 +194,6 @@ $(document).on("click","#nopass",function(){
         },
         success : function(result){
             alert("操作成功");
-            location.reload();
         },
         error:function(result){
             alert('请求出现错误...');

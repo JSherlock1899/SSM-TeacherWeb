@@ -5,7 +5,7 @@
 <mapper namespace="com.slxy.edu.mapper.PaperMapper">
 
     <select id="selectAll" resultType="Paper" >
-        select Pasearchnum,Paname,Pawriter,Papublish,Padate,Pagrad,Paremarks,Pdisvol,Paccessory,Paudit,message,dependence,Cname,Dname,Tname,t.Tsn FROM Paper p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+        select Pasearchnum,Paname,Pawriter,Papublish,Padate,Pagrad,Paremarks,Pdisvol,Paccessory,Paudit,p.message,dependence,Cname,Dname,Tname,t.Tsn FROM Paper p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
           <where>
               <if test="tname!=null and tname!='' and tname!='null'">
                   Tname = #{tname}
@@ -32,7 +32,7 @@
     </select>
 
     <select id="selectAllUnaudit" resultType="Paper" >
-        select Pasearchnum,Paname,Pawriter,Papublish,Padate,Pagrad,Paremarks,Pdisvol,Paccessory,Paudit,message,dependence,Cname,Dname,Tname FROM Paper p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+        select Pasearchnum,Paname,Pawriter,Papublish,Padate,Pagrad,Paremarks,Paudit,Pdisvol,Paccessory,p.message,dependence,Tname,Cname,Dname FROM Paper p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
           <where>
               <if test="tname!=null and tname!='' and tname!='null'">
                   Tname = #{tname}
@@ -59,7 +59,7 @@
     </select>
 
     <select id="selectByMajorKey" resultType="Paper">
-        select Pasearchnum,Paname,Pawriter,Papublish,Padate,Pagrad,t.Tsn,Paremarks,Pdisvol,Paccessory,Paudit,message,dependence,Tname FROM Paper p JOIN Teacher t ON p.Tsn = t.Tsn WHERE Pasearchnum = #{Pasearchnum}
+        select Pasearchnum,Paname,Pawriter,Papublish,Padate,Pagrad,t.Tsn,Paremarks,Pdisvol,Paccessory,Paudit,p.message,dependence,Tname FROM Paper p JOIN Teacher t ON p.Tsn = t.Tsn WHERE Pasearchnum = #{Pasearchnum}
     </select>
 
     <!--更新数据，重新提交-->
@@ -87,8 +87,8 @@
         #{entity.pdisvol},
         #{entity.padate},
         #{entity.pagrad},
-        #{entity.paremarks},
         #{entity.dependence},
+        #{entity.paremarks},
         #{entity.tsn},
         #{entity.paudit})
     </insert>

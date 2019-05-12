@@ -21,7 +21,6 @@
 <body>
 <%
     PageInfo pageInfo = (PageInfo) request.getAttribute("pageInfo");
-    List<Project> projects = pageInfo.getList();
     Condition condition = (Condition) request.getAttribute("condition");
 %>
 <div class="table-main col-md-12">
@@ -39,7 +38,6 @@
                     <th>项目编号</th>
                     <th>项目名称</th>
                     <th>负责人</th>
-                    <th>成员</th>
                     <th>级别</th>
                     <th>类型</th>
                     <th>经费</th>
@@ -47,7 +45,6 @@
                     <th>结题时间</th>
                     <th>科研状态</th>
                     <th>合同类型</th>
-                    <th>备注</th>
                     <th>附件</th>
                 </tr>
                 <c:forEach items="${projects}" var="projects">
@@ -55,7 +52,6 @@
                         <td><a href="${pageContext.request.contextPath}/project/goDetail.do?psn=${projects.psn}">${projects.psn}</a></td>
                         <td>${projects.pname}</td>
                         <td>${projects.tname}</td>
-                        <td>${projects.pmember}</td>
                         <td>${projects.pgrad}</td>
                         <td>${projects.pkind}</td>
                         <td>${projects.pmoney}</td>
@@ -63,7 +59,6 @@
                         <td>${projects.pendtime}</td>
                         <td>${projects.pcondition}</td>
                         <td>${projects.contractType}</td>
-                        <td>${projects.premarks}</td>
                         <td>
                             <a href="/file/download.do?model=project&majorkey=${projects.psn}&name=${projects.pname}" class="Download">查看附件</a>
                             <input type="hidden" class="accessoryPath" value="${projects.paccessory}"/>

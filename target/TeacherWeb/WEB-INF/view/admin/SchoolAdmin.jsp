@@ -178,6 +178,13 @@
 								class="sublist-icon glyphicon glyphicon-check"></span><span
 								class="sub-title">其他成果审核</span></a>
 						</li>
+						<li>
+							<div class="showtitle" style="width: 130px;">教师信息审核</div> <a
+							href="<%=request.getContextPath()%>/teacher/audit.do?cname=<%=Cname%>"
+							onclick="OtherAudit()" target="select_frame"><span
+								class="sublist-icon glyphicon glyphicon-check"></span><span
+								class="sub-title">教师信息审核</span></a>
+						</li>
 					</ul>
 				</div>
 				<div class="sBox otherAction">
@@ -188,7 +195,7 @@
 					<ul class="navContent" style="display: none">
 						<li>
 							<div class="showtitle" style="width: 100px;">教师管理</div> <a
-							href="<%=request.getContextPath()%>/teacher/findTeacher.do"
+							href="<%=request.getContextPath()%>/teacher/findTeacher.do?cname=<%=Cname%>"
 							onclick="Teacherchange()" target="select_frame"><span
 								class="sublist-icon glyphicon glyphicon-user"></span><span
 								class="sub-title">教师管理</span></a>

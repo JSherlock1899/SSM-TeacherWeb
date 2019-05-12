@@ -13,7 +13,7 @@
     </colgroup>
     <title>
         <tr height="16px">
-            <td rowspan="1" colspan="9" value="专利信息导入" />
+            <td rowspan="1" colspan="8" value="专利信息导入" />
         </tr>
     </title>
     <thead>
@@ -29,7 +29,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr height="16px" firstrow="2" firstcol="0" repeat="5">
+        <tr height="16px" firstrow="2" firstcol="0" repeat="1">
             <td type="string" isnullable="false" maxlength="30" />
             <td type="string" isnullable="false" maxlength="30" />
             <td type="string" isnullable="true" maxlength="30" />

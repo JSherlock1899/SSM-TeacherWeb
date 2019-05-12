@@ -58,7 +58,6 @@
                     <th>申请时间</th>
                     <th>授权时间</th>
                     <th>类型</th>
-                    <th>备注</th>
                     <th>附件</th>
                 </tr>
                 <c:forEach items="${patents}" var="patents">
@@ -70,9 +69,9 @@
                         <td>${patents.patapdate}</td>
                         <td>${patents.patendate}</td>
                         <td>${patents.patgrad}</td>
-                        <td>${patents.patremarks}</td>
                         <td>
                             <a href="/file/download.do?model=patent&majorkey=${patents.patsn}&name=${patents.patname}" class="Download">查看附件</a>
+                            <input type="hidden" class="accessoryPath" value="${patents.paccessory}"/>
                         </td>
                     </tr>
                 </c:forEach>
@@ -167,7 +166,7 @@
                             <div class="form-group">
                                 <label for="tname">专利权人</label>
                                 <input type="text" name="tname" value="<%=Tname%>" class="form-control" id="tname"
-                                       placeholder="发明人">
+                                       placeholder="专利权人" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="Patapdate">申请时间</label>

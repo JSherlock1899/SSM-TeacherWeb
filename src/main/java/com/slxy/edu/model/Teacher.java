@@ -19,6 +19,11 @@ public class Teacher {
   private String cname;
   private String dname;
 
+//  获取教师详细信息
+
+  public Teacher(String tname) {
+    this.tname = tname;
+  }
 
   public Teacher(String tsn, String tname, String tsex, String tdegree, String tedubackground, String tresdirection, String tdateofbirth, String jobTitle, String cname, String dname) {
     this.tsn = tsn;

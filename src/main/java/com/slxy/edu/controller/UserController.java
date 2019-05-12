@@ -1,7 +1,6 @@
 package com.slxy.edu.controller;
 
 import com.slxy.edu.model.Admin;
-import com.slxy.edu.model.Teacher;
 import com.slxy.edu.service.ICollegeService;
 import com.slxy.edu.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,9 +58,8 @@ public class UserController {
             //若result为1则该用户为教师，反之则用户名或密码错误，跳转到 login.jsp页面重新登录
             if(result == 1) {
                 //获取教师实体
-                Teacher teacher = userService.getTeacherInformation(username);
+                String Tname = userService.getTeacherName(username);
                 //获取教师名
-                String Tname = teacher.getTname();
                 request.getSession().setAttribute("username", username);
                 request.getSession().setAttribute("Tname", Tname);
                 request.getSession().setAttribute("grade", "null");

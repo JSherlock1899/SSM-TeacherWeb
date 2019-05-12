@@ -2,30 +2,6 @@
  * 用ajax对数据进行增删改
  */
 
-
-
-// 删
-$(document).on("click",".delete",function(e,url){
-        var Pasearchnum = $(this).closest("tr").find(".Pasearchnum").text();
-        $.ajax({
-        	url:"../servlet/PaperServlet?value=1",
-            type:"post",
-            datatype:"json",
-            data:{
-                "Pasearchnum" : Pasearchnum
-            },
-            success : function(msg){
-                
-                    alert("删除成功");
-                    $(e.target).closest("tr").fadeOut();
-                    window.location.reload();
-            },
-            error:function(msg){  
-                alert('请求出现错误...');  
-            }
-        });
-    });
-
 // 新建信息
 // 获取新建行当前每个表格单元的信息
 $(document).on("click",".saveNewMsg",function(){
@@ -184,7 +160,6 @@ $(document).on("click","#pass",function(){
         },
         success : function(result){
             alert("操作成功");
-            location.reload();
         },
         error:function(result){
             alert('请求出现错误...');
@@ -206,7 +181,6 @@ $(document).on("click","#nopass",function(){
         },
         success : function(result){
             alert("操作成功");
-            location.reload();
         },
         error:function(result){
             alert('请求出现错误...');
@@ -226,7 +200,7 @@ function initFileInput(ctrlName) {
     var Pasearchnum = $('#Pasearchnum').val().trim();
     control.fileinput({
         language: 'zh', //设置语言
-        uploadUrl: "/file/upload.do?model=papert&name=" + Paname + "&majorkey=" + Pasearchnum, //上传的地址
+        uploadUrl: "/file/upload.do?model=paper&name=" + Paname + "&majorkey=" + Pasearchnum, //上传的地址
         allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
         //uploadExtraData:{"id": 1, "fileName":'123.mp3'},
         uploadAsync: true, //默认异步上传

@@ -237,19 +237,24 @@ public class ProjectController extends BaseController<Project> {
         //记录当前行数
         int count = 0;
         List<ExcelProject> excels = new ArrayList<ExcelProject>();
-        //10为每条记录的字段数
+        //12为每条记录的字段数
         for (int i=0;i<list.size();i=i+12) {
             count++;
+            System.out.println(list.get(i+8));
+            System.out.println(list.get(i+9));
+            System.out.println(list.get(i+7));
             boolean vaild1 = judgeDate(list.get(i+8).toString());
             boolean vaild2 = judgeDate(list.get(i+9).toString());
             boolean isNumeric = isNumeric(list.get(i+7).toString());
-            if (vaild1 == false && vaild2 == false && isNumeric == false) {
+            if (vaild1 == false || vaild2 == false || isNumeric == false) {
+                count = count + 2;
                 out.print("<script>alert('第" + count + "行可能存在错误，请检查后重新导入！')</script>");
                 return;
             }else {
                 //分别为立项时间和结题时间
                 String date1;
                 String date2;
+                int money;
                 if (!list.get(i+8).toString().equals("")){
                     date1 = formatDate(list.get(i+8).toString());
                 }else {
@@ -260,7 +265,11 @@ public class ProjectController extends BaseController<Project> {
                 }else {
                     date2 = list.get(i+9).toString();
                 }
-                int money = Integer.parseInt(list.get(i+7).toString());;
+                if (!list.get(i+7).toString().equals("")){
+                    money = Integer.parseInt(list.get(i+7).toString());
+                }else {
+                    money = 0;
+                }
                 try {
                     ExcelProject excel = new ExcelProject(list.get(i).toString(),list.get(i+1).toString(),list.get(i+2).toString(),list.get(i+3).toString(),list.get(i+4).toString(),list.get(i+5).toString(),list.get(i+6).toString(),money,date1,date2,list.get(i+10).toString(),list.get(i+11).toString());
                     excel.toString();

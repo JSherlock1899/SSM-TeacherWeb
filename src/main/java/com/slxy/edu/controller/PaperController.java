@@ -129,9 +129,11 @@ public class PaperController extends BaseController<Paper> {
     @ResponseBody
     public void insertOne(HttpServletRequest request, String Pasearchnum, String Paname, String Pawriter, String Papublish, String Pdisvol, String Padate, String Pagrad, String dependence, String Paremarks){
         String Paudit = "0";
+        System.out.println("Pasearchnum的值是：" + Pasearchnum + ".当前方法:PaperController.insertOne()");
         String Tsn = (String) request.getSession().getAttribute("username");
         Paper Paper = new Paper(Pasearchnum,Paname,Pawriter,Papublish,Padate,Pagrad,Tsn,Paremarks,Paudit,Pdisvol,null,dependence);
         int result = paperService.insertOne(Paper);
+        System.out.println("result的值是：" + result + ".当前方法:PaperController.insertOne()");
     }
 
     /**
@@ -237,6 +239,7 @@ public class PaperController extends BaseController<Paper> {
             count++;
             boolean vaild = judgeDate(list.get(i+5).toString());
             if (vaild == false) {
+                count = count + 2;
                 out.print("<script>alert('第" + count + "行可能存在错误，请检查后重新导入！！')</script>");
                 return;
             }else {

@@ -5,7 +5,7 @@
 <mapper namespace="com.slxy.edu.mapper.ProjectMapper">
 
     <select id="selectAll" resultType="Project" >
-        select Psn,Pname,Pmember,Pgrad,Pkind,Pmoney,Pstatime,Pcondition,Pendtime,Premarks,t.Tsn,Pleader,Paccessory,Paudit,message,contractType,Tname,Cname,Dname FROM Project p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+        select Psn,Pname,Pmember,Pgrad,Pkind,Pmoney,Pstatime,Pcondition,Pendtime,Premarks,t.Tsn,Pleader,Paccessory,Paudit,p.message,contractType,Tname,Cname,Dname FROM Project p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
           <where>
               <if test="tname!=null and tname!='' and tname!='null'">
                   Tname = #{tname}
@@ -32,7 +32,7 @@
     </select>
 
     <select id="selectAllUnaudit" resultType="Project" >
-        select Psn,Pname,Pmember,Pgrad,Pkind,Pmoney,Pstatime,Pcondition,Pendtime,Premarks,t.Tsn,Pleader,Paccessory,Paudit,message,contractType,Tname,Cname,Dname FROM Project p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+        select Psn,Pname,Pmember,Pgrad,Pkind,Pmoney,Pstatime,Pcondition,Pendtime,Premarks,t.Tsn,Pleader,Paccessory,Paudit,p.message,contractType,Tname,Cname,Dname FROM Project p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
           <where>
               <if test="tname!=null and tname!='' and tname!='null'">
                   Tname = #{tname}
@@ -87,7 +87,7 @@
     </select>
 
     <select id="selectByMajorKey" resultType="Project">
-        select Psn,Pname,Pmember,Pgrad,Pkind,Pmoney,Pstatime,Pcondition,Pendtime,Premarks,Pleader,Paccessory,Paudit,message,contractType,Tname FROM Project p JOIN Teacher t ON p.Tsn = t.Tsn WHERE Psn = #{Psn}
+        select Psn,Pname,Pmember,Pgrad,Pkind,Pmoney,Pstatime,Pcondition,Pendtime,Premarks,Pleader,Paccessory,Paudit,p.message,contractType,Tname FROM Project p JOIN Teacher t ON p.Tsn = t.Tsn WHERE Psn = #{Psn}
     </select>
 
     <!--更新数据，重新提交-->

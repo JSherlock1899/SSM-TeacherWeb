@@ -39,13 +39,18 @@ public class ReadExcel {
             int firstRowNum = 2;// 此行开始是数据表的数据
             // 获取sheet中最后一行行号
             int lastRowNum = sheet.getLastRowNum();
+            System.out.println("lastRowNum的值是：" + lastRowNum + ".当前方法:ReadExcel.getValue()");
+            HSSFRow row = sheet.getRow(1);
+            // 获取最后单元格列号
+            int lastCellNum = row.getLastCellNum();
+            System.out.println("lastCellNum的值是：" + lastCellNum + ".当前方法:ReadExcel.getValue()");
             for (int i = firstRowNum; i <= lastRowNum; i++) {
-                HSSFRow row = sheet.getRow(i);
+                row = sheet.getRow(i);
                 if (row == null) {
-                    row = sheet.createRow(i);
+                    // 如果是空行（即没有任何数据、格式），直接把它以下的数据往上移动
+                    sheet.shiftRows(i+1, sheet.getLastRowNum(),-1);
+                    continue;
                 }
-                // 获取当前行最后单元格列号
-                int lastCellNum = row.getLastCellNum();
                 for (int j = 0; j < lastCellNum; j++) {
                     // 获取行
                     HSSFCell cell = row.getCell(j);

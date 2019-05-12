@@ -20,13 +20,14 @@
 <body>
 <%
     Patent patent = (Patent) request.getAttribute("patent");
+    String cname = (String) request.getSession().getAttribute("cname");
 %>
 <div class="table-main col-md-12">
     <div class="col-md-4">
         <ol class="breadcrumb" style="margin-left:5em;margin-top:2em">
             <li><a href="#">主页</a></li>
-            <li><a href="#">查询</a></li>
-            <li><a href="#">专利审核</a></li>
+            <li><a href="#">审核</a></li>
+            <li><a href="<%=request.getContextPath()%>/patent/audit.do?cname=<%=cname%>">专利审核</a></li>
             <li class="active">详细信息</li>
         </ol>
     </div>
@@ -58,7 +59,7 @@
                     <td class="Patgrad"><%=patent.getPatgrad()%></td>
                     <td>附件</td>
                     <td colspan="3"><a href="/file/download.do?model=patent&majorkey=<%=patent.getPatsn()%>&name=<%=patent.getPatname()%>" class="btn btn-primary Download">下载附件</a></td>
-                    <input type="hidden" class="accessoryPath" value="<%=patent.getPaccessory() %>"/>
+                    <input type="hidden" id="accessoryPath" value="<%=patent.getPaccessory() %>"/>
                 </tr>
                 <tr>
                     <td>备注</td>

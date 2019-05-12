@@ -31,14 +31,17 @@
 	//验证是否存在附件
 	$(document).on("click",".Download",function(ev){
 		var accessoryPath = $(this).closest("tr").find(".accessoryPath").val();
-		var accessoryPath1 = $(".accessoryPath").val();
+		var accessoryPath1 = $("#accessoryPath").val();
+		console.log(accessoryPath1)
 		if(accessoryPath == "" || accessoryPath == null || accessoryPath == "null"){
-			alert('尚未上传附件！');
+			console.log('???')
+            alert('尚未上传附件！');
 			ev.preventDefault();
 			return;
 		}
-		if(accessoryPath1 == "" || accessoryPath1 == null || accessoryPath1 == "null"){
-			alert('尚未上传附件！');
+		if((accessoryPath1 == "" || accessoryPath1 == null || accessoryPath1 == "null") && accessoryPath1!=undefined){
+            console.log('!!!')
+            alert('尚未上传附件！');
 			ev.preventDefault();
 			return;
 		}
@@ -61,3 +64,11 @@ function checkNubmer(input) {
         alert("请输入数字");
     }
 }
+
+$(document).ready(function (){
+    var grade = $("#grade").val();
+    if (grade !="null"){
+        $('#teacher').hide();
+    };
+
+});

@@ -109,5 +109,20 @@ public class TeacherServiceImpl implements ITeacherService {
         return teacherMapper.importExcel(list);
     }
 
+    @Override
+    public List<Teacher> selectAllUnaudit(String cname, String dname, String tname) {
+        return teacherMapper.selectAllUnaudit(cname,dname,tname);
+    }
+
+    @Override
+    public void pass(String majorkey, String messsage) {
+        teacherMapper.pass(majorkey,messsage);
+    }
+
+    @Override
+    public void nopass(String majorkey, String messsage) {
+        teacherMapper.nopass(majorkey,messsage);
+    }
+
 
 }

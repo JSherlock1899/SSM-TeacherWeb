@@ -20,6 +20,7 @@
 <body>
 <%
     Other others = (Other) request.getAttribute("others");
+    String grade = (String) request.getSession().getAttribute("grade");
 %>
 <div class="table-main col-md-12" >
     <div class="col-md-4" >
@@ -30,6 +31,7 @@
             <li class="active">详细信息</li>
         </ol>
     </div>
+    <input type="hidden" value="<%=grade%>" id="grade">
     <div class="row">
         <div class="col-md-11 col-md-offset-1 ">
             <div class="col-md-10 button-div form-inline">
@@ -60,7 +62,7 @@
                 <tr>
                     <td>附件</td>
                     <td colspan="1"><a href="/file/download.do?model=other&majorkey=<%=others.getOther_name()%>&name=<%=others.getOther_name()%>"  class="btn btn-primary Download">下载附件</a></td>
-                    <input type="hidden" class="accessoryPath" value="<%=others.getAccessory() %>"/>
+                    <input type="hidden" id="accessoryPath" value="<%=others.getAccessory() %>"/>
                     <td colspan="1">审核情况</td>
                     <td colspan="2"><%=others.getAudit()%></td>
                 </tr>
@@ -69,84 +71,86 @@
                     <td colspan="3"><%=others.getMessage()%></td>
                 </tr>
             </table>
-            <button class="btn btn-primary form-group" style="width:100%;margin-bottom:10px" id="btn_update">重新编辑</button>
-            <!--新建信息的模态框 -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" >
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title" id="myModalLabel">新建其他成果信息</h4>
-                            <button type="button" class="close" data-dismiss="modal"
-                                    aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="other_name">名称</label>
-                                <input type="text" name="other_name" value="<%=others.getOther_name() %>"
-                                       class="form-control" id="other_name" placeholder="检索号"
-                                       onfocus="showTips('other_name','查询编号为1-15位的字符')"
-                                       onblur="checkother_name('other_name','请按要求输入查询的名称')">
-                                <div id="other_namediv" style="display:none">
-                                    <span id="other_namespan" ></span><br>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="tname">发表人</label>
-                                <input type="text" name="tname" value="<%=others.getTname() %>"
-                                       class="form-control" id="tname" placeholder="发表人">
-                            </div>
-                           
-                            <div class="form-group">
-                                <label for="other_date">发表时间</label> <input type="date" name="other_date"  value="<%=others.getOther_date() %>"
-                                                                        class="form-control" id="other_date" placeholder="发表时间">
-                            </div>
-                            <div class="form-group">
-                                <label for="other_type">类型</label>
-                                <select name="other_type" class="form-control" id="other_type">
-                                    <option value="画">画</option>
-                                    <option value="音乐歌曲">音乐歌曲</option>
-                                    <option value="报纸">报纸</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="publisher">发表单位</label>
-                                <input type="text" name="publisher" class="form-control" id="publisher" placeholder="发表单位">
-                            </div>
-                            <div class="form-group">
-                                <label for="other_describe">成果描述</label> <input type="text" value="<%=others.getother_describe() %>"
-                                                                         name="other_describe" class="form-control" id="other_describe"
-                                                                         placeholder="成果描述">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default"
-                                    data-dismiss="modal">
-                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭
-                            </button>
-                            <button type="submit" id="btn_submit"
-                                    class="btn btn-primary save">
-                                <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container-fluid">
-                    <div class="row form-group">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading" align="center">
-                                <label style="text-align: center;font-size: 18px;">文 件 上 传</label>
-                            </div>
-                            <div class="panel-body">
-                                <div class="col-sm-12">
-                                    <input id="uploadfile" name="file" multiple type="file" data-show-caption="true">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </div>
+           <div id="teacher">
+               <button class="btn btn-primary form-group" style="width:100%;margin-bottom:10px" id="btn_update">重新编辑</button>
+               <!--新建信息的模态框 -->
+               <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" >
+                   <div class="modal-dialog" role="document">
+                       <div class="modal-content">
+                           <div class="modal-header">
+                               <h4 class="modal-title" id="myModalLabel">新建其他成果信息</h4>
+                               <button type="button" class="close" data-dismiss="modal"
+                                       aria-label="Close">
+                                   <span aria-hidden="true">×</span>
+                               </button>
+                           </div>
+                           <div class="modal-body">
+                               <div class="form-group">
+                                   <label for="other_name">名称</label>
+                                   <input type="text" name="other_name" value="<%=others.getOther_name() %>"
+                                          class="form-control" id="other_name" placeholder="检索号"
+                                          onfocus="showTips('other_name','查询编号为1-15位的字符')"
+                                          onblur="checkother_name('other_name','请按要求输入查询的名称')">
+                                   <div id="other_namediv" style="display:none">
+                                       <span id="other_namespan" ></span><br>
+                                   </div>
+                               </div>
+                               <div class="form-group">
+                                   <label for="tname">发表人</label>
+                                   <input type="text" name="tname" value="<%=others.getTname() %>"
+                                          class="form-control" id="tname" placeholder="发表人" readonly>
+                               </div>
+
+                               <div class="form-group">
+                                   <label for="other_date">发表时间</label> <input type="date" name="other_date"  value="<%=others.getOther_date() %>"
+                                                                               class="form-control" id="other_date" placeholder="发表时间">
+                               </div>
+                               <div class="form-group">
+                                   <label for="other_type">类型</label>
+                                   <select name="other_type" class="form-control" id="other_type">
+                                       <option value="画">画</option>
+                                       <option value="音乐歌曲">音乐歌曲</option>
+                                       <option value="报纸">报纸</option>
+                                   </select>
+                               </div>
+                               <div class="form-group">
+                                   <label for="publisher">发表单位</label>
+                                   <input type="text" name="publisher" class="form-control" id="publisher" placeholder="发表单位">
+                               </div>
+                               <div class="form-group">
+                                   <label for="other_describe">成果描述</label> <input type="text" value="<%=others.getother_describe() %>"
+                                                                                   name="other_describe" class="form-control" id="other_describe"
+                                                                                   placeholder="成果描述">
+                               </div>
+                           </div>
+                           <div class="modal-footer">
+                               <button type="button" class="btn btn-default"
+                                       data-dismiss="modal">
+                                   <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭
+                               </button>
+                               <button type="submit" id="btn_submit"
+                                       class="btn btn-primary save">
+                                   <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存
+                               </button>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               <div class="container-fluid">
+                   <div class="row form-group">
+                       <div class="panel panel-primary">
+                           <div class="panel-heading" align="center">
+                               <label style="text-align: center;font-size: 18px;">文 件 上 传</label>
+                           </div>
+                           <div class="panel-body">
+                               <div class="col-sm-12">
+                                   <input id="uploadfile" name="file" multiple type="file" data-show-caption="true">
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
         </div>
     </div>
 </div>

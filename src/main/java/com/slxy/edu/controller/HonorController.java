@@ -119,7 +119,7 @@ public class HonorController extends BaseController<Honor> {
     public void updateOne(HttpServletRequest request, String Hsn, String Hname, String Hwinner, String Hdate, String Hcompany, String department, String Hgrad,  String Hremarks){
         String Haudit = "0";
         String Tsn = (String) request.getSession().getAttribute("username");
-        Honor honor = new Honor(Hsn,Hname,Hwinner,Hdate,Hcompany,Hgrad,Hremarks,Tsn,Haudit,null,department);
+        Honor honor = new Honor(Hsn.trim(),Hname,Hwinner,Hdate,Hcompany,Hgrad,Hremarks,Tsn,Haudit,null,department,null);
         int result = honorService.updateOne(honor);
     }
 
@@ -131,7 +131,7 @@ public class HonorController extends BaseController<Honor> {
     public void insertOne(HttpServletRequest request, String Hsn, String Hname, String Hwinner, String Hdate, String Hcompany, String department, String Hgrad,  String Hremarks){
         String Haudit = "0";
         String Tsn = (String) request.getSession().getAttribute("username");
-        Honor honor = new Honor(Hsn,Hname,Hwinner,Hdate,Hcompany,Hgrad,Hremarks,Tsn,Haudit,null,department);
+        Honor honor = new Honor(Hsn,Hname,Hwinner,Hdate,Hcompany,Hgrad,Hremarks,Tsn,Haudit,department);
         int result = honorService.insertOne(honor);
     }
 
@@ -241,6 +241,8 @@ public class HonorController extends BaseController<Honor> {
             count++;
             boolean vaild = judgeDate(list.get(i+4).toString());
             if (vaild == false) {
+                System.out.println(list.get(i+4).toString());
+                count = count + 2;
                 out.print("<script>alert('第" + count + "行可能存在错误，请检查后重新导入！！')</script>");
                 return;
             }else {

@@ -5,7 +5,7 @@
 <mapper namespace="com.slxy.edu.mapper.OtherMapper">
 
     <select id="selectAll" resultType="Other" >
-        select other_name,other_date,publisher,accessory,audit,message,other_type,other_describe,Tname,Cname,Dname FROM Other o JOIN Teacher t ON o.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+        select other_name,other_date,publisher,accessory,o.audit,o.message,other_type,other_describe,Tname,Cname,Dname FROM Other o JOIN Teacher t ON o.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
         <where>
             <if test="tname!=null and tname!='' and tname!='null'">
                 Tname = #{tname}
@@ -23,16 +23,16 @@
                 AND other_date &lt;= #{endtime}
             </if>
             <if test="cname!=null">
-                AND audit = '1'
+                AND o.audit = '1'
             </if>
             <if test="cname == null">
-                AND audit = '1'
+                AND o.audit = '1'
             </if>
         </where>
     </select>
 
     <select id="selectAllUnaudit" resultType="Other" >
-        select other_name,other_date,publisher,accessory,audit,message,other_type,other_describe,Tname,Cname,Dname FROM Other o JOIN Teacher t ON o.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+        select other_name,other_date,publisher,accessory,o.audit,o.message,other_type,other_describe,Tname,Cname,Dname FROM Other o JOIN Teacher t ON o.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
         <where>
             <if test="tname!=null and tname!='' and tname!='null'">
                 Tname = #{tname}
@@ -50,16 +50,16 @@
                 AND other_date &lt;= #{endtime}
             </if>
             <if test="cname!=null">
-                AND audit = '0'
+                AND o.audit = '0'
             </if>
             <if test="cname == null">
-                AND audit = '0'
+                AND o.audit = '0'
             </if>
         </where>
     </select>
 
     <select id="selectByMajorKey" resultType="Other">
-        select other_name,t.Tsn,other_date,publisher,accessory,audit,message,other_type,other_describe,Tname FROM Other o JOIN Teacher t ON o.Tsn = t.Tsn WHERE other_name = #{other_name}
+        select other_name,t.Tsn,other_date,publisher,accessory,o.audit,o.message,other_type,other_describe,Tname FROM Other o JOIN Teacher t ON o.Tsn = t.Tsn WHERE other_name = #{other_name}
     </select>
 
     <!--更新数据，重新提交-->
@@ -82,7 +82,7 @@
         #{entity.publisher},
         #{entity.other_describe},
         #{entity.tsn},
-        #{entity.audit})
+        '0')
     </insert>
 
     <!--导出excel-->
@@ -219,7 +219,6 @@
         (other_name,tsn,other_type,other_date,publisher,other_describe
         )values
         <foreach collection="list" item="item" index="index" separator=",">
-
             (#{item.other_name,jdbcType=CHAR},#{item.tsn,jdbcType=CHAR},#{item.other_type,jdbcType=CHAR},#{item.other_date,jdbcType=CHAR},#{item.publisher,jdbcType=CHAR}
             ,#{item.other_describe,jdbcType=CHAR}
             )

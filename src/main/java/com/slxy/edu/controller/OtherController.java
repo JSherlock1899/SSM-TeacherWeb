@@ -239,6 +239,7 @@ public class OtherController extends BaseController<Other>{
             count++;
             boolean vaild = judgeDate(list.get(i+3).toString());
             if (vaild == false) {
+                count = count + 2;
                 out.print("<script>alert('第" + count + "行可能存在错误，请检查后重新导入！！')</script>");
                 return;
             }else {

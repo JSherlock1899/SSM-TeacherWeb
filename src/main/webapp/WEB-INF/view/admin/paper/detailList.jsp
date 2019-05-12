@@ -17,13 +17,14 @@
 <body>
 <%
     Paper paper = (Paper) request.getAttribute("paper");
+    String cname = (String) request.getSession().getAttribute("cname");
 %>
 <div class="table-main col-md-12">
     <div class="col-md-4" >
         <ol class="breadcrumb">
             <li><a>主页</a></li>
             <li><a>审核</a></li>
-            <li><a href="#">成果审核</a></li>
+            <li><a href="<%=request.getContextPath()%>/paper/audit.do?cname=<%=cname%>">成果审核</a></li>
             <li class="active">详细信息</li>
         </ol>
     </div>
@@ -54,7 +55,7 @@
                         <td class="Pagrad" colspan="2"><%=paper.getPagrad()%></td>
                         <td>附件</td>
                         <td class="Paccessory" colspan="2"><a href="/file/download.do?model=paper&majorkey=<%=paper.getPasearchnum()%>&name=<%=paper.getPaname()%>" class=" btn btn-primary Download">查看附件</a></td>
-                        <input type="hidden" class="accessoryPath" value="<%=paper.getPaccessory() %>"/>
+                        <input type="hidden" id="accessoryPath" value="<%=paper.getPaccessory() %>"/>
                     </tr>
                     <tr>
                         <td>期/卷/页</td>

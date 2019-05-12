@@ -5,7 +5,6 @@ import java.io.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -125,6 +124,9 @@ public class CommonUtils {
         DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         try{
             str = formatDate(str);
+            if ("false".equals(str)){
+                return false;
+            }
             Date date = formatter.parse(str);
             return true;
         }catch(Exception e){
@@ -133,13 +135,16 @@ public class CommonUtils {
     }
 
     //转化时间格式
-    public static String formatDate(String s) throws ParseException {
+    public static String formatDate(String s) {
         java.util.Date date;
         // 首先设置"Mon Dec 28 00:00:00 CST 2008"的格式,用来将其转化为Date对象
         DateFormat df = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.US);
-
         //将已有的时间字符串转化为Date对象
-        date = df.parse(s);
+        try {
+            date = df.parse(s);
+        }catch (Exception e){
+            return "false";
+        }
         // 创建所需的格式
         df = new SimpleDateFormat("yyyy-MM-dd");
         return df.format(date);// 获得格式化后的日期字符串
@@ -150,6 +155,8 @@ public class CommonUtils {
      */
     public static boolean isNumeric(String str) {
         try{
+            if("".equals(str))
+                return true;
             Integer.parseInt(str);
             return true;
         }catch(NumberFormatException e) {

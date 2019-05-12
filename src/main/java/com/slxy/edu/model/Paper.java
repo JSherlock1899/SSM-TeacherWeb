@@ -40,6 +40,25 @@ public class Paper {
     this.tsn = tsn;
   }
 
+//  审核
+  public Paper(String pasearchnum, String paname, String pawriter, String papublish, String padate, String pagrad, String paremarks, String paudit, String pdisvol, String paccessory, String message, String dependence, String tname, String cname, String dnane) {
+    this.pasearchnum = pasearchnum;
+    this.paname = paname;
+    this.pawriter = pawriter;
+    this.papublish = papublish;
+    this.padate = padate;
+    this.pagrad = pagrad;
+    this.paremarks = paremarks;
+    this.paudit = paudit;
+    this.pdisvol = pdisvol;
+    this.paccessory = paccessory;
+    this.message = message;
+    this.dependence = dependence;
+    this.tname = tname;
+    this.cname = cname;
+    this.dnane = dnane;
+  }
+
   public Paper(String pasearchnum, String paname, String pawriter, String papublish, String padate, String pagrad, String paremarks, String pdisvol, String paccessory, String dependence, String tname) {
     this.pasearchnum = pasearchnum;
     this.paname = paname;

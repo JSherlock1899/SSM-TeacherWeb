@@ -45,7 +45,6 @@
                     <th>发表时间</th>
                     <th>级别</th>
                     <th>依赖项目</th>
-                    <th>备注</th>
                     <th>附件</th>
                 </tr>
                 <c:forEach items="${papers}" var="papers">
@@ -59,7 +58,6 @@
                         <td>${papers.padate}</td>
                         <td>${papers.pagrad}</td>
                         <td>${papers.dependence}</td>
-                        <td>${papers.paremarks}</td>
                         <td>
                             <a href="/file/download.do?model=paper&majorkey=${papers.pasearchnum}&name=${papers.paname}" class="Download">查看附件</a>
                             <input type="hidden" class="accessoryPath" value="${papers.paccessory}"/>

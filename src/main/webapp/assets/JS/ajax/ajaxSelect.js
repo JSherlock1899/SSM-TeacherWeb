@@ -31,12 +31,14 @@ function goSelect(model) {
 		function Projectchange(){
 			var model = getRightOption("project");
 			goSelect(model);
+            backTop();
 			resetSelect()
 		}
 		
 		function Paperchange(){
             var model = getRightOption("paper");
             goSelect(model);
+            backTop();
 			resetSelect()
 
 		}
@@ -44,24 +46,28 @@ function goSelect(model) {
 		function Honorchange(){
             var model = getRightOption("honor");
             goSelect(model);
+            backTop();
 			resetSelect()
 		}
 
 		function Patentchange(){
             var model = getRightOption("patent");
             goSelect(model);
+            backTop();
 			resetSelect()
 		}
 
 		function Otherchange(){
             var model = getRightOption("other");
             goSelect(model);
+            backTop();
 			resetSelect()
 		}
 
 		function Teacherchange(){
             var model = getRightOption("teacher");
             goSelect(model);
+            backTop();
             resetSelect()
 		}
 
@@ -189,3 +195,8 @@ function goSelect(model) {
 			$("select").find("option:first").prop("selected",true);
 			$('input').val("");
 		}
+
+		//回到顶部
+		function backTop() {
+            window.scrollTo(0,0);
+        }

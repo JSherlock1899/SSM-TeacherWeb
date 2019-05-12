@@ -1,7 +1,5 @@
 <%@ page import="com.github.pagehelper.PageInfo" %>
 <%@ page import="com.slxy.edu.model.Condition" %>
-<%@ page import="com.slxy.edu.model.Teacher" %>
-<%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" isELIgnored="false" %>
@@ -77,12 +75,12 @@
                 <!--点击分页-->
                 <div>
                     <ul class="pagination">
-                        <li><a href="${pageContext.request.contextPath}/teacher/findTeacher.do?pn=1&cname=<%=condition.getCname()%>
+                        <li><a href="${pageContext.request.contextPath}/teacher/findTeacher.do?pn=1&cname=<%=Cname%>
                             &dname=<%=condition.getDname()%>&tname=<%=condition.gettname()%>">首页</a></li>
                         <!--上一页-->
                         <li>
                             <c:if test="${pageInfo.hasPreviousPage}">
-                                <a href="${pageContext.request.contextPath}/teacher/findTeacher.do?pn=${pageInfo.pageNum-1}&cname=<%=condition.getCname()%>
+                                <a href="${pageContext.request.contextPath}/teacher/findTeacher.do?pn=${pageInfo.pageNum-1}&cname=<%=Cname%>
                             &dname=<%=condition.getDname()%>&tname=<%=condition.gettname()%>" aria-label="Previous">
                                     <span aria-hidden="true">«</span>
                                 </a>
@@ -90,32 +88,32 @@
                         </li>
                         <c:forEach items="${pageInfo.navigatepageNums}" var="page_num">
                             <c:if test="${page_num == pageInfo.pageNum}">
-                                <li class="active"><a href="${pageContext.request.contextPath}/teacher/findTeacher.do?pn=1&cname=<%=condition.getCname()%>
+                                <li class="active"><a href="${pageContext.request.contextPath}/teacher/findTeacher.do?pn=1&cname=<%=Cname%>
                             &dname=<%=condition.getDname()%>&tname=<%=condition.gettname()%>">${page_num}</a></li>
                             </c:if>
                             <c:if test="${page_num != pageInfo.pageNum}">
-                                <li><a href="${pageContext.request.contextPath}/teacher/findTeacher.do?pn=${page_num}&cname=<%=condition.getCname()%>
+                                <li><a href="${pageContext.request.contextPath}/teacher/findTeacher.do?pn=${page_num}&cname=<%=Cname%>
                             &dname=<%=condition.getDname()%>&tname=<%=condition.gettname()%>">${page_num}</a></li>
                             </c:if>
                         </c:forEach>
                         <!--下一页-->
                         <li>
                             <c:if test="${pageInfo.hasNextPage}">
-                                <a href="${pageContext.request.contextPath}/teacher/findTeacher.do?pn=${pageInfo.pageNum+1}&cname=<%=condition.getCname()%>
+                                <a href="${pageContext.request.contextPath}/teacher/findTeacher.do?pn=${pageInfo.pageNum+1}&cname=<%=Cname%>
                             &dname=<%=condition.getDname()%>&tname=<%=condition.gettname()%>"
                                    aria-label="Next">
                                     <span aria-hidden="true">»</span>
                                 </a>
                             </c:if>
                         </li>
-                        <li><a href="${pageContext.request.contextPath}/teacher/findTeacher.do?pn=${pageInfo.pages}&cname=<%=condition.getCname()%>
+                        <li><a href="${pageContext.request.contextPath}/teacher/findTeacher.do?pn=${pageInfo.pages}&cname=<%=Cname%>
                             &dname=<%=condition.getDname()%>&tname=<%=condition.gettname()%>">尾页</a></li>
                     </ul>
                     <!--文字信息-->
                     <div class="form-group pull-right">
                         <span>当前第 ${pageInfo.pageNum} 页.总共 ${pageInfo.pages} 页</span>
                         <input type="text" class="pageVal" style="width:100px;margin-top: 25px;">
-                        <button type="submit" class="btn btn-default" style="margin-right: 20px" onclick="skipPage()">GO</button>
+                        <button type="submit" class="btn btn-default" style="margin-right: 20px" id="skipPage">GO</button>
                     </div>
                 </div>
             </div>
@@ -207,19 +205,10 @@
                                 <label for="college">所属学院</label>
                                 <select id="college" class="form-control" name="college" style="width: 100%"
                                         onchange="move()">>
-                                    <%
-                                        if(Cname == null){
-                                    %>
                                     <option value="">请选择所在学院</option>
                                     <c:forEach items="${collegeList}" var="collegeName">
                                         <option value="${collegeName}">${collegeName}</option>
                                     </c:forEach>
-                                    <%
-                                    }else{
-                                    %>
-                                    <option value="<%=Cname%>"><%=Cname%></option>
-                                    <%}
-                                    %>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -245,5 +234,28 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    //跳转到指定页码
+    $(document).on("click","#skipPage",function () {
+        //页码输入框输入的数
+        var pageVal = $('.pageVal').val();
+        //总页数
+        var totalPage = $('#totalPage').val();
+        if(pageVal > totalPage){
+            alert('请输入正确的页码！');
+            return
+        }
+        if(pageVal == ""){
+            alert('页码不能为空！');
+            return
+        }
+        if(!isNaN(pageVal)){
+            window.location.href = "${pageContext.request.contextPath}/teacher/findTeacher.do?pn=" + pageVal + "&cname=<%=Cname%>\n" +
+                "&dname=<%=condition.getDname()%>&tname=<%=condition.gettname()%>";
+        }else {
+            alert('请输入数字！')
+        }
+    })
+</script>
 </body>
 </html>

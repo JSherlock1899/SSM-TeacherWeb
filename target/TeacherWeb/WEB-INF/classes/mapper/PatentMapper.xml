@@ -5,7 +5,7 @@
 <mapper namespace="com.slxy.edu.mapper.PatentMapper">
 
     <select id="selectAll" resultType="Patent" >
-        select Patname,Patsn,Patapdate,Patendate,Patgrad,Patremarks,Paccessory,Paudit,message,inventor,Tname,Cname,Dname FROM Patent p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+        select Patname,Patsn,Patapdate,Patendate,Patgrad,Patremarks,Paccessory,Paudit,p.message,inventor,Tname,Cname,Dname FROM Patent p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
           <where>
               <if test="tname!=null and tname!='' and tname!='null'">
                   AND Tname = #{tname}
@@ -32,7 +32,7 @@
     </select>
 
     <select id="selectAllUnaudit" resultType="Patent" >
-        select Patname,Patsn,Patapdate,Patendate,Patgrad,Patremarks,Paccessory,Paudit,message,inventor,Tname,Cname,Dname FROM Patent p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+        select Patname,Patsn,Patapdate,Patendate,Patgrad,Patremarks,Paccessory,Paudit,p.message,inventor,Tname,Cname,Dname FROM Patent p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
         <where>
             <if test="tname!=null and tname!='' and tname!='null'">
                 AND Tname = #{tname}
@@ -50,10 +50,10 @@
                 AND Patendate &lt;= #{endtime}
             </if>
             <if test="cname!=null">
-                AND Paudit = '0'
+                AND (Paudit = '0' OR Paudit = '2')
             </if>
             <if test="cname==null">
-                AND Paudit = '0'
+                AND (Paudit = '0' OR Paudit = '2')
             </if>
         </where>
     </select>
@@ -99,7 +99,7 @@
     </insert>
 
     <select id="selectByMajorKey" resultType="Patent">
-        SELECT Patname,Patsn,Patapdate,Patendate,Patgrad,Patremarks,Paccessory,Paudit,message,inventor,Tname FROM Patent p JOIN Teacher t ON p.Tsn = t.Tsn WHERE Patsn = #{Pastn}
+        SELECT Patname,Patsn,Patapdate,Patendate,Patgrad,Patremarks,Paccessory,Paudit,p.message,inventor,Tname FROM Patent p JOIN Teacher t ON p.Tsn = t.Tsn WHERE Patsn = #{Pastn}
     </select>
 
 
@@ -111,7 +111,8 @@
         patapdate = #{entity.patapdate},
         patendate = #{entity.patendate},
         patgrad = #{entity.patgrad},
-        patremarks = #{entity.patremarks}
+        patremarks = #{entity.patremarks},
+        Paudit = = #{entity.paudit}
         WHERE Patsn = #{entity.patsn};
     </update>
 

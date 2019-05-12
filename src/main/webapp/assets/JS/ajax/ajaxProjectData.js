@@ -2,32 +2,6 @@
  * 用ajax对数据进行增删改
  */
 
-
-//删
-$(document).on("click",".delete",function(e,url){
-        var Psn = $(this).closest("tr").find(".Psn").text();
-        $.ajax({
-        	url:"../servlet/ProjectServlet?value=1",
-            type:"post",
-            datatype:"json",
-            data:{
-                "Psn" : Psn
-            },
-            success : function(msg){              
-                    alert("删除成功");
-                    $(e.target).closest("tr").fadeOut();
-                    window.location.reload();
-            },
-            error:function(msg){  
-                alert('请求出现错误...');  
-            }
-        });
-    });
-
-
-
-
-
 //新建按钮的事件
 $(document).on("click","#btn_add",function () {
     $("#myModalLabel").text("新建项目信息");
@@ -150,7 +124,7 @@ $(document).on("change","#Pkind",function(){
 		document.getElementById(id+"span").innerHTML="<font color='gray' size='2'>"+info+"</font>";
 	}
 	function checkPsn(id,info){
-		var uValue = document.getElementById(id).value.trim();
+		var uValue = undefined ? '':document.getElementById(id).value.trim()
 		if(!/^\d{1,20}$/.test(uValue)){
 			document.getElementById(id+"span").innerHTML="<font color='red' size='2'>"+info+"</font>";
 			document.getElementById(id+"div").style.display="block";
@@ -162,7 +136,7 @@ $(document).on("change","#Pkind",function(){
 		}
 	}
 	function checkPname(id,info){
-		var uValue = document.getElementById(id).value.trim();
+		var uValue = undefined ? '' :document.getElementById(id).value.trim();
 		if(!/^.{1,15}$/.test(uValue)){
 			document.getElementById(id+"span").innerHTML="<font color='red' size='2'>"+info+"</font>";
 			document.getElementById(id+"div").style.display="block";
@@ -173,7 +147,7 @@ $(document).on("change","#Pkind",function(){
 		}
 	}
 	function checkPmember(id,info){
-		var uValue = document.getElementById(id).value.trim();
+		var uValue = undefined ? '' :document.getElementById(id).value.trim();
 		if(!/^.{1,50}$/.test(uValue)){
 			document.getElementById(id+"span").innerHTML="<font color='red' size='2'>"+info+"</font>";
 			document.getElementById(id+"div").style.display="block";
@@ -184,7 +158,7 @@ $(document).on("change","#Pkind",function(){
 		}
 	}
 	function checkPmoney(id,info){
-		var uValue = document.getElementById(id).value.trim();
+		var uValue = undefined ? '' :document.getElementById(id).value.trim();
 		if(!/^\d{1,}$/.test(uValue)){
 			document.getElementById(id+"span").innerHTML="<font color='red' size='2'>"+info+"</font>";
 			document.getElementById(id+"div").style.display="block";
@@ -215,7 +189,6 @@ $(document).on("click","#pass",function(){
         },
         success : function(result){
             alert("操作成功");
-            location.reload();
         },
         error:function(result){
             alert('请求出现错误...');
@@ -238,7 +211,6 @@ $(document).on("click","#nopass",function(){
         },
         success : function(result){
             alert("操作成功");
-            location.reload();
         },
         error:function(result){
             alert('请求出现错误...');
@@ -254,7 +226,7 @@ $(function () {
 
 function initFileInput(ctrlName) {
     var control = $('#' + ctrlName);
-    var Pname = $('#Pname').val().trim();
+    var Pname = undefined ? '' :$('#Pname').val().trim();
     var Psn = $('#Psn').val().trim();
     control.fileinput({
         language: 'zh', //设置语言

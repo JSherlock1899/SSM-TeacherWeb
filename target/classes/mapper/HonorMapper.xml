@@ -5,7 +5,7 @@
 <mapper namespace="com.slxy.edu.mapper.HonorMapper">
 
     <select id="selectAll" resultType="Honor" >
-        select Hsn,Hname,Hwinner,Hdate,Hcompany,Hgrad,Hremarks,Haudit,Haccessory,message,department,Cname,Dname,Tname FROM Honor h JOIN Teacher t ON h.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+        select Hsn,Hname,Hwinner,Hdate,Hcompany,Hgrad,Hremarks,Haudit,Haccessory,h.message,department,Cname,Dname,Tname FROM Honor h JOIN Teacher t ON h.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
         <where>
             <if test="tname!=null and tname!='' and tname!='null'">
                 Tname = #{tname}
@@ -33,7 +33,7 @@
 
 
     <select id="selectAllUnaudit" resultType="Honor" >
-        select Hsn,Hname,Hwinner,Hdate,Hcompany,Hgrad,Hremarks,Haudit,Haccessory,message,department,Cname,Dname,Tname FROM Honor h JOIN Teacher t ON h.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+        select Hsn,Hname,Hwinner,Hdate,Hcompany,Hgrad,Hremarks,Haudit,Haccessory,h.message,department,Cname,Dname,Tname FROM Honor h JOIN Teacher t ON h.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
         <where>
             <if test="tname!=null and tname!='' and tname!='null'">
                 Tname = #{tname}
@@ -60,7 +60,7 @@
     </select>
 
     <select id="selectByMajorKey" resultType="Honor">
-        select Hsn,Hname,Hwinner,Hdate,Hcompany,Hgrad,Hremarks,Haudit,Haccessory,message,department,Tname FROM Honor h JOIN Teacher t ON h.Tsn = t.Tsn WHERE Hsn = #{Hsn}
+        select Hsn,Hname,Hwinner,Hdate,Hcompany,Hgrad,Hremarks,Haudit,Haccessory,h.message,department,Tname FROM Honor h JOIN Teacher t ON h.Tsn = t.Tsn WHERE Hsn = #{Hsn}
     </select>
 
     <!--更新数据，重新提交-->

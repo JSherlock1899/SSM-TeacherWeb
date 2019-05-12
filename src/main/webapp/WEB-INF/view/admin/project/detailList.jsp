@@ -17,13 +17,14 @@
 <body>
 <%
     Project project = (Project) request.getAttribute("project");
+    String cname = (String) request.getSession().getAttribute("cname");
 %>
 <div class="table-main col-md-12">
     <div class="col-md-4" >
         <ol class="breadcrumb">
             <li><a>主页</a></li>
             <li><a>审核</a></li>
-            <li><a href="#">项目审核</a></li>
+            <li><a href="<%=request.getContextPath()%>/project/audit.do?cname=<%=cname%>">项目审核</a></li>
             <li class="active">详细信息</li>
         </ol>
     </div>
@@ -39,7 +40,7 @@
                         <td>项目编号</td>
                         <td class="Psn" colspan="2"><%=project.getPsn()%></td>
                         <td>负责人</td>
-                        <td class="Pleader" colspan="2"><%=project.getPleader()%></td>
+                        <td class="Pleader" colspan="2"><%=project.getTname()%></td>
                     </tr>
                     <tr>
                         <td>成员</td>
@@ -64,13 +65,11 @@
                         <td class="Pcondition" colspan="2"><%=project.getPcondition()%></td>
                         <td>附件</td>
                         <td class="Paccessory"  colspan="2" ><a href="/file/download.do?model=project&majorkey=<%=project.getPsn()%>&name=<%=project.getPname()%>" class=" btn btn-primary Download">查看附件</a></td>
-                        <input type="hidden" class="accessoryPath" value="<%=project.getPaccessory() %>"/>
+                        <input type="hidden" id="accessoryPath" value="<%=project.getPaccessory() %>"/>
                     </tr>
                     <tr>
                         <td>备注</td>
                         <td class="Patremarks" colspan="5"><%=project.getPremarks()%></td>
-                        <input type="hidden" class="accessoryPath" value="<%=project.getPaccessory() %>"/>
-                        <input type="hidden" class="key" value="<%=project.getPsn() %>"/>
                     </tr>
                     <tr>
                         <td>审核意见</td>
@@ -80,5 +79,7 @@
                 </table>
             </div>
         </div>
+    </div>
+</div>
 </body>
 </html>

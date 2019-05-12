@@ -43,4 +43,13 @@ public interface TeacherMapper {
 
     //导入excel
     int importExcel(List<ExcelTeacher> list);
+
+    //查询未审核的数据
+    List<Teacher> selectAllUnaudit(@Param("cname")String cname, @Param("dname")String dname,  @Param("tname")String tname);
+
+    //审核通过
+    void pass(@Param("majorkey")String majorkey,@Param("message")String messsage);
+
+    //审核不通过
+    void nopass(@Param("majorkey")String majorkey,@Param("message")String messsage);
 }

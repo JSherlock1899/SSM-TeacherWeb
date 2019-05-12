@@ -42,4 +42,13 @@ public interface ITeacherService {
 
     //导入excel
     int importExcel(List<ExcelTeacher> list);
+
+    //查询未审核的数据
+    List<Teacher> selectAllUnaudit(String cname, String dname, String tname);
+
+    //审核通过
+    void pass(String majorkey,String messsage);
+
+    //审核不通过
+    void nopass(String majorkey,String messsage);
 }

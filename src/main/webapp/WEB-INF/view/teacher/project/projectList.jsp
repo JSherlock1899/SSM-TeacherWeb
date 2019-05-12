@@ -60,7 +60,6 @@
                     <th>结题时间</th>
                     <th>科研状态</th>
                     <th>合同类型</th>
-                    <th>备注</th>
                     <th>附件</th>
                 </tr>
                 <c:forEach items="${projects}" var="projects">
@@ -76,9 +75,9 @@
                         <td>${projects.pendtime}</td>
                         <td>${projects.pcondition}</td>
                         <td>${projects.contractType}</td>
-                        <td>${projects.premarks}</td>
                         <td>
                             <a href="/file/download.do?model=project&majorkey=${projects.psn}&name=${projects.pname}" class="Download">查看附件</a>
+                            <input type="hidden" class="accessoryPath" value="${projects.paccessory}"/>
                         </td>
                     </tr>
                 </c:forEach>
@@ -156,7 +155,7 @@
                             <div class="form-group">
                                 <label for="Pleader">负责人</label> <input type="text" value="<%=Tname%>"
                                                                         name="Pleader" class="form-control" id="Pleader"
-                                                                        placeholder="负责人">
+                                                                        placeholder="负责人" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="Pmember">成员</label>

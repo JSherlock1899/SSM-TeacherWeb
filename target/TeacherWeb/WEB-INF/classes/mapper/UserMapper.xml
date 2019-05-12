@@ -4,16 +4,6 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.slxy.edu.mapper.UserMapper">
 
-    <!--<resultMap type="com.slxy.edu.model.Admin" id="admin">-->
-        <!--<result property="username" column="username"/>-->
-        <!--<result property="password" column="password"/>-->
-    <!--</resultMap>-->
-
-    <!--<resultMap type="com.slxy.edu.model.Teacher" id="teacher">-->
-        <!--<result property="username" column="username"/>-->
-        <!--<result property="password" column="password"/>-->
-    <!--</resultMap>-->
-
     <select id="adminLoginCheck" resultType="int" >
         select count(*) from Admin where Aname=#{username} and Apsw=#{password}
     </select>
@@ -26,8 +16,8 @@
         select * from Admin where Aname=#{username}
     </select>
 
-    <select id="getTeacherInformation" resultType="Teacher" >
-        select * from Teacher where Tsn=#{Tsn}
+    <select id="getTeacherName" resultType="String" >
+        select Tname from Teacher where Tsn=#{Tsn}
     </select>
 
     <select id="verifyAdminPassword" resultType="String">

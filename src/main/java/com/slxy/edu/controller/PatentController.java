@@ -254,6 +254,7 @@ public class PatentController extends BaseController<Patent> {
             boolean vaild1 = judgeDate(list.get(i+4).toString());
             boolean vaild2 = judgeDate(list.get(i+5).toString());
             if (vaild1 == false || vaild2 == false) {
+                count = count + 2;
                 out.print("<script>alert('第" + count + "行可能存在错误，请检查后重新导入！')</script>");
                 return;
             }else {

@@ -2,7 +2,6 @@ package com.slxy.edu.service.impl;
 
 import com.slxy.edu.mapper.UserMapper;
 import com.slxy.edu.model.Admin;
-import com.slxy.edu.model.Teacher;
 import com.slxy.edu.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,8 +38,8 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public Teacher getTeacherInformation(String Tsn) {
-        return userMapper.getTeacherInformation(Tsn);
+    public String getTeacherName(String Tsn) {
+        return userMapper.getTeacherName(Tsn);
     }
 
     @Override

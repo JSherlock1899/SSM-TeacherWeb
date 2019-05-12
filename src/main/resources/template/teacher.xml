@@ -32,7 +32,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr height="16px" firstrow="2" firstcol="0" repeat="5">
+        <tr height="16px" firstrow="2" firstcol="0" repeat="1">
             <td type="string" isnullable="false" maxlength="30" />
             <td type="string" isnullable="false" maxlength="30" />
             <td type="string" isnullable="false" maxlength="30" />

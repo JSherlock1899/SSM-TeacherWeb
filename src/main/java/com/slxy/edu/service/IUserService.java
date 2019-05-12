@@ -1,7 +1,6 @@
 package com.slxy.edu.service;
 
 import com.slxy.edu.model.Admin;
-import com.slxy.edu.model.Teacher;
 
 /**
  * @program: TeacherWeb
@@ -22,8 +21,8 @@ public interface IUserService {
     //获取管理员信息
     Admin getAdminGrade(String Aname);
 
-    //获取教师信息
-    Teacher getTeacherInformation(String Tsn);
+    //获取教师名
+    String getTeacherName(String Tsn);
 
     //判断原密码是否正确
     boolean verifyAdminPassword(String Aname,String oldPassword);

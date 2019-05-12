@@ -20,13 +20,14 @@
 <body>
 <%
     Other other = (Other) request.getAttribute("other");
+    String cname = (String) request.getSession().getAttribute("cname");
 %>
 <div class="table-main col-md-12">
     <div class="col-md-4">
         <ol class="breadcrumb" style="margin-left:5em;margin-top:2em">
             <li><a href="#">主页</a></li>
             <li><a href="#">查询</a></li>
-            <li><a href="#">其他成果审核</a></li>
+            <li><a href="<%=request.getContextPath()%>/other/audit.do?cname=<%=cname%>">其他成果审核</a></li>
             <li class="active">详细信息</li>
         </ol>
     </div>
@@ -55,7 +56,7 @@
                 <tr>
                     <td>附件</td>
                     <td colspan="5"><a href="/file/download.do?model=other&majorkey=<%=other.getOther_name()%>&name=<%=other.getOther_name()%>"  class="btn btn-primary Download" value="上传">下载附件</a></td>
-                    <input type="hidden" class="accessoryPath" value="<%=other.getAccessory() %>"/>
+                    <input type="hidden" id="accessoryPath" value="<%=other.getAccessory() %>"/>
                 </tr>
                 <tr>
                     <td>成果描述</td>

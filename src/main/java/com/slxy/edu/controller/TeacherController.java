@@ -379,6 +379,7 @@ public class TeacherController{
             //判断时间格式是否正确
             boolean vaild1 = judgeDate(list.get(i+7).toString());
             if (vaild1 == false) {
+                count = count + 2;
                 out.print("<script>alert('第" + count + "行可能存在错误，请检查后重新导入！')</script>");
                 return;
             }else {
@@ -409,4 +410,47 @@ public class TeacherController{
         }
     }
 
+    /**
+     * 查询未审核的教师信息
+     */
+    @RequestMapping("audit.do")
+    public ModelAndView findAudit(@RequestParam(required = false,defaultValue = "1",value = "pn")Integer pn,
+                                  Map<String,Object> map,String cname, String dname, String tname){
+        //引入分页查询，使用PageHelper分页功能
+        //在查询之前传入当前页，然后多少记录
+        PageHelper.startPage(pn,5);
+        //当前条件下的查询结果
+        List<Teacher> teachers = teacherService.selectAllUnaudit(cname.trim(),dname,tname);
+        //使用PageInfo包装查询结果，只需要将pageInfo交给页面就可以
+        PageInfo pageInfo = new PageInfo<>(teachers,5);
+        //pageINfo封装了分页的详细信息，也可以指定连续显示的页数
+        map.put("pageInfo",pageInfo);
+        ModelAndView mv = new ModelAndView();
+        mv.addAllObjects(map);
+        mv.addObject("teachers",teachers);
+        Condition condition = new Condition(cname,dname,tname);
+        mv.addObject("condition",condition);
+        mv.setViewName("admin/teacher/auditTeacher");
+        return mv;
+    }
+
+    /**
+     * 审核通过
+     */
+
+    @RequestMapping("pass.do")
+    @ResponseBody
+    public void pass(String majorkey,String message) {
+        teacherService.pass(majorkey,message);
+    }
+
+    /**
+     * 审核不通过
+     */
+
+    @RequestMapping("nopass.do")
+    @ResponseBody
+    public void nopass(String majorkey,String message){
+        teacherService.nopass(majorkey,message);
+    }
 }

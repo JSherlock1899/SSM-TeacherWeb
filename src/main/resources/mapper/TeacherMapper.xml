@@ -32,7 +32,7 @@
     </select>
 
     <select id="selectPatent" resultType="Patent" >
-        select Patname,Patsn,Patapdate,Patendate,Patgrad,Patremarks,Paccessory,paudit,message,inventor,Tname FROM Patent p JOIN Teacher t ON p.Tsn = t.Tsn
+        select Patname,Patsn,Patapdate,Patendate,Patgrad,Patremarks,Paccessory,paudit,p.message,inventor,Tname FROM Patent p JOIN Teacher t ON p.Tsn = t.Tsn
         <where>
             <if test="tsn!=null">
                 p.Tsn = #{tsn}
@@ -153,4 +153,34 @@
             )
         </foreach>
     </insert>
+
+    <select id="selectAllUnaudit" resultType="Teacher" >
+        select Tsn,Tname,Tsex,Tdegree,Tedubackground,Tresdirection,Tdateofbirth,JobTitle,Cname,Dname FROM Teacher t JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+        <where>
+            <if test="tname!=null and tname!='' and tname!='null'">
+                AND Tname = #{tname}
+            </if>
+            <if test="cname!=null and cname!='' and cname!='null'">
+                AND Cname = #{cname}
+            </if>
+            <if test="dname!=null and dname!='' and dname!='null' and dname!='请选择所在专业'">
+                AND Dname = #{dname}
+            </if>
+            <if test="cname!=null">
+                AND audit = '0'
+            </if>
+            <if test="cname==null">
+                AND audit = '0'
+            </if>
+        </where>
+    </select>
+
+    <!--审核-->
+    <update id="pass">
+        UPDATE Teacher SET audit = '1' , message = #{message} WHERE Tsn = #{majorkey}
+    </update>
+
+    <update id="nopass">
+        UPDATE Teacher SET audit = '2' , message = #{message} WHERE Tsn = #{majorkey}
+    </update>
 </mapper>

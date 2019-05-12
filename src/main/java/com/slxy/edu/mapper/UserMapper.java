@@ -1,7 +1,6 @@
 package com.slxy.edu.mapper;
 
 import com.slxy.edu.model.Admin;
-import com.slxy.edu.model.Teacher;
 import org.apache.ibatis.annotations.Param;
 
 
@@ -17,7 +16,7 @@ public interface UserMapper {
     Admin getAdminGrade(String Aname);
 
     //获取教师信息
-    Teacher getTeacherInformation(String Tsn);
+    String getTeacherName(String Tsn);
 
     //判断管理员原密码是否正确
     String verifyAdminPassword(@Param("Aname")String Aname,@Param("oldPassword")String oldPassword);

@@ -59,7 +59,6 @@
                     <th>发表时间</th>
                     <th>级别</th>
                     <th>依托项目</th>
-                    <th>备注</th>
                     <th>附件</th>
                 </tr>
                 <c:forEach items="${papers}" var="papers">
@@ -73,9 +72,10 @@
                         <td>${papers.padate}</td>
                         <td>${papers.pagrad}</td>
                         <td>${papers.dependence}</td>
-                        <td>${papers.paremarks}</td>
                         <td>
                             <a href="/file/download.do?model=paper&majorkey=${papers.pasearchnum}&name=${papers.paname}" class="Download">查看附件</a>
+                                ${papers.paccessory}
+                            <input type="hidden" class="accessoryPath" value="${papers.paccessory}"/>
                         </td>
                     </tr>
                 </c:forEach>
@@ -156,7 +156,7 @@
                             <div class="form-group">
                                 <label for="Pawriter">第一作者</label> <input type="text" value="<%=Tname%>"
                                                                           name="Pawriter" class="form-control" id="Pawriter"
-                                                                          placeholder="第一作者">
+                                                                          placeholder="第一作者" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="Papublish">发表期刊</label> <input type="text"
@@ -197,7 +197,7 @@
                                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭
                             </button>
                             <button type="submit" id="btn_submit"
-                                    class="btn btn-primary save">
+                                    class="btn btn-primary saveNewMsg">
                                 <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存
                             </button>
                         </div>

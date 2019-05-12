@@ -60,6 +60,55 @@ $(document).on("click",".save",function(e,url){
 	});
 });
 
+
+//审核
+//审核按钮的事件
+$(document).on("click",".audit",function () {
+    var Tsn = $(this).closest("tr").find(".Tsn").text()
+    $("#myModalLabel").text("审核教师信息");
+    $('#myModal').modal();
+    $(document).on("click","#pass",function(){
+        var message  = $('#message').val();
+        $.ajax({
+            url:"/teacher/pass.do",
+            type:"post",
+            datatype:"json",
+            data:{
+                "majorkey" : Tsn,
+                "message" : message,
+            },
+            success : function(result){
+                alert("操作成功");
+            },
+            error:function(result){
+                alert('请求出现错误...');
+            }
+        })
+    })
+
+// 审核不通过
+    $(document).on("click","#nopass",function(){
+        var message  = $('#message').val();
+        $.ajax({
+            url:"/teacher/nopass.do",
+            type:"post",
+            datatype:"json",
+            data:{
+                "majorkey" : Tsn,
+                "message" : message,
+            },
+            success : function(result){
+                alert("操作成功");
+            },
+            error:function(result){
+                alert('请求出现错误...');
+            }
+        })
+    })
+})
+
+// 审核通过
+
 function showTips(id,info){
     document.getElementById(id+"span").innerHTML="<font color='gray' size='2'>"+info+"</font>";
 }

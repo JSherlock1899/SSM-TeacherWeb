@@ -55,7 +55,6 @@
                     <th>时间</th>
                     <th>授奖单位</th>
                     <th>等级</th>
-                    <th>备注</th>
                     <th>附件</th>
                 </tr>
                 <c:forEach items="${honors}" var="honors">
@@ -67,9 +66,9 @@
                         <td>${honors.hdate}</td>
                         <td>${honors.hcompany}</td>
                         <td>${honors.hgrad}</td>
-                        <td>${honors.hremarks}</td>
                         <td>
                             <a href="/file/download.do?model=honor&majorkey=${honors.hsn}&name=${honors.hname}" class="Download">查看附件</a>
+                            <input type="hidden" class="accessoryPath" value="${honors.haccessory}"/>
                         </td>
                     </tr>
                 </c:forEach>
@@ -151,7 +150,7 @@
                                 <label for="Hwinner">第一完成人</label>
                                 <input type="text"
                                        name="Hwinner" class="form-control" id="Hwinner" value="<%=Tname%>"
-                                       placeholder="第一完成人" >
+                                       placeholder="第一完成人"  readonly>
                                 <div id="Hwinnerdiv" style="display:none">
                                     <span id="Hwinnerspan" ></span><br>
                                 </div>

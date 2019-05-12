@@ -35,7 +35,7 @@
             </a></li>
         </ul>
         <ul class="nav navbar-nav pull-right">
-            <li class="li-border"><a href="../login.jsp"
+            <li class="li-border"><a href="<%=request.getContextPath()%>/user/exitLogin.do"
                                      class="mystyle-color"> 退出登录 </a></li>
         </ul>
     </div>

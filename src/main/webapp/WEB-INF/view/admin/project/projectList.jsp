@@ -2,8 +2,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ page import="com.github.pagehelper.PageInfo" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.slxy.edu.model.Project" %>
 <%@ page import="com.slxy.edu.model.Condition" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -48,9 +46,8 @@
             <table border="1" id="table" class="table table-striped table-bordered table-hover table-condensed">
                 <tr class="info">
                     <th>项目编号</th>
-                    <th>项目名称</th>
+                    <th id="Pname">项目名称</th>
                     <th>负责人</th>
-                    <th>成员</th>
                     <th>级别</th>
                     <th>类型</th>
                     <th>经费</th>
@@ -58,15 +55,13 @@
                     <th>结题时间</th>
                     <th>科研状态</th>
                     <th>合同类型</th>
-                    <th>备注</th>
                     <th>附件</th>
                 </tr>
                 <c:forEach items="${projects}" var="projects">
                     <tr>
-                        <td>${projects.psn}</td>
+                        <td><a href="${pageContext.request.contextPath}/teacher/goProjectDetail.do?psn=${projects.psn}">${projects.psn}</a></td>
                         <td>${projects.pname}</td>
                         <td>${projects.pleader}</td>
-                        <td>${projects.pmember}</td>
                         <td>${projects.pgrad}</td>
                         <td>${projects.pkind}</td>
                         <td>${projects.pmoney}</td>
@@ -74,7 +69,6 @@
                         <td>${projects.pendtime}</td>
                         <td>${projects.pcondition}</td>
                         <td>${projects.contractType}</td>
-                        <td>${projects.premarks}</td>
                         <td>
                             <a href="/file/download.do?model=project&majorkey=${projects.psn}&name=${projects.pname}" class="Download">查看附件</a>
                             <input type="hidden" class="accessoryPath" value="${projects.paccessory}"/>

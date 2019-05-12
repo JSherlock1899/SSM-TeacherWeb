@@ -54,7 +54,6 @@
                     <th>类型</th>
                     <th>日期</th>
                     <th>发表单位</th>
-                    <th>成果描述</th>
                     <th>附件</th>
                 </tr>
                 <c:forEach items="${others}" var="others">
@@ -64,9 +63,9 @@
                         <td>${others.other_type}</td>
                         <td>${others.other_date}</td>
                         <td>${others.publisher}</td>
-                        <td>${others.other_describe}</td>
                         <td>
                             <a href="/file/download.do?model=other&majorkey=${others.other_name}&name=${others.other_name}" class="Download">查看附件</a>
+                            <input type="hidden" class="accessoryPath" value="${others.accessory}"/>
                         </td>
                     </tr>
                 </c:forEach>
@@ -137,7 +136,7 @@
                             <div class="form-group">
                                 <label for="tname">发表人</label>
                                 <input type="text" name="tname" value="<%=Tname%>"
-                                       class="form-control" id="tname" placeholder="发表人">
+                                       class="form-control" id="tname" placeholder="发表人" readonly>
                             </div>
 
                             <div class="form-group">

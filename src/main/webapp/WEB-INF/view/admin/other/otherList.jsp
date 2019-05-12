@@ -51,17 +51,15 @@
                     <th>类型</th>
                     <th>日期</th>
                     <th>发表单位</th>
-                    <th>成果描述</th>
                     <th>附件</th>
                 </tr>
                 <c:forEach items="${others}" var="others">
                     <tr>
-                        <td>${others.other_name}</td>
+                        <td><a href="${pageContext.request.contextPath}/teacher/goOtherDetail.do?other_name=${others.other_name}">${others.other_name}</a></td>
                         <td>${others.tname}</td>
                         <td>${others.other_type}</td>
                         <td>${others.other_date}</td>
                         <td>${others.publisher}</td>
-                        <td>${others.other_describe}</td>
                         <td>
                             <a href="/file/download.do?model=other&majorkey=${others.other_name}&name=${others.other_name}" class="Download">查看附件</a>
                             <input type="hidden" class="accessoryPath" value="${others.accessory}"/>

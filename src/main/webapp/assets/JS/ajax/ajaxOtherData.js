@@ -115,7 +115,6 @@ $(document).on("click","#pass",function(){
         },
         success : function(result){
             alert("操作成功");
-            location.reload();
         },
         error:function(result){
             alert('请求出现错误...');
@@ -137,7 +136,6 @@ $(document).on("click","#nopass",function(){
         },
         success : function(result){
             alert("操作成功");
-            location.reload();
         },
         error:function(result){
             alert('请求出现错误...');

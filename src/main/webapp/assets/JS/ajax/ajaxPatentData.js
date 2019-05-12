@@ -2,30 +2,6 @@
  * 用ajax对数据进行增删改
  */
 
-
-//删
-$(document).on("click",".delete",function(e,url){
-        var Patsn = $(this).closest("tr").find(".Patsn").text();
-        $.ajax({
-        	url:"../servlet/PatentServlet?value=1",		//url貌似存在问题，未解决
-            type:"post",
-            datatype:"json",
-            data:{
-                "Patsn" : Patsn
-            },
-            success : function(msg){
-                
-                    alert("删除成功");
-                    $(e.target).closest("tr").fadeOut();
-                    window.location.reload();
-            },
-            error:function(msg){  
-                alert('请求出现错误...');  
-            }
-        });
-    });
-
-
 //改
 //判断当前状态是编辑还是保存
 $(document).on("click",".updata",function(e){
@@ -52,7 +28,6 @@ $(document).on("click","#pass",function(){
         },
         success : function(result){
             alert("操作成功");
-            location.reload();
         },
         error:function(result){
             alert('请求出现错误...');
@@ -74,7 +49,6 @@ $(document).on("click","#nopass",function(){
         },
         success : function(result){
             alert("操作成功");
-            location.reload();
         },
         error:function(result){
             alert('请求出现错误...');

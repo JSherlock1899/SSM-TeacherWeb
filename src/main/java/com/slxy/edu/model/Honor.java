@@ -21,6 +21,7 @@ public class Honor {
   private String cname;
   private String dnane;
 
+  //select
   public Honor(String hsn, String hname, String hwinner, String hdate, String hcompany, String hgrad, String hremarks, String haudit, String haccessory, String message, String department, String tname, String cname, String dnane) {
     this.hsn = hsn;
     this.hname = hname;
@@ -38,7 +39,8 @@ public class Honor {
     this.dnane = dnane;
   }
 
-  public Honor(String hsn, String hname, String hwinner, String hdate, String hcompany, String hgrad, String hremarks, String haccessory, String department, String tname) {
+
+  public Honor(String hsn, String hname, String hwinner, String hdate, String hcompany, String hgrad, String hremarks, String tsn, String haudit, String department) {
     this.hsn = hsn;
     this.hname = hname;
     this.hwinner = hwinner;
@@ -46,11 +48,12 @@ public class Honor {
     this.hcompany = hcompany;
     this.hgrad = hgrad;
     this.hremarks = hremarks;
-    this.haccessory = haccessory;
+    this.tsn = tsn;
+    this.haudit = haudit;
     this.department = department;
-    this.tname = tname;
   }
 
+  //  update
   public Honor(String hsn, String hname, String hwinner, String hdate, String hcompany, String hgrad, String hremarks, String tsn, String haudit, String message, String department,String tname) {
     this.hsn = hsn;
     this.hname = hname;
@@ -66,23 +69,8 @@ public class Honor {
     this.tname = tname;
   }
 
-  public Honor(String hsn, String hname, String hwinner, String hdate, String hcompany, String hgrad, String hremarks,  String haudit, String haccessory, String message, String department) {
-    this.hsn = hsn;
-    this.hname = hname;
-    this.hwinner = hwinner;
-    this.hdate = hdate;
-    this.hcompany = hcompany;
-    this.hgrad = hgrad;
-    this.hremarks = hremarks;
-    this.haudit = haudit;
-    this.haccessory = haccessory;
-    this.message = message;
-    this.department = department;
-  }
 
-
-
-    public long getHnum() {
+  public long getHnum() {
     return hnum;
   }
 
