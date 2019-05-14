@@ -59,19 +59,23 @@
                     <th>授权时间</th>
                     <th>类型</th>
                     <th>附件</th>
+                    <th>操作</th>
                 </tr>
                 <c:forEach items="${patents}" var="patents">
                     <tr>
                         <td><a href="${pageContext.request.contextPath}/teacher/goPatentDetail.do?patsn=${patents.patsn}">${patents.patname}</a></td>
                         <td>${patents.inventor}</td>
                         <td>${patents.tname}</td>
-                        <td>${patents.patsn}</td>
+                        <td class="Patsn">${patents.patsn}</td>
                         <td>${patents.patapdate}</td>
                         <td>${patents.patendate}</td>
                         <td>${patents.patgrad}</td>
                         <td>
-                            <a href="/file/download.do?model=patent&majorkey=${patents.patsn}&name=${patents.patname}" class="Download">查看附件</a>
+                            <a href="<%=request.getContextPath()%>/file/download.do?model=patent&majorkey=${patents.patsn}&name=${patents.patname}" class="Download">查看附件</a>
                             <input type="hidden" class="accessoryPath" value="${patents.paccessory}"/>
+                        </td>
+                        <td>
+                            <a class="btn btn-danger delete">删除</a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -201,7 +205,7 @@
                             </button>
                             <button type="submit" id="btn_submit"
                                     class="btn btn-primary saveNewMsg">
-                                <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存
+                                <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>提交
                             </button>
                         </div>
                     </div>

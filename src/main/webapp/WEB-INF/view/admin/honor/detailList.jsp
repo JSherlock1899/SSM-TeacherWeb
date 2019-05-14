@@ -53,7 +53,7 @@
                     <td>第一完成单位</td>
                     <td class="department"><%=honor.getDepartment()%></td>
                     <td>附件</td>
-                    <td><a href="/file/download.do?model=honor&majorkey=<%=honor.getHsn()%>&name=<%=honor.getHname()%>"  class="btn btn-primary Download">下载附件</a></td>
+                    <td><a href="<%=request.getContextPath()%>/file/download.do?model=honor&majorkey=<%=honor.getHsn()%>&name=<%=honor.getHname()%>"  class="btn btn-primary Download">下载附件</a></td>
                     <input type="hidden" id="accessoryPath" value="<%=honor.getHaccessory() %>"/>
                 </tr>
                 <tr>

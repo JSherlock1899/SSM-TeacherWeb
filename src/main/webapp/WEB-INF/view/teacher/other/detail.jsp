@@ -61,7 +61,7 @@
                 </tr>
                 <tr>
                     <td>附件</td>
-                    <td colspan="1"><a href="/file/download.do?model=other&majorkey=<%=others.getOther_name()%>&name=<%=others.getOther_name()%>"  class="btn btn-primary Download">下载附件</a></td>
+                    <td colspan="1"><a href="<%=request.getContextPath()%>/file/download.do?model=other&majorkey=<%=others.getOther_name()%>&name=<%=others.getOther_name()%>"  class="btn btn-primary Download">下载附件</a></td>
                     <input type="hidden" id="accessoryPath" value="<%=others.getAccessory() %>"/>
                     <td colspan="1">审核情况</td>
                     <td colspan="2"><%=others.getAudit()%></td>
@@ -130,7 +130,7 @@
                                </button>
                                <button type="submit" id="btn_submit"
                                        class="btn btn-primary save">
-                                   <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存
+                                   <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>提交
                                </button>
                            </div>
                        </div>

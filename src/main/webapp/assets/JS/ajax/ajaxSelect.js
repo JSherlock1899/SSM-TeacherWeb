@@ -8,11 +8,10 @@ function goSelect(model) {
 			var starttime = $('#starttime').val();
 			var endtime = $('#endtime').val();
 			var tname = $("#Tname").val();
-			const path = "http://"+document.location.host;  //通用
+			const path = "http://"+document.location.host + "/TeacherWeb";  //通用
 			//将首字母大写
 			var tmp = model.charAt(0).toUpperCase() + model.slice(1)
 			var url = path + "/" + model + "/find" + tmp + ".do";
-			console.log(url)
     		document.getElementById("select_frame").src=url+"?cname=" + cname
 			+ "&dname=" + dname + "&starttime=" + starttime + "&endtime=" + endtime + "&tname=" + tname;
 
@@ -81,7 +80,7 @@ function goSelect(model) {
 		    //当已经进行过一次查询后将正确的url分割出来
 			var arr = new Array();
             arr = result.split('/'); //通过字符串分割得到option
-            var option = arr[3];
+            var option = arr[4];
             //根据url中是否含find来判断是查询还是统计
             var judge = result.indexOf("find");
             var judge1 = result.indexOf("Statistics");
@@ -101,7 +100,7 @@ function goSelect(model) {
             var dname = $('#sdept option:selected').val();// 选中的专业值
             var starttime = $('#starttime').val();
             var endtime = $('#endtime').val();
-            const path = "http://"+document.location.host;  //通用
+            const path = "http://"+document.location.host + "/TeacherWeb";  //通用
             //将首字母大写
             var tmp = model.charAt(0).toUpperCase() + model.slice(1)
             var url = path + "/" + model + "/Statistics.do";
@@ -114,6 +113,7 @@ function goSelect(model) {
 		function ProjectStatistics(){
             var model = getRightOption("project");
             goStatistics(model);
+            backTop();
             resetSelect()
 		    }
 			
@@ -122,24 +122,28 @@ function goSelect(model) {
 		function PaperStatistics(){
             var model = getRightOption("paper");
             goStatistics(model);
+            backTop();
             resetSelect()
 		}
 
 		function HonorStatistics(){
             var model = getRightOption("honor");
             goStatistics(model);
+            backTop();
             resetSelect()
 		}
 
 		function PatentStatistics(){
             var model = getRightOption("patent");
             goStatistics(model);
+            backTop();
             resetSelect()
 		}
 
 		function OtherStatistics(){
 			var model = getRightOption("patent");
 			goStatistics(model);
+            backTop();
 			resetSelect()
 		}
 		
@@ -151,7 +155,7 @@ function goSelect(model) {
             var endtime = $('#endtime').val();
             var tname = $("#Tname").val();
             var grade = $("#grade").val();
-            const path = "http://"+document.location.host;  //通用
+            const path = "http://"+document.location.host + "/TeacherWeb";  //通用
             var url = path + "/" + model + "/audit.do";
             document.getElementById("select_frame").src=url+"?cname=" + cname
                 + "&dname=" + dname + "&starttime=" + starttime + "&endtime=" + endtime + "&tname=" + tname;
@@ -161,6 +165,7 @@ function goSelect(model) {
 		function ProjectAudit(){
             var model = getRightOption("project");
             goAudit(model);
+            backTop();
             resetSelect()
 		    }
 			
@@ -169,24 +174,28 @@ function goSelect(model) {
 		function PaperAudit(){
             var model = getRightOption("paper");
             goAudit(model);
+            backTop();
             resetSelect()
 		}
 
 		function HonorAudit(){
             var model = getRightOption("honor");
             goAudit(model);
+            backTop();
             resetSelect()
 		}
 
 		function PatentAudit(){
             var model = getRightOption("patent");
             goAudit(model);
+            backTop();
             resetSelect()
 		}
 
 		function OtherAudit(){
             var model = getRightOption("other");
             goAudit(model);
+            backTop();
             resetSelect()
 		}
 

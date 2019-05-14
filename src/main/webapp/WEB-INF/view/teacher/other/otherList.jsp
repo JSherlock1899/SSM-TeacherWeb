@@ -55,17 +55,21 @@
                     <th>日期</th>
                     <th>发表单位</th>
                     <th>附件</th>
+                    <th>操作</th>
                 </tr>
                 <c:forEach items="${others}" var="others">
                     <tr>
-                        <td><a href="${pageContext.request.contextPath}/teacher/goOtherDetail.do?other_name=${others.other_name}">${others.other_name}</a></td>
+                        <td class="other_name"><a href="${pageContext.request.contextPath}/teacher/goOtherDetail.do?other_name=${others.other_name}">${others.other_name}</a></td>
                         <td>${others.tname}</td>
                         <td>${others.other_type}</td>
                         <td>${others.other_date}</td>
                         <td>${others.publisher}</td>
                         <td>
-                            <a href="/file/download.do?model=other&majorkey=${others.other_name}&name=${others.other_name}" class="Download">查看附件</a>
+                            <a href="<%=request.getContextPath()%>/file/download.do?model=other&majorkey=${others.other_name}&name=${others.other_name}" class="Download">查看附件</a>
                             <input type="hidden" class="accessoryPath" value="${others.accessory}"/>
+                        </td>
+                        <td>
+                            <a class="btn btn-danger delete">删除</a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -165,7 +169,7 @@
                                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭
                             </button>
                             <button type="submit" id="btn_submit" class="btn btn-primary saveNewMsg">
-                                <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存
+                                <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>提交
                             </button>
                         </div>
                     </div>

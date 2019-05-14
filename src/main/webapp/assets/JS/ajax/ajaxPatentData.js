@@ -1,17 +1,31 @@
 /**
  * 用ajax对数据进行增删改
  */
+//删
+$(document).on("click",".delete",function(e,url){
+    var majorkey = $(this).closest("tr").find(".Patsn").text();
+    var boolean = todel();
+    if (!boolean)
+        return
+    $.ajax({
+        url:"/TeacherWeb/patent/delete.do",
+        type:"post",
+        datatype:"json",
+        data:{
+            "majorkey" : majorkey
+        },
+        success : function(msg){
+            alert("删除成功");
+            $(e.target).closest("tr").fadeOut();
+            window.location.reload();
+        },
+        error:function(msg){
+            alert('请求出现错误...');
+        }
+    });
+});
 
-//改
-//判断当前状态是编辑还是保存
-$(document).on("click",".updata",function(e){
-	var content = $(this).text();
-	if(content == "编辑"){
-		$(this).removeClass('save');
-	}else{
-		$(this).addClass('save');
-	}
-})
+
 
 
 //审核通过
@@ -19,7 +33,7 @@ $(document).on("click","#pass",function(){
     var Patsn = $('.Patsn').text();
     var message  = $('#message').val();
     $.ajax({
-        url:"/patent/pass.do",
+        url:"/TeacherWeb/patent/pass.do",
         type:"post",
         datatype:"json",
         data:{
@@ -40,7 +54,7 @@ $(document).on("click","#nopass",function(){
     var Patsn = $('.Patsn').text();
     var message  = $('#message').val();
     $.ajax({
-        url:"/patent/nopass.do",
+        url:"/TeacherWeb/patent/nopass.do",
         type:"post",
         datatype:"json",
         data:{
@@ -59,7 +73,7 @@ $(document).on("click","#nopass",function(){
 
 
 //修改信息
-//获取修改后的信息
+//教师修改信息
 $(document).on("click",".save",function(){
 	if(check()){
 	alert('输入不合法！');
@@ -74,7 +88,7 @@ $(document).on("click",".save",function(){
 	var Patgrad = $('#Patgrad option:selected').val();
 	var Patremarks = $('#Patremarks').val();
 	$.ajax({
-        url:"/patent/updateOne.do",
+        url:"/TeacherWeb/patent/updateOne.do",
         type:"post",
         datatype:"json",
         data:{
@@ -96,6 +110,53 @@ $(document).on("click",".save",function(){
     });
 });
 
+//管理员修改信息
+$(document).on("click",".alter",function(e,url){
+    $("#myModalLabel").text("修改专利信息");
+    $('#myModal').modal();
+    $("#Patname").attr("value",$(this).closest("tr").find(".Patname").text());
+    $("#inventor").attr("value",$(this).closest("tr").find(".inventor").text());
+    $("#tname").attr("value",$(this).closest("tr").find(".tname").text());
+    $("#Patsn").attr("value",$(this).closest("tr").find(".Patsn").text());
+    $("#Patapdate").attr("value",$(this).closest("tr").find(".Patapdate").text());
+    $("#Patendate").attr("value",$(this).closest("tr").find(".Patendate").text());
+    $("#Patgrad").attr("value",$(this).closest("tr").find(".Patgrad").text());
+});
+$(document).on("click",".alterSave",function(){
+    if(check()){
+        alert('输入不合法！');
+        return;
+    }
+    var Patname = $('#Patname').val();
+    var inventor = $('#inventor').val();
+    var tname = $('#tname').val();
+    var Patsn = $('#Patsn').val().trim();
+    var Patapdate = $('#Patapdate').val();
+    var Patendate = $('#Patendate').val();
+    var Patgrad = $('#Patgrad option:selected').val();
+    $.ajax({
+        url:"/TeacherWeb/patent/alter.do",
+        type:"post",
+        datatype:"json",
+        data:{
+            "Patname" : Patname,
+            "inventor" : inventor,
+            "tname" : tname,
+            "Patsn" :Patsn,
+            "Patapdate" : Patapdate,
+            "Patendate" : Patendate,
+            "Patgrad" : Patgrad,
+        },
+        success : function(result){
+            alert("修改成功！");
+            window.location.reload();
+        },
+        error:function(result){
+            alert('请求出现错误...');
+        }
+    });
+});
+
 
 //新建信息
 $(document).on("click",".saveNewMsg",function(){
@@ -112,7 +173,7 @@ $(document).on("click",".saveNewMsg",function(){
     var Patgrad = $('#Patgrad option:selected').val();
     var Patremarks = $('#Patremarks').val();
     $.ajax({
-        url:"/patent/insertOne.do",
+        url:"/TeacherWeb/patent/insertOne.do",
         type:"post",
         datatype:"json",
         data:{
@@ -193,7 +254,7 @@ function initFileInput(ctrlName) {
     var Patsn = $('#Patsn').val().trim();
     control.fileinput({
         language: 'zh', //设置语言
-        uploadUrl: "/file/upload.do?model=patent&name=" + Patname + "&majorkey=" + Patsn, //上传的地址
+        uploadUrl: "/TeacherWeb/file/upload.do?model=patent&name=" + Patname + "&majorkey=" + Patsn, //上传的地址
         allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
         //uploadExtraData:{"id": 1, "fileName":'123.mp3'},
         uploadAsync: true, //默认异步上传

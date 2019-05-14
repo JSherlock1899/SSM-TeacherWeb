@@ -60,10 +60,11 @@
                     <th>级别</th>
                     <th>依托项目</th>
                     <th>附件</th>
+                    <th>操作</th>
                 </tr>
                 <c:forEach items="${papers}" var="papers">
                     <tr>
-                        <td><a href="${pageContext.request.contextPath}/teacher/goPaperDetail.do?pasearchnum=${papers.pasearchnum}">${papers.pasearchnum}</a></td>
+                        <td class="Pasearchnum"><a href="${pageContext.request.contextPath}/teacher/goPaperDetail.do?pasearchnum=${papers.pasearchnum}">${papers.pasearchnum}</a></td>
                         <td>${papers.paname}</td>
                         <td>${papers.tname}</td>
                         <td>${papers.pawriter}</td>
@@ -73,9 +74,11 @@
                         <td>${papers.pagrad}</td>
                         <td>${papers.dependence}</td>
                         <td>
-                            <a href="/file/download.do?model=paper&majorkey=${papers.pasearchnum}&name=${papers.paname}" class="Download">查看附件</a>
-                                ${papers.paccessory}
+                            <a href="<%=request.getContextPath()%>/file/download.do?model=paper&majorkey=${papers.pasearchnum}&name=${papers.paname}" class="Download">查看附件</a>
                             <input type="hidden" class="accessoryPath" value="${papers.paccessory}"/>
+                        </td>
+                        <td>
+                            <a class="btn btn-danger delete">删除</a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -85,21 +88,28 @@
                 <!--点击分页-->
                 <div>
                     <ul class="pagination">
-                        <li><a href="${pageContext.request.contextPath}/teacher/findPaper.do?pn=1&tsn=<%=tsn%>">首页</a></li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/teacher/findPaper.do?pn=1&tsn=<%=tsn%>">首页</a>
+                        </li>
                         <!--上一页-->
                         <li>
                             <c:if test="${pageInfo.hasPreviousPage}">
-                                <a href="${pageContext.request.contextPath}/teacher/findPaper.do?pn=${pageInfo.pageNum-1}&tsn=<%=tsn%>" aria-label="Previous">
+                                <a href="${pageContext.request.contextPath}/teacher/findPaper.do?pn=${pageInfo.pageNum-1}&tsn=<%=tsn%>"
+                                   aria-label="Previous">
                                     <span aria-hidden="true">«</span>
                                 </a>
                             </c:if>
                         </li>
                         <c:forEach items="${pageInfo.navigatepageNums}" var="page_num">
                             <c:if test="${page_num == pageInfo.pageNum}">
-                                <li class="active"><a href="${pageContext.request.contextPath}/paper/findPaper.do?pn=1&tsn=<%=tsn%>">${page_num}</a></li>
+                                <li class="active"><a
+                                        href="${pageContext.request.contextPath}/teacher/findPaper.do?pn=1&tsn=<%=tsn%>">${page_num}</a>
+                                </li>
                             </c:if>
                             <c:if test="${page_num != pageInfo.pageNum}">
-                                <li><a href="${pageContext.request.contextPath}/teacher/findPaper.do?pn=${page_num}&tsn=<%=tsn%>">${page_num}</a></li>
+                                <li>
+                                    <a href="${pageContext.request.contextPath}/teacher/findPaper.do?pn=${page_num}&tsn=<%=tsn%>">${page_num}</a>
+                                </li>
                             </c:if>
                         </c:forEach>
                         <!--下一页-->
@@ -111,7 +121,9 @@
                                 </a>
                             </c:if>
                         </li>
-                        <li><a href="${pageContext.request.contextPath}/teacher/findPaper.do?pn=${pageInfo.pages}&tsn=<%=tsn%>">尾页</a></li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/teacher/findPaper.do?pn=${pageInfo.pages}&tsn=<%=tsn%>">尾页</a>
+                        </li>
                     </ul>
                     <!--文字信息-->
                     <div class="form-group pull-right">
@@ -198,7 +210,7 @@
                             </button>
                             <button type="submit" id="btn_submit"
                                     class="btn btn-primary saveNewMsg">
-                                <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存
+                                <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>提交
                             </button>
                         </div>
                     </div>

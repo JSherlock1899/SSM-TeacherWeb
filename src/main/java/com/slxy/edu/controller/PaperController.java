@@ -115,11 +115,10 @@ public class PaperController extends BaseController<Paper> {
      */
     @RequestMapping("updateOne.do")
     @ResponseBody
-    public void updateOne(HttpServletRequest request, String Pasearchnum, String Paname, String Pawriter, String Papublish, String Pdisvol, String Padate, String Pagrad, String dependence, String Paremarks){
+    public void updateOne(String Pasearchnum, String Paname, String Pawriter, String Papublish, String Pdisvol, String Padate, String Pagrad, String dependence, String Paremarks){
         String Paudit = "0";
-        String Tsn = (String) request.getSession().getAttribute("username");
-        Paper Paper = new Paper(Pasearchnum,Paname,Pawriter,Papublish,Padate,Pagrad,Tsn,Paremarks,Paudit,Pdisvol,null,dependence);
-        int result = paperService.updateOne(Paper);
+        Paper Paper = new Paper(Pasearchnum,Paname,Pawriter,Papublish,Padate,Pagrad,Paremarks,Paudit,Pdisvol,dependence);
+        paperService.updateOne(Paper);
     }
 
     /**
@@ -129,11 +128,9 @@ public class PaperController extends BaseController<Paper> {
     @ResponseBody
     public void insertOne(HttpServletRequest request, String Pasearchnum, String Paname, String Pawriter, String Papublish, String Pdisvol, String Padate, String Pagrad, String dependence, String Paremarks){
         String Paudit = "0";
-        System.out.println("Pasearchnum的值是：" + Pasearchnum + ".当前方法:PaperController.insertOne()");
         String Tsn = (String) request.getSession().getAttribute("username");
         Paper Paper = new Paper(Pasearchnum,Paname,Pawriter,Papublish,Padate,Pagrad,Tsn,Paremarks,Paudit,Pdisvol,null,dependence);
-        int result = paperService.insertOne(Paper);
-        System.out.println("result的值是：" + result + ".当前方法:PaperController.insertOne()");
+        paperService.insertOne(Paper);
     }
 
     /**
@@ -185,9 +182,11 @@ public class PaperController extends BaseController<Paper> {
         List<Map<String, Integer>> mapList = new ArrayList<Map<String, Integer>>();
         List<List<Map<String, Integer>>> lists = new ArrayList<List<Map<String, Integer>>>();
         String grade = (String) request.getSession().getAttribute("grade");
+        //校级管理员
         if(grade.equals("1")){
             if (cname == null || cname.equals("null")){
                 map = paperService.getCollegeCount(starttime,endtime);
+                //折线图数据
                 for (int i=0;i<yearsArr.length-1;i++){
                     starttime = yearsArr[i];
                     endtime = yearsArr[i+1];
@@ -200,6 +199,7 @@ public class PaperController extends BaseController<Paper> {
             }
 
         }else if (grade.equals("2")){
+            //院级管理员
             cname = (String) request.getSession().getAttribute("cname");
             map = paperService.getSdeptCount(starttime,endtime,cname);
             getCount(cname, lists);
@@ -263,5 +263,25 @@ public class PaperController extends BaseController<Paper> {
         }catch (DuplicateKeyException e){
             out.print("<script>alert('导入失败，请检查检索号是否输入正确！')</script>");
         }
+    }
+
+    /**
+     * 按主键删除对应数据
+     */
+    @RequestMapping("delete.do")
+    @ResponseBody
+    public void delete(String majorkey){
+        paperService.deleteByMajorkey(majorkey);
+    }
+
+    /**
+     * 按主键修改对应数据
+     */
+    @RequestMapping("alter.do")
+    @ResponseBody
+    public void alter(String Pasearchnum, String Paname, String Pawriter, String Papublish, String Pdisvol, String Padate, String Pagrad, String dependence, String Paremarks){
+        String Paudit = "1";
+        Paper Paper = new Paper(Pasearchnum,Paname,Pawriter,Papublish,Padate,Pagrad,Paremarks,Paudit,Pdisvol,dependence);
+        paperService.updateOne(Paper);
     }
 }

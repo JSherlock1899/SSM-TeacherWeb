@@ -64,7 +64,7 @@
                         <td>科研状态</td>
                         <td class="Pcondition" colspan="2"><%=project.getPcondition()%></td>
                         <td>附件</td>
-                        <td class="Paccessory"  colspan="2" ><a href="/file/download.do?model=project&majorkey=<%=project.getPsn()%>&name=<%=project.getPname()%>" class=" btn btn-primary Download">查看附件</a></td>
+                        <td class="Paccessory"  colspan="2" ><a href="<%=request.getContextPath()%>/file/download.do?model=project&majorkey=<%=project.getPsn()%>&name=<%=project.getPname()%>" class=" btn btn-primary Download">查看附件</a></td>
                         <input type="hidden" id="accessoryPath" value="<%=project.getPaccessory() %>"/>
                     </tr>
                     <tr>

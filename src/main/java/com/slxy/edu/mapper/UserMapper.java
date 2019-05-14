@@ -15,7 +15,7 @@ public interface UserMapper {
     //获取管理员信息
     Admin getAdminGrade(String Aname);
 
-    //获取教师信息
+    //获取教师名
     String getTeacherName(String Tsn);
 
     //判断管理员原密码是否正确
@@ -29,4 +29,8 @@ public interface UserMapper {
 
     //修改教师密码
     int alterTeacherPassword(@Param("Tsn")String Tsn,@Param("newPassword")String newPassword);
+
+
+
+
 }

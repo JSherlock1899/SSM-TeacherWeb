@@ -453,4 +453,14 @@ public class TeacherController{
     public void nopass(String majorkey,String message){
         teacherService.nopass(majorkey,message);
     }
+
+
+    /**
+     * 按主键删除对应数据
+     */
+    @RequestMapping("delete.do")
+    @ResponseBody
+    public void delete(String majorkey){
+        teacherService.deleteByMajorkey(majorkey);
+    }
 }

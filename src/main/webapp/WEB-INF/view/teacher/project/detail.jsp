@@ -61,7 +61,7 @@
                     <td class="Pmember"><%=project.getPmember()%></td>
                 </tr>
                 <tr>
-                    <td>经费</td>
+                    <td>经费（元）</td>
                     <td class="Pmoney"><%=project.getPmoney()%></td>
                     <td>立项时间</td>
                     <td class="Pstatime"><%=project.getPstatime()%></td>
@@ -70,7 +70,7 @@
                     <td>结题时间</td>
                     <td class="Pendtime"><%=project.getPendtime()%></td>
                     <td>附件</td>
-                    <td colspan="3"><a href="/file/download.do?model=project&majorkey=<%=project.getPsn()%>&name=<%=project.getPname()%>"  class="btn btn-primary Download" value="上传">下载附件</a></td>
+                    <td colspan="3"><a href="<%=request.getContextPath()%>/file/download.do?model=project&majorkey=<%=project.getPsn()%>&name=<%=project.getPname()%>"  class="btn btn-primary Download" value="上传">下载附件</a></td>
                     <input type="hidden" id="accessoryPath" value="<%=project.getPaccessory() %>"/>
                 </tr>
                 <tr>
@@ -166,7 +166,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="Pmoney">经费 </label>
+                                    <label for="Pmoney">经费（元）</label>
                                     <input type="text" name="Pmoney"   value="<%=project.getPmoney() %>"
                                            class="form-control" id="Pmoney" placeholder="经费"
                                            onfocus="showTips('Pmoney','项目经费为数字')"
@@ -198,7 +198,7 @@
                                 </button>
                                 <button type="submit" id="btn_submit"
                                         class="btn btn-primary save">
-                                    <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存
+                                    <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>提交
                                 </button>
                             </div>
                         </div>

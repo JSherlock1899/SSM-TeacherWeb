@@ -92,6 +92,16 @@ public class ProjectServiceImpl extends BaseServiceImpl<Project> implements IPro
         return projectMapper.getRecentYearsSdeptCount(starttime,endtime,cname);
     }
 
+    @Override
+    public int deleteByMajorkey(String majorkey) {
+        return projectMapper.deleteByMajorkey(majorkey);
+    }
+
+    @Override
+    public void alterByMajorkey(Project project) {
+        projectMapper.alterByMajorkey(project);
+    }
+
 
     @Override
     public List<ExcelProject> selectExcel(String cname, String dname, String starttime, String endtime, String tname) {
@@ -102,4 +112,15 @@ public class ProjectServiceImpl extends BaseServiceImpl<Project> implements IPro
     public int importExcel(List<ExcelProject> list) {
         return projectMapper.importExcel(list);
     }
+
+    @Override
+    public List<Map<String, Integer>> getProjectMoney(String starttime, String endtime) {
+        return projectMapper.getProjectMoney(starttime,endtime);
+    }
+
+    @Override
+    public List<Map<String, Integer>> getSdeptProjectMoney(String starttime, String endtime, String Cname) {
+        return projectMapper.getSdeptProjectMoney(starttime,endtime,Cname);
+    }
+
 }

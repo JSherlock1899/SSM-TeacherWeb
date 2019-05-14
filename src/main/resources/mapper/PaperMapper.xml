@@ -5,7 +5,7 @@
 <mapper namespace="com.slxy.edu.mapper.PaperMapper">
 
     <select id="selectAll" resultType="Paper" >
-        select Pasearchnum,Paname,Pawriter,Papublish,Padate,Pagrad,Paremarks,Pdisvol,Paccessory,Paudit,p.message,dependence,Cname,Dname,Tname,t.Tsn FROM Paper p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
+        select Pasearchnum,Paname,Pawriter,Papublish,Padate,Pagrad,Paremarks,Paudit,Pdisvol,Paccessory,p.message,dependence,Tname,Cname,Dname,t.Tsn FROM Paper p JOIN Teacher t ON p.Tsn = t.Tsn JOIN College c on c.Csn = t.Csn JOIN  Sdept s ON s.Dsn = t.Dsn
           <where>
               <if test="tname!=null and tname!='' and tname!='null'">
                   Tname = #{tname}
@@ -73,7 +73,6 @@
         pagrad = #{entity.pagrad},
         paremarks = #{entity.paremarks},
         dependence = #{entity.dependence},
-        tsn = #{entity.tsn},
         paudit = #{entity.paudit}
         WHERE pasearchnum = #{entity.pasearchnum};
     </update>
@@ -232,4 +231,9 @@
           )
         </foreach>
     </insert>
+
+    <!--按主键删除-->
+    <delete id="deleteByMajorkey">
+        DELETE FROM Paper WHERE Pasearchnum = #{majorkey}
+    </delete>
 </mapper>

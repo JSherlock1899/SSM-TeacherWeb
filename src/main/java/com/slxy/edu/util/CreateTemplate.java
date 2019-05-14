@@ -131,14 +131,14 @@ public class CreateTemplate {
                 rownum++;
             }
             // 生成Excel导入模板
-            File tempFile = new File("D:/" + templateName + ".xls");
+            File tempFile = new File("D:/resource/" + templateName + ".xls");
             tempFile.delete();
             tempFile.createNewFile();
             FileOutputStream stream = FileUtils.openOutputStream(tempFile);
             wb.write(stream);
             stream.close();
             CommonUtils commonUtils = new CommonUtils();
-            String filepath = "D://" + templateName + ".xls";
+            String filepath = "D:/resource/" + templateName + ".xls";
             commonUtils.download(filepath, response);
         } catch (Exception e) {
             e.printStackTrace();

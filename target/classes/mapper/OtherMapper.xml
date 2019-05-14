@@ -63,13 +63,13 @@
     </select>
 
     <!--更新数据，重新提交-->
+    <!--管理员修改数据-->
     <update id="updateOne"  parameterType="com.slxy.edu.model.Other">
         UPDATE Other
         SET other_date = #{entity.other_date},
         other_type = #{entity.other_type},
         publisher = #{entity.publisher},
         other_describe = #{entity.other_describe},
-        tsn = #{entity.tsn},
         audit = #{entity.audit}
         WHERE other_name = #{entity.other_name};
     </update>
@@ -105,10 +105,10 @@
                 AND other_date &lt;= #{endtime}
             </if>
             <if test="cname!=null">
-                AND audit = '1'
+                AND o.audit = '1'
             </if>
             <if test="cname == null">
-                AND audit = '1'
+                AND o.audit = '1'
             </if>
         </where>
     </select>
@@ -224,4 +224,9 @@
             )
         </foreach>
     </insert>
+
+    <!--按主键删除-->
+    <delete id="deleteByMajorkey">
+        DELETE FROM Other WHERE other_name = #{majorkey}
+    </delete>
 </mapper>

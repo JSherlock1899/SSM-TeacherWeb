@@ -65,7 +65,7 @@
                 </tr>
                 <tr>
                     <td>附件</td>
-                    <td colspan="2"><a href="/file/download.do?model=paper&majorkey=<%=paper.getPasearchnum()%>&name=<%=paper.getPaname()%>"  class="btn btn-primary Download">下载附件</a></td>
+                    <td colspan="2"><a href="<%=request.getContextPath()%>/file/download.do?model=paper&majorkey=<%=paper.getPasearchnum()%>&name=<%=paper.getPaname()%>"  class="btn btn-primary Download">下载附件</a></td>
                     <input type="hidden" id="accessoryPath" value="<%=paper.getPaccessory() %>"/>
                     <td colspan="1">审核情况</td>
                     <td colspan="2"><%=paper.getPaudit()%></td>
@@ -155,7 +155,7 @@
                                 </button>
                                 <button type="submit" id="btn_submit"
                                         class="btn btn-primary save">
-                                    <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存
+                                    <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>提交
                                 </button>
                             </div>
                         </div>

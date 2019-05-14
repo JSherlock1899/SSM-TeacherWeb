@@ -72,8 +72,8 @@
         hcompany = #{entity.hcompany},
         department = #{entity.department},
         hgrad = #{entity.hgrad},
-        tsn = #{entity.tsn},
-        haudit = #{entity.haudit}
+        haudit = #{entity.haudit},
+        hremarks = #{entity.hremarks}
         WHERE hsn = #{entity.hsn}
     </update>
 
@@ -230,4 +230,9 @@
             )
         </foreach>
     </insert>
+
+    <!--按主键删除-->
+    <delete id="deleteByMajorkey">
+        DELETE FROM Honor WHERE Hsn = #{majorkey}
+    </delete>
 </mapper>

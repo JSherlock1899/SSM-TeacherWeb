@@ -58,7 +58,7 @@
                     <td>类别</td>
                     <td class="Patgrad"><%=patent.getPatgrad()%></td>
                     <td>附件</td>
-                    <td colspan="3"><a href="/file/download.do?model=patent&majorkey=<%=patent.getPatsn()%>&name=<%=patent.getPatname()%>" class="btn btn-primary Download">下载附件</a></td>
+                    <td colspan="3"><a href="<%=request.getContextPath()%>/file/download.do?model=patent&majorkey=<%=patent.getPatsn()%>&name=<%=patent.getPatname()%>" class="btn btn-primary Download">下载附件</a></td>
                     <input type="hidden" id="accessoryPath" value="<%=patent.getPaccessory() %>"/>
                 </tr>
                 <tr>

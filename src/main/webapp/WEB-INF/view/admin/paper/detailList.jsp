@@ -54,7 +54,7 @@
                         <td>级别</td>
                         <td class="Pagrad" colspan="2"><%=paper.getPagrad()%></td>
                         <td>附件</td>
-                        <td class="Paccessory" colspan="2"><a href="/file/download.do?model=paper&majorkey=<%=paper.getPasearchnum()%>&name=<%=paper.getPaname()%>" class=" btn btn-primary Download">查看附件</a></td>
+                        <td class="Paccessory" colspan="2"><a href="<%=request.getContextPath()%>/file/download.do?model=paper&majorkey=<%=paper.getPasearchnum()%>&name=<%=paper.getPaname()%>" class=" btn btn-primary Download">查看附件</a></td>
                         <input type="hidden" id="accessoryPath" value="<%=paper.getPaccessory() %>"/>
                     </tr>
                     <tr>

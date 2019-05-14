@@ -34,7 +34,7 @@ $(document).on("click",".save",function(){
 	var Pendtime = $('#Pendtime').val();
 	var Premarks = $('#Premarks').val();
 	$.ajax({
-        url:"/project/updateOne.do",
+        url:"/TeacherWeb/project/updateOne.do",
         type:"post",
         datatype:"json",
         data:{
@@ -51,7 +51,7 @@ $(document).on("click",".save",function(){
             "Premarks" :Premarks,
         },
         success : function(result){
-                alert("提交成功，请等待管理员审核！");
+            alert("提交成功，请等待管理员审核！");
                 location.reload();
         },
         error:function(result){  
@@ -60,6 +60,62 @@ $(document).on("click",".save",function(){
     });
 });
 
+//管理员修改信息
+$(document).on("click",".alter",function(e,url){
+    $("#myModalLabel").text("修改专利信息");
+    $('#myModal').modal();
+    $("#Psn").attr("value",$(this).closest("tr").find(".Psn").text());
+    $("#Pname").attr("value",$(this).closest("tr").find(".Pname").text());
+    $("#tname").attr("value",$(this).closest("tr").find(".tname").text());
+    $("#Pmember").attr("value",$(this).closest("tr").find(".Pmember").text());
+    $("#Pkind").attr("value",$(this).closest("tr").find(".Pkind").text());
+    $("#Pmoney").attr("value",$(this).closest("tr").find(".Pmoney").text());
+    $("#Pstatime").attr("value",$(this).closest("tr").find(".Pstatime").text());
+    $("#Pcondition").attr("value",$(this).closest("tr").find(".Pcondition").text());
+    $("#Pendtime").attr("value",$(this).closest("tr").find(".Pendtime").text());
+    $("#Premarks").attr("value",$(this).closest("tr").find(".Premarks").text());
+});
+
+$(document).on("click",".alterSave",function(){
+    if(check()){
+        alert('输入不合法！');
+        return;
+    }
+    var Psn = $('#Psn').val();
+    var Pname = $('#Pname').val();
+    var Pmember = $('#Pmember').val();
+    var Pgrad = $('#Pgrad option:selected').val();
+    var Pkind = $('#Pkind option:selected').val();
+    var Pmoney = $('#Pmoney').val();
+    var Pstatime = $('#Pstatime').val();
+    var Pcondition = $('#Pcondition option:selected').val();
+    var Pendtime = $('#Pendtime').val();
+    var Premarks = $('#Premarks').val();
+    $.ajax({
+        url:"/TeacherWeb/project/alter.do",
+        type:"post",
+        datatype:"json",
+        data:{
+            "Psn" : Psn,
+            "Pname" :Pname,
+            "Pmember" : Pmember,
+            "Pgrad" : Pgrad,
+            "Pkind" : Pkind,
+            "Pmoney" :Pmoney,
+            "Pstatime" : Pstatime,
+            "Pcondition" : Pcondition,
+            "Pendtime" : Pendtime,
+            "Premarks" :Premarks,
+        },
+        success : function(result){
+            alert("修改成功！");
+            location.reload();
+        },
+        error:function(result){
+            alert('请求出现错误...');
+        }
+    });
+});
 //新建信息
 $(document).on("click",".saveNewMsg",function(){
     if(check()){
@@ -79,7 +135,7 @@ $(document).on("click",".saveNewMsg",function(){
     var Pendtime = $('#Pendtime').val();
     var Premarks = $('#Premarks').val();
     $.ajax({
-        url:"/project/insertOne.do",
+        url:"/TeacherWeb/project/insertOne.do",
         type:"post",
         datatype:"json",
         data:{
@@ -180,7 +236,7 @@ $(document).on("click","#pass",function(){
     var Psn = $('.Psn').text();
     var message  = $('#message').val();
     $.ajax({
-        url:"/project/pass.do",
+        url:"/TeacherWeb/project/pass.do",
         type:"post",
         datatype:"json",
         data:{
@@ -202,7 +258,7 @@ $(document).on("click","#nopass",function(){
     var Psn = $('.Psn').text();
     var message  = $('#message').val();
     $.ajax({
-        url:"/project/nopass.do",
+        url:"/TeacherWeb/project/nopass.do",
         type:"post",
         datatype:"json",
         data:{
@@ -230,7 +286,7 @@ function initFileInput(ctrlName) {
     var Psn = $('#Psn').val().trim();
     control.fileinput({
         language: 'zh', //设置语言
-        uploadUrl: "/file/upload.do?model=project&name=" + Pname + "&majorkey=" + Psn, //上传的地址
+        uploadUrl: "/TeacherWeb/file/upload.do?model=project&name=" + Pname + "&majorkey=" + Psn, //上传的地址
         allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
         //uploadExtraData:{"id": 1, "fileName":'123.mp3'},
         uploadAsync: true, //默认异步上传
@@ -265,3 +321,26 @@ function initFileInput(ctrlName) {
 
     })
 }
+
+$(document).on("click",".delete",function(e,url){
+    var majorkey = $(this).closest("tr").find(".Psn").text();
+    var boolean = todel();
+    if (!boolean)
+        return
+    $.ajax({
+        url:"/TeacherWeb/project/delete.do",
+        type:"post",
+        datatype:"json",
+        data:{
+            "majorkey" : majorkey
+        },
+        success : function(msg){
+            alert("删除成功");
+            $(e.target).closest("tr").fadeOut();
+            window.location.reload();
+        },
+        error:function(msg){
+            alert('请求出现错误...');
+        }
+    });
+});

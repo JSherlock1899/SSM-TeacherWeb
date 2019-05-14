@@ -59,7 +59,7 @@
                         <td>${papers.pagrad}</td>
                         <td>${papers.dependence}</td>
                         <td>
-                            <a href="/file/download.do?model=paper&majorkey=${papers.pasearchnum}&name=${papers.paname}" class="Download">查看附件</a>
+                            <a href="<%=request.getContextPath()%>/file/download.do?model=paper&majorkey=${papers.pasearchnum}&name=${papers.paname}" class="Download">查看附件</a>
                             <input type="hidden" class="accessoryPath" value="${papers.paccessory}"/>
                         </td>
                     </tr>

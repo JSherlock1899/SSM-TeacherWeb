@@ -12,8 +12,9 @@
     <title>荣誉查询</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/CSS/bootstrap.css">
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/ajax/ajaxHonorData.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/commonUse.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/ajax/ajaxHonorData.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/bootstrap-table.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/ajax/ajaxSelect.js"></script>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/CSS/style.css">
@@ -54,19 +55,24 @@
                     <th>授奖单位</th>
                     <th>等级</th>
                     <th>附件</th>
+                    <th>操作</th>
                 </tr>
                 <c:forEach items="${honors}" var="honors">
                     <tr>
-                        <td><a href="${pageContext.request.contextPath}/teacher/goHonorDetail.do?hsn=${honors.hsn}">${honors.hsn}</a></td>
-                        <td>${honors.hname}</td>
-                        <td>${honors.hwinner}</td>
-                        <td>${honors.department}</td>
-                        <td>${honors.hdate}</td>
-                        <td>${honors.hcompany}</td>
-                        <td>${honors.hgrad}</td>
+                        <td class="Hsn"><a href="${pageContext.request.contextPath}/teacher/goHonorDetail.do?hsn=${honors.hsn}">${honors.hsn}</a></td>
+                        <td class="Hname">${honors.hname}</td>
+                        <td class="Hwinner">${honors.hwinner}</td>
+                        <td class="department">${honors.department}</td>
+                        <td class="Hdate">${honors.hdate}</td>
+                        <td class="Hcompany">${honors.hcompany}</td>
+                        <td class="Hgrad">${honors.hgrad}</td>
                         <td>
-                            <a href="/file/download.do?model=honor&majorkey=${honors.hsn}&name=${honors.hname}" class="Download">查看附件</a>
+                            <a href="<%=request.getContextPath()%>/file/download.do?model=honor&majorkey=${honors.hsn}&name=${honors.hname}" class="Download">查看附件</a>
                             <input type="hidden" class="accessoryPath" value="${honors.haccessory}"/>
+                        </td>
+                        <td>
+                            <a class="btn btn-danger delete">删除</a>
+                            <a class="btn btn-primary alter">编辑</a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -115,6 +121,95 @@
                         <span>当前第 ${pageInfo.pageNum} 页.总共 ${pageInfo.pages} 页</span>
                         <input type="text" class="pageVal" style="width:100px;margin-top: 25px;">
                         <button type="submit" class="btn btn-default" style="margin-right: 20px" id="skipPage">GO</button>
+                    </div>
+                </div>
+            </div>
+            <!--新建信息的模态框 -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" >
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel">修改荣誉信息</h4>
+                            <button type="button" class="close" data-dismiss="modal"
+                                    aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="Hsn">荣誉编号</label>
+                                <input type="text" name="Hsn" readonly
+                                       class="form-control" id="Hsn" placeholder="荣誉编号"
+                                       onfocus="showTips('Hsn','荣誉编号为1-20位的数字')"
+                                       onblur="checkHsn('Hsn','请按要求输入荣誉编号')">
+                                <div id="Hsndiv" style="display:none">
+                                    <span id="Hsnspan" ></span><br>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="Hname">荣誉名称</label>
+                                <input type="text" name="Hname"
+                                       class="form-control" id="Hname" placeholder="荣誉名称"
+                                       onfocus="showTips('Hname','荣誉名称不能超过15个字符')"
+                                       onblur="checkHname('Hname','请按要求输入荣誉名称')">
+                                <div id="Hnamediv" style="display:none">
+                                    <span id="Hnamespan" ></span><br>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="Hwinner">第一完成人</label>
+                                <input type="text"
+                                       name="Hwinner" class="form-control" id="Hwinner"
+                                       placeholder="第一完成人"  readonly>
+                                <div id="Hwinnerdiv" style="display:none">
+                                    <span id="Hwinnerspan" ></span><br>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="department">第一完成单位</label>
+                                <input type="text"
+                                       name="department" class="form-control" id="department"
+                                       placeholder="第一完成单位" >
+                            </div>
+                            <div class="form-group">
+                                <label for="Hdate">获奖时间</label> <input type="date"
+                                                                       name="Hdate" class="form-control" id="Hdate" placeholder="获奖时间">
+                            </div>
+                            <div class="form-group">
+                                <label for="Hcompany">颁奖单位</label>
+                                <input type="text" name="Hcompany"
+                                       class="form-control" id="Hcompany" placeholder="颁奖单位"
+                                       onfocus="showTips('Hcompany','颁发单位不能超过16个字符')"
+                                       onblur="checkHcompany('Hcompany','请按要求输入颁发单位')">
+                                <div id="Hcompanydiv" style="display:none">
+                                    <span id="Hcompanyspan" ></span><br>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="Hgrad">级别</label>
+                                <select name="Hgrad"
+                                        class="form-control" id="Hgrad">
+                                    <option value="校级">校级</option>
+                                    <option value="市级">市级</option>
+                                    <option value="省级">省级</option>
+                                    <option value="国家级">国家级</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="Hremarks">备注</label>
+                                <input type="text" name="Hremarks" class="form-control" id="Hremarks" placeholder="备注">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default"
+                                    data-dismiss="modal">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭
+                            </button>
+                            <button type="submit" id="btn_submit"
+                                    class="btn btn-primary alterSave">
+                                <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>提交
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

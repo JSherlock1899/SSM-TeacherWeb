@@ -18,7 +18,7 @@
 <%
     JSONArray json = (JSONArray)request.getAttribute("json");
     JSONArray jsonList = (JSONArray)request.getAttribute("jsonList");
-    JSONArray Pmoney = (JSONArray)request.getAttribute("Pmoney");
+    JSONArray Pmoney = (JSONArray)request.getAttribute("jsonMoney");
     String grade = (String)request.getSession().getAttribute("grade");	//获取用户的权限等级
     String cname = (String) request.getAttribute("cname");
 %>

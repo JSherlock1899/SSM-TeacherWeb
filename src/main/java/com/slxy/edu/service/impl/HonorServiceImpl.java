@@ -103,5 +103,15 @@ public class HonorServiceImpl extends BaseServiceImpl<Honor> implements IHonorSe
         return honorMapper.getRecentYearsSdeptCount(starttime,endtime,cname);
     }
 
+    @Override
+    public int deleteByMajorkey(String majorkey) {
+        return honorMapper.deleteByMajorkey(majorkey);
+    }
+
+    @Override
+    public void alterByMajorkey(Honor honor) {
+        honorMapper.alterByMajorkey(honor);
+    }
+
 
 }

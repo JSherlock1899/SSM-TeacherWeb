@@ -46,4 +46,10 @@ public interface BaseMapper<T> {
     //获取近5年各专业项目数量
     List<Map<String, Integer>> getRecentYearsSdeptCount(@Param("starttime")String starttime,@Param("endtime")String endtime,@Param("cname")String cname );
 
+    //按主键删除信息
+    int deleteByMajorkey(@Param("majorkey")String majorkey);
+
+    //管理员修改信息
+    void alterByMajorkey(@Param("entity")T t);
+
 }

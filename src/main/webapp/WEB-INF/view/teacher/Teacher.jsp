@@ -1,4 +1,3 @@
-<%@ page import="com.slxy.edu.model.Teacher" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -34,90 +33,99 @@
             <li class="li-border"><a href="#" class="mystyle-color"><%=Tname%>,您好
             </a></li>
         </ul>
+
         <ul class="nav navbar-nav pull-right">
             <li class="li-border"><a href="<%=request.getContextPath()%>/user/exitLogin.do"
                                      class="mystyle-color"> 退出登录 </a></li>
         </ul>
     </div>
 </nav>
-<div class="down-main">
-    <div class="left-main left-off">
-        <div class="sidebar-fold">
-            <span class="glyphicon glyphicon-menu-hamburger"></span>
-        </div>
-        <div class="subNavBox">
-            <div class="sBox">
-                <div class="subNav sublist-down">
-                    <span class="title-icon glyphicon glyphicon-chevron-down"></span><span
-                        class="sublist-title" style="font-size:15px;">查询</span>
-                </div>
-                <ul class="navContent" style="display: block">
-                    <li>
-                        <div class="showtitle" style="width: 100px;">项目查询</div>
-                        <a
-                           href="<%=request.getContextPath()%>/teacher/findProject.do?&tsn=<%=tsn%>"
-                           class="active3" target="select_frame"><span
-                                class="sublist-icon glyphicon glyphicon-search"></span><span
-                                class="sub-title">项目查询</span></a>
-                    </li>
-                    <li>
-                        <div class="showtitle" style="width: 100px;">成果查询</div>
-                        <a
-                                href="<%=request.getContextPath()%>/teacher/findPaper.do?&tsn=<%=tsn%>"
-                                target="select_frame" ><span
-                                class="sublist-icon glyphicon glyphicon-search"></span><span
-                                class="sub-title">成果查询</span></a>
-                    </li>
-                    <li>
-                        <div class="showtitle" style="width: 100px;">荣誉查询</div>
-                        <a
-                           href="<%=request.getContextPath()%>/teacher/findHonor.do?&tsn=<%=tsn%>"
-                           target="select_frame"><span
-                                class="sublist-icon glyphicon glyphicon-search"></span><span
-                                class="sub-title">荣誉查询</span></a>
-                    </li>
-                    <li>
-                        <div class="showtitle" style="width: 100px;">专利查询</div>
-                        <a
-                           href="<%=request.getContextPath()%>/teacher/findPatent.do?&tsn=<%=tsn%>"
-                           target="select_frame"><span
-                                class="sublist-icon glyphicon glyphicon-search"></span><span
-                                class="sub-title">专利查询</span></a>
-                    </li>
-                    <li>
-                        <div class="showtitle" style="width: 130px;">其他成果查询</div>
-                        <a
-                                href="<%=request.getContextPath()%>/teacher/findOther.do?&tsn=<%=tsn%>"
-                                target="select_frame"><span
-                                class="sublist-icon glyphicon glyphicon-search"></span><span
-                                class="sub-title">其他成果查询</span></a>
-                    </li>
-                </ul>
-            </div>
-            <div class="sBox otherAction">
-                <div class="subNav sublist-up">
-                    <span class="title-icon glyphicon glyphicon-chevron-up"></span><span
-                        class="sublist-title" style="font-size:15px;">其他</span>
-                </div>
-                <ul class="navContent" style="display: none">
-                    <li>
-                        <div class="showtitle" style="width: 100px;">密码管理</div> <a
-                            href="<%=request.getContextPath()%>/user/password.do"
-                            target="select_frame"><span
-                            class="sublist-icon glyphicon  glyphicon-asterisk"></span><span
-                            class="sub-title">密码管理</span></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="table" class="col-md-10">
 
-        <iframe src="/teacher/findPatent.do?&tsn=<%=tsn%>" frameborder="1" id="select_frame" name="select_frame"
-                frameborder="0" scrolling="no" width="1200px"
-                height="1800px" style="border: 0;margin-top: 75px;margin-left: 100px"></iframe>
+    <div class="down-main">
+        <div class="left-main left-full">
+            <div class="sidebar-fold">
+                <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </div>
+            <div class="subNavBox">
+                <div class="sBox">
+                    <div class="subNav sublist-down">
+                        <span class="title-icon glyphicon glyphicon-chevron-down"></span><span
+                            class="sublist-title" style="font-size:15px;">查询</span>
+                    </div>
+                    <ul class="navContent" style="display: block">
+                        <li>
+                            <div class="showtitle" style="width: 100px;">项目查询</div>
+                            <a
+                                    href="<%=request.getContextPath()%>/teacher/findProject.do?&tsn=<%=tsn%>"
+                                    class="active3" target="select_frame"><span
+                                    class="sublist-icon glyphicon glyphicon-search"></span><span
+                                    class="sub-title">项目查询</span></a>
+                        </li>
+                        <li>
+                            <div class="showtitle" style="width: 100px;">成果查询</div>
+                            <a
+                                    href="<%=request.getContextPath()%>/teacher/findPaper.do?&tsn=<%=tsn%>"
+                                    target="select_frame" ><span
+                                    class="sublist-icon glyphicon glyphicon-search"></span><span
+                                    class="sub-title">成果查询</span></a>
+                        </li>
+                        <li>
+                            <div class="showtitle" style="width: 100px;">荣誉查询</div>
+                            <a
+                                    href="<%=request.getContextPath()%>/teacher/findHonor.do?&tsn=<%=tsn%>"
+                                    target="select_frame"><span
+                                    class="sublist-icon glyphicon glyphicon-search"></span><span
+                                    class="sub-title">荣誉查询</span></a>
+                        </li>
+                        <li>
+                            <div class="showtitle" style="width: 100px;">专利查询</div>
+                            <a
+                                    href="<%=request.getContextPath()%>/teacher/findPatent.do?&tsn=<%=tsn%>"
+                                    target="select_frame"><span
+                                    class="sublist-icon glyphicon glyphicon-search"></span><span
+                                    class="sub-title">专利查询</span></a>
+                        </li>
+                        <li>
+                            <div class="showtitle" style="width: 130px;">其他成果查询</div>
+                            <a
+                                    href="<%=request.getContextPath()%>/teacher/findOther.do?&tsn=<%=tsn%>"
+                                    target="select_frame"><span
+                                    class="sublist-icon glyphicon glyphicon-search"></span><span
+                                    class="sub-title">其他成果查询</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sBox otherAction">
+                    <div class="subNav sublist-up">
+                        <span class="title-icon glyphicon glyphicon-chevron-up"></span><span
+                            class="sublist-title" style="font-size:15px;">其他</span>
+                    </div>
+                    <ul class="navContent" style="display: none">
+                        <li>
+                            <div class="showtitle" style="width: 100px;">密码管理</div> <a
+                                href="<%=request.getContextPath()%>/user/password.do"
+                                target="select_frame"><span
+                                class="sublist-icon glyphicon  glyphicon-asterisk"></span><span
+                                class="sub-title">密码管理</span></a>
+                        </li>
+                        <li>
+                            <div class="showtitle" style="width: 100px;">我的信息</div> <a
+                                href="<%=request.getContextPath()%>/user/myInformation.do"
+                                target="select_frame"><span
+                                class="sublist-icon glyphicon glyphicon-user"></span><span
+                                class="sub-title">我的信息</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="right-product right-full select-main">
+            <div class="table" class="col-md-10">
+                <iframe src="<%=request.getContextPath()%>/teacher/findProject.do?&tsn=<%=tsn%>"  id="select_frame" name="select_frame"
+                        frameborder="0" scrolling="no" width="1200px"
+                        height="1800px"></iframe>
+            </div>
+        </div>
     </div>
-</div>
-</div>
 </body>
-</html>x
+</html>

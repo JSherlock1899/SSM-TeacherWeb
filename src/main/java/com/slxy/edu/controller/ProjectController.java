@@ -129,12 +129,11 @@ public class ProjectController extends BaseController<Project> {
      */
     @RequestMapping("updateOne.do")
     @ResponseBody
-    public void updateOne(HttpServletRequest request, String Psn, String Pleader, String Pname, String Pmember, String Pgrad, String Pkind, String contractType, String Pmoney, String Pstatime, String Pcondition, String Pendtime, String Premarks) {
+    public void updateOne(String Psn, String Pname, String Pmember, String Pgrad, String Pkind, String contractType, String Pmoney, String Pstatime, String Pcondition, String Pendtime, String Premarks) {
         String Paudit = "0";
         Integer pmoney = Integer.parseInt(Pmoney);
-        String Tsn = (String) request.getSession().getAttribute("username");
-        Project project = new Project(Psn,Pleader,Pname,Pmember,Pgrad,Pkind,contractType,pmoney,Pstatime,Pcondition,Pendtime,Premarks,Tsn,Paudit);
-        int result = projectService.updateOne(project);
+        Project project = new Project(Psn,Pname,Pmember,Pgrad,Pkind,pmoney,Pstatime,Pcondition,Pendtime,Premarks,contractType,Paudit);
+        projectService.updateOne(project);
     }
 
     /**
@@ -147,7 +146,7 @@ public class ProjectController extends BaseController<Project> {
         Integer pmoney = Integer.parseInt(Pmoney);
         String Tsn = (String) request.getSession().getAttribute("username");
         Project project = new Project(Psn,Pleader,Pname,Pmember,Pgrad,Pkind,contractType,pmoney,Pstatime,Pcondition,Pendtime,Premarks,Tsn,Paudit);
-        int result = projectService.insertOne(project);
+        projectService.insertOne(project);
 
     }
 
@@ -184,6 +183,7 @@ public class ProjectController extends BaseController<Project> {
     public ModelAndView PatentStatistics(HttpServletRequest request,@RequestParam(required = false,defaultValue = "null")String starttime, @RequestParam(required = false,defaultValue = "null")String endtime,@RequestParam(required = false,defaultValue = "null")String cname){
         //柱状图和饼图数据源
         List<Map<String, Integer>> map = new ArrayList<Map<String, Integer>>();
+        List<Map<String, Integer>> moneyMap = new ArrayList<Map<String, Integer>>();
         //折线图数据源
         List<Map<String, Integer>> mapList = new ArrayList<Map<String, Integer>>();
         List<List<Map<String, Integer>>> lists = new ArrayList<List<Map<String, Integer>>>();
@@ -191,6 +191,8 @@ public class ProjectController extends BaseController<Project> {
         if(grade.equals("1")){
             if (cname == null || cname.equals("null")){
                 map = projectService.getCollegeCount(starttime,endtime);
+                moneyMap = projectService.getProjectMoney(starttime,endtime);
+                //折线图数据
                 for (int i=0;i<yearsArr.length-1;i++){
                     starttime = yearsArr[i];
                     endtime = yearsArr[i+1];
@@ -198,21 +200,28 @@ public class ProjectController extends BaseController<Project> {
                     lists.add(mapList);
                 }
             }else {
+//                校管理员查询二级学院下各专业的数据
                 map = projectService.getSdeptCount(starttime,endtime,cname);
+                moneyMap = projectService.getSdeptProjectMoney(starttime,endtime,cname);
                 getCount(cname, lists);
             }
 
         }else if (grade.equals("2")){
             cname = (String) request.getSession().getAttribute("cname");
             map = projectService.getSdeptCount(starttime,endtime,cname);
+            moneyMap = projectService.getSdeptProjectMoney(starttime,endtime,cname);
+            System.out.println(moneyMap.size());
+            System.out.println(moneyMap.get(0));
             getCount(cname, lists);
         }
         //将map转化为json，以传给前端
         JSONArray json = JSONArray.parseArray(JSON.toJSONString(map));
         JSONArray jsonList = JSONArray.parseArray(JSON.toJSONString(lists));
+        JSONArray jsonMoney = JSONArray.parseArray(JSON.toJSONString(moneyMap));
         ModelAndView mv = new ModelAndView();
         mv.addObject("json",json);
         mv.addObject("jsonList",jsonList);
+        mv.addObject("jsonMoney",jsonMoney);
         mv.addObject("cname",cname);
         mv.setViewName("/admin/project/Statistics");
         return mv;
@@ -288,5 +297,26 @@ public class ProjectController extends BaseController<Project> {
         }catch (DuplicateKeyException e){
             out.print("<script>alert('导入失败，请检查检索号是否输入正确！')</script>");
         }
+    }
+
+    /**
+     * 按主键删除对应数据
+     */
+    @RequestMapping("delete.do")
+    @ResponseBody
+    public void delete(String majorkey){
+        projectService.deleteByMajorkey(majorkey);
+    }
+
+    /**
+     * 按主键修改对应数据
+     */
+    @RequestMapping("alter.do")
+    @ResponseBody
+    public void alter(String Psn, String Pname, String Pmember, String Pgrad, String Pkind, String contractType, String Pmoney, String Pstatime, String Pcondition, String Pendtime, String Premarks) {
+        String Paudit = "1";
+        Integer pmoney = Integer.parseInt(Pmoney);
+        Project project = new Project(Psn,Pname,Pmember,Pgrad,Pkind,pmoney,Pstatime,Pcondition,Pendtime,Premarks,contractType,Paudit);
+        projectService.updateOne(project);
     }
 }

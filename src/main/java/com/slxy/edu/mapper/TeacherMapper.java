@@ -52,4 +52,10 @@ public interface TeacherMapper {
 
     //审核不通过
     void nopass(@Param("majorkey")String majorkey,@Param("message")String messsage);
+
+    //获取教师信息
+    Teacher selectByTsn(@Param("Tsn") String Tsn);
+
+    //按主键删除信息
+    int deleteByMajorkey(@Param("majorkey")String majorkey);
 }

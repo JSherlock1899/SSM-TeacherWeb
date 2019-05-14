@@ -117,11 +117,10 @@ public class OtherController extends BaseController<Other>{
      */
     @RequestMapping("updateOne.do")
     @ResponseBody
-    public void updateOne(HttpServletRequest request, String other_name,String other_date, String other_type,String publisher, String other_describe){
+    public void updateOne(String other_name,String other_date, String other_type,String publisher, String other_describe){
         String audit = "0";
-        String Tsn = (String) request.getSession().getAttribute("username");
-        Other other = new Other(other_name,other_date,other_type,publisher,other_describe,Tsn,audit,null);
-        int result = otherService.updateOne(other);
+        Other other = new Other(other_name,other_date,publisher,audit,other_type,other_describe);
+        otherService.updateOne(other);
     }
 
     /**
@@ -262,5 +261,25 @@ public class OtherController extends BaseController<Other>{
         }catch (DuplicateKeyException e){
             out.print("<script>alert('导入失败，请检查名称是否输入正确！')</script>");
         }
+    }
+
+    /**
+     * 按主键删除对应数据
+     */
+    @RequestMapping("delete.do")
+    @ResponseBody
+    public void delete(String majorkey){
+        otherService.deleteByMajorkey(majorkey);
+    }
+
+    /**
+     * 按主键修改对应数据
+     */
+    @RequestMapping("alter.do")
+    @ResponseBody
+    public void alter( String other_name,String other_date, String other_type,String publisher, String other_describe){
+        String audit = "1";
+        Other other = new Other(other_name,other_date,publisher,audit,other_type,other_describe);
+        otherService.updateOne(other);
     }
 }

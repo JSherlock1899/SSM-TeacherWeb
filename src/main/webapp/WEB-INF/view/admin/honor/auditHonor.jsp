@@ -55,7 +55,7 @@
                         <td>${honors.hcompany}</td>
                         <td>${honors.hgrad}</td>
                         <td>
-                            <a href="/file/download.do?model=honor&majorkey=${honors.hsn}&name=${honors.hname}" class="Download">查看附件</a>
+                            <a href="<%=request.getContextPath()%>/file/download.do?model=honor&majorkey=${honors.hsn}&name=${honors.hname}" class="Download">查看附件</a>
                             <input type="hidden" class="accessoryPath" value="${honors.haccessory}"/>
                         </td>
                     </tr>

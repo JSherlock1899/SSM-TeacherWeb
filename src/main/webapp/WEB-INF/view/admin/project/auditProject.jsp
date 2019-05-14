@@ -40,7 +40,7 @@
                     <th>负责人</th>
                     <th>级别</th>
                     <th>类型</th>
-                    <th>经费</th>
+                    <th>经费（元）</th>
                     <th>立项时间</th>
                     <th>结题时间</th>
                     <th>科研状态</th>
@@ -60,7 +60,7 @@
                         <td>${projects.pcondition}</td>
                         <td>${projects.contractType}</td>
                         <td>
-                            <a href="/file/download.do?model=project&majorkey=${projects.psn}&name=${projects.pname}" class="Download">查看附件</a>
+                            <a href="<%=request.getContextPath()%>/file/download.do?model=project&majorkey=${projects.psn}&name=${projects.pname}" class="Download">查看附件</a>
                             <input type="hidden" class="accessoryPath" value="${projects.paccessory}"/>
                         </td>
                     </tr>

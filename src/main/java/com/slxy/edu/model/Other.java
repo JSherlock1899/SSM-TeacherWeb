@@ -71,6 +71,17 @@ public class Other {
         this.other_describe = other_describe;
     }
 
+//    update
+
+  public Other(String other_name, String other_date, String publisher, String audit, String other_type, String other_describe) {
+    this.other_name = other_name;
+    this.other_date = other_date;
+    this.publisher = publisher;
+    this.audit = audit;
+    this.other_type = other_type;
+    this.other_describe = other_describe;
+  }
+
   public Other(String other_name, String tsn, String other_date, String publisher, String accessory, String other_type, String other_describe) {
     this.other_name = other_name;
     this.tsn = tsn;

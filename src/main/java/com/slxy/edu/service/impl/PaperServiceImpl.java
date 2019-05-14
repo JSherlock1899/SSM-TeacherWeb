@@ -101,5 +101,15 @@ public class PaperServiceImpl extends BaseServiceImpl<Paper> implements IPaperSe
         return paperMapper.getRecentYearsSdeptCount(starttime,endtime,cname);
     }
 
+    @Override
+    public int deleteByMajorkey(String majorkey) {
+        return paperMapper.deleteByMajorkey(majorkey);
+    }
+
+    @Override
+    public void alterByMajorkey(Paper paper) {
+        paperMapper.alterByMajorkey(paper);
+    }
+
 
 }

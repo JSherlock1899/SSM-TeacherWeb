@@ -46,7 +46,7 @@
 	</div>
 	</nav>
 	<div class="down-main">
-		<div class="left-main left-off">
+		<div class="left-main left-full">
 			<div class="sidebar-fold">
 				<span class="glyphicon glyphicon-menu-hamburger"></span>
 			</div>
@@ -200,13 +200,6 @@
 								class="sublist-icon glyphicon glyphicon-user"></span><span
 								class="sub-title">教师管理</span></a>
 						</li>
-						<li class="permissions">
-							<div class="showtitle" style="width: 100px;">权限管理</div> <a
-							href="" 
-							 target="select_frame"><span
-								class="sublist-icon glyphicon glyphicon-th"></span><span
-								class="sub-title">权限管理</span></a>
-						</li>
 						<li>
 							<div class="showtitle" style="width: 100px;">密码管理</div> <a
 								href="<%=request.getContextPath()%>/user/password.do"
@@ -218,8 +211,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="right-product right-off select-main">
-
+		<div class="right-product right-full select-main">
 			<div class="container-fluid">
 				<div class="row">
 					<nav class="navbar navbar-default" role="navigation">
@@ -265,7 +257,7 @@
 			<div id="search" class="container-fluid">
 				<nav class="navbar navbar-default" role="navigation">
 				<div class="navbar-header">
-					<a href="#" class="navbar-brand">精确搜索</a>
+					<a href="#" class="navbar-brand">按教师名搜索</a>
 				</div>
 				<div class="navbar-form navbar-left">
 					<div class="form-group">
@@ -277,14 +269,11 @@
 				</nav>
 			</div>
 			<div class="table" class="col-md-12">
-
-				<iframe src="<%=request.getContextPath()%>/patent/Statistics.do?grade=<%=grade %>"
+				<iframe src="<%=request.getContextPath()%>/project/Statistics.do?grade=<%=grade %>"
 				frameborder="1"  id="select_frame" name="select_frame" frameborder="0" scrolling="no" width="1200px"
 					height="1800px" style="border: 0"></iframe>
 			</div>
-
 		</div>
 	</div>
-
 </body>
 </html>

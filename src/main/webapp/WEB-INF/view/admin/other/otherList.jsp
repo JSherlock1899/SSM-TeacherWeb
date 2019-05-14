@@ -2,8 +2,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" isELIgnored="false" %>
 <%@ page import="com.github.pagehelper.PageInfo" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.slxy.edu.model.Other" %>
 <%@ page import="com.slxy.edu.model.Condition" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -12,8 +10,9 @@
     <title>其他成果查询</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/CSS/bootstrap.css">
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/ajax/ajaxOtherData.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/commonUse.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/ajax/ajaxOtherData.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/bootstrap-table.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/ajax/ajaxSelect.js"></script>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/CSS/style.css">
@@ -52,17 +51,22 @@
                     <th>日期</th>
                     <th>发表单位</th>
                     <th>附件</th>
+                    <th>操作</th>
                 </tr>
                 <c:forEach items="${others}" var="others">
                     <tr>
-                        <td><a href="${pageContext.request.contextPath}/teacher/goOtherDetail.do?other_name=${others.other_name}">${others.other_name}</a></td>
-                        <td>${others.tname}</td>
-                        <td>${others.other_type}</td>
-                        <td>${others.other_date}</td>
-                        <td>${others.publisher}</td>
+                        <td class="other_name"><a href="${pageContext.request.contextPath}/teacher/goOtherDetail.do?other_name=${others.other_name}">${others.other_name}</a></td>
+                        <td class="tname">${others.tname}</td>
+                        <td class="other_type">${others.other_type}</td>
+                        <td class="other_date">${others.other_date}</td>
+                        <td class="publisher">${others.publisher}</td>
                         <td>
-                            <a href="/file/download.do?model=other&majorkey=${others.other_name}&name=${others.other_name}" class="Download">查看附件</a>
+                            <a href="<%=request.getContextPath()%>/file/download.do?model=other&majorkey=${others.other_name}&name=${others.other_name}" class="Download">查看附件</a>
                             <input type="hidden" class="accessoryPath" value="${others.accessory}"/>
+                        </td>
+                        <td>
+                            <a class="btn btn-danger delete">删除</a>
+                            <a class="btn btn-primary alter">编辑</a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -112,6 +116,66 @@
                         <span>当前第 ${pageInfo.pageNum} 页.总共 ${pageInfo.pages} 页</span>
                         <input type="text" class="pageVal" style="width:100px;margin-top: 25px;">
                         <button type="submit" class="btn btn-default" style="margin-right: 20px" id="skipPage">GO</button>
+                    </div>
+                </div>
+            </div>
+            <!--新建信息的模态框 -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" >
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel">修改其他成果信息</h4>
+                            <button type="button" class="close" data-dismiss="modal"
+                                    aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="other_name">名称</label>
+                                <input type="text" name="other_name"
+                                       class="form-control" id="other_name" placeholder="名称"
+                                       onfocus="showTips('other_name','查询编号为1-15位的字符')"
+                                       onblur="checkother_name('other_name','请按要求输入查询的名称')">
+                                <div id="other_namediv" style="display:none">
+                                    <span id="other_namespan" ></span><br>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="tname">发表人</label>
+                                <input type="text" name="tname"
+                                       class="form-control" id="tname" placeholder="发表人" readonly>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="other_date">发表时间</label>
+                                <input type="date" name="other_date" class="form-control" id="other_date" placeholder="发表时间">
+                            </div>
+                            <div class="form-group">
+                                <label for="other_type">类型</label>
+                                <select name="other_type" class="form-control" id="other_type">
+                                    <option value="画">画</option>
+                                    <option value="音乐歌曲">音乐歌曲</option>
+                                    <option value="报纸">报纸</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="publisher">发表单位</label>
+                                <input type="text" name="publisher" class="form-control" id="publisher" placeholder="发表单位">
+                            </div>
+                            <div class="form-group">
+                                <label for="other_describe">成果描述</label>
+                                <input type="text" name="other_describe" class="form-control" id="other_describe" placeholder="成果描述">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭
+                            </button>
+                            <button type="submit" id="btn_submit" class="btn btn-primary alterSave">
+                                <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>提交
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

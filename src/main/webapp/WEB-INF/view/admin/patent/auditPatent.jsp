@@ -55,7 +55,7 @@
                         <td>${patents.patendate}</td>
                         <td>${patents.patgrad}</td>
                         <td>
-                            <a href="/file/download.do?model=patent&majorkey=${patents.patsn}&name=${patents.patname}" class="Download">查看附件</a>
+                            <a href="<%=request.getContextPath()%>/file/download.do?model=patent&majorkey=${patents.patsn}&name=${patents.patname}" class="Download">查看附件</a>
                             <input type="hidden" class="accessoryPath" value="${patents.paccessory}"/>
                         </td>
                     </tr>

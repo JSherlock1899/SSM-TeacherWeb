@@ -139,3 +139,26 @@ function check() {
     var check = checkTsn('Tsn','请按要求输入教师工号') || checkTname('Tname','请按要求输入教师姓名');
     return check;
 }
+
+$(document).on("click",".delete",function(e,url){
+    var majorkey = $(this).closest("tr").find(".Tsn").text();
+    var boolean = todel();
+    if (!boolean)
+        return
+    $.ajax({
+        url:"/TeacherWeb/teacher/delete.do",
+        type:"post",
+        datatype:"json",
+        data:{
+            "majorkey" : majorkey
+        },
+        success : function(msg){
+            alert("删除成功");
+            $(e.target).closest("tr").fadeOut();
+            window.location.reload();
+        },
+        error:function(msg){
+            alert('请求出现错误...');
+        }
+    });
+});

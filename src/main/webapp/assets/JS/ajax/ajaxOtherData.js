@@ -11,7 +11,7 @@ $(document).on("click",".saveNewMsg",function(){
     var publisher = $('#publisher').val();
     var other_describe = $('#other_describe').val();
     $.ajax({
-        url:"/other/insertOne.do",
+        url:"/TeacherWeb/other/insertOne.do",
         type:"post",
         datatype:"json",
         data:{
@@ -46,7 +46,7 @@ $(document).on("click",".save",function(){
     var publisher = $('#publisher').val();
     var other_describe = $('#other_describe').val();
     $.ajax({
-        url:"/other/updateOne.do",
+        url:"/TeacherWeb/other/updateOne.do",
         type:"post",
         datatype:"json",
         data:{
@@ -66,6 +66,49 @@ $(document).on("click",".save",function(){
     });
 });
 
+//管理员修改信息
+$(document).on("click",".alter",function(e,url){
+    $("#myModalLabel").text("修改专利信息");
+    $('#myModal').modal();
+    $("#other_name").attr("value",$(this).closest("tr").find(".other_name").text());
+    $("#tname").attr("value",$(this).closest("tr").find(".tname").text());
+    $("#other_date").attr("value",$(this).closest("tr").find(".other_date").text());
+    $("#other_type").attr("value",$(this).closest("tr").find(".other_type").text());
+    $("#publisher").attr("value",$(this).closest("tr").find(".publisher").text());
+    $("#other_describe").attr("value",$(this).closest("tr").find(".other_describe").text());
+});
+
+$(document).on("click",".alterSave",function(){
+    if(check()){
+        alert('输入不合法！');
+        return;
+    }
+    var other_name = $('#other_name').val();
+    var tname = $('#tname').val();
+    var other_date = $('#other_date').val();
+    var other_type = $('#other_type option:selected').val();
+    var publisher = $('#publisher').val();
+    var other_describe = $('#other_describe').val();
+    $.ajax({
+        url:"/TeacherWeb/other/alter.do",
+        type:"post",
+        datatype:"json",
+        data:{
+            "other_name" : other_name,
+            "tname" : tname,
+            "other_date" : other_date,
+            "other_type" :other_type,
+            "publisher" :publisher,
+            "other_describe" : other_describe,
+        },
+        success : function(result){
+            alert("修改成功！");
+        },
+        error:function(result){
+            alert('请求出现错误...');
+        }
+    });
+});
 
 //重新编辑按钮的事件
 $(document).on("click","#btn_update",function () {
@@ -106,7 +149,7 @@ $(document).on("click","#pass",function(){
     var other_name = $('.other_name').text();
     var message  = $('#message').val();
     $.ajax({
-        url:"/other/pass.do",
+        url:"/TeacherWeb/other/pass.do",
         type:"post",
         datatype:"json",
         data:{
@@ -127,7 +170,7 @@ $(document).on("click","#nopass",function(){
     var other_name = $('.other_name').text();
     var message  = $('#message').val();
     $.ajax({
-        url:"/other/nopass.do",
+        url:"/TeacherWeb/other/nopass.do",
         type:"post",
         datatype:"json",
         data:{
@@ -154,7 +197,7 @@ function initFileInput(ctrlName) {
     var other_name = $('#other_name').val().trim();
     control.fileinput({
         language: 'zh', //设置语言
-        uploadUrl: "/file/upload.do?model=other&name=" + other_name + "&majorkey=" + other_name, //上传的地址
+        uploadUrl: "/TeacherWeb/file/upload.do?model=other&name=" + other_name + "&majorkey=" + other_name, //上传的地址
         allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
         //uploadExtraData:{"id": 1, "fileName":'123.mp3'},
         uploadAsync: true, //默认异步上传
@@ -189,3 +232,26 @@ function initFileInput(ctrlName) {
 
     })
 }
+
+$(document).on("click",".delete",function(e,url){
+    var majorkey = $(this).closest("tr").find(".other_name").text();
+    var boolean = todel();
+    if (!boolean)
+        return
+    $.ajax({
+        url:"/TeacherWeb/other/delete.do",
+        type:"post",
+        datatype:"json",
+        data:{
+            "majorkey" : majorkey
+        },
+        success : function(msg){
+            alert("删除成功");
+            $(e.target).closest("tr").fadeOut();
+            window.location.reload();
+        },
+        error:function(msg){
+            alert('请求出现错误...');
+        }
+    });
+});

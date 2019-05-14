@@ -147,10 +147,11 @@ public class FileOperationController {
     @ResponseBody
     public void download(HttpServletResponse response, String model, String majorkey, String name) throws IOException {
         //下载文件，需要设置消息头
-//		response.addHeader("content-Type", "application/octet-stream");  //MIME类型：二进制文件（任意文件）
-//		response.addHeader("content-Disposition","attachement;filename=");
         String path = null;
         majorkey = majorkey.trim();
+        System.out.println("majorkey的值是：" + majorkey + ".当前方法:FileOperationController.download()");
+        System.out.println("model的值是：" + model + ".当前方法:FileOperationController.download()");
+        System.out.println("name的值是：" + name + ".当前方法:FileOperationController.download()");
         //根据不同的类别分别获取对应的附件路径
         if(model.equals("project")) {
             path = projectService.getPath(majorkey);

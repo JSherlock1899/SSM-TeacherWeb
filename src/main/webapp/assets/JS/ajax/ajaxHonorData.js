@@ -24,7 +24,7 @@ $(document).on("click",".saveNewMsg",function(){
 	var Hgrad = $('#Hgrad option:selected').val();
 	var Hremarks = $("#Hremarks").val();
 	$.ajax({
-        url:"/honor/insertOne.do",
+        url:"/TeacherWeb/honor/insertOne.do",
         type:"post",
         datatype:"json",
         data:{
@@ -76,7 +76,7 @@ $(document).on("click",".save",function(){
     var Hgrad = $('#Hgrad option:selected').val();
     var Hremarks = $("#Hremarks").val();
     $.ajax({
-        url:"/honor/updateOne.do",
+        url:"/TeacherWeb/honor/updateOne.do",
         type:"post",
         datatype:"json",
         data:{
@@ -100,7 +100,56 @@ $(document).on("click",".save",function(){
     });
 });
 
+//管理员修改信息
+$(document).on("click",".alter",function(e,url){
+    $("#myModalLabel").text("修改专利信息");
+    $('#myModal').modal();
+    $("#Hsn").attr("value",$(this).closest("tr").find(".Hsn").text());
+    $("#Hname").attr("value",$(this).closest("tr").find(".Hname").text());
+    $("#Hwinner").attr("value",$(this).closest("tr").find(".Hwinner").text());
+    $("#Hdate").attr("value",$(this).closest("tr").find(".Hdate").text());
+    $("#Hcompany").attr("value",$(this).closest("tr").find(".Hcompany").text());
+    $("#department").attr("value",$(this).closest("tr").find(".department").text());
+    $("#Hgrad").attr("value",$(this).closest("tr").find(".Hgrad").text());
+    $("#Hremarks").attr("value",$(this).closest("tr").find(".Hremarks").text());
+});
+$(document).on("click",".alterSave",function(){
+    if(check()){
+        alert('输入不合法！')
+        return;
+    }
+    var Hsn = $("#Hsn").val();
+    var Hname = $("#Hname").val();
+    var Hwinner = $("#Hwinner").val();
+    var Hdate = $("#Hdate").val();
+    var Hcompany = $("#Hcompany").val();
+    var department = $("#department").val();
+    var Hgrad = $('#Hgrad option:selected').val();
+    var Hremarks = $("#Hremarks").val();
+    $.ajax({
+        url:"/TeacherWeb/honor/alter.do",
+        type:"post",
+        datatype:"json",
+        data:{
+            "Hsn" : Hsn,
+            "Hname" : Hname,
+            "Hwinner" :Hwinner,
+            "Hdate" : Hdate,
+            "Hcompany" : Hcompany,
+            "department" : department,
+            "Hgrad" : Hgrad,
+            "Hremarks" :Hremarks,
+        },
 
+        success : function(result){
+            alert("修改成功！");
+            location.reload();
+        },
+        error:function(result){
+            alert('请求出现错误...');
+        }
+    });
+});
 //表单验证
 function checkHsn(id,info){
     var uValue = document.getElementById(id).value.trim();
@@ -164,7 +213,7 @@ $(document).on("click","#pass",function(){
     var Hsn = $('.Hsn').text();
     var message  = $('#message').val();
     $.ajax({
-        url:"/honor/pass.do",
+        url:"/TeacherWeb/honor/pass.do",
         type:"post",
         datatype:"json",
         data:{
@@ -185,7 +234,7 @@ $(document).on("click","#nopass",function(){
     var Hsn = $('.Hsn').text();
     var message  = $('#message').val();
     $.ajax({
-        url:"/honor/nopass.do",
+        url:"/TeacherWeb/honor/nopass.do",
         type:"post",
         datatype:"json",
         data:{
@@ -213,7 +262,7 @@ function initFileInput(ctrlName) {
     var Hsn = $('#Hsn').val().trim();
     control.fileinput({
         language: 'zh', //设置语言
-        uploadUrl: "/file/upload.do?model=honor&name=" + Hname + "&majorkey=" + Hsn, //上传的地址
+        uploadUrl: "/TeacherWeb/file/upload.do?model=honor&name=" + Hname + "&majorkey=" + Hsn, //上传的地址
         allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
         //uploadExtraData:{"id": 1, "fileName":'123.mp3'},
         uploadAsync: true, //默认异步上传
@@ -248,3 +297,26 @@ function initFileInput(ctrlName) {
 
     })
 }
+
+$(document).on("click",".delete",function(e,url){
+    var majorkey = $(this).closest("tr").find(".Hsn").text();
+    var boolean = todel();
+    if (!boolean)
+        return
+    $.ajax({
+        url:"/TeacherWeb/honor/delete.do",
+        type:"post",
+        datatype:"json",
+        data:{
+            "majorkey" : majorkey
+        },
+        success : function(msg){
+            alert("删除成功");
+            $(e.target).closest("tr").fadeOut();
+            window.location.reload();
+        },
+        error:function(msg){
+            alert('请求出现错误...');
+        }
+    });
+});

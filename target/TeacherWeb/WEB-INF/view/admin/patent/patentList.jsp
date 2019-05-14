@@ -12,9 +12,10 @@
     <title>专利查询</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/CSS/bootstrap.css">
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/ajax/ajaxPatentData.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/commonUse.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/bootstrap.min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/bootstrap-table.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/ajax/ajaxPatentData.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/ajax/ajaxSelect.js"></script>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/CSS/style.css">
 </head>
@@ -54,19 +55,24 @@
                     <th>授权时间</th>
                     <th>类型</th>
                     <th>附件</th>
+                    <th>操作</th>
                 </tr>
                 <c:forEach items="${patents}" var="patents">
                     <tr>
-                        <td><a href="${pageContext.request.contextPath}/teacher/goPatentDetail.do?patsn=${patents.patsn}">${patents.patname}</a></td>
-                        <td>${patents.inventor}</td>
-                        <td>${patents.tname}</td>
-                        <td>${patents.patsn}</td>
-                        <td>${patents.patapdate}</td>
-                        <td>${patents.patendate}</td>
-                        <td>${patents.patgrad}</td>
+                        <td class="Patname"><a href="${pageContext.request.contextPath}/teacher/goPatentDetail.do?patsn=${patents.patsn}">${patents.patname}</a></td>
+                        <td class="inventor">${patents.inventor}</td>
+                        <td class="tname">${patents.tname}</td>
+                        <td class="Patsn">${patents.patsn}</td>
+                        <td class="Patapdate">${patents.patapdate}</td>
+                        <td class="Patendate">${patents.patendate}</td>
+                        <td class="Patgrad">${patents.patgrad}</td>
                         <td>
-                            <a href="/file/download.do?model=patent&majorkey=${patents.patsn}&name=${patents.patname}" class="Download">查看附件</a>
+                            <a href="<%=request.getContextPath()%>/file/download.do?model=patent&majorkey=${patents.patsn}&name=${patents.patname}" class="Download">查看附件</a>
                             <input type="hidden" class="accessoryPath" value="${patents.paccessory}"/>
+                        </td>
+                        <td>
+                            <a class="btn btn-danger delete">删除</a>
+                            <a class="btn btn-primary alter">编辑</a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -116,6 +122,81 @@
                         <span>当前第 ${pageInfo.pageNum} 页.总共 ${pageInfo.pages} 页</span>
                         <input type="text" class="pageVal" style="width:100px;margin-top: 25px;">
                         <button type="submit" class="btn btn-default" style="margin-right: 20px" id="skipPage">GO</button>
+                    </div>
+                </div>
+            </div>
+            <!--新建信息的模态框 -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 data-backdrop="static">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel">修改专利信息</h4>
+                            <button type="button" class="close" data-dismiss="modal"
+                                    aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="Patname">名称</label>
+                                <input type="text" name="Patname" class="form-control" id="Patname" placeholder="名称"
+                                       onfocus="showTips('Patname','专利名称不能超过15个字符')"
+                                       onblur="checkPatname('Patname','请按要求输入专利名称')">
+                                <div id="Patnamediv" style="display:none">
+                                    <span id="Patnamespan"></span><br>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="Patsn">授权号</label>
+                                <input type="text" name="Patsn" class="form-control" id="Patsn" placeholder="授权号"
+                                       onfocus="showTips('Patsn','专利授权号为1-20位的数字')"
+                                       onblur="checkPatsn('Patsn','请按要求输入专利授权号')" readonly="readonly">
+                                <div id="Patsndiv" style="display:none">
+                                    <span id="Patsnspan"></span><br>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inventor">发明人</label>
+                                <input type="text" name="inventor" value="" class="form-control" id="inventor"
+                                       placeholder="发明人">
+                            </div>
+                            <div class="form-group">
+                                <label for="tname">专利权人</label>
+                                <input type="text" name="tname"  class="form-control" id="tname"
+                                       placeholder="专利权人" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="Patapdate">申请时间</label>
+                                <input type="date" name="Patapdate" class="form-control" id="Patapdate"
+                                       placeholder="申请时间">
+                            </div>
+                            <div class="form-group">
+                                <label for="Patendate">授权时间</label>
+                                <input type="date" name="Patendate" class="form-control" id="Patendate"
+                                       placeholder="授权时间">
+                            </div>
+                            <div class="form-group">
+                                <label for="Patgrad">类型</label>
+                                <select name="Patgrad" class="form-control" id="Patgrad">
+                                    <option value="发明专利">发明专利</option>
+                                    <option value="实用新型专利">实用新型专利</option>
+                                    <option value="外观设计专利">外观设计专利</option>
+                                    <option value="软件著作权">软件著作权</option>
+                                    <option value="植物新品种">植物新品种</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default"
+                                    data-dismiss="modal">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭
+                            </button>
+                            <button type="submit" id="btn_submit"
+                                    class="btn btn-primary alterSave">
+                                <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>提交
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

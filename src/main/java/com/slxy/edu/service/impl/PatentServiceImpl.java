@@ -101,5 +101,15 @@ public class PatentServiceImpl extends BaseServiceImpl<Patent> implements IPaten
         return patentMapper.getRecentYearsSdeptCount(starttime,endtime,cname);
     }
 
+    @Override
+    public int deleteByMajorkey(String majorkey) {
+        return patentMapper.deleteByMajorkey(majorkey);
+    }
+
+    @Override
+    public void alterByMajorkey(Patent patent) {
+        patentMapper.alterByMajorkey(patent);
+    }
+
 
 }

@@ -51,7 +51,7 @@
                         <td>${others.other_date}</td>
                         <td>${others.publisher}</td>
                         <td>
-                            <a href="/file/download.do?model=other&majorkey=${others.other_name}&name=${others.other_name}" class="Download">查看附件</a>
+                            <a href="<%=request.getContextPath()%>/file/download.do?model=other&majorkey=${others.other_name}&name=${others.other_name}" class="Download">查看附件</a>
                             <input type="hidden" class="accessoryPath" value="${others.accessory}"/>
                         </td>
                     </tr>

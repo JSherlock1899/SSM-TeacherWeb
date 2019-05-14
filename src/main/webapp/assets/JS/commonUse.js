@@ -32,8 +32,9 @@
 	$(document).on("click",".Download",function(ev){
 		var accessoryPath = $(this).closest("tr").find(".accessoryPath").val();
 		var accessoryPath1 = $("#accessoryPath").val();
-
-		if(accessoryPath == "" || accessoryPath == null || accessoryPath == "null"){
+		console.log("accessoryPath = " + accessoryPath)
+		console.log("accessoryPath1 = " + accessoryPath1)
+		if((accessoryPath == "" || accessoryPath == null || accessoryPath == "null") && accessoryPath!=undefined){
             alert('尚未上传附件！');
 			ev.preventDefault();
 			return;
@@ -63,6 +64,7 @@ function checkNubmer(input) {
     }
 }
 
+//确认用户身份
 $(document).ready(function (){
     var grade = $("#grade").val();
     if (grade !="null"){
@@ -70,3 +72,14 @@ $(document).ready(function (){
     };
 
 });
+
+
+		//删除确认
+		function todel() {
+			var msg = "您真的确定要删除吗？请确认！";
+			if (confirm(msg)==true){
+				return true;
+			}else{
+				return false;
+			}
+		}

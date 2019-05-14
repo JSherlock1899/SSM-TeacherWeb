@@ -39,8 +39,21 @@ public class Honor {
     this.dnane = dnane;
   }
 
+  //update
+  public Honor(String hsn, String hname, String hwinner, String hdate, String hcompany, String hgrad, String hremarks,String haudit, String department) {
+    this.hsn = hsn;
+    this.hname = hname;
+    this.hwinner = hwinner;
+    this.hdate = hdate;
+    this.hcompany = hcompany;
+    this.hgrad = hgrad;
+    this.hremarks = hremarks;
+    this.haudit = haudit;
+    this.department = department;
+  }
 
-  public Honor(String hsn, String hname, String hwinner, String hdate, String hcompany, String hgrad, String hremarks, String tsn, String haudit, String department) {
+  //insert
+  public Honor(String hsn, String hname, String hwinner, String hdate, String hcompany, String hgrad, String hremarks,String tsn,String haudit, String department) {
     this.hsn = hsn;
     this.hname = hname;
     this.hwinner = hwinner;
@@ -53,7 +66,6 @@ public class Honor {
     this.department = department;
   }
 
-  //  update
   public Honor(String hsn, String hname, String hwinner, String hdate, String hcompany, String hgrad, String hremarks, String tsn, String haudit, String message, String department,String tname) {
     this.hsn = hsn;
     this.hname = hname;

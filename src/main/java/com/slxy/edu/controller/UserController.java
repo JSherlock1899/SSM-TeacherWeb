@@ -1,7 +1,9 @@
 package com.slxy.edu.controller;
 
 import com.slxy.edu.model.Admin;
+import com.slxy.edu.model.Teacher;
 import com.slxy.edu.service.ICollegeService;
+import com.slxy.edu.service.ITeacherService;
 import com.slxy.edu.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,6 +33,9 @@ public class UserController {
 
     @Autowired
     public ICollegeService collegeService;
+
+    @Autowired
+    public ITeacherService teacherService;
 
     @RequestMapping("login")
     public ModelAndView login(HttpServletRequest request,HttpServletResponse response,@RequestParam("username") String username, @RequestParam("password") String password) throws IOException {
@@ -117,6 +122,20 @@ public class UserController {
     @RequestMapping("exitLogin")
     public String exitLogin(){
         return "login";
+    }
+
+    @RequestMapping("myInformation")
+    public ModelAndView myInformation(HttpServletRequest request){
+        //获取学院列表
+        List<String> collegeList = collegeService.selectAllCollegeName();
+        //获取当前教师信息
+        String Tsn = (String) request.getSession().getAttribute("username");
+        Teacher teacher = teacherService.selectByTsn(Tsn);
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("collegeList",collegeList);
+        mv.addObject("teacher",teacher);
+        mv.setViewName("other/myInformation");
+        return mv;
     }
 }
 

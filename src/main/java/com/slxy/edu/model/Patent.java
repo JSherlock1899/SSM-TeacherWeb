@@ -76,7 +76,30 @@ public class Patent {
     this.paudit = paudit;
   }
 
-  public long getPatnum() {
+  //update
+  public Patent(String patname, String patsn, String patapdate, String patendate, String patgrad, String patremarks, String inventor, String paudit) {
+    this.patname = patname;
+    this.patsn = patsn;
+    this.patapdate = patapdate;
+    this.patendate = patendate;
+    this.patgrad = patgrad;
+    this.patremarks = patremarks;
+    this.paudit = paudit;
+    this.inventor = inventor;
+  }
+
+  //alter
+  public Patent(String patname, String patsn, String patapdate, String patendate, String patgrad, String inventor, String paudit) {
+    this.patname = patname;
+    this.patsn = patsn;
+    this.patapdate = patapdate;
+    this.patendate = patendate;
+    this.patgrad = patgrad;
+    this.paudit = paudit;
+    this.inventor = inventor;
+  }
+
+    public long getPatnum() {
     return patnum;
   }
 

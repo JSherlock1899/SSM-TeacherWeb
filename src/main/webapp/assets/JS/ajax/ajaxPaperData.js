@@ -19,7 +19,7 @@ $(document).on("click",".saveNewMsg",function(){
     var dependence = $('#dependence').val();
 	var Paremarks = $('#Paremarks').val();
 	$.ajax({
-        url:"/paper/insertOne.do",
+        url:"/TeacherWeb/paper/insertOne.do",
         type:"post",
         datatype:"json",
         data:{
@@ -59,7 +59,7 @@ $(document).on("click",".save",function(){
     var dependence = $('#dependence').val();
 	var Paremarks = $('#Paremarks').val();
 	$.ajax({
-        url:"/paper/updateOne.do",
+        url:"/TeacherWeb/paper/updateOne.do",
         type:"post",
         datatype:"json",
         data:{
@@ -85,6 +85,59 @@ $(document).on("click",".save",function(){
 
 
 
+//管理员修改信息
+$(document).on("click",".alter",function(e,url){
+    $("#myModalLabel").text("修改专利信息");
+    $('#myModal').modal();
+    $("#Pasearchnum").attr("value",$(this).closest("tr").find(".Pasearchnum").text());
+    $("#Paname").attr("value",$(this).closest("tr").find(".Paname").text());
+    $("#Pawriter").attr("value",$(this).closest("tr").find(".Pawriter").text());
+    $("#Papublish").attr("value",$(this).closest("tr").find(".Papublish").text());
+    $("#Pdisvol").attr("value",$(this).closest("tr").find(".Pdisvol").text());
+    $("#Padate").attr("value",$(this).closest("tr").find(".Padate").text());
+    $("#Pagrad").attr("value",$(this).closest("tr").find(".Pagrad").text());
+    $("#dependence").attr("value",$(this).closest("tr").find(".dependence").text());
+    $("#Paremarks").attr("value",$(this).closest("tr").find(".Paremarks").text());
+});
+
+$(document).on("click",".alterSave",function(){
+    if (check()){
+        alert("输入不合法！");
+        return;
+    }
+    var Pasearchnum = $('#Pasearchnum').val();
+    var Paname = $('#Paname').val();
+    var Pawriter = $('#Pawriter').val();
+    var Papublish = $('#Papublish').val();
+    var Pdisvol = $('#Pdisvol').val();
+    var Padate = $('#Padate').val();
+    var Pagrad = $('#Pagrad option:selected').val();
+    var dependence = $('#dependence').val();
+    var Paremarks = $('#Paremarks').val();
+    $.ajax({
+        url:"/TeacherWeb/paper/alter.do",
+        type:"post",
+        datatype:"json",
+        data:{
+            "Pasearchnum" : Pasearchnum,
+            "Paname" : Paname,
+            "Pawriter" :Pawriter,
+            "Papublish" : Papublish,
+            "Pdisvol" : Pdisvol,
+            "Padate" : Padate,
+            "Pagrad" : Pagrad,
+            "dependence" : dependence,
+            "Paremarks" :Paremarks,
+        },
+        success : function(result){
+            alert("修改成功！");
+            location.reload();
+        },
+        error:function(result){
+            alert('请求出现错误...');
+        }
+    });
+});
 
 
 	//新建按钮的事件
@@ -151,7 +204,7 @@ $(document).on("click","#pass",function(){
     var Pasearchnum = $('.Pasearchnum').text();
     var message  = $('#message').val();
     $.ajax({
-        url:"/paper/pass.do",
+        url:"/TeacherWeb/paper/pass.do",
         type:"post",
         datatype:"json",
         data:{
@@ -172,7 +225,7 @@ $(document).on("click","#nopass",function(){
     var Pasearchnum = $('.Pasearchnum').text();
     var message  = $('#message').val();
     $.ajax({
-        url:"/paper/nopass.do",
+        url:"/TeacherWeb/paper/nopass.do",
         type:"post",
         datatype:"json",
         data:{
@@ -200,7 +253,7 @@ function initFileInput(ctrlName) {
     var Pasearchnum = $('#Pasearchnum').val().trim();
     control.fileinput({
         language: 'zh', //设置语言
-        uploadUrl: "/file/upload.do?model=paper&name=" + Paname + "&majorkey=" + Pasearchnum, //上传的地址
+        uploadUrl: "/TeacherWeb/file/upload.do?model=paper&name=" + Paname + "&majorkey=" + Pasearchnum, //上传的地址
         allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
         //uploadExtraData:{"id": 1, "fileName":'123.mp3'},
         uploadAsync: true, //默认异步上传
@@ -233,3 +286,26 @@ function initFileInput(ctrlName) {
         console.log('文件上传失败！'+data.id);
     })
 }
+
+$(document).on("click",".delete",function(e,url){
+    var majorkey = $(this).closest("tr").find(".Pasearchnum").text();
+    var boolean = todel();
+    if (!boolean)
+        return
+    $.ajax({
+        url:"/TeacherWeb/paper/delete.do",
+        type:"post",
+        datatype:"json",
+        data:{
+            "majorkey" : majorkey
+        },
+        success : function(msg){
+            alert("删除成功");
+            $(e.target).closest("tr").fadeOut();
+            window.location.reload();
+        },
+        error:function(msg){
+            alert('请求出现错误...');
+        }
+    });
+});

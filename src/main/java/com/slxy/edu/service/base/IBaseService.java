@@ -43,4 +43,11 @@ public interface IBaseService<T> {
     //获取近5年各专业项目数量
     List<Map<String, Integer>> getRecentYearsSdeptCount(String starttime,String endtime,String cname );
 
+    //按主键删除信息
+    int deleteByMajorkey(String majorkey);
+
+    //管理员修改信息
+    void alterByMajorkey(T t);
+
+
 }

@@ -99,7 +99,22 @@ public class Project {
       this.contractType = contractType;
     }
 
-    public Integer getPnum() {
+  public Project(String psn, String pname, String pmember, String pgrad, String pkind, Integer pmoney, String pstatime, String pcondition, String pendtime, String premarks, String contractType,String paudit) {
+    this.psn = psn;
+    this.pname = pname;
+    this.pmember = pmember;
+    this.pgrad = pgrad;
+    this.pkind = pkind;
+    this.pmoney = pmoney;
+    this.pstatime = pstatime;
+    this.pcondition = pcondition;
+    this.pendtime = pendtime;
+    this.premarks = premarks;
+    this.contractType = contractType;
+    this.paudit = paudit;
+  }
+
+  public Integer getPnum() {
     return pnum;
   }
 

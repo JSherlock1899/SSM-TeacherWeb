@@ -124,5 +124,15 @@ public class TeacherServiceImpl implements ITeacherService {
         teacherMapper.nopass(majorkey,messsage);
     }
 
+    @Override
+    public Teacher selectByTsn(String Tsn) {
+        return teacherMapper.selectByTsn(Tsn);
+    }
+
+    @Override
+    public int deleteByMajorkey(String majorkey) {
+        return teacherMapper.deleteByMajorkey(majorkey);
+    }
+
 
 }

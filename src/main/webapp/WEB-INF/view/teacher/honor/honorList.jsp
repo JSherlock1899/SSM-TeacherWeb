@@ -56,10 +56,11 @@
                     <th>授奖单位</th>
                     <th>等级</th>
                     <th>附件</th>
+                    <th>操作</th>
                 </tr>
                 <c:forEach items="${honors}" var="honors">
                     <tr>
-                        <td><a href="${pageContext.request.contextPath}/teacher/goHonorDetail.do?hsn=${honors.hsn}">${honors.hsn}</a></td>
+                        <td class="Hsn"><a href="${pageContext.request.contextPath}/teacher/goHonorDetail.do?hsn=${honors.hsn}">${honors.hsn}</a></td>
                         <td>${honors.hname}</td>
                         <td>${honors.tname}</td>
                         <td>${honors.department}</td>
@@ -67,8 +68,11 @@
                         <td>${honors.hcompany}</td>
                         <td>${honors.hgrad}</td>
                         <td>
-                            <a href="/file/download.do?model=honor&majorkey=${honors.hsn}&name=${honors.hname}" class="Download">查看附件</a>
+                            <a href="<%=request.getContextPath()%>/file/download.do?model=honor&majorkey=${honors.hsn}&name=${honors.hname}" class="Download">查看附件</a>
                             <input type="hidden" class="accessoryPath" value="${honors.haccessory}"/>
+                        </td>
+                        <td>
+                            <a class="btn btn-danger delete">删除</a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -197,7 +201,7 @@
                             </button>
                             <button type="submit" id="btn_submit"
                                     class="btn btn-primary saveNewMsg">
-                                <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存
+                                <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>提交
                             </button>
                         </div>
                     </div>

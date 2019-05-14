@@ -2,13 +2,13 @@
  * 绘制项目统计图
  */
 
+//项目数量
 $(function() {
     // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('project_bar'));
     // 分别获取从后台传过来的数据
     var json = $('#json').val();
     var cname = $('#cname').val();
-    var jsonList = $('#jsonList').val();
     // 校管理员与院管理员text显示不同
     var text = "项目总数统计图";
     // 解析json
@@ -106,19 +106,119 @@ $(function() {
         } ]
     };
     myChart.setOption(pie_option);
+});
+
+//项目经费
+$(function() {
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('pmoney_bar'));
+    // 分别获取从后台传过来的数据
+    var Pmoneyjson = $('#Pmoneyjson').val();
+    var cname = $('#cname').val();
+    // 校管理员与院管理员text显示不同
+    var text = "项目经费统计图";
+    // 解析json
+    console.log(Pmoneyjson)
+    Pmoneyjson = $.parseJSON(Pmoneyjson);
+    console.log(Pmoneyjson)
+    var keyArr = new Array(); // 学院名
+    var valueArr = new Array();// 项目经费
+    var jsonArr = [];
+
+    //根据管理员权限添加不同的数据
+    if(cname == null || cname == "null"){
+        for (var i = 0;i<Pmoneyjson.length;i++) {
+            keyArr.push(Pmoneyjson[i].Cname); // 添加学院名
+            valueArr.push(Pmoneyjson[i].Pmoney) // 添加项目经费
+            jsonArr.push({
+                name: Pmoneyjson[i].Cname,
+                value: Pmoneyjson[i].Pmoney
+            })
+        }
+    }else{
+        for (var i = 0;i<Pmoneyjson.length;i++) {
+            keyArr.push(Pmoneyjson[i].Dname); // 添加学院名
+            valueArr.push(Pmoneyjson[i].Pmoney) // 添加项目数
+            jsonArr.push({
+                name: Pmoneyjson[i].Dname,
+                value: Pmoneyjson[i].Pmoney
+            })
+        }
+    }
+    // 指定图表的配置项和数据
+    var bar_option = {
+        title : {
+            text : text,
+        },
+        tooltip : {},
+        legend : {
+            data : [ '项目经费' ]
+        },
+        xAxis : {
+            data : keyArr,
+            axisLabel : {
+                interval : 0,
+                rotate : 30
+            },
+            grid : {// 直角坐标系内绘图网格
+                show : true,// 是否显示直角坐标系网格。[ default: false ]
+                left : "20%",// grid 组件离容器左侧的距离。
+                right : "30px",
+                borderColor : "#c45455",// 网格的边框颜色
+                bottom : "20%" //
+            },
+        },
+        yAxis : {},
+        series : [ {
+            name : '项目经费',
+            type : 'bar',
+            data : valueArr
+        } ]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(bar_option);
 
 
 
-
-
-
-})
+    // 绘制图表。
+    // 饼图
+    var myChart = echarts.init(document.getElementById('pmoney_pie'));
+    var pie_option = {
+        title : {
+            text : text,
+            x : 'center'
+        },
+        tooltip : {
+            trigger : 'item',
+            formatter : "{a} <br/>{b} : {c} ({d}%)"
+        },
+        legend : {
+            orient : 'vertical',
+            left : 'left',
+            data : keyArr,
+        },
+        series : [ {
+            name : '项目经费',
+            type : 'pie',
+            radius : '55%',
+            center : [ '50%', '60%' ],
+            data : jsonArr,
+            itemStyle : {
+                emphasis : {
+                    shadowBlur : 10,
+                    shadowOffsetX : 0,
+                    shadowColor : 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        } ]
+    };
+    myChart.setOption(pie_option);
+});
 
 // 折线图
 $(function () {
     var myChart = echarts.init(document.getElementById('project_broken_line'));
     var cname = $('#cname').val();
-    console.log("cname = " + cname)
     var jsonList = $('#jsonList').val();
     jsonList = $.parseJSON(jsonList);
     var arrAll = [];

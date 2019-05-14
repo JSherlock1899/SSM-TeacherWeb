@@ -51,4 +51,10 @@ public interface ITeacherService {
 
     //审核不通过
     void nopass(String majorkey,String messsage);
+
+    //获取教师信息
+    Teacher selectByTsn(String Tsn);
+
+    //按主键删除信息
+    int deleteByMajorkey(String majorkey);
 }

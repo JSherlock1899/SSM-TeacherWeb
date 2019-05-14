@@ -59,7 +59,7 @@
                     <td>第一完成单位</td>
                     <td class="department"><%=honor.getDepartment()%></td>
                     <td>附件</td>
-                    <td><a href="/file/download.do?model=honor&majorkey=<%=honor.getHsn()%>&name=<%=honor.getHname()%>"  class="btn btn-primary Download">下载附件</a></td>
+                    <td><a href="<%=request.getContextPath()%>/file/download.do?model=honor&majorkey=<%=honor.getHsn()%>&name=<%=honor.getHname()%>"  class="btn btn-primary Download">下载附件</a></td>
                     <input type="hidden" id="accessoryPath" value="<%=honor.getHaccessory() %>"/>
                 </tr>
                 <tr>
@@ -161,7 +161,7 @@
                                </button>
                                <button type="submit" id="btn_submit"
                                        class="btn btn-primary save">
-                                   <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存
+                                   <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>提交
                                </button>
                            </div>
                        </div>

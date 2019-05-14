@@ -55,7 +55,7 @@
                 </tr>
                 <tr>
                     <td>附件</td>
-                    <td colspan="5"><a href="/file/download.do?model=other&majorkey=<%=other.getOther_name()%>&name=<%=other.getOther_name()%>"  class="btn btn-primary Download" value="上传">下载附件</a></td>
+                    <td colspan="5"><a href="<%=request.getContextPath()%>/file/download.do?model=other&majorkey=<%=other.getOther_name()%>&name=<%=other.getOther_name()%>"  class="btn btn-primary Download" value="上传">下载附件</a></td>
                     <input type="hidden" id="accessoryPath" value="<%=other.getAccessory() %>"/>
                 </tr>
                 <tr>

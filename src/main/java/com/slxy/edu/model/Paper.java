@@ -105,6 +105,19 @@ public class Paper {
     this.dependence = dependence;
   }
 
+  public Paper(String pasearchnum, String paname, String pawriter, String papublish, String padate, String pagrad, String paremarks, String paudit, String pdisvol, String dependence) {
+    this.pasearchnum = pasearchnum;
+    this.paname = paname;
+    this.pawriter = pawriter;
+    this.papublish = papublish;
+    this.padate = padate;
+    this.pagrad = pagrad;
+    this.paremarks = paremarks;
+    this.paudit = paudit;
+    this.pdisvol = pdisvol;
+    this.dependence = dependence;
+  }
+
   public long getPanum() {
     return panum;
   }

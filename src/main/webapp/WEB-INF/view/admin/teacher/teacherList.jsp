@@ -10,11 +10,11 @@
     <title>教师管理</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/CSS/bootstrap.css">
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/ajax/ajaxTeacherData.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/bootstrap.min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/commonUse.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/bootstrap-table.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/ajax/ajaxSelect.js"></script>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/ajax/ajaxTeacherData.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/AdminJS.js"></script>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/CSS/style.css">
 </head>
@@ -67,7 +67,10 @@
                         <td class="Tdateofbirth">${teachers.tdateofbirth}</td>
                         <td class="Cname">${teachers.cname}</td>
                         <td class="Dname">${teachers.dname}</td>
-                        <td><input type="button" value="编辑" class="update btn btn-primary"></td>
+                        <td>
+                            <a class="btn btn-danger delete">删除</a>
+                            <input type="button" value="编辑" class="update btn btn-primary">
+                        </td>
                 </tr>
                 </c:forEach>
             </table>
@@ -133,7 +136,7 @@
                                 <label for="Tsn">教师号</label> <input type="text" name="Tsn"
                                                                     class="form-control" id="Tsn" placeholder="教师号"
                                                                     onfocus="showTips('Tsn','教师工号为1-6位的数字')"
-                                                                    onblur="checkTsn('Tsn','请按要求输入教师工号')">
+                                                                    onblur="checkTsn('Tsn','请按要求输入教师工号')" readonly>
                                 <div id="Tsndiv" style="display:none">
                                     <span id="Tsnspan" ></span><br>
                                 </div>

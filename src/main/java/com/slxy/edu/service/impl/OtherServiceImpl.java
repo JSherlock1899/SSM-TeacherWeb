@@ -102,6 +102,15 @@ public class OtherServiceImpl extends BaseServiceImpl<Other>  implements IOtherS
         return otherMapper.getRecentYearsSdeptCount(starttime,endtime,cname);
     }
 
+    @Override
+    public int deleteByMajorkey(String majorkey) {
+        return otherMapper.deleteByMajorkey(majorkey);
+    }
+
+    @Override
+    public void alterByMajorkey(Other other) {
+        otherMapper.alterByMajorkey(other);
+    }
 
 
 }

@@ -183,4 +183,13 @@
     <update id="nopass">
         UPDATE Teacher SET audit = '2' , message = #{message} WHERE Tsn = #{majorkey}
     </update>
+
+    <select id="selectByTsn" resultType="com.slxy.edu.model.Teacher">
+        SELECT Tsn,Tname,Tsex,Tdegree,Tedubackground,Tresdirection,Tdateofbirth,JobTitle FROM Teacher  WHERE Tsn = #{Tsn}
+    </select>
+
+    <!--按主键删除-->
+    <delete id="deleteByMajorkey">
+        DELETE FROM Teacher WHERE Tsn = #{majorkey}
+    </delete>
 </mapper>

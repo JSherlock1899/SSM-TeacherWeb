@@ -52,22 +52,21 @@
                     <th>项目编号</th>
                     <th>项目名称</th>
                     <th>负责人</th>
-                    <th>成员</th>
                     <th>级别</th>
                     <th>类型</th>
-                    <th>经费</th>
+                    <th>经费（元）</th>
                     <th>立项时间</th>
                     <th>结题时间</th>
                     <th>科研状态</th>
                     <th>合同类型</th>
                     <th>附件</th>
+                    <th>操作</th>
                 </tr>
                 <c:forEach items="${projects}" var="projects">
                     <tr>
-                        <td><a href="${pageContext.request.contextPath}/teacher/goProjectDetail.do?psn=${projects.psn}">${projects.psn}</a></td>
+                        <td class="Psn"><a href="${pageContext.request.contextPath}/teacher/goProjectDetail.do?psn=${projects.psn}">${projects.psn}</a></td>
                         <td>${projects.pname}</td>
                         <td>${projects.tname}</td>
-                        <td>${projects.pmember}</td>
                         <td>${projects.pgrad}</td>
                         <td>${projects.pkind}</td>
                         <td>${projects.pmoney}</td>
@@ -76,8 +75,11 @@
                         <td>${projects.pcondition}</td>
                         <td>${projects.contractType}</td>
                         <td>
-                            <a href="/file/download.do?model=project&majorkey=${projects.psn}&name=${projects.pname}" class="Download">查看附件</a>
+                            <a href="<%=request.getContextPath()%>/file/download.do?model=project&majorkey=${projects.psn}&name=${projects.pname}" class="Download">查看附件</a>
                             <input type="hidden" class="accessoryPath" value="${projects.paccessory}"/>
+                        </td>
+                        <td>
+                            <a class="btn btn-danger delete">删除</a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -202,7 +204,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="Pmoney">经费 </label>
+                                <label for="Pmoney">经费（元）</label>
                                 <input type="text" name="Pmoney"
                                        class="form-control" id="Pmoney" placeholder="经费"
                                        onfocus="showTips('Pmoney','项目经费为数字')"
@@ -234,7 +236,7 @@
                             </button>
                             <button type="submit" id="btn_submit"
                                     class="btn btn-primary saveNewMsg">
-                                <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存
+                                <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>提交
                             </button>
                         </div>
                     </div>

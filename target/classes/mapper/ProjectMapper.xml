@@ -93,8 +93,7 @@
     <!--更新数据，重新提交-->
     <update id="updateOne"  parameterType="com.slxy.edu.model.Project">
         UPDATE Project
-        SET pleader = #{entity.pleader},
-        tsn = #{entity.tsn},
+        SET Pname = #{entity.pname},
         pmember = #{entity.pmember},
         pgrad = #{entity.pgrad},
         pkind = #{entity.pkind},
@@ -238,5 +237,46 @@
         </foreach>
     </insert>
 
+    <!--查询各二级学院的经费数-->
+    <select id="getProjectMoney" resultType="java.util.HashMap">
+        select SUM(b.Pmoney) as Pmoney,a.Cname from (select Cname from College) a left join (select Cname,Pmoney from Project p join Teacher t on p.Tsn = t.Tsn join College c on c.Csn = t.Csn
+        <where>
+            <if test="starttime!=null and starttime!='' and starttime!='null'">
+                Pstatime &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!='' and endtime!='null'">
+                and Pstatime &lt;= #{endtime}
+            </if>
 
+        </where>
+        ) b on a.Cname = b.Cname group by a.Cname
+    </select>
+
+    <!--查询二级学院各专业的经费数-->
+    <select id="getSdeptProjectMoney" resultType="java.util.HashMap">
+        select SUM(b.Pmoney) as Pmoney,a.Dname from (select Dname from Sdept s join College c on s.Csn = c.Csn
+        <where>
+            <if test="cname!=null and cname!='' and cname!='null'">
+                and Cname = #{cname}
+            </if>
+        </where>
+        )a left join (select Dname,Pmoney from Project p join Teacher t on p.Tsn = t.Tsn join College c on c.Csn = t.Csn join Sdept s on s.Dsn = t.Dsn
+        <where>
+            <if test="starttime!=null and starttime!='' and starttime!='null'">
+                Pstatime &gt;= #{starttime}
+            </if>
+            <if test="endtime!=null and endtime!='' and endtime!='null'">
+                and Pstatime &lt;= #{endtime}
+            </if>
+            <if test="cname!=null and cname!='' and cname!='null'">
+                and Cname = #{cname}
+            </if>
+        </where>
+        ) b on a.Dname = b.Dname group by a.Dname
+    </select>
+
+    <!--按主键删除-->
+    <delete id="deleteByMajorkey">
+        DELETE FROM Project WHERE Psn = #{majorkey}
+    </delete>
 </mapper>

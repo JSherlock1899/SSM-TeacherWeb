@@ -141,7 +141,6 @@ public class PatentController extends BaseController<Patent> {
         String Paudit = "0";
         String Tsn = (String) request.getSession().getAttribute("username");
         Patent patent = new Patent(Patname, Patsn, Patapdate, Patendate, Patgrad, Patremarks, inventor, Tsn, Paudit);
-        String pa = patent.toString();
         int result = patentService.updateOne(patent);
     }
 
@@ -241,7 +240,16 @@ public class PatentController extends BaseController<Patent> {
         }
     }
 
-    @RequestMapping("importExcel")
+
+    /**
+     * 导入excel
+     * @param request
+     * @param response
+     * @throws IOException
+     * @throws FileUploadException
+     * @throws ParseException
+     */
+    @RequestMapping("importExcel.do")
     public void importExcel(HttpServletRequest request,HttpServletResponse response) throws IOException, FileUploadException, ParseException {
         List list = excels(response,request);
         PrintWriter out = response.getWriter();
@@ -289,6 +297,26 @@ public class PatentController extends BaseController<Patent> {
         }catch (DuplicateKeyException e){
             out.print("<script>alert('导入失败，请检查检索号是否输入正确！')</script>");
         }
+    }
+
+    /**
+     * 按主键删除对应数据
+     */
+    @RequestMapping("delete.do")
+    @ResponseBody
+    public void delete(String majorkey){
+        patentService.deleteByMajorkey(majorkey);
+    }
+
+    /**
+     * 按主键修改对应数据
+     */
+    @RequestMapping("alter.do")
+    @ResponseBody
+    public void alter(String Patname, String inventor, String Patsn, String Patapdate, String Patendate, String Patgrad) {
+        String Paudit = "1";
+        Patent patent = new Patent(Patname, Patsn, Patapdate, Patendate, Patgrad, inventor, Paudit);
+        patentService.alterByMajorkey(patent);
     }
 }
 
