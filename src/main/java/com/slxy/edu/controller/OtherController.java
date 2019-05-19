@@ -89,7 +89,7 @@ public class OtherController extends BaseController<Other>{
         //引入分页查询，使用PageHelper分页功能
         //在查询之前传入当前页，然后多少记录
         PageHelper.startPage(pn,5);
-        //当前条件下的查询结果
+        //查询结果
         List<Other> others = otherService.selectAllUnaudit(cname.trim(),dname,starttime,endtime,tname);
         //使用PageInfo包装查询结果，只需要将pageInfo交给页面就可以
         PageInfo pageInfo = new PageInfo<>(others,5);
