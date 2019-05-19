@@ -42,5 +42,11 @@ public class BaseController<T> {
         HONOR_PAGE = "admin/" + "honor" + "/" + HONOR_LIST;
         PATENT_PAGE = "admin/" +"patent" + "/" + PATENT_LIST;
         OTHER_PAGE = "admin/" + "other" + "/" + OTHER_LIST;
-    }   
+    }
+
+
+
+
+
+
 }

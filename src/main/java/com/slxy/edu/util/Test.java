@@ -1,10 +1,5 @@
 package com.slxy.edu.util;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Locale;
-
 /**
  * @program: TeacherWeb
  * @description:
@@ -14,7 +9,7 @@ import java.util.Locale;
 
 public class Test {
 
-    public static void main(String []args) throws ParseException {
+    public static void main(String []args){
 
 
     }

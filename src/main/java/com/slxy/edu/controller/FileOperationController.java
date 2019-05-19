@@ -2,6 +2,7 @@ package com.slxy.edu.controller;
 
 import com.slxy.edu.service.*;
 import com.slxy.edu.util.CommonUtils;
+import com.slxy.edu.util.Operation;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadBase;
 import org.apache.commons.fileupload.FileUploadException;
@@ -29,6 +30,7 @@ import static com.slxy.edu.util.FileUtils.doZIP;
  * @create: 2019-05-03 23:49
  **/
 
+@Operation(name = "文件操作")
 @Controller
 @RequestMapping("file")
 public class FileOperationController {
@@ -56,6 +58,7 @@ public class FileOperationController {
      * @param name 文件名
      * @throws Exception
      */
+    @Operation(name = "上传附件")
     @RequestMapping(value = "upload.do",method = RequestMethod.POST)
     @ResponseBody
     public void upload(HttpServletResponse response, HttpServletRequest request, String model, String majorkey, String name) throws Exception {
@@ -143,6 +146,7 @@ public class FileOperationController {
      * @param name 文件名
      * @throws Exception
      */
+    @Operation(name = "下载附件")
     @RequestMapping(value = "download.do" ,method = RequestMethod.GET)
     @ResponseBody
     public void download(HttpServletResponse response, String model, String majorkey, String name) throws IOException {

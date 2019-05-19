@@ -11,6 +11,7 @@ import com.slxy.edu.model.excel.ExcelOther;
 import com.slxy.edu.service.IOtherService;
 import com.slxy.edu.util.CommonUtils;
 import com.slxy.edu.util.ExportExcel;
+import com.slxy.edu.util.Operation;
 import org.apache.commons.fileupload.FileUploadException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
@@ -43,6 +44,7 @@ import static com.slxy.edu.util.ExcelUtils.exportExcelUtil;
  * @create: 2019-04-21 16:26
  **/
 
+@Operation(name = "其他成果操作")
 @Controller
 @RequestMapping("other")
 public class OtherController extends BaseController<Other>{
@@ -54,6 +56,7 @@ public class OtherController extends BaseController<Other>{
     /**
      * 查询当前条件下的其他成果信息
      */
+    @Operation(name="查询所有其他成果")
     @RequestMapping(OTHER)
     public ModelAndView findOther(@RequestParam(required = false,defaultValue = "1",value = "pn")Integer pn,
                                    Map<String,Object> map, String cname, String dname, String starttime, String endtime, String tname){
@@ -79,6 +82,7 @@ public class OtherController extends BaseController<Other>{
     /**
      * 查询未审核的其他成果信息
      */
+    @Operation(name="查询未审核的其他成果信息")
     @RequestMapping("audit.do")
     public ModelAndView findAudit(@RequestParam(required = false,defaultValue = "1",value = "pn")Integer pn,
                                   Map<String,Object> map,String cname, String dname, String starttime, String endtime, String tname){
@@ -103,6 +107,7 @@ public class OtherController extends BaseController<Other>{
     /**
      * 跳转到详细信息审核页面
      */
+    @Operation(name="跳转到详细信息审核页面")
     @RequestMapping("goDetail")
     public ModelAndView goDetail(String other_name){
         Other other = otherService.selectByMajorKey(other_name);
@@ -115,6 +120,7 @@ public class OtherController extends BaseController<Other>{
     /**
      * 修改信息，重新提交待审核的荣誉信息
      */
+    @Operation(name="修改信息，重新提交待审核的其他成果信息")
     @RequestMapping("updateOne.do")
     @ResponseBody
     public void updateOne(String other_name,String other_date, String other_type,String publisher, String other_describe){
@@ -126,6 +132,7 @@ public class OtherController extends BaseController<Other>{
     /**
      * 新建一条其他成果信息
      */
+    @Operation(name="新建一条的其他成果信息")
     @RequestMapping(value = "insertOne", method = RequestMethod.POST)
     @ResponseBody
     public void insertOne(HttpServletRequest request, String other_name,String other_date, String other_type,String publisher, String other_describe){
@@ -138,6 +145,7 @@ public class OtherController extends BaseController<Other>{
     /**
      * 导出当前条件下的其他成果信息
      */
+    @Operation(name="导出当前条件下的其他成果信息")
     @RequestMapping("export.do")
     public void export(HttpServletResponse response, String cname, String dname, String starttime, String endtime, String tname){
         ExportExcel<ExcelOther> ex = new ExportExcel<ExcelOther>();
@@ -151,7 +159,7 @@ public class OtherController extends BaseController<Other>{
     /**
      * 审核通过
      */
-
+    @Operation(name="审核通过了一条信息")
     @RequestMapping("pass.do")
     @ResponseBody
     public void pass(String majorkey,String message){
@@ -161,7 +169,7 @@ public class OtherController extends BaseController<Other>{
     /**
      * 审核不通过
      */
-
+    @Operation(name="审核不通过了一条信息")
     @RequestMapping("nopass.do")
     @ResponseBody
     public void nopass(String majorkey,String message){
@@ -177,6 +185,7 @@ public class OtherController extends BaseController<Other>{
      * @param cname 学院名
      * @return
      */
+    @Operation(name="查看统计图")
     @RequestMapping("Statistics.do")
     public ModelAndView PatentStatistics(HttpServletRequest request,@RequestParam(required = false,defaultValue = "null")String starttime, @RequestParam(required = false,defaultValue = "null")String endtime,@RequestParam(required = false,defaultValue = "null")String cname){
         //柱状图和饼图数据源
@@ -266,6 +275,7 @@ public class OtherController extends BaseController<Other>{
     /**
      * 按主键删除对应数据
      */
+    @Operation(name="删除了一条数据")
     @RequestMapping("delete.do")
     @ResponseBody
     public void delete(String majorkey){
@@ -275,6 +285,7 @@ public class OtherController extends BaseController<Other>{
     /**
      * 按主键修改对应数据
      */
+    @Operation(name="修改了一条数据")
     @RequestMapping("alter.do")
     @ResponseBody
     public void alter( String other_name,String other_date, String other_type,String publisher, String other_describe){

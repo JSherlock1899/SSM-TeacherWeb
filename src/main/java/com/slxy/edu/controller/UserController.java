@@ -5,6 +5,7 @@ import com.slxy.edu.model.Teacher;
 import com.slxy.edu.service.ICollegeService;
 import com.slxy.edu.service.ITeacherService;
 import com.slxy.edu.service.IUserService;
+import com.slxy.edu.util.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +25,7 @@ import java.util.List;
  * @create: 2019-04-15 20:58
  **/
 
+@Operation(name = "用户操作")
 @Controller
 @RequestMapping("user")
 public class UserController {
@@ -37,6 +39,7 @@ public class UserController {
     @Autowired
     public ITeacherService teacherService;
 
+    @Operation(name = "登录")
     @RequestMapping("login")
     public ModelAndView login(HttpServletRequest request,HttpServletResponse response,@RequestParam("username") String username, @RequestParam("password") String password) throws IOException {
         PrintWriter out = response.getWriter();
@@ -84,6 +87,7 @@ public class UserController {
         return "other/password";
     }
 
+    @Operation(name = "更改密码")
     @RequestMapping("changePassword")
     public void changePassword(HttpServletRequest request, HttpServletResponse response,String oldPassword, String newPassword) throws IOException {
         PrintWriter out = response.getWriter();
@@ -119,6 +123,7 @@ public class UserController {
         }
     }
 
+    @Operation(name = "退出登录")
     @RequestMapping("exitLogin")
     public String exitLogin(){
         return "login";

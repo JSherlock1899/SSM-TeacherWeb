@@ -9,6 +9,11 @@
 
     <!-- 1.注解扫描位置-->
     <context:component-scan base-package="com.slxy.edu.controller" />
+    <context:component-scan base-package="com.slxy.edu.util"/>
+
+    <!--  启动对@AspectJ注解的支持 -->
+    <aop:aspectj-autoproxy/>
+
 
 
     <!-- 2.配置映射处理和适配器-->

@@ -11,6 +11,7 @@ import com.slxy.edu.model.excel.ExcelProject;
 import com.slxy.edu.service.IProjectService;
 import com.slxy.edu.util.CommonUtils;
 import com.slxy.edu.util.ExportExcel;
+import com.slxy.edu.util.Operation;
 import org.apache.commons.fileupload.FileUploadException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
@@ -41,7 +42,7 @@ import static com.slxy.edu.util.ExcelUtils.exportExcelUtil;
  * @author: Mr.Jiang
  * @create: 2019-04-21 16:22
  **/
-
+@Operation(name = "项目操作")
 @Controller
 @RequestMapping("project")
 public class ProjectController extends BaseController<Project> {
@@ -53,6 +54,7 @@ public class ProjectController extends BaseController<Project> {
     /**
      * 查询当前条件下的项目信息
      */
+    @Operation(name="查询所有项目")
     @RequestMapping(PROJECT)
     public ModelAndView findproject(@RequestParam(required = false,defaultValue = "1",value = "pn")Integer pn,
                                   Map<String,Object> map, String cname, String dname, String starttime, String endtime, String tname){
@@ -78,6 +80,7 @@ public class ProjectController extends BaseController<Project> {
     /**
      * 导出当前条件下的项目信息
      */
+    @Operation(name="导出当前条件下的项目信息")
     @RequestMapping("export.do")
     public void exportProject(HttpServletResponse response,String cname, String dname, String starttime, String endtime, String tname){
         ExportExcel<ExcelProject> ex = new ExportExcel<ExcelProject>();
@@ -91,6 +94,7 @@ public class ProjectController extends BaseController<Project> {
     /**
      * 查询未审核的项目信息
      */
+    @Operation(name="查询未审核的项目信息")
     @RequestMapping("audit.do")
     public ModelAndView findAudit(@RequestParam(required = false,defaultValue = "1",value = "pn")Integer pn,
                                   Map<String,Object> map,String cname, String dname, String starttime, String endtime, String tname){
@@ -115,6 +119,7 @@ public class ProjectController extends BaseController<Project> {
     /**
      * 跳转到详细信息审核页面
      */
+    @Operation(name="跳转到详细信息审核页面")
     @RequestMapping("goDetail")
     public ModelAndView goDetail(String psn){
         Project project = projectService.selectByMajorKey(psn);
@@ -127,6 +132,7 @@ public class ProjectController extends BaseController<Project> {
     /**
      * 修改信息，重新提交待审核的项目信息
      */
+    @Operation(name="修改信息，重新提交待审核的项目信息")
     @RequestMapping("updateOne.do")
     @ResponseBody
     public void updateOne(String Psn, String Pname, String Pmember, String Pgrad, String Pkind, String contractType, String Pmoney, String Pstatime, String Pcondition, String Pendtime, String Premarks) {
@@ -139,6 +145,7 @@ public class ProjectController extends BaseController<Project> {
     /**
      * 新建一条项目信息
      */
+    @Operation(name="新建一条的项目信息")
     @RequestMapping(value = "insertOne", method = RequestMethod.POST)
     @ResponseBody
     public void insertOne(HttpServletRequest request, String Psn, String Pleader, String Pname, String Pmember, String Pgrad, String Pkind, String contractType, String Pmoney, String Pstatime, String Pcondition, String Pendtime, String Premarks){
@@ -153,7 +160,7 @@ public class ProjectController extends BaseController<Project> {
     /**
      * 审核通过
      */
-
+    @Operation(name="审核通过了一条信息")
     @RequestMapping("pass.do")
     @ResponseBody
     public void pass(String majorkey,String message){
@@ -163,7 +170,7 @@ public class ProjectController extends BaseController<Project> {
     /**
      * 审核不通过
      */
-
+    @Operation(name="审核不通过了一条信息")
     @RequestMapping("nopass.do")
     @ResponseBody
     public void nopass(String majorkey,String message){
@@ -179,6 +186,7 @@ public class ProjectController extends BaseController<Project> {
      * @param cname 学院名
      * @return
      */
+    @Operation(name="查看统计图")
     @RequestMapping("Statistics.do")
     public ModelAndView PatentStatistics(HttpServletRequest request,@RequestParam(required = false,defaultValue = "null")String starttime, @RequestParam(required = false,defaultValue = "null")String endtime,@RequestParam(required = false,defaultValue = "null")String cname){
         //柱状图和饼图数据源
@@ -239,6 +247,7 @@ public class ProjectController extends BaseController<Project> {
         }
     }
 
+    @Operation(name="导入excel")
     @RequestMapping("importExcel")
     public void importExcel(HttpServletRequest request,HttpServletResponse response) throws IOException, FileUploadException, ParseException {
         List list = excels(response,request);
@@ -302,6 +311,7 @@ public class ProjectController extends BaseController<Project> {
     /**
      * 按主键删除对应数据
      */
+    @Operation(name="删除了一条数据")
     @RequestMapping("delete.do")
     @ResponseBody
     public void delete(String majorkey){
@@ -311,6 +321,7 @@ public class ProjectController extends BaseController<Project> {
     /**
      * 按主键修改对应数据
      */
+    @Operation(name="修改了一条数据")
     @RequestMapping("alter.do")
     @ResponseBody
     public void alter(String Psn, String Pname, String Pmember, String Pgrad, String Pkind, String contractType, String Pmoney, String Pstatime, String Pcondition, String Pendtime, String Premarks) {

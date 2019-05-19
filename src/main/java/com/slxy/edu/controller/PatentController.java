@@ -11,6 +11,7 @@ import com.slxy.edu.model.excel.ExcelPatent;
 import com.slxy.edu.service.IPatentService;
 import com.slxy.edu.util.CommonUtils;
 import com.slxy.edu.util.ExportExcel;
+import com.slxy.edu.util.Operation;
 import org.apache.commons.fileupload.FileUploadException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
@@ -41,6 +42,7 @@ import static com.slxy.edu.util.ExcelUtils.exportExcelUtil;
  * @create: 2019-04-19 22:14
  **/
 
+@Operation(name = "专利操作")
 @Controller
 @RequestMapping("patent")
 public class PatentController extends BaseController<Patent> {
@@ -52,6 +54,7 @@ public class PatentController extends BaseController<Patent> {
     /**
      * 查询当前条件下的专利信息
      */
+    @Operation(name="查询所有专利")
     @RequestMapping(PATENT)
     public ModelAndView findPatent(@RequestParam(required = false, defaultValue = "1", value = "pn") Integer pn,
                                    Map<String, Object> map, String cname, String dname, String starttime, String endtime, String tname) {
@@ -77,6 +80,7 @@ public class PatentController extends BaseController<Patent> {
     /**
      * 导出当前条件下的专利信息
      */
+    @Operation(name="导出当前条件下的专利信息")
     @RequestMapping("export.do")
     public void exportPatent(HttpServletResponse response, String cname, String dname, String starttime, String endtime, String tname) {
         ExportExcel<ExcelPatent> ex = new ExportExcel<ExcelPatent>();
@@ -90,6 +94,7 @@ public class PatentController extends BaseController<Patent> {
     /**
      * 查询未审核的专利信息
      */
+    @Operation(name="查询未审核的专利信息")
     @RequestMapping("audit.do")
     public ModelAndView findAudit(@RequestParam(required = false, defaultValue = "1", value = "pn") Integer pn,
                                   Map<String, Object> map, String cname, String dname, String starttime, String endtime, String tname) {
@@ -114,6 +119,7 @@ public class PatentController extends BaseController<Patent> {
     /**
      * 跳转到详细信息审核页面
      */
+    @Operation(name="跳转到详细信息审核页面")
     @RequestMapping("goDetail")
     public ModelAndView goDetail(String patsn) {
         Patent patent = patentService.selectByMajorKey(patsn);
@@ -135,6 +141,7 @@ public class PatentController extends BaseController<Patent> {
     /**
      * 修改信息，重新提交待审核的专利信息
      */
+    @Operation(name="修改信息，重新提交待审核的专利信息")
     @RequestMapping("updateOne.do")
     @ResponseBody
     public void updateOne(HttpServletRequest request, String Patname, String inventor, String Patsn, String Patapdate, String Patendate, String Patgrad, String Patremarks) {
@@ -147,6 +154,7 @@ public class PatentController extends BaseController<Patent> {
     /**
      * 新建一条的专利信息
      */
+    @Operation(name="新建一条的专利信息")
     @RequestMapping(value = "insertOne", method = RequestMethod.POST,produces="application/json")
     @ResponseBody
     public void insertOne(HttpServletRequest request,String Patname, String inventor, String Patsn, String Patapdate, String Patendate, String Patgrad, String Patremarks) {
@@ -164,7 +172,7 @@ public class PatentController extends BaseController<Patent> {
     /**
      * 审核通过
      */
-
+    @Operation(name="审核通过了一条信息")
     @RequestMapping("pass.do")
     @ResponseBody
     public void pass(String majorkey, String message) {
@@ -174,7 +182,7 @@ public class PatentController extends BaseController<Patent> {
     /**
      * 审核不通过
      */
-
+    @Operation(name="审核不通过了一条信息")
     @RequestMapping("nopass.do")
     @ResponseBody
     public void nopass(String majorkey, String message) {
@@ -190,6 +198,7 @@ public class PatentController extends BaseController<Patent> {
      * @param cname     学院名
      * @return
      */
+    @Operation(name="查看统计图")
     @RequestMapping("Statistics.do")
     public ModelAndView PatentStatistics(HttpServletRequest request, @RequestParam(required = false, defaultValue = "null") String starttime, @RequestParam(required = false, defaultValue = "null") String endtime, @RequestParam(required = false, defaultValue = "null") String cname) {
         //柱状图和饼图数据源
@@ -249,6 +258,7 @@ public class PatentController extends BaseController<Patent> {
      * @throws FileUploadException
      * @throws ParseException
      */
+    @Operation(name="导入excel")
     @RequestMapping("importExcel.do")
     public void importExcel(HttpServletRequest request,HttpServletResponse response) throws IOException, FileUploadException, ParseException {
         List list = excels(response,request);
@@ -302,6 +312,7 @@ public class PatentController extends BaseController<Patent> {
     /**
      * 按主键删除对应数据
      */
+    @Operation(name="删除了一条数据")
     @RequestMapping("delete.do")
     @ResponseBody
     public void delete(String majorkey){
@@ -311,6 +322,7 @@ public class PatentController extends BaseController<Patent> {
     /**
      * 按主键修改对应数据
      */
+    @Operation(name="修改了一条数据")
     @RequestMapping("alter.do")
     @ResponseBody
     public void alter(String Patname, String inventor, String Patsn, String Patapdate, String Patendate, String Patgrad) {

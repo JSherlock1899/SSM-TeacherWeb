@@ -7,6 +7,7 @@ import com.slxy.edu.model.excel.*;
 import com.slxy.edu.service.*;
 import com.slxy.edu.util.CommonUtils;
 import com.slxy.edu.util.ExportExcel;
+import com.slxy.edu.util.Operation;
 import org.apache.commons.fileupload.FileUploadException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
@@ -36,7 +37,7 @@ import static com.slxy.edu.util.ExcelUtils.exportExcelUtil;
  * @author: Mr.Jiang
  * @create: 2019-04-28 18:00
  **/
-
+@Operation(name = "教师操作")
 @Controller
 @RequestMapping("teacher")
 public class TeacherController{
@@ -57,8 +58,9 @@ public class TeacherController{
     public ICollegeService collegeService;
 
     /**
-     * 查询当前条件下的项目信息
+     * 查询教师个人的项目信息
      */
+    @Operation(name = "查询教师个人的项目信息")
     @RequestMapping("findProject")
     public ModelAndView findProject(@RequestParam(required = false,defaultValue = "1",value = "pn")Integer pn,Map<String,Object> map, String tsn){
         PageHelper.startPage(pn,5);
@@ -76,8 +78,9 @@ public class TeacherController{
     }
 
     /**
-     * 查询当前条件下的论文信息
+     * 查询教师个人的论文信息
      */
+    @Operation(name = "查询教师个人的论文信息")
     @RequestMapping("findPaper")
     public ModelAndView findPaper(@RequestParam(required = false,defaultValue = "1",value = "pn")Integer pn,Map<String,Object> map, String tsn){
         PageHelper.startPage(pn,5);
@@ -95,8 +98,9 @@ public class TeacherController{
     }
 
     /**
-     * 查询当前条件下的荣誉信息
+     * 查询教师个人的荣誉信息
      */
+    @Operation(name = "查询教师个人的荣誉信息")
     @RequestMapping("findHonor")
     public ModelAndView findHonor(@RequestParam(required = false,defaultValue = "1",value = "pn")Integer pn,Map<String,Object> map, String tsn){
         PageHelper.startPage(pn,5);
@@ -114,8 +118,9 @@ public class TeacherController{
     }
 
     /**
-     * 查询当前条件下的专利信息
+     * 查询教师个人的专利信息
      */
+    @Operation(name = "查询教师个人的专利信息")
     @RequestMapping("findPatent")
     public ModelAndView findPatent(@RequestParam(required = false,defaultValue = "1",value = "pn")Integer pn,Map<String,Object> map, String tsn){
         PageHelper.startPage(pn,5);
@@ -133,8 +138,9 @@ public class TeacherController{
     }
 
     /**
-     * 查询当前条件下的其他成果信息
+     * 查询教师个人的其他成果信息
      */
+    @Operation(name = "查询教师个人的其他成果信息")
     @RequestMapping("findOther")
     public ModelAndView findOther(@RequestParam(required = false,defaultValue = "1",value = "pn")Integer pn,Map<String,Object> map, String tsn){
         PageHelper.startPage(pn,5);
@@ -154,6 +160,7 @@ public class TeacherController{
     /**
      * 查询单个项目的详细信息
      */
+    @Operation(name = "查询单个项目的详细信息")
     @RequestMapping("goProjectDetail")
     public ModelAndView goProjectDetail(String psn){
         Project project = projectService.selectByMajorKey(psn);
@@ -175,6 +182,7 @@ public class TeacherController{
     /**
      * 查询单个论文的详细信息
      */
+    @Operation(name = "查询单个论文的详细信息")
     @RequestMapping("goPaperDetail")
     public ModelAndView goPaperDetail(String pasearchnum){
         Paper paper = paperService.selectByMajorKey(pasearchnum);
@@ -195,6 +203,7 @@ public class TeacherController{
     /**
      * 查询单个荣誉的详细信息
      */
+    @Operation(name = "查询单个荣誉的详细信息")
     @RequestMapping("goHonorDetail")
     public ModelAndView goHonorDetail(String hsn){
         Honor honor = honorService.selectByMajorKey(hsn);
@@ -215,6 +224,7 @@ public class TeacherController{
     /**
      * 查询单个专利的详细信息
      */
+    @Operation(name = "查询单个专利的详细信息")
     @RequestMapping("goPatentDetail")
     public ModelAndView goPatentDetail(String patsn){
         System.out.println("patsn的值是：" + patsn + ".当前方法:TeacherController.goPatentDetail()");
@@ -236,6 +246,7 @@ public class TeacherController{
     /**
      * 查询单个其他成果的详细信息
      */
+    @Operation(name = "查询单个其他成果的详细信息")
     @RequestMapping("goOtherDetail")
     public ModelAndView goOtherDetail(String other_name){
         Other others = otherService.selectByMajorKey(other_name);
@@ -255,8 +266,9 @@ public class TeacherController{
 
 
     /**
-     * 导出当前条件下的项目信息
+     * 导出教师个人的项目信息
      */
+    @Operation(name = "导出教师个人的项目信息")
     @RequestMapping("exportProject.do")
     public void exportProject(HttpServletResponse response, String tsn){
         ExportExcel<ExcelProject> ex = new ExportExcel<ExcelProject>();
@@ -268,8 +280,9 @@ public class TeacherController{
     }
 
     /**
-     * 导出当前教师的成果信息
+     * 导出教师个人的成果信息
      */
+    @Operation(name = "导出教师个人的成果信息")
     @RequestMapping("exportPaper.do")
     public void exportPaper(HttpServletResponse response, String tsn){
         ExportExcel<ExcelPaper> ex = new ExportExcel<ExcelPaper>();
@@ -280,8 +293,9 @@ public class TeacherController{
     }
 
     /**
-     * 导出当前教师的荣誉信息
+     * 导出教师个人的荣誉信息
      */
+    @Operation(name = "导出教师个人的荣誉信息")
     @RequestMapping("exportHonor.do")
     public void exportHonor(HttpServletResponse response, String tsn){
         ExportExcel<ExcelHonor> ex = new ExportExcel<ExcelHonor>();
@@ -292,8 +306,9 @@ public class TeacherController{
     }
 
     /**
-     * 导出当前教师的专利信息
+     * 导出教师个人的专利信息
      */
+    @Operation(name = "导出教师个人的专利信息")
     @RequestMapping("exportPatent.do")
     public void exportPatent(HttpServletResponse response, String tsn){
         ExportExcel<ExcelPatent> ex = new ExportExcel<ExcelPatent>();
@@ -304,8 +319,9 @@ public class TeacherController{
     }
 
     /**
-     * 导出当前教师的其他成果信息
+     * 导出教师个人的其他成果信息
      */
+    @Operation(name = "导出教师个人的其他成果信息")
     @RequestMapping("exportOther.do")
     public void exportOther(HttpServletResponse response, String tsn){
         ExportExcel<ExcelOther> ex = new ExportExcel<ExcelOther>();
@@ -317,8 +333,9 @@ public class TeacherController{
 
 
     /**
-     * 查询当前条件下的教师信息
+     * 查询教师个人的教师信息
      */
+    @Operation(name = "查询教师个人的教师信息")
     @RequestMapping("findTeacher.do")
     public ModelAndView findTeacher(@RequestParam(required = false,defaultValue = "1",value = "pn")Integer pn,
                                   Map<String,Object> map, @RequestParam(required = false,defaultValue = "null")String cname, @RequestParam(required = false,defaultValue = "null")String dname,@RequestParam(required = false,defaultValue = "null")String tname){
@@ -355,6 +372,7 @@ public class TeacherController{
      * @param Cname 所属学院
      * @param Dname 所属专业
      */
+     @Operation(name = "更改教师信息")
      @RequestMapping("update")
      @ResponseBody
      public void update(String Tsn,String Tname,String Tsex,String Tdegree,String Tedubackground,String Tresdirection,String Tdateofbirth,String JobTitle,String Cname,String Dname){
@@ -365,7 +383,7 @@ public class TeacherController{
      }
 
 
-
+    @Operation(name = "导入excel")
     @RequestMapping("importExcel")
     public void importExcel(HttpServletRequest request, HttpServletResponse response) throws IOException, FileUploadException, ParseException {
         List list = excels(response,request);
@@ -413,6 +431,7 @@ public class TeacherController{
     /**
      * 查询未审核的教师信息
      */
+    @Operation(name = "查询未审核的教师信息")
     @RequestMapping("audit.do")
     public ModelAndView findAudit(@RequestParam(required = false,defaultValue = "1",value = "pn")Integer pn,
                                   Map<String,Object> map,String cname, String dname, String tname){
@@ -437,7 +456,7 @@ public class TeacherController{
     /**
      * 审核通过
      */
-
+    @Operation(name = "审核通过一条教师信息")
     @RequestMapping("pass.do")
     @ResponseBody
     public void pass(String majorkey,String message) {
@@ -447,7 +466,7 @@ public class TeacherController{
     /**
      * 审核不通过
      */
-
+    @Operation(name = "审核不通过一条教师信息")
     @RequestMapping("nopass.do")
     @ResponseBody
     public void nopass(String majorkey,String message){
@@ -458,6 +477,7 @@ public class TeacherController{
     /**
      * 按主键删除对应数据
      */
+    @Operation(name = "删除教师信息")
     @RequestMapping("delete.do")
     @ResponseBody
     public void delete(String majorkey){

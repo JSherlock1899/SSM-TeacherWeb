@@ -11,6 +11,7 @@ import com.slxy.edu.model.excel.ExcelHonor;
 import com.slxy.edu.service.IHonorService;
 import com.slxy.edu.util.CommonUtils;
 import com.slxy.edu.util.ExportExcel;
+import com.slxy.edu.util.Operation;
 import org.apache.commons.fileupload.FileUploadException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
@@ -43,6 +44,7 @@ import static com.slxy.edu.util.ExcelUtils.exportExcelUtil;
  * @create: 2019-04-21 16:26
  **/
 
+@Operation(name = "荣誉操作")
 @Controller
 @RequestMapping("honor")
 public class HonorController extends BaseController<Honor> {
@@ -54,6 +56,7 @@ public class HonorController extends BaseController<Honor> {
     /**
      * 查询当前条件下的荣誉信息
      */
+    @Operation(name="查询所有荣誉")
     @RequestMapping(HONOR)
     public ModelAndView findhonor(@RequestParam(required = false, defaultValue = "1", value = "pn") Integer pn,
                                   Map<String, Object> map, String cname, String dname, String starttime, String endtime, String tname) {
@@ -78,6 +81,7 @@ public class HonorController extends BaseController<Honor> {
     /**
      * 查询未审核的荣誉信息
      */
+    @Operation(name="查询未审核的荣誉信息")
     @RequestMapping("audit.do")
     public ModelAndView findAudit(@RequestParam(required = false, defaultValue = "1", value = "pn") Integer pn,
                                   Map<String, Object> map, String cname, String dname, String starttime, String endtime, String tname) {
@@ -102,6 +106,7 @@ public class HonorController extends BaseController<Honor> {
     /**
      * 跳转到详细信息审核页面
      */
+    @Operation(name="跳转到详细信息审核页面")
     @RequestMapping("goDetail")
     public ModelAndView goHonorDetail(String hsn) {
         Honor honor = honorService.selectByMajorKey(hsn);
@@ -114,6 +119,7 @@ public class HonorController extends BaseController<Honor> {
     /**
      * 修改信息，重新提交待审核的荣誉信息
      */
+    @Operation(name="修改信息，重新提交待审核的荣誉信息")
     @RequestMapping("updateOne.do")
     @ResponseBody
     public void updateOne(String Hsn, String Hname, String Hwinner, String Hdate, String Hcompany, String department, String Hgrad, String Hremarks) {
@@ -125,6 +131,7 @@ public class HonorController extends BaseController<Honor> {
     /**
      * 新建一条荣誉信息
      */
+    @Operation(name="新建一条的荣誉信息")
     @RequestMapping(value = "insertOne", method = RequestMethod.POST)
     @ResponseBody
     public void insertOne(HttpServletRequest request, String Hsn, String Hname, String Hwinner, String Hdate, String Hcompany, String department, String Hgrad, String Hremarks) {
@@ -138,6 +145,7 @@ public class HonorController extends BaseController<Honor> {
     /**
      * 导出当前条件下的荣誉信息
      */
+    @Operation(name="导出当前条件下的荣誉信息")
     @RequestMapping("export.do")
     public void export(HttpServletResponse response, String cname, String dname, String starttime, String endtime, String tname) {
         ExportExcel<ExcelHonor> ex = new ExportExcel<ExcelHonor>();
@@ -151,7 +159,7 @@ public class HonorController extends BaseController<Honor> {
     /**
      * 审核通过
      */
-
+    @Operation(name="审核通过了一条信息")
     @RequestMapping("pass.do")
     @ResponseBody
     public void pass(String majorkey, String message) {
@@ -161,7 +169,7 @@ public class HonorController extends BaseController<Honor> {
     /**
      * 审核不通过
      */
-
+    @Operation(name="审核不通过了一条信息")
     @RequestMapping("nopass.do")
     @ResponseBody
     public void nopass(String majorkey, String message) {
@@ -178,6 +186,7 @@ public class HonorController extends BaseController<Honor> {
      * @param cname     学院名
      * @return
      */
+    @Operation(name="查看统计图")
     @RequestMapping("Statistics.do")
     public ModelAndView PatentStatistics(HttpServletRequest request, @RequestParam(required = false, defaultValue = "null") String starttime, @RequestParam(required = false, defaultValue = "null") String endtime, @RequestParam(required = false, defaultValue = "null") String cname) {
         //柱状图和饼图数据源
@@ -228,7 +237,7 @@ public class HonorController extends BaseController<Honor> {
         }
     }
 
-
+    @Operation(name="导入excel")
     @RequestMapping("importExcel")
     public void importExcel(HttpServletRequest request, HttpServletResponse response) throws IOException, FileUploadException, ParseException {
         List list = excels(response, request);
@@ -270,6 +279,7 @@ public class HonorController extends BaseController<Honor> {
     /**
      * 按主键删除对应数据
      */
+    @Operation(name="删除了一条数据")
     @RequestMapping("delete.do")
     @ResponseBody
     public void delete(String majorkey) {
@@ -280,6 +290,7 @@ public class HonorController extends BaseController<Honor> {
     /**
      * 按主键修改对应数据
      */
+    @Operation(name="修改了一条数据")
     @RequestMapping("alter.do")
     @ResponseBody
     public void alter(String Hsn, String Hname, String Hwinner, String Hdate, String Hcompany, String department, String Hgrad, String Hremarks) {

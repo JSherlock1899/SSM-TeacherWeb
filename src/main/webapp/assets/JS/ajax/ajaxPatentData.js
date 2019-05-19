@@ -188,7 +188,9 @@ $(document).on("click",".saveNewMsg",function(){
         },
 
         success : function(result){
-            alert("新建成功，请等待管理员审核！");
+            if (result.code==100){
+                alert("新建成功，请等待管理员审核！");
+            }
         },
         error:function(result){
             alert('请求出现错误...');
