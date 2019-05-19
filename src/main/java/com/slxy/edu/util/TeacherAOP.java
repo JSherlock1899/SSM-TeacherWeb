@@ -27,7 +27,6 @@ public class TeacherAOP {
 
     private Logger logger = LoggerFactory.getLogger(TeacherAOP.class);
 
-
     @Pointcut("execution(* com.slxy.edu.controller.*.*(..))")
     public void method(){
     }

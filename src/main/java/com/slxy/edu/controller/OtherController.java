@@ -93,7 +93,6 @@ public class OtherController extends BaseController<Other>{
         List<Other> others = otherService.selectAllUnaudit(cname.trim(),dname,starttime,endtime,tname);
         //使用PageInfo包装查询结果，只需要将pageInfo交给页面就可以
         PageInfo pageInfo = new PageInfo<>(others,5);
-        //pageINfo封装了分页的详细信息，也可以指定连续显示的页数
         map.put("pageInfo",pageInfo);
         ModelAndView mv = new ModelAndView();
         mv.addAllObjects(map);
