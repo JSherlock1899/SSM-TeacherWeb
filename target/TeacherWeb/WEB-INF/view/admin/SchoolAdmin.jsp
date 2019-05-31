@@ -65,11 +65,11 @@
 								class="sub-title">项目查询</span></a>
 						</li>
 						<li>
-							<div class="showtitle" style="width: 100px;">成果查询</div> <a
+							<div class="showtitle" style="width: 100px;">论文查询</div> <a
 								href="<%=request.getContextPath()%>/paper/findPaper.do?cname=<%=Cname%>"
 							target="select_frame"  onclick="Paperchange()"><span
 								class="sublist-icon glyphicon glyphicon-search"></span><span
-								class="sub-title">成果查询</span></a>
+								class="sub-title">论文查询</span></a>
 						</li>
 						<li>
 							<div class="showtitle" style="width: 100px;">荣誉查询</div> <a onclick="Honorchange()"
@@ -108,11 +108,11 @@
 								class="sub-title">项目统计</span></a>
 						</li>
 						<li>
-							<div class="showtitle" style="width: 100px;">成果统计</div> <a
+							<div class="showtitle" style="width: 100px;">论文统计</div> <a
 								href="<%=request.getContextPath()%>/paper/Statistics.do?grade=<%=grade %>"
 							onclick="PaperStatistics()" target="select_frame"><span
 								class="sublist-icon glyphicon glyphicon-stats"></span><span
-								class="sub-title">成果统计</span></a>
+								class="sub-title">论文统计</span></a>
 						</li>
 						<li>
 							<div class="showtitle" style="width: 100px;">荣誉统计</div> <a
@@ -151,11 +151,11 @@
 								class="sub-title">项目审核</span></a>
 						</li>
 						<li>
-							<div class="showtitle" style="width: 100px;">成果审核</div> <a
+							<div class="showtitle" style="width: 100px;">论文审核</div> <a
 								href="<%=request.getContextPath()%>/paper/audit.do?cname=<%=Cname%>"
 							onclick="PaperAudit()" target="select_frame"><span
 								class="sublist-icon glyphicon glyphicon-check"></span><span
-								class="sub-title">成果审核</span></a>
+								class="sub-title">论文审核</span></a>
 						</li>
 						<li>
 							<div class="showtitle" style="width: 100px;">荣誉审核</div> <a

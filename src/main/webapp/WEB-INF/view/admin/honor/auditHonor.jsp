@@ -39,9 +39,7 @@
                     <th>编号</th>
                     <th>名称</th>
                     <th>第一完成人</th>
-                    <th>第一完成单位</th>
                     <th>时间</th>
-                    <th>授奖单位</th>
                     <th>等级</th>
                     <th>附件</th>
                 </tr>
@@ -50,9 +48,7 @@
                         <td><a href="${pageContext.request.contextPath}/honor/goDetail.do?hsn=${honors.hsn}">${honors.hsn}</a></td>
                         <td>${honors.hname}</td>
                         <td>${honors.tname}</td>
-                        <td>${honors.department}</td>
                         <td>${honors.hdate}</td>
-                        <td>${honors.hcompany}</td>
                         <td>${honors.hgrad}</td>
                         <td>
                             <a href="<%=request.getContextPath()%>/file/download.do?model=honor&majorkey=${honors.hsn}&name=${honors.hname}" class="Download">查看附件</a>

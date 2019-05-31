@@ -335,7 +335,7 @@ public class TeacherController{
     /**
      * 查询教师个人的教师信息
      */
-    @Operation(name = "查询教师个人的教师信息")
+    @Operation(name = "查询教师个人的信息")
     @RequestMapping("findTeacher.do")
     public ModelAndView findTeacher(@RequestParam(required = false,defaultValue = "1",value = "pn")Integer pn,
                                   Map<String,Object> map, @RequestParam(required = false,defaultValue = "null")String cname, @RequestParam(required = false,defaultValue = "null")String dname,@RequestParam(required = false,defaultValue = "null")String tname){
@@ -373,11 +373,13 @@ public class TeacherController{
      * @param Dname 所属专业
      */
      @Operation(name = "更改教师信息")
-     @RequestMapping("update")
+     @RequestMapping("updateOne")
      @ResponseBody
-     public void update(String Tsn,String Tname,String Tsex,String Tdegree,String Tedubackground,String Tresdirection,String Tdateofbirth,String JobTitle,String Cname,String Dname){
+     public void updateOne(String Tsn,String Tname,String Tsex,String Tdegree,String Tedubackground,String Tresdirection,String Tdateofbirth,String JobTitle,String Cname,String Dname){
         String Csn = teacherService.getCsn(Dname);
         String Dsn = teacherService.getDsn(Dname);
+        System.out.println("Csn的值是：" + Csn + ".当前方法:TeacherController.update()");
+        System.out.println("Dsn的值是：" + Dsn + ".当前方法:TeacherController.update()");
         Teacher teacher = new Teacher(Tsn,Tname,Tsex,Tdegree,Tedubackground,Tresdirection,Tdateofbirth,JobTitle,Csn,Dsn,Dname);
         teacherService.update(teacher);
      }
@@ -395,21 +397,14 @@ public class TeacherController{
         for (int i=0;i<list.size();i=i+10) {
             count++;
             //判断时间格式是否正确
-            boolean vaild1 = judgeDate(list.get(i+7).toString());
-            if (vaild1 == false) {
-                count = count + 2;
-                out.print("<script>alert('第" + count + "行可能存在错误，请检查后重新导入！')</script>");
-                return;
-            }else {
-                //为出生年月
-                String date1;
-                if (!list.get(i+7).toString().equals("")){
-                    date1 = formatDate(list.get(i+7).toString());
-                }else {
-                    date1 = list.get(i+7).toString();
-                }
+//            boolean vaild1 = judgeDate(list.get(i+7).toString());
+//            if (vaild1 == false) {
+//                count = count + 2;
+//                out.print("<script>alert('第" + count + "行可能存在错误，请检查后重新导入！')</script>");
+//                return;
+//            }else {
                 try {
-                    ExcelTeacher excel = new ExcelTeacher(list.get(i).toString(),list.get(i+1).toString(),list.get(i+2).toString(),list.get(i+3).toString(),list.get(i+4).toString(),list.get(i+5).toString(),list.get(i+6).toString(),date1,list.get(i+8).toString(),list.get(i+9).toString());
+                    ExcelTeacher excel = new ExcelTeacher(list.get(i).toString(),list.get(i+1).toString(),list.get(i+2).toString(),list.get(i+3).toString(),list.get(i+4).toString(),list.get(i+5).toString(),list.get(i+6).toString(),list.get(i+7).toString(),list.get(i+8).toString(),list.get(i+9).toString(),"1");
                     excel.toString();
                     //逐个添加各条数据
                     excels.add(excel);
@@ -417,7 +412,7 @@ public class TeacherController{
                     out.print("<script>alert('请检查导入数据是否正确！')</script>");
                 }
             }
-        }
+//        }
         try {
             int result = teacherService.importExcel(excels);
             if (result == count){

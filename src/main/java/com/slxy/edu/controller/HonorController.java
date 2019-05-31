@@ -27,7 +27,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -108,8 +107,9 @@ public class HonorController extends BaseController<Honor> {
      */
     @Operation(name="跳转到详细信息审核页面")
     @RequestMapping("goDetail")
-    public ModelAndView goHonorDetail(String hsn) {
-        Honor honor = honorService.selectByMajorKey(hsn);
+    public ModelAndView goHonorDetail(Integer hsn) {
+        String Hsn = hsn.toString();
+        Honor honor = honorService.selectByMajorKey(Hsn);
         ModelAndView mv = new ModelAndView();
         mv.addObject("honor", honor);
         mv.setViewName("admin/honor/detailList");
@@ -122,9 +122,9 @@ public class HonorController extends BaseController<Honor> {
     @Operation(name="修改信息，重新提交待审核的荣誉信息")
     @RequestMapping("updateOne.do")
     @ResponseBody
-    public void updateOne(String Hsn, String Hname, String Hwinner, String Hdate, String Hcompany, String department, String Hgrad, String Hremarks) {
+    public void updateOne(Integer Hsn, String Hname, String Hwinner, String Hdate, String Hcompany, String department, String Hgrad, String Hremarks) {
         String Haudit = "0";
-        Honor honor = new Honor(Hsn.trim(), Hname, Hwinner, Hdate, Hcompany, Hgrad, Hremarks, Haudit, department);
+        Honor honor = new Honor(Hsn, Hname, Hwinner, Hdate, Hcompany, Hgrad, Hremarks, Haudit, department);
         honorService.updateOne(honor);
     }
 
@@ -134,10 +134,10 @@ public class HonorController extends BaseController<Honor> {
     @Operation(name="新建一条的荣誉信息")
     @RequestMapping(value = "insertOne", method = RequestMethod.POST)
     @ResponseBody
-    public void insertOne(HttpServletRequest request, String Hsn, String Hname, String Hwinner, String Hdate, String Hcompany, String department, String Hgrad, String Hremarks) {
+    public void insertOne(HttpServletRequest request,String Hname, String Hwinner, String Hdate, String Hcompany, String department, String Hgrad, String Hremarks) {
         String Haudit = "0";
         String Tsn = (String) request.getSession().getAttribute("username");
-        Honor honor = new Honor(Hsn, Hname, Hwinner, Hdate, Hcompany, Hgrad, Hremarks, Tsn, Haudit, department);
+        Honor honor = new Honor(Hname, Hwinner, Hdate, Hcompany, Hgrad, Hremarks, Tsn, Haudit, department);
         int result = honorService.insertOne(honor);
     }
 
@@ -239,29 +239,29 @@ public class HonorController extends BaseController<Honor> {
 
     @Operation(name="导入excel")
     @RequestMapping("importExcel")
-    public void importExcel(HttpServletRequest request, HttpServletResponse response) throws IOException, FileUploadException, ParseException {
+    public void importExcel(HttpServletRequest request, HttpServletResponse response) throws IOException, FileUploadException {
         List list = excels(response, request);
         PrintWriter out = response.getWriter();
         //记录当前行数
         int count = 0;
         List<ExcelHonor> excels = new ArrayList<ExcelHonor>();
         //8为每条记录的字段数
-        for (int i = 0; i < list.size(); i = i + 8) {
+        for (int i = 0; i < list.size(); i = i + 7) {
             count++;
-            boolean vaild = judgeDate(list.get(i + 4).toString());
+            boolean vaild = judgeDate(list.get(i + 3).toString());
             if (vaild == false) {
-                System.out.println(list.get(i + 4).toString());
+                System.out.println(list.get(i + 3).toString());
                 count = count + 2;
                 out.print("<script>alert('第" + count + "行可能存在错误，请检查后重新导入！！')</script>");
                 return;
             } else {
                 String date;
-                if (!list.get(i + 4).toString().equals("")) {
-                    date = formatDate(list.get(i + 4).toString());
+                if (!list.get(i + 3).toString().equals("")) {
+                    date = formatDate(list.get(i + 3).toString());
                 } else {
-                    date = list.get(i + 4).toString();
+                    date = list.get(i + 3).toString();
                 }
-                ExcelHonor excel = new ExcelHonor(list.get(i).toString(), list.get(i + 1).toString(), list.get(i + 2).toString(), list.get(i + 3).toString(), date, list.get(i + 5).toString(), list.get(i + 6).toString(), list.get(i + 7).toString());
+                ExcelHonor excel = new ExcelHonor(list.get(i).toString(), list.get(i + 1).toString(), list.get(i + 2).toString(), date, list.get(i + 4).toString(), list.get(i + 5).toString(), list.get(i + 6).toString(),"1");
                 //逐个添加各条数据
                 excels.add(excel);
             }
@@ -293,9 +293,9 @@ public class HonorController extends BaseController<Honor> {
     @Operation(name="修改了一条数据")
     @RequestMapping("alter.do")
     @ResponseBody
-    public void alter(String Hsn, String Hname, String Hwinner, String Hdate, String Hcompany, String department, String Hgrad, String Hremarks) {
+    public void alter(Integer Hsn, String Hname, String Hwinner, String Hdate, String Hcompany, String department, String Hgrad, String Hremarks) {
         String Haudit = "1";
-        Honor honor = new Honor(Hsn.trim(), Hname, Hwinner, Hdate, Hcompany, Hgrad, Hremarks, Haudit, department);
+        Honor honor = new Honor(Hsn, Hname, Hwinner, Hdate, Hcompany, Hgrad, Hremarks, Haudit, department);
         honorService.updateOne(honor);
     }
 }

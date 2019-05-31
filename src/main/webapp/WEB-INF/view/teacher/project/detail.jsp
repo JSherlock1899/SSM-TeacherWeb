@@ -100,7 +100,7 @@
                             <div class="modal-body">
                                 <div class="form-group">
                                     <label for="Psn">项目编号</label>
-                                    <input type="text" name="Psn" id="Psn" onfocus="showTips('Psn','项目编号为1-20位的数字')" value="<%=project.getPsn() %>"
+                                    <input type="text" name="Psn" id="Psn" onfocus="showTips('Psn','项目编号不能超过50个字符')" value="<%=project.getPsn() %>"
                                            onblur="checkPsn('Psn','请按要求输入项目编号')" class="form-control" id="Psn" placeholder="项目编号">
                                     <div id="Psndiv" style="display:none">
                                         <span id="Psnspan" ></span><br>
@@ -108,7 +108,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="Pname">项目名称</label> <input type="text" name="Pname"  value="<%=project.getPname()%>"
-                                                                           onfocus="showTips('Pname','项目名称不能超过15个字符')"
+                                                                           onfocus="showTips('Pname','项目名称不能超过50个字符')"
                                                                            onblur="checkPname('Pname','请按要求输入项目名称')"
                                                                            class="form-control" id="Pname" placeholder="项目名称">
                                     <div id="Pnamediv" style="display:none">
@@ -119,15 +119,6 @@
                                     <label for="Pleader">负责人</label> <input type="text"    value="<%=project.getTname() %>"
                                                                             name="Pleader" class="form-control" id="Pleader"
                                                                             placeholder="负责人" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label for="Pmember">成员</label>
-                                    <input type="text" name="Pmember" id="Pmember" onfocus="showTips('Pmember','项目成员不能超过50个字符')"
-                                           onblur="checkPmember('Pmember','请按要求输入项目成员')" class="form-control" placeholder="成员"
-                                           value="<%=project.getPmember() %>">
-                                    <div id="Pmembersdiv" style="display:none">
-                                        <span id="Pmemberspan" ></span><br>
-                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="Pgrad">级别</label>
@@ -166,7 +157,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="Pmoney">经费（元）</label>
+                                    <label for="Pmoney">经费（万元）</label>
                                     <input type="text" name="Pmoney"   value="<%=project.getPmoney() %>"
                                            class="form-control" id="Pmoney" placeholder="经费"
                                            onfocus="showTips('Pmoney','项目经费为数字')"

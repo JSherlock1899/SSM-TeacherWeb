@@ -9,7 +9,7 @@ public class Project {
   private String pmember;
   private String pgrad;
   private String pkind;
-  private Integer pmoney;
+  private Float pmoney;
   private String pstatime;
   private String pcondition;
   private String pendtime;
@@ -24,7 +24,7 @@ public class Project {
   private String cname;
   private String dnane;
 
-  public Project(String psn, String pname, String pmember, String pgrad, String pkind, Integer pmoney, String pstatime, String pcondition, String pendtime, String premarks, String tsn, String pleader, String paccessory, String paudit, String message, String contractType, String tname, String cname, String dnane) {
+  public Project(String psn, String pname, String pmember, String pgrad, String pkind, Float pmoney, String pstatime, String pcondition, String pendtime, String premarks, String tsn, String pleader, String paccessory, String paudit, String message, String contractType, String tname, String cname, String dnane) {
     this.psn = psn;
     this.pname = pname;
     this.pmember = pmember;
@@ -46,7 +46,7 @@ public class Project {
     this.dnane = dnane;
   }
 
-  public Project(String psn, String pname, String pmember, String pgrad, String pkind, Integer pmoney, String pstatime, String pcondition, String pendtime, String premarks, String pleader, String paccessory, String contractType, String tname) {
+  public Project(String psn, String pname, String pmember, String pgrad, String pkind, Float pmoney, String pstatime, String pcondition, String pendtime, String premarks, String pleader, String paccessory, String contractType, String tname) {
     this.psn = psn;
     this.pname = pname;
     this.pmember = pmember;
@@ -63,7 +63,7 @@ public class Project {
     this.tname = tname;
   }
 
-  public Project(String psn, String pname, String pmember, String pgrad, String pkind, Integer pmoney, String pstatime, String pcondition, String pendtime, String premarks, String pleader, String paccessory, String paudit, String message, String contractType, String tname) {
+  public Project(String psn, String pname, String pmember, String pgrad, String pkind, Float pmoney, String pstatime, String pcondition, String pendtime, String premarks, String pleader, String paccessory, String paudit, String message, String contractType, String tname) {
     this.psn = psn;
     this.pname = pname;
     this.pmember = pmember;
@@ -82,7 +82,7 @@ public class Project {
     this.tname = tname;
   }
 
-    public Project(String psn, String pleader, String pname, String pmember, String pgrad, String pkind, String contractType, Integer pmoney, String pstatime, String pcondition, String pendtime, String premarks, String tsn, String paudit) {
+    public Project(String psn, String pleader, String pname, String pmember, String pgrad, String pkind, String contractType, Float pmoney, String pstatime, String pcondition, String pendtime, String premarks, String tsn, String paudit) {
       this.psn = psn;
       this.pname = pname;
       this.pmember = pmember;
@@ -99,7 +99,7 @@ public class Project {
       this.contractType = contractType;
     }
 
-  public Project(String psn, String pname, String pmember, String pgrad, String pkind, Integer pmoney, String pstatime, String pcondition, String pendtime, String premarks, String contractType,String paudit) {
+  public Project(String psn, String pname, String pmember, String pgrad, String pkind, Float pmoney, String pstatime, String pcondition, String pendtime, String premarks, String contractType,String paudit) {
     this.psn = psn;
     this.pname = pname;
     this.pmember = pmember;
@@ -162,11 +162,11 @@ public class Project {
     this.pkind = pkind;
   }
 
-  public Integer getPmoney() {
+  public Float getPmoney() {
     return pmoney;
   }
 
-  public void setPmoney(Integer pmoney) {
+  public void setPmoney(Float pmoney) {
     this.pmoney = pmoney;
   }
 

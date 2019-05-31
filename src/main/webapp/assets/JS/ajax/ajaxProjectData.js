@@ -181,7 +181,7 @@ $(document).on("change","#Pkind",function(){
 	}
 	function checkPsn(id,info){
 		var uValue = undefined ? '':document.getElementById(id).value.trim()
-		if(!/^\d{1,20}$/.test(uValue)){
+		if(!/^.{1,50}$/.test(uValue)){
 			document.getElementById(id+"span").innerHTML="<font color='red' size='2'>"+info+"</font>";
 			document.getElementById(id+"div").style.display="block";
 			return true;
@@ -192,17 +192,6 @@ $(document).on("change","#Pkind",function(){
 		}
 	}
 	function checkPname(id,info){
-		var uValue = undefined ? '' :document.getElementById(id).value.trim();
-		if(!/^.{1,15}$/.test(uValue)){
-			document.getElementById(id+"span").innerHTML="<font color='red' size='2'>"+info+"</font>";
-			document.getElementById(id+"div").style.display="block";
-			return true;
-		}else{
-			document.getElementById(id+"span").innerHTML="<font color='green' size='3'>输入格式正确</font>";
-            return false;
-		}
-	}
-	function checkPmember(id,info){
 		var uValue = undefined ? '' :document.getElementById(id).value.trim();
 		if(!/^.{1,50}$/.test(uValue)){
 			document.getElementById(id+"span").innerHTML="<font color='red' size='2'>"+info+"</font>";
@@ -215,7 +204,7 @@ $(document).on("change","#Pkind",function(){
 	}
 	function checkPmoney(id,info){
 		var uValue = undefined ? '' :document.getElementById(id).value.trim();
-		if(!/^\d{1,}$/.test(uValue)){
+		if(!/^-?(\d|([1-9]\d+))(\.\d+)?$/.test(uValue)){
 			document.getElementById(id+"span").innerHTML="<font color='red' size='2'>"+info+"</font>";
 			document.getElementById(id+"div").style.display="block";
 			return true;
@@ -226,7 +215,7 @@ $(document).on("change","#Pkind",function(){
 	}
 
 	function check() {
-		var check = checkPsn('Psn','请按要求输入项目编号') || checkPname('Pname','请按要求输入项目名称') || checkPmember('Pmember','请按要求输入项目成员') || checkPmoney('Pmoney','请按要求输入项目经费');
+		var check = checkPsn('Psn','请按要求输入项目编号') || checkPname('Pname','请按要求输入项目名称') || checkPmoney('Pmoney','请按要求输入项目经费');
 		return check;
     }
 

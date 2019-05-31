@@ -137,7 +137,7 @@ public class ProjectController extends BaseController<Project> {
     @ResponseBody
     public void updateOne(String Psn, String Pname, String Pmember, String Pgrad, String Pkind, String contractType, String Pmoney, String Pstatime, String Pcondition, String Pendtime, String Premarks) {
         String Paudit = "0";
-        Integer pmoney = Integer.parseInt(Pmoney);
+        Float pmoney = Float.parseFloat(Pmoney);
         Project project = new Project(Psn,Pname,Pmember,Pgrad,Pkind,pmoney,Pstatime,Pcondition,Pendtime,Premarks,contractType,Paudit);
         projectService.updateOne(project);
     }
@@ -150,7 +150,7 @@ public class ProjectController extends BaseController<Project> {
     @ResponseBody
     public void insertOne(HttpServletRequest request, String Psn, String Pleader, String Pname, String Pmember, String Pgrad, String Pkind, String contractType, String Pmoney, String Pstatime, String Pcondition, String Pendtime, String Premarks){
         String Paudit = "0";
-        Integer pmoney = Integer.parseInt(Pmoney);
+        Float pmoney = Float.parseFloat(Pmoney);
         String Tsn = (String) request.getSession().getAttribute("username");
         Project project = new Project(Psn,Pleader,Pname,Pmember,Pgrad,Pkind,contractType,pmoney,Pstatime,Pcondition,Pendtime,Premarks,Tsn,Paudit);
         projectService.insertOne(project);
@@ -218,8 +218,6 @@ public class ProjectController extends BaseController<Project> {
             cname = (String) request.getSession().getAttribute("cname");
             map = projectService.getSdeptCount(starttime,endtime,cname);
             moneyMap = projectService.getSdeptProjectMoney(starttime,endtime,cname);
-            System.out.println(moneyMap.size());
-            System.out.println(moneyMap.get(0));
             getCount(cname, lists);
         }
         //将map转化为json，以传给前端
@@ -258,9 +256,6 @@ public class ProjectController extends BaseController<Project> {
         //12为每条记录的字段数
         for (int i=0;i<list.size();i=i+12) {
             count++;
-            System.out.println(list.get(i+8));
-            System.out.println(list.get(i+9));
-            System.out.println(list.get(i+7));
             boolean vaild1 = judgeDate(list.get(i+8).toString());
             boolean vaild2 = judgeDate(list.get(i+9).toString());
             boolean isNumeric = isNumeric(list.get(i+7).toString());
@@ -272,24 +267,27 @@ public class ProjectController extends BaseController<Project> {
                 //分别为立项时间和结题时间
                 String date1;
                 String date2;
-                int money;
+                Float money = 0.0f;;
                 if (!list.get(i+8).toString().equals("")){
                     date1 = formatDate(list.get(i+8).toString());
                 }else {
+                    //没有填日期
                     date1 = list.get(i+8).toString();
                 }
                 if (!list.get(i+9).toString().equals("")){
                     date2 = formatDate(list.get(i+9).toString());
                 }else {
+                    //没有填日期
                     date2 = list.get(i+9).toString();
                 }
                 if (!list.get(i+7).toString().equals("")){
-                    money = Integer.parseInt(list.get(i+7).toString());
+                    money = Float.parseFloat(list.get(i+7).toString());
                 }else {
-                    money = 0;
+                    //没有填经费
+                    money = 0.0f;
                 }
                 try {
-                    ExcelProject excel = new ExcelProject(list.get(i).toString(),list.get(i+1).toString(),list.get(i+2).toString(),list.get(i+3).toString(),list.get(i+4).toString(),list.get(i+5).toString(),list.get(i+6).toString(),money,date1,date2,list.get(i+10).toString(),list.get(i+11).toString());
+                    ExcelProject excel = new ExcelProject(list.get(i).toString(),list.get(i+1).toString(),list.get(i+2).toString(),list.get(i+3).toString(),list.get(i+4).toString(),list.get(i+5).toString(),list.get(i+6).toString(),money,date1,date2,list.get(i+10).toString(),list.get(i+11).toString(),"1");
                     excel.toString();
                     //逐个添加各条数据
                     excels.add(excel);
@@ -304,6 +302,7 @@ public class ProjectController extends BaseController<Project> {
                 out.print("<script>alert('导入成功！')</script>");
             }
         }catch (DuplicateKeyException e){
+            e.printStackTrace();
             out.print("<script>alert('导入失败，请检查检索号是否输入正确！')</script>");
         }
     }
@@ -326,7 +325,7 @@ public class ProjectController extends BaseController<Project> {
     @ResponseBody
     public void alter(String Psn, String Pname, String Pmember, String Pgrad, String Pkind, String contractType, String Pmoney, String Pstatime, String Pcondition, String Pendtime, String Premarks) {
         String Paudit = "1";
-        Integer pmoney = Integer.parseInt(Pmoney);
+        Float pmoney = Float.parseFloat(Pmoney);
         Project project = new Project(Psn,Pname,Pmember,Pgrad,Pkind,pmoney,Pstatime,Pcondition,Pendtime,Premarks,contractType,Paudit);
         projectService.updateOne(project);
     }

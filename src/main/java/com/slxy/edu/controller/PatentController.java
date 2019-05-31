@@ -290,7 +290,7 @@ public class PatentController extends BaseController<Patent> {
                     date2 = list.get(i+5).toString();
                 }
                 try {
-                    ExcelPatent excel = new ExcelPatent(list.get(i).toString(),list.get(i+1).toString(),list.get(i+2).toString(),list.get(i+3).toString(),date1,date2,list.get(i+6).toString(),list.get(i+7).toString());
+                    ExcelPatent excel = new ExcelPatent(list.get(i).toString(),list.get(i+1).toString(),list.get(i+2).toString(),list.get(i+3).toString(),date1,date2,list.get(i+6).toString(),list.get(i+7).toString(),"1");
                     excel.toString();
                     //逐个添加各条数据
                     excels.add(excel);

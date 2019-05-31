@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<excel id="paper" code="paper" name="成果信息导入">
+<excel id="paper" code="paper" name="论文信息导入">
     <colgroup>
         <col index="A" width='17em'></col>
         <col index="B" width='17em'></col>
@@ -10,16 +10,14 @@
         <col index="G" width='17em'></col>              
         <col index="H" width='17em'></col>
         <col index="I" width='17em'></col>
-        <col index="J" width='17em'></col>
     </colgroup>
     <title>
         <tr height="16px">
-            <td rowspan="1" colspan="10" value="成果信息导入" />
+            <td rowspan="1" colspan="9" value="论文信息导入" />
         </tr>
     </title>
     <thead>
         <tr height="16px">
-        	<th value="检索号" />
             <th value="论文名" />
             <th value="工号" />
             <th value="通讯作者" />
@@ -33,7 +31,6 @@
     </thead>
     <tbody>
         <tr height="16px" firstrow="2" firstcol="0" repeat="1">
-            <td type="string" isnullable="false" maxlength="30" />
             <td type="string" isnullable="false" maxlength="30" />
             <td type="string" isnullable="false" maxlength="30" />
             <td type="string" isnullable="false" maxlength="30" />

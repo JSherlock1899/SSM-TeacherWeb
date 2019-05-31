@@ -5,6 +5,7 @@ import java.io.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -31,9 +32,8 @@ public class CommonUtils {
             // 清空response
             response.reset();
             // 设置response的Header
-            response.addHeader("Content-Disposition", "attachment;filename="
-                    + new String(filename.getBytes()));
-            response.addHeader("Content-Length", "" + file.length());
+            response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+            response.addHeader("Content-Disposition", "attachment;filename=" + filename + ".xls");
             OutputStream toClient = new BufferedOutputStream(
                     response.getOutputStream());
             response.setContentType("application/vnd.ms-excel;charset=gb2312");
@@ -157,10 +157,19 @@ public class CommonUtils {
         try{
             if("".equals(str))
                 return true;
-            Integer.parseInt(str);
+            Float.parseFloat(str);
             return true;
         }catch(NumberFormatException e) {
             return false;
         }
+    }
+
+    /**
+     * 处理浮点数
+     */
+    private static String formattedOutputDecimal(Float decimal) {
+        DecimalFormat df=new DecimalFormat("######0.00");
+        String result=df.format(decimal);
+        return result;
     }
 }

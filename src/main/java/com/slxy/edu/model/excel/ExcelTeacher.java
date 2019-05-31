@@ -19,8 +19,9 @@ public class ExcelTeacher {
     private String tresdirection;
     private String tdateofbirth;
     private String jobTitle;
+    private String audit;
 
-    public ExcelTeacher(String tsn, String tname, String tsex, String tdegree, String tedubackground, String tresdirection, String tdateofbirth, String jobTitle, String csn, String dsn) {
+    public ExcelTeacher(String tsn, String tname, String tsex, String tdegree, String tedubackground, String tresdirection, String jobTitle, String tdateofbirth, String csn, String dsn) {
         this.tsn = tsn;
         this.tname = tname;
         this.tsex = tsex;
@@ -31,6 +32,20 @@ public class ExcelTeacher {
         this.tresdirection = tresdirection;
         this.tdateofbirth = tdateofbirth;
         this.jobTitle = jobTitle;
+    }
+
+    public ExcelTeacher(String tsn, String tname, String tsex, String tdegree, String tedubackground, String tresdirection, String jobTitle, String tdateofbirth, String csn, String dsn,String audit) {
+        this.tsn = tsn;
+        this.tname = tname;
+        this.tsex = tsex;
+        this.csn = csn;
+        this.dsn = dsn;
+        this.tdegree = tdegree;
+        this.tedubackground = tedubackground;
+        this.tresdirection = tresdirection;
+        this.tdateofbirth = tdateofbirth;
+        this.jobTitle = jobTitle;
+        this.audit = audit;
     }
 
 
@@ -112,5 +127,13 @@ public class ExcelTeacher {
 
     public void setJobTitle(String jobTitle) {
         this.jobTitle = jobTitle;
+    }
+
+    public String getAudit() {
+        return audit;
+    }
+
+    public void setAudit(String audit) {
+        this.audit = audit;
     }
 }

@@ -24,6 +24,7 @@ $(document).on("click",".saveNewMsg",function(){
         },
         success : function(result){
             alert("新建成功，请等待管理员审核！");
+            location.reload();
         },
         error:function(result){
             alert('请求出现错误...');
@@ -59,6 +60,7 @@ $(document).on("click",".save",function(){
         },
         success : function(result){
             alert("修改成功，请等待管理员审核！");
+            location.reload();
         },
         error:function(result){
             alert('请求出现错误...');
@@ -68,7 +70,7 @@ $(document).on("click",".save",function(){
 
 //管理员修改信息
 $(document).on("click",".alter",function(e,url){
-    $("#myModalLabel").text("修改专利信息");
+    $("#myModalLabel").text("修改成果信息");
     $('#myModal').modal();
     $("#other_name").attr("value",$(this).closest("tr").find(".other_name").text());
     $("#tname").attr("value",$(this).closest("tr").find(".tname").text());
@@ -158,6 +160,7 @@ $(document).on("click","#pass",function(){
         },
         success : function(result){
             alert("操作成功");
+            location.reload();
         },
         error:function(result){
             alert('请求出现错误...');
@@ -179,6 +182,7 @@ $(document).on("click","#nopass",function(){
         },
         success : function(result){
             alert("操作成功");
+            location.reload();
         },
         error:function(result){
             alert('请求出现错误...');

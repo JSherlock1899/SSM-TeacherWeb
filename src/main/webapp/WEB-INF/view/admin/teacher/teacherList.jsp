@@ -48,7 +48,6 @@
                     <th>性别</th>
                     <th>学位</th>
                     <th>学历</th>
-                    <th>研究方向</th>
                     <th>职称</th>
                     <th>出生年月</th>
                     <th>所属学院</th>
@@ -62,7 +61,6 @@
                         <td class="Tsex">${teachers.tsex}</td>
                         <td class="Tdegree">${teachers.tdegree}</td>
                         <td class="Tedubackground">${teachers.tedubackground}</td>
-                        <td class="Tresdirection">${teachers.tresdirection}</td>
                         <td class="JobTitle">${teachers.jobTitle}</td>
                         <td class="Tdateofbirth">${teachers.tdateofbirth}</td>
                         <td class="Cname">${teachers.cname}</td>

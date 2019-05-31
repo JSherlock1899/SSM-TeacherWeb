@@ -9,7 +9,7 @@ package com.slxy.edu.model.excel;
 
 public class ExcelHonor {
 
-    private String hsn;
+    private Integer hsn;
     private String hname;
     private String tsn;
     private String tname;
@@ -22,11 +22,12 @@ public class ExcelHonor {
     private String Tedubackground;//学历
     private String JobTitle;//职称
     private String hremarks;
+    private String haudit;
 
 
 //   导出
 
-    public ExcelHonor(String hsn, String hname, String tsn, String tname, String department, String hdate, String hcompany, String hgrad, String cname, String dnane, String tedubackground, String jobTitle, String hremarks) {
+    public ExcelHonor(Integer hsn, String hname, String tsn, String tname, String department, String hdate, String hcompany, String hgrad, String cname, String dnane, String tedubackground, String jobTitle, String hremarks) {
         this.hsn = hsn;
         this.hname = hname;
         this.tsn = tsn;
@@ -45,8 +46,7 @@ public class ExcelHonor {
 
 //    导入excel
 
-    public ExcelHonor(String hsn, String hname, String tsn, String department, String hdate, String hcompany, String hgrad, String hremarks) {
-        this.hsn = hsn;
+    public ExcelHonor(String hname, String tsn, String department, String hdate, String hcompany, String hgrad, String hremarks,String haudit) {
         this.hname = hname;
         this.tsn = tsn;
         this.department = department;
@@ -54,6 +54,7 @@ public class ExcelHonor {
         this.hcompany = hcompany;
         this.hgrad = hgrad;
         this.hremarks = hremarks;
+        this.haudit = haudit;
     }
 
     public String getTsn() {
@@ -72,11 +73,11 @@ public class ExcelHonor {
         this.department = department;
     }
 
-    public String getHsn() {
+    public Integer getHsn() {
         return hsn;
     }
 
-    public void setHsn(String hsn) {
+    public void setHsn(Integer hsn) {
         this.hsn = hsn;
     }
 
@@ -159,5 +160,13 @@ public class ExcelHonor {
 
     public void setTname(String tname) {
         this.tname = tname;
+    }
+
+    public String getHaudit() {
+        return haudit;
+    }
+
+    public void setHaudit(String haudit) {
+        this.haudit = haudit;
     }
 }

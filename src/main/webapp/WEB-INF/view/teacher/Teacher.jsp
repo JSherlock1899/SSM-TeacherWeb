@@ -62,12 +62,12 @@
                                     class="sub-title">项目查询</span></a>
                         </li>
                         <li>
-                            <div class="showtitle" style="width: 100px;">成果查询</div>
+                            <div class="showtitle" style="width: 100px;">论文查询</div>
                             <a
                                     href="<%=request.getContextPath()%>/teacher/findPaper.do?&tsn=<%=tsn%>"
                                     target="select_frame" ><span
                                     class="sublist-icon glyphicon glyphicon-search"></span><span
-                                    class="sub-title">成果查询</span></a>
+                                    class="sub-title">论文查询</span></a>
                         </li>
                         <li>
                             <div class="showtitle" style="width: 100px;">荣誉查询</div>

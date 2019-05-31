@@ -101,7 +101,7 @@
                                    <label for="Hname">荣誉名称</label>
                                    <input type="text" name="Hname" value="<%=honor.getHname()%>"
                                           class="form-control" id="Hname" placeholder="荣誉名称"
-                                          onfocus="showTips('Hname','荣誉名称不能超过15个字符')"
+                                          onfocus="showTips('Hname','荣誉名称不能超过50个字符')"
                                           onblur="checkHname('Hname','请按要求输入荣誉名称')">
                                    <div id="Hnamediv" style="display:none">
                                        <span id="Hnamespan" ></span><br>

@@ -17,7 +17,7 @@ public class ExcelProject {
     private String Pcondition;
     private String Pgrad;
     private String Pkind;
-    private Integer Pmoney;
+    private Float Pmoney;
     private String Pstatime;
     private String Pendtime;
     private String contractType;
@@ -26,10 +26,11 @@ public class ExcelProject {
     private String Tedubackground;
     private String JobTitle;
     private String Premarks;
+    private String Paudit;
 
 //    导出
 
-    public ExcelProject(String psn, String pname, String tsn, String tname, String pmember, String pcondition, String pgrad, String pkind, Integer pmoney, String pstatime, String pendtime, String contractType, String cname, String dnane, String tedubackground, String jobTitle, String premarks) {
+    public ExcelProject(String psn, String pname, String tsn, String tname, String pmember, String pcondition, String pgrad, String pkind, Float pmoney, String pstatime, String pendtime, String contractType, String cname, String dnane, String tedubackground, String jobTitle, String premarks) {
         Psn = psn;
         Pname = pname;
         Tsn = tsn;
@@ -52,7 +53,7 @@ public class ExcelProject {
 
 //    导入excel
 
-    public ExcelProject(String psn, String pname, String tsn, String pmember, String pcondition, String pgrad, String pkind, Integer pmoney, String pstatime, String pendtime, String contractType, String premarks) {
+    public ExcelProject(String psn, String pname, String tsn, String pmember, String pcondition, String pgrad, String pkind, Float pmoney, String pstatime, String pendtime, String contractType, String premarks,String paudit) {
         Psn = psn;
         Pname = pname;
         Tsn = tsn;
@@ -65,6 +66,7 @@ public class ExcelProject {
         Pendtime = pendtime;
         this.contractType = contractType;
         Premarks = premarks;
+        Paudit = paudit;
     }
 
     public String getTname() {
@@ -131,11 +133,11 @@ public class ExcelProject {
         Pkind = pkind;
     }
 
-    public Integer getPmoney() {
+    public Float getPmoney() {
         return Pmoney;
     }
 
-    public void setPmoney(Integer pmoney) {
+    public void setPmoney(Float pmoney) {
         Pmoney = pmoney;
     }
 
@@ -203,5 +205,11 @@ public class ExcelProject {
         Premarks = premarks;
     }
 
+    public String getPaudit() {
+        return Paudit;
+    }
 
+    public void setPaudit(String paudit) {
+        Paudit = paudit;
+    }
 }

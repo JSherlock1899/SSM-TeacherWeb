@@ -20,16 +20,18 @@ public class ExcelOther {
     private String Tedubackground;//学历
     private String JobTitle;//职称
     private String other_describe;
+    private String audit;
 
 //    导入excel
 
-    public ExcelOther(String other_name, String tsn, String other_type, String other_date, String publisher, String other_describe) {
+    public ExcelOther(String other_name, String tsn, String other_type, String other_date, String publisher, String other_describe,String audit) {
         this.other_name = other_name;
         this.tsn = tsn;
         this.other_type = other_type;
         this.other_date = other_date;
         this.publisher = publisher;
         this.other_describe = other_describe;
+        this.audit = audit;
     }
 
     public ExcelOther(String other_name, String tsn, String tname, String other_type, String other_date, String publisher, String cname, String dnane, String tedubackground, String jobTitle, String other_describe) {
@@ -132,5 +134,13 @@ public class ExcelOther {
 
     public void setOther_describe(String other_describe) {
         this.other_describe = other_describe;
+    }
+
+    public String getAudit() {
+        return audit;
+    }
+
+    public void setAudit(String audit) {
+        this.audit = audit;
     }
 }

@@ -9,16 +9,14 @@
         <col index="F" width='17em'></col> 
         <col index="G" width='17em'></col>              
         <col index="H" width='17em'></col>              
-        <col index="I" width='17em'></col>
     </colgroup>
     <title>
         <tr height="16px">
-            <td rowspan="1" colspan="8" value="荣誉信息导入" />
+            <td rowspan="1" colspan="7" value="荣誉信息导入" />
         </tr>
     </title>
     <thead>
         <tr height="16px">
-        	<th value="编号" />
             <th value="名称" />
             <th value="工号" />
             <th value="第一完成单位" />
@@ -30,7 +28,6 @@
     </thead>
     <tbody>
         <tr height="16px" firstrow="2" firstcol="0" repeat="1">
-            <td type="string" isnullable="false" maxlength="30" />
             <td type="string" isnullable="false" maxlength="30" />
             <td type="string" isnullable="false" maxlength="30" />
             <td type="string" isnullable="true" maxlength="30" />

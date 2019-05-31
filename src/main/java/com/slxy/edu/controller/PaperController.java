@@ -107,8 +107,9 @@ public class PaperController extends BaseController<Paper> {
      */
     @Operation(name="跳转到详细信息审核页面")
     @RequestMapping("goDetail")
-    public ModelAndView gopaperDetail(String pasearchnum){
-        Paper paper = paperService.selectByMajorKey(pasearchnum);
+    public ModelAndView gopaperDetail(Integer pasearchnum){
+        String Pasearchnum = pasearchnum.toString();
+        Paper paper = paperService.selectByMajorKey(Pasearchnum);
         ModelAndView mv = new ModelAndView();
         mv.addObject("paper",paper);
         mv.setViewName("admin/paper/detailList");
@@ -121,7 +122,7 @@ public class PaperController extends BaseController<Paper> {
     @Operation(name="修改信息，重新提交待审核的论文信息")
     @RequestMapping("updateOne.do")
     @ResponseBody
-    public void updateOne(String Pasearchnum, String Paname, String Pawriter, String Papublish, String Pdisvol, String Padate, String Pagrad, String dependence, String Paremarks){
+    public void updateOne(Integer Pasearchnum, String Paname, String Pawriter, String Papublish, String Pdisvol, String Padate, String Pagrad, String dependence, String Paremarks){
         String Paudit = "0";
         Paper Paper = new Paper(Pasearchnum,Paname,Pawriter,Papublish,Padate,Pagrad,Paremarks,Paudit,Pdisvol,dependence);
         paperService.updateOne(Paper);
@@ -133,10 +134,10 @@ public class PaperController extends BaseController<Paper> {
     @Operation(name="新建一条的论文信息")
     @RequestMapping(value = "insertOne", method = RequestMethod.POST)
     @ResponseBody
-    public void insertOne(HttpServletRequest request, String Pasearchnum, String Paname, String Pawriter, String Papublish, String Pdisvol, String Padate, String Pagrad, String dependence, String Paremarks){
+    public void insertOne(HttpServletRequest request,String Paname, String Pawriter, String Papublish, String Pdisvol, String Padate, String Pagrad, String dependence, String Paremarks){
         String Paudit = "0";
         String Tsn = (String) request.getSession().getAttribute("username");
-        Paper Paper = new Paper(Pasearchnum,Paname,Pawriter,Papublish,Padate,Pagrad,Tsn,Paremarks,Paudit,Pdisvol,null,dependence);
+        Paper Paper = new Paper(Paname,Pawriter,Papublish,Padate,Pagrad,Tsn,Paremarks,Paudit,Pdisvol,null,dependence);
         paperService.insertOne(Paper);
     }
 
@@ -245,22 +246,22 @@ public class PaperController extends BaseController<Paper> {
         int count = 0;
         List<ExcelPaper> excels = new ArrayList<ExcelPaper>();
         //10为每条记录的字段数
-        for (int i=0;i<list.size();i=i+10) {
+        for (int i=0;i<list.size();i=i+9) {
             count++;
-            boolean vaild = judgeDate(list.get(i+5).toString());
+            boolean vaild = judgeDate(list.get(i+4).toString());
             if (vaild == false) {
                 count = count + 2;
                 out.print("<script>alert('第" + count + "行可能存在错误，请检查后重新导入！！')</script>");
                 return;
             }else {
                 String date;
-                if (!list.get(i+5).toString().equals("")){
-                    date = formatDate(list.get(i+5).toString());
+                if (!list.get(i+4).toString().equals("")){
+                    date = formatDate(list.get(i+4).toString());
                 }else {
-                    date = list.get(i+5).toString();
+                    date = list.get(i+4).toString();
                 }
 
-                ExcelPaper excel = new ExcelPaper(list.get(i).toString(),list.get(i+1).toString(),list.get(i+2).toString(),list.get(i+3).toString(),list.get(i+4).toString(),date,list.get(i+6).toString(),list.get(i+7).toString(),list.get(i+8).toString(),list.get(i+9).toString());
+                ExcelPaper excel = new ExcelPaper(list.get(i).toString(),list.get(i+1).toString(),list.get(i+2).toString(),list.get(i+3).toString(),date,list.get(i+5).toString(),list.get(i+6).toString(),list.get(i+7).toString(),list.get(i+8).toString(),"1");
                 //逐个添加各条数据
                 excels.add(excel);
             }
@@ -291,7 +292,7 @@ public class PaperController extends BaseController<Paper> {
     @Operation(name="修改了一条数据")
     @RequestMapping("alter.do")
     @ResponseBody
-    public void alter(String Pasearchnum, String Paname, String Pawriter, String Papublish, String Pdisvol, String Padate, String Pagrad, String dependence, String Paremarks){
+    public void alter(Integer Pasearchnum, String Paname, String Pawriter, String Papublish, String Pdisvol, String Padate, String Pagrad, String dependence, String Paremarks){
         String Paudit = "1";
         Paper Paper = new Paper(Pasearchnum,Paname,Pawriter,Papublish,Padate,Pagrad,Paremarks,Paudit,Pdisvol,dependence);
         paperService.updateOne(Paper);

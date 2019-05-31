@@ -216,11 +216,11 @@
     <!--导入excel-->
     <insert id="importExcel" parameterType="java.util.List">
         insert into Patent
-        (patname,patsn,patapdate,patendate,patgrad,tsn,inventor,patremarks
+        (patname,patsn,patapdate,patendate,patgrad,tsn,inventor,patremarks,Paudit
         )values
         <foreach collection="list" item="item" index="index" separator=",">
             (#{item.patname,jdbcType=CHAR},#{item.patsn,jdbcType=CHAR},#{item.patapdate,jdbcType=CHAR},#{item.patendate,jdbcType=CHAR},#{item.patgrad,jdbcType=CHAR}
-            ,#{item.tsn,jdbcType=CHAR} ,#{item.inventor,jdbcType=CHAR} ,#{item.patremarks,jdbcType=CHAR}
+            ,#{item.tsn,jdbcType=CHAR} ,#{item.inventor,jdbcType=CHAR} ,#{item.patremarks,jdbcType=CHAR},1
             )
         </foreach>
     </insert>

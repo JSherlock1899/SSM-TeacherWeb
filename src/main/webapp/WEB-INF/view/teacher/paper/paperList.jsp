@@ -4,12 +4,11 @@
 <%@ page import="com.github.pagehelper.PageInfo" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.slxy.edu.model.Paper" %>
-<%@ page import="com.slxy.edu.model.Condition" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>成果查询</title>
+    <title>论文查询</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/CSS/bootstrap.css">
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/bootstrap.min.js"></script>
@@ -31,18 +30,18 @@
         <ol class="breadcrumb">
             <li><a href="#">主页</a></li>
             <li><a href="#">查询</a></li>
-            <li class="active">成果查询</li>
+            <li class="active">论文查询</li>
         </ol>
     </div>
     <div class="row">
         <div class="col-md-11 col-md-offset-1 ">
             <div class="col-md-10 button-div form-inline">
                 <input type="button" value="新建记录" id="btn_add" class="btn btn-success">
-                <a href="<%=request.getContextPath()%>/poi/getTemplate.do?name=paper" class="btn btn-success">下载模板</a>
+                <%--<a href="<%=request.getContextPath()%>/poi/getTemplate.do?name=paper" class="btn btn-success">下载模板</a>--%>
                 <form method="post" enctype="multipart/form-data" action="<%=request.getContextPath()%>/paper/importExcel.do" class="form-group importform">
                     <input type="file" id="file" name="file" class="btn btn-info" style="display: none"
                            onchange="$('.importform').submit()">
-                    <input type="button" name="" value="导入" class="btn btn-info" id="importFileButton">
+                    <%--<input type="button" name="" value="导入" class="btn btn-info" id="importFileButton">--%>
                 </form>
                 <form action="<%=request.getContextPath()%>/teacher/exportPaper.do?&tsn=<%=tsn%>" method="post" id="ProjectForm" class="form-group">
                     <input type="submit" value="导出" id="submitChecked" class="btn btn-info">
@@ -50,15 +49,12 @@
             </div>
             <table border="1" id="table" class="table table-striped table-bordered table-hover table-condensed">
                 <tr class="info">
-                    <th>检索号</th>
+                    <th>编号</th>
                     <th>名称</th>
                     <th>第一作者</th>
-                    <th>通讯作者</th>
                     <th>发表期刊</th>
                     <th>期/卷/页</th>
                     <th>发表时间</th>
-                    <th>级别</th>
-                    <th>依托项目</th>
                     <th>附件</th>
                     <th>操作</th>
                 </tr>
@@ -67,12 +63,9 @@
                         <td class="Pasearchnum"><a href="${pageContext.request.contextPath}/teacher/goPaperDetail.do?pasearchnum=${papers.pasearchnum}">${papers.pasearchnum}</a></td>
                         <td>${papers.paname}</td>
                         <td>${papers.tname}</td>
-                        <td>${papers.pawriter}</td>
                         <td>${papers.papublish}</td>
                         <td>${papers.pdisvol}</td>
                         <td>${papers.padate}</td>
-                        <td>${papers.pagrad}</td>
-                        <td>${papers.dependence}</td>
                         <td>
                             <a href="<%=request.getContextPath()%>/file/download.do?model=paper&majorkey=${papers.pasearchnum}&name=${papers.paname}" class="Download">查看附件</a>
                             <input type="hidden" class="accessoryPath" value="${papers.paccessory}"/>
@@ -146,28 +139,18 @@
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="Pasearchnum">检索号</label>
-                                <input type="text" name="Pasearchnum"
-                                       class="form-control" id="Pasearchnum" placeholder="检索号"
-                                       onfocus="showTips('Pasearchnum','查询编号为1-10位的数字')"
-                                       onblur="checkPasearchnum('Pasearchnum','请按要求输入查询编号')">
-                                <div id="Pasearchnumdiv" style="display:none">
-                                    <span id="Pasearchnumspan" ></span><br>
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <label for="Paname">论文名</label>
                                 <input type="text" name="Paname"
                                        class="form-control" id="Paname" placeholder="论文名"
-                                       onfocus="showTips('Paname','论文名称不能超过15个字符')"
+                                       onfocus="showTips('Paname','论文名称不能超过50个字符')"
                                        onblur="checkPaname('Paname','请按要求输入论文名称')">
                                 <div id="Panamediv" style="display:none">
                                     <span id="Panamespan" ></span><br>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="Pawriter">第一作者</label> <input type="text" value="<%=Tname%>"
-                                                                          name="Pawriter" class="form-control" id="Pawriter"
+                                <label for="tname">第一作者</label> <input type="text" value="<%=Tname%>"
+                                                                          name="tname" class="form-control" id="tname"
                                                                           placeholder="第一作者" readonly>
                             </div>
                             <div class="form-group">
@@ -186,12 +169,13 @@
                             <div class="form-group">
                                 <label for="Pagrad">级别</label><select name="Pagrad"
                                                                       class="form-control" id="Pagrad">
-                                <option value="T类">T类</option>
-                                <option value="A类">A类</option>
-                                <option value=B类>B类</option>
-                                <option value="C类">C类</option>
-                                <option value="D类">D类</option>
-                                <option value="E类">E类</option>
+                                <option value="SCI">SCI</option>
+                                <option value="SSCI">SSCI</option>
+                                <option value=CSSCI>CSSCI</option>
+                                <option value="CSCD">CSCD</option>
+                                <option value="北大核心">北大核心</option>
+                                <option value="科技核心">科技核心</option>
+                                <option value="本科院校学报">本科院校学报</option>
                             </select>
                             </div>
                             <div class="form-group">

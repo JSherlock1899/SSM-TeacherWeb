@@ -22,6 +22,7 @@ public class ExcelPatent {
     private String Tedubackground;//学历
     private String JobTitle;//职称
     private String patremarks;
+    private String paudit;
 
 //    导出
 
@@ -43,7 +44,7 @@ public class ExcelPatent {
     }
 
     //导入
-    public ExcelPatent(String patname, String patsn, String inventor, String tsn,String patapdate, String patendate, String patgrad, String patremarks) {
+    public ExcelPatent(String patname, String patsn, String inventor, String tsn,String patapdate, String patendate, String patgrad, String patremarks,String paudit) {
         this.patname = patname;
         this.patsn = patsn;
         this.patapdate = patapdate;
@@ -52,6 +53,7 @@ public class ExcelPatent {
         this.tsn = tsn;
         this.inventor = inventor;
         this.patremarks = patremarks;
+        this.paudit = paudit;
     }
 
     public String getPatname() {
@@ -156,5 +158,13 @@ public class ExcelPatent {
 
     public void setPatremarks(String patremarks) {
         this.patremarks = patremarks;
+    }
+
+    public String getPaudit() {
+        return paudit;
+    }
+
+    public void setPaudit(String paudit) {
+        this.paudit = paudit;
     }
 }

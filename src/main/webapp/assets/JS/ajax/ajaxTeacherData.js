@@ -13,10 +13,10 @@ $(document).on("click",".update",function(e,url){
 	$("#Tdegree").attr("value",$(this).closest("tr").find(".Tdegree").val());
 	$("#Tresdirection").attr("value",$(this).closest("tr").find(".Tresdirection").text());
 	$("#Tedubackground").attr("value",$(this).closest("tr").find(".Tedubackground").text());
-	$("#JobTitle").attr("value",$(this).closest("tr").find(".JobTitle").val());
 	$("#Tdateofbirth").attr("value",$(this).closest("tr").find(".Tdateofbirth").text());
-	$("#Cname").attr("value",$(this).closest("tr").find(".Cname").val());
-	$("#sdept").attr("value",$(this).closest("tr").find(".Dname").val());
+	$("#JobTitle").attr("value",$(this).closest("tr").find(".JobTitle").text());
+    // $("#Cname option[value='" + $(this).closest("tr").find(".Cname").text() + "']").attr("selected", true);
+    // $("#sdept option[value='" + $(this).closest("tr").find(".Dname").text() + "']").attr("selected", true);
 });
 
 
@@ -34,7 +34,7 @@ $(document).on("click",".save",function(e,url){
 	var Cname = $('#Cname option:selected').val();
 	var Dname = $('#sdept option:selected').val();
 	$.ajax({
-		url:"/teacher/update.do",
+		url:"/TeacherWeb/teacher/updateOne.do",
 		type:"post",
 		datatype:"json",
 		data:{
@@ -70,7 +70,7 @@ $(document).on("click",".audit",function () {
     $(document).on("click","#pass",function(){
         var message  = $('#message').val();
         $.ajax({
-            url:"/teacher/pass.do",
+            url:"/TeacherWeb/teacher/pass.do",
             type:"post",
             datatype:"json",
             data:{
@@ -90,7 +90,7 @@ $(document).on("click",".audit",function () {
     $(document).on("click","#nopass",function(){
         var message  = $('#message').val();
         $.ajax({
-            url:"/teacher/nopass.do",
+            url:"/TeacherWeb/teacher/nopass.do",
             type:"post",
             datatype:"json",
             data:{

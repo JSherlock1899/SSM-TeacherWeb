@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>成果审核</title>
+    <title>论文审核</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/CSS/bootstrap.css">
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/ajax/ajaxPaperData.js"></script>
@@ -24,7 +24,7 @@
         <ol class="breadcrumb">
             <li><a>主页</a></li>
             <li><a>审核</a></li>
-            <li><a href="<%=request.getContextPath()%>/paper/audit.do?cname=<%=cname%>">成果审核</a></li>
+            <li><a href="<%=request.getContextPath()%>/paper/audit.do?cname=<%=cname%>">论文审核</a></li>
             <li class="active">详细信息</li>
         </ol>
     </div>
@@ -37,7 +37,7 @@
                         <td class="Paname text-center"  colspan="5"><%=paper.getPaname()%></td>
                     </tr>
                     <tr>
-                        <td>检索号</td>
+                        <td>编号</td>
                         <td class="Pasearchnum"><%=paper.getPasearchnum()%></td>
                         <td>第一作者</td>
                         <td class="Tname"><%=paper.getTname()%></td>

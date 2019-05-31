@@ -65,3 +65,13 @@ body{height:auto}
 /*表格*/
 .tdwidth{width:100px}
 .hide{display:none}
+
+table {
+    table-layout: fixed; !important;
+}
+
+td {
+    overflow: hidden; !important;
+    white-space: nowrap; !important;
+    text-overflow: ellipsis; !important;
+}

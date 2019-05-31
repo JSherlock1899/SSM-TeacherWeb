@@ -27,7 +27,7 @@
         <ol class="breadcrumb" style="margin-left:5em;margin-top:2em">
             <li><a href="#">主页</a></li>
             <li><a href="#">查询</a></li>
-            <li><a href="#">成果查询</a></li>
+            <li><a href="#">论文查询</a></li>
             <li class="active">详细信息</li>
         </ol>
     </div>
@@ -44,7 +44,7 @@
                     <td class="Paname text-center" colspan="5"><%=paper.getPaname()%></td>
                 </tr>
                 <tr>
-                    <td>检索号</td>
+                    <td>编号</td>
                     <td class="Pasearchnum"><%=paper.getPasearchnum()%></td>
                     <td>第一作者</td>
                     <td class="Tname"><%=paper.getTname()%></td>
@@ -86,7 +86,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title" id="myModalLabel">新建论文信息</h4>
+                                <h4 class="modal-title" id="myModalLabel">重新编辑论文信息</h4>
                                 <button type="button" class="close" data-dismiss="modal"
                                         aria-label="Close">
                                     <span aria-hidden="true">×</span>
@@ -94,20 +94,15 @@
                             </div>
                             <div class="modal-body">
                                 <div class="form-group">
-                                    <label for="Pasearchnum">检索号</label>
+                                    <label for="Pasearchnum">编号</label>
                                     <input type="text" name="Pasearchnum" value="<%=paper.getPasearchnum() %>"
-                                           class="form-control" id="Pasearchnum" placeholder="检索号"
-                                           onfocus="showTips('Pasearchnum','查询编号为1-10位的数字')"
-                                           onblur="checkPasearchnum('Pasearchnum','请按要求输入查询编号')">
-                                    <div id="Pasearchnumdiv" style="display:none">
-                                        <span id="Pasearchnumspan" ></span><br>
-                                    </div>
+                                           class="form-control" id="Pasearchnum" placeholder="编号" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="Paname">论文名</label>
                                     <input type="text" name="Paname" value="<%=paper.getPaname() %>"
                                            class="form-control" id="Paname" placeholder="论文名"
-                                           onfocus="showTips('Paname','论文名称不能超过15个字符')"
+                                           onfocus="showTips('Paname','论文名称不能超过50个字符')"
                                            onblur="checkPaname('Paname','请按要求输入论文名称')">
                                     <div id="Panamediv" style="display:none">
                                         <span id="Panamespan" ></span><br>
@@ -115,8 +110,13 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="tname">第一作者</label> <input type="text"  value="<%=paper.getTname()%>"
-                                                                              name="tname" class="form-control" id="tname"
-                                                                              placeholder="第一作者" readonly>
+                                                                           name="tname" class="form-control" id="tname"
+                                                                           placeholder="第一作者" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Pawriter">通讯作者</label> <input type="text"  value="<%=paper.getTname()%>"
+                                                                           name="Pawriter" class="form-control" id="Pawriter"
+                                                                           placeholder="通讯作者" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="Papublish">发表期刊</label> <input type="text"  value="<%=paper.getPapublish() %>"
@@ -134,12 +134,13 @@
                                 <div class="form-group">
                                     <label for="Pagrad">级别</label><select name="Pagrad"  value="<%=paper.getPagrad() %>"
                                                                           class="form-control" id="Pagrad">
-                                    <option value="T类">T类</option>
-                                    <option value="A类">A类</option>
-                                    <option value=B类>B类</option>
-                                    <option value="C类">C类</option>
-                                    <option value="D类">D类</option>
-                                    <option value="E类">E类</option>
+                                    <option value="SCI">SCI</option>
+                                    <option value="SSCI">SSCI</option>
+                                    <option value=CSSCI>CSSCI</option>
+                                    <option value="CSCD">CSCD</option>
+                                    <option value="北大核心">北大核心</option>
+                                    <option value="科技核心">科技核心</option>
+                                    <option value="本科院校学报">本科院校学报</option>
                                 </select>
                                 </div>
                                 <div class="form-group">

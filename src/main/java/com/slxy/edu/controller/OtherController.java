@@ -256,7 +256,7 @@ public class OtherController extends BaseController<Other>{
                     }else {
                         date = list.get(i+3).toString();
                     }
-                    ExcelOther excelOther = new ExcelOther(list.get(i).toString(),list.get(i+1).toString(),list.get(i+2).toString(),date,list.get(i+4).toString(),list.get(i+5).toString());
+                    ExcelOther excelOther = new ExcelOther(list.get(i).toString(),list.get(i+1).toString(),list.get(i+2).toString(),date,list.get(i+4).toString(),list.get(i+5).toString(),"1");
                     //逐个添加各条数据
                     excelOthers.add(excelOther);
             }

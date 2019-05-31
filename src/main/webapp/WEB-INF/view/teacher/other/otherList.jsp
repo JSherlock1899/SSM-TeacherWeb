@@ -37,11 +37,11 @@
         <div class="col-md-11 col-md-offset-1 ">
             <div class="col-md-10 button-div form-inline">
                 <input type="button" value="新建记录" id="btn_add" class="btn btn-success">
-                <a href="<%=request.getContextPath()%>/poi/getTemplate.do?name=other" class="btn btn-success">下载模板</a>
+                <%--<a href="<%=request.getContextPath()%>/poi/getTemplate.do?name=other" class="btn btn-success">下载模板</a>--%>
                 <form method="post" enctype="multipart/form-data" action="<%=request.getContextPath()%>/other/importExcel.do" class="form-group importform">
                     <input type="file" id="file" name="file" class="btn btn-info" style="display: none"
                            onchange="$('.importform').submit()">
-                    <input type="button" name="" value="导入" class="btn btn-info" id="importFileButton">
+                    <%--<input type="button" name="" value="导入" class="btn btn-info" id="importFileButton">--%>
                 </form>
                 <form action="<%=request.getContextPath()%>/teacher/exportOther.do?&tsn=<%=tsn%>" method="post" id="OtherForm" class="form-group">
                     <input type="submit" value="导出" id="submitChecked" class="btn btn-info">

@@ -50,9 +50,7 @@
                     <th>编号</th>
                     <th>名称</th>
                     <th>第一完成人</th>
-                    <th>第一完成单位</th>
                     <th>时间</th>
-                    <th>授奖单位</th>
                     <th>等级</th>
                     <th>附件</th>
                     <th>操作</th>
@@ -61,10 +59,8 @@
                     <tr>
                         <td class="Hsn"><a href="${pageContext.request.contextPath}/teacher/goHonorDetail.do?hsn=${honors.hsn}">${honors.hsn}</a></td>
                         <td class="Hname">${honors.hname}</td>
-                        <td class="Hwinner">${honors.hwinner}</td>
-                        <td class="department">${honors.department}</td>
+                        <td class="Hwinner">${honors.tname}</td>
                         <td class="Hdate">${honors.hdate}</td>
-                        <td class="Hcompany">${honors.hcompany}</td>
                         <td class="Hgrad">${honors.hgrad}</td>
                         <td>
                             <a href="<%=request.getContextPath()%>/file/download.do?model=honor&majorkey=${honors.hsn}&name=${honors.hname}" class="Download">查看附件</a>
@@ -150,7 +146,7 @@
                                 <label for="Hname">荣誉名称</label>
                                 <input type="text" name="Hname"
                                        class="form-control" id="Hname" placeholder="荣誉名称"
-                                       onfocus="showTips('Hname','荣誉名称不能超过15个字符')"
+                                       onfocus="showTips('Hname','荣誉名称不能超过50个字符')"
                                        onblur="checkHname('Hname','请按要求输入荣誉名称')">
                                 <div id="Hnamediv" style="display:none">
                                     <span id="Hnamespan" ></span><br>

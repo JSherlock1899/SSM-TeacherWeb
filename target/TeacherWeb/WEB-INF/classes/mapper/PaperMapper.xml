@@ -78,9 +78,8 @@
     </update>
 
     <insert id="insertOne" parameterType="com.slxy.edu.model.Paper">
-        insert into Paper (Pasearchnum,Paname,Pawriter,Papublish,Pdisvol,Padate,Pagrad,dependence,Paremarks,Tsn,Paudit)
-        VALUES (#{entity.pasearchnum},
-        #{entity.paname},
+        insert into Paper (Paname,Pawriter,Papublish,Pdisvol,Padate,Pagrad,dependence,Paremarks,Tsn,Paudit)
+        VALUES (#{entity.paname},
         #{entity.pawriter},
         #{entity.papublish},
         #{entity.pdisvol},
@@ -223,11 +222,11 @@
     <!--导入excel-->
     <insert id="importExcel" parameterType="java.util.List">
         insert into Paper
-        (pasearchnum,paname,tsn,pawriter,papublish,padate,pagrad,pdisvol,dependence,paremarks
+        (paname,tsn,pawriter,papublish,padate,pagrad,pdisvol,dependence,paremarks,Paudit
         )values
         <foreach collection="list" item="item" index="index" separator=",">
-            (#{item.pasearchnum,jdbcType=CHAR},#{item.paname,jdbcType=CHAR},#{item.tsn,jdbcType=CHAR},#{item.pawriter,jdbcType=CHAR},#{item.papublish,jdbcType=CHAR}
-            ,#{item.padate,jdbcType=CHAR} ,#{item.pagrad,jdbcType=CHAR} ,#{item.pdisvol,jdbcType=CHAR} ,#{item.dependence,jdbcType=CHAR} ,#{item.paremarks,jdbcType=CHAR}
+            (#{item.paname,jdbcType=CHAR},#{item.tsn,jdbcType=CHAR},#{item.pawriter,jdbcType=CHAR},#{item.papublish,jdbcType=CHAR}
+            ,#{item.padate,jdbcType=CHAR} ,#{item.pagrad,jdbcType=CHAR} ,#{item.pdisvol,jdbcType=CHAR} ,#{item.dependence,jdbcType=CHAR} ,#{item.paremarks,jdbcType=CHAR},1
           )
         </foreach>
     </insert>

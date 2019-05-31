@@ -9,7 +9,6 @@ $(document).on("click",".saveNewMsg",function(){
 		alert("输入不合法！");
 		return;
 	}
-	var Pasearchnum = $('#Pasearchnum').val();
 	var Paname = $('#Paname').val();
 	var Pawriter = $('#Pawriter').val();
 	var Papublish = $('#Papublish').val();
@@ -23,7 +22,6 @@ $(document).on("click",".saveNewMsg",function(){
         type:"post",
         datatype:"json",
         data:{
-            "Pasearchnum" : Pasearchnum,
             "Paname" : Paname,
             "Pawriter" :Pawriter,
             "Papublish" : Papublish,
@@ -87,11 +85,11 @@ $(document).on("click",".save",function(){
 
 //管理员修改信息
 $(document).on("click",".alter",function(e,url){
-    $("#myModalLabel").text("修改专利信息");
+    $("#myModalLabel").text("修改论文信息");
     $('#myModal').modal();
     $("#Pasearchnum").attr("value",$(this).closest("tr").find(".Pasearchnum").text());
     $("#Paname").attr("value",$(this).closest("tr").find(".Paname").text());
-    $("#Pawriter").attr("value",$(this).closest("tr").find(".Pawriter").text());
+    $("#tname").attr("value",$(this).closest("tr").find(".tname").text());
     $("#Papublish").attr("value",$(this).closest("tr").find(".Papublish").text());
     $("#Pdisvol").attr("value",$(this).closest("tr").find(".Pdisvol").text());
     $("#Padate").attr("value",$(this).closest("tr").find(".Padate").text());
@@ -154,17 +152,7 @@ $(document).on("click",".alterSave",function(){
 
 
 //表单验证
-	function checkPasearchnum(id,info){
-		var uValue = document.getElementById(id).value.trim();
-		if(!/^\d{1,10}$/.test(uValue)){
-			document.getElementById(id+"span").innerHTML="<font color='red' size='2'>"+info+"</font>";
-			document.getElementById(id+"div").style.display="block";
-			return true
-		}else{
-			document.getElementById(id+"span").innerHTML="<font color='green' size='3'>输入格式正确</font>";
-			return false
-		}
-	}
+
 	function checkPaname(id,info){
 		var uValue = document.getElementById(id).value.trim();
 		if(!/^.{1,15}$/.test(uValue)){
@@ -193,7 +181,7 @@ $(document).on("click",".alterSave",function(){
 	}
 
 	function check() {
-		var check = checkPasearchnum('Pasearchnum','请按要求输入查询编号') || checkPaname('Paname','请按要求输入论文名称');
+		var check = checkPaname('Paname','请按要求输入论文名称');
 		return check;
     }
 

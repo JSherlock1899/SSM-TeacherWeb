@@ -293,18 +293,14 @@
     </pluginManagement>
     <resources>
       <resource>
-        <directory>src/main/java</directory>
+        <directory>src/main/resources</directory>
         <includes>
+          <include>**/**</include>
           <include>**/*.xml</include>
+          <include>**/*.tld</include>
+          <include>**/**/*.xml</include>
         </includes>
-        <filtering>true</filtering>
-      </resource>
-      <resource>
-        <directory>src/webapp/WEB-INF</directory>
-        <includes>
-          <include>*.xml</include>
-        </includes>
-        <filtering>true</filtering>
+        <filtering>false</filtering>
       </resource>
     </resources>
   </build>

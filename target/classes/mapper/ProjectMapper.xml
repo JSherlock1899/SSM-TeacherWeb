@@ -228,12 +228,12 @@
     <!--导入excel-->
     <insert id="importExcel" parameterType="java.util.List">
         insert into Project
-        (Psn,Pname,Tsn,Pmember,Pcondition,Pgrad,Pkind,Pmoney,Pstatime,Pendtime,contractType,Premarks
+        (Psn,Pname,Tsn,Pmember,Pcondition,Pgrad,Pkind,Pmoney,Pstatime,Pendtime,contractType,Premarks,Paudit
         )values
         <foreach collection="list" item="item" index="index" separator=",">
             (#{item.Psn,jdbcType=CHAR},#{item.Pname,jdbcType=CHAR},#{item.Tsn,jdbcType=CHAR},#{item.Pmember,jdbcType=CHAR},#{item.Pcondition,jdbcType=CHAR}
             ,#{item.Pgrad,jdbcType=CHAR} ,#{item.Pkind,jdbcType=CHAR} ,#{item.Pmoney,jdbcType=CHAR} ,#{item.Pstatime,jdbcType=CHAR} ,#{item.Pendtime,jdbcType=CHAR}
-            ,#{item.contractType,jdbcType=CHAR} ,#{item.Premarks,jdbcType=CHAR})
+            ,#{item.contractType,jdbcType=CHAR} ,#{item.Premarks,jdbcType=CHAR},1)
         </foreach>
     </insert>
 

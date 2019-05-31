@@ -7,7 +7,153 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d560dab-1a13-4986-940a-968eda1c7627" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__aopalliance_aopalliance_1_0.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_1_2.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_1_2.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_7.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_7.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_jsqlparser_jsqlparser_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_jsqlparser_jsqlparser_1_0.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_pagehelper_pagehelper_5_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_pagehelper_pagehelper_5_1_2.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_mchange_c3p0_com_springsource_com_mchange_v2_c3p0_0_9_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_mchange_c3p0_com_springsource_com_mchange_v2_c3p0_0_9_1_2.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_microsoft_sqlserver_sqljdbc4_4_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_microsoft_sqlserver_sqljdbc4_4_0.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_5.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_3_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_3_2.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_5.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jsp_javax_servlet_jsp_api_2_3_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jsp_javax_servlet_jsp_api_2_3_1.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jstl_jstl_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jstl_jstl_1_2.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_collections4_4_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_collections4_4_1.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_3_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_3_1.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_3_8.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_3_8.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_3_8.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_3_8.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_schemas_3_8.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_schemas_3_8.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_xmlbeans_xmlbeans_2_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_xmlbeans_xmlbeans_2_3_0.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_8_3.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jdom_jdom_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jdom_jdom_1_1.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_logback_extensions_logback_ext_spring_0_1_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_logback_extensions_logback_ext_spring_0_1_4.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_3_0.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_3_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_3_1.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_12.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_12.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_7_12.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_7_12.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_1_2_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_4_1_2_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_4_1_2_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_4_1_2_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_1_2_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_4_1_2_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_1_2_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_4_1_2_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_3_14_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_4_3_14_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_1_2_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_4_1_2_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_1_2_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_4_1_2_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_4_1_2_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_4_1_2_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_1_2_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_4_1_2_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_1_2_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_4_1_2_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_1_2_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_4_1_2_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_1_2_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_4_1_2_RELEASE.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__stax_stax_api_1_0_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__stax_stax_api_1_0_1.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__taglibs_standard_1_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__taglibs_standard_1_1_2.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_0_b2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_0_b2.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/FileOperationController.java" afterPath="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/FileOperationController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/HonorController.java" afterPath="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/HonorController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/OtherController.java" afterPath="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/OtherController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/PaperController.java" afterPath="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/PaperController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/PatentController.java" afterPath="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/PatentController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/ProjectController.java" afterPath="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/ProjectController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/TeacherController.java" afterPath="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/TeacherController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/slxy/edu/model/Honor.java" afterPath="$PROJECT_DIR$/src/main/java/com/slxy/edu/model/Honor.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/slxy/edu/model/Paper.java" afterPath="$PROJECT_DIR$/src/main/java/com/slxy/edu/model/Paper.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/slxy/edu/model/Project.java" afterPath="$PROJECT_DIR$/src/main/java/com/slxy/edu/model/Project.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/slxy/edu/model/excel/ExcelHonor.java" afterPath="$PROJECT_DIR$/src/main/java/com/slxy/edu/model/excel/ExcelHonor.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/slxy/edu/model/excel/ExcelOther.java" afterPath="$PROJECT_DIR$/src/main/java/com/slxy/edu/model/excel/ExcelOther.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/slxy/edu/model/excel/ExcelPaper.java" afterPath="$PROJECT_DIR$/src/main/java/com/slxy/edu/model/excel/ExcelPaper.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/slxy/edu/model/excel/ExcelPatent.java" afterPath="$PROJECT_DIR$/src/main/java/com/slxy/edu/model/excel/ExcelPatent.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/slxy/edu/model/excel/ExcelProject.java" afterPath="$PROJECT_DIR$/src/main/java/com/slxy/edu/model/excel/ExcelProject.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/slxy/edu/model/excel/ExcelTeacher.java" afterPath="$PROJECT_DIR$/src/main/java/com/slxy/edu/model/excel/ExcelTeacher.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/slxy/edu/util/CommonUtils.java" afterPath="$PROJECT_DIR$/src/main/java/com/slxy/edu/util/CommonUtils.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/slxy/edu/util/Test.java" afterPath="$PROJECT_DIR$/src/main/java/com/slxy/edu/util/Test.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" afterPath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/logback.xml" afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/HonorMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/HonorMapper.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/OtherMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/OtherMapper.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/PaperMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/PaperMapper.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/PatentMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/PatentMapper.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ProjectMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ProjectMapper.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/TeacherMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/TeacherMapper.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/template/honor.xml" afterPath="$PROJECT_DIR$/src/main/resources/template/honor.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/template/paper.xml" afterPath="$PROJECT_DIR$/src/main/resources/template/paper.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/SchoolAdmin.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/SchoolAdmin.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/honor/auditHonor.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/honor/auditHonor.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/honor/detailList.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/honor/detailList.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/honor/honorList.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/honor/honorList.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/paper/Statistics.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/paper/Statistics.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/paper/auditPaper.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/paper/auditPaper.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/paper/detailList.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/paper/detailList.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/paper/paperList.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/paper/paperList.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/project/projectList.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/project/projectList.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/teacher/teacherList.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/teacher/teacherList.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/Teacher.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/Teacher.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/honor/detail.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/honor/detail.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/honor/honorList.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/honor/honorList.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/other/otherList.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/other/otherList.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/paper/detail.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/paper/detail.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/paper/paperList.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/paper/paperList.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/patent/patentList.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/patent/patentList.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/project/detail.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/project/detail.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/project/projectList.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/project/projectList.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/CSS/login.css" afterPath="$PROJECT_DIR$/src/main/webapp/assets/CSS/login.css" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/CSS/style.css" afterPath="$PROJECT_DIR$/src/main/webapp/assets/CSS/style.css" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxHonorData.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxHonorData.js" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxOtherData.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxOtherData.js" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxPaperData.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxPaperData.js" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxPatentData.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxPatentData.js" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxProjectData.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxProjectData.js" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxTeacherData.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxTeacherData.js" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/JS/statistics/statisticsHonor.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/JS/statistics/statisticsHonor.js" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/JS/statistics/statisticsOther.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/JS/statistics/statisticsOther.js" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/JS/statistics/statisticsPaper.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/JS/statistics/statisticsPaper.js" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/JS/statistics/statisticsPatent.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/JS/statistics/statisticsPatent.js" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/assets/JS/statistics/statisticsProject.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/JS/statistics/statisticsProject.js" />
+      <change beforePath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/classes/applicationContext.xml" afterPath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/classes/applicationContext.xml" />
+      <change beforePath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/classes/com/slxy/edu/controller/HonorController.class" afterPath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/classes/com/slxy/edu/controller/HonorController.class" />
+      <change beforePath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/classes/com/slxy/edu/controller/OtherController.class" afterPath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/classes/com/slxy/edu/controller/OtherController.class" />
+      <change beforePath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/classes/com/slxy/edu/controller/PaperController.class" afterPath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/classes/com/slxy/edu/controller/PaperController.class" />
+      <change beforePath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/classes/com/slxy/edu/controller/PatentController.class" afterPath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/classes/com/slxy/edu/controller/PatentController.class" />
+      <change beforePath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/classes/com/slxy/edu/controller/ProjectController.class" afterPath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/classes/com/slxy/edu/controller/ProjectController.class" />
+      <change beforePath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/classes/com/slxy/edu/model/Honor.class" afterPath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/classes/com/slxy/edu/model/Honor.class" />
+      <change beforePath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/classes/com/slxy/edu/model/Paper.class" afterPath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/classes/com/slxy/edu/model/Paper.class" />
+      <change beforePath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/classes/com/slxy/edu/model/Project.class" afterPath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/classes/com/slxy/edu/model/Project.class" />
+      <change beforePath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/classes/mapper/HonorMapper.xml" afterPath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/classes/mapper/HonorMapper.xml" />
+      <change beforePath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/classes/mapper/OtherMapper.xml" afterPath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/classes/mapper/OtherMapper.xml" />
+      <change beforePath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/classes/mapper/PaperMapper.xml" afterPath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/classes/mapper/PaperMapper.xml" />
+      <change beforePath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/classes/mapper/PatentMapper.xml" afterPath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/classes/mapper/PatentMapper.xml" />
+      <change beforePath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/classes/mapper/ProjectMapper.xml" afterPath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/classes/mapper/ProjectMapper.xml" />
+      <change beforePath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/view/admin/SchoolAdmin.jsp" afterPath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/view/admin/SchoolAdmin.jsp" />
+      <change beforePath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/view/admin/project/projectList.jsp" afterPath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/view/admin/project/projectList.jsp" />
+      <change beforePath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/view/login.jsp" afterPath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/view/login.jsp" />
+      <change beforePath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/view/teacher/Teacher.jsp" afterPath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/view/teacher/Teacher.jsp" />
+      <change beforePath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/target/TeacherWeb/WEB-INF/web.xml" />
+      <change beforePath="$PROJECT_DIR$/target/TeacherWeb/assets/CSS/login.css" afterPath="$PROJECT_DIR$/target/TeacherWeb/assets/CSS/login.css" />
+      <change beforePath="$PROJECT_DIR$/target/TeacherWeb/assets/CSS/style.css" afterPath="$PROJECT_DIR$/target/TeacherWeb/assets/CSS/style.css" />
+      <change beforePath="$PROJECT_DIR$/target/classes/applicationContext.xml" afterPath="$PROJECT_DIR$/target/classes/applicationContext.xml" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/slxy/edu/controller/HonorController.class" afterPath="$PROJECT_DIR$/target/classes/com/slxy/edu/controller/HonorController.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/slxy/edu/controller/OtherController.class" afterPath="$PROJECT_DIR$/target/classes/com/slxy/edu/controller/OtherController.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/slxy/edu/controller/PaperController.class" afterPath="$PROJECT_DIR$/target/classes/com/slxy/edu/controller/PaperController.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/slxy/edu/controller/PatentController.class" afterPath="$PROJECT_DIR$/target/classes/com/slxy/edu/controller/PatentController.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/slxy/edu/controller/ProjectController.class" afterPath="$PROJECT_DIR$/target/classes/com/slxy/edu/controller/ProjectController.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/slxy/edu/model/Honor.class" afterPath="$PROJECT_DIR$/target/classes/com/slxy/edu/model/Honor.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/slxy/edu/model/Paper.class" afterPath="$PROJECT_DIR$/target/classes/com/slxy/edu/model/Paper.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/slxy/edu/model/Project.class" afterPath="$PROJECT_DIR$/target/classes/com/slxy/edu/model/Project.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/HonorMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mapper/HonorMapper.xml" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/OtherMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mapper/OtherMapper.xml" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/PaperMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mapper/PaperMapper.xml" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/PatentMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mapper/PatentMapper.xml" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/ProjectMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mapper/ProjectMapper.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -53,103 +199,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="PatentController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/PatentController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="25" />
-              <folding>
-                <element signature="e#3099#3112#0" expanded="true" />
-                <element signature="e#6865#6866#0" expanded="true" />
-                <element signature="e#6918#6919#0" expanded="true" />
-                <element signature="e#7091#7092#0" expanded="true" />
-                <element signature="e#7146#7147#0" expanded="true" />
-                <element signature="e#12315#12316#0" expanded="true" />
-                <element signature="e#12371#12372#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ProjectController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/ProjectController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="25" />
-              <folding>
-                <element signature="e#3137#3151#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="25" />
+            <state relative-caret-position="242">
+              <caret line="208" column="17" lean-forward="true" selection-start-line="208" selection-start-column="17" selection-end-line="208" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PoiController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/PoiController.java">
+      <file leaf-file-name="ProjectMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/ProjectMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="74">
-              <caret line="21" column="27" lean-forward="false" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+            <state relative-caret-position="127">
+              <caret line="188" column="35" lean-forward="false" selection-start-line="188" selection-start-column="16" selection-end-line="188" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileOperationController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/FileOperationController.java">
+      <file leaf-file-name="IBaseService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/service/base/IBaseService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-54">
-              <caret line="55" column="23" lean-forward="false" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TeacherAOP.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/util/TeacherAOP.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OtherController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/OtherController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/util/Test.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="83">
-              <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="logback.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/logback.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="56" column="44" lean-forward="false" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
+            <state relative-caret-position="193">
+              <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -158,8 +232,68 @@
       <file leaf-file-name="BaseController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/base/BaseController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="23" column="56" lean-forward="false" selection-start-line="23" selection-start-column="56" selection-end-line="23" selection-end-column="56" />
+            <state relative-caret-position="164">
+              <caret line="18" column="74" lean-forward="false" selection-start-line="18" selection-start-column="74" selection-end-line="18" selection-end-column="74" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="statisticsProject.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/JS/statistics/statisticsProject.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="98">
+              <caret line="261" column="56" lean-forward="false" selection-start-line="261" selection-start-column="42" selection-end-line="261" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="statisticsPaper.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/JS/statistics/statisticsPaper.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="127">
+              <caret line="164" column="58" lean-forward="false" selection-start-line="164" selection-start-column="58" selection-end-line="164" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="statisticsOther.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/JS/statistics/statisticsOther.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="127">
+              <caret line="164" column="58" lean-forward="false" selection-start-line="164" selection-start-column="58" selection-end-line="164" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="statisticsHonor.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/JS/statistics/statisticsHonor.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1513">
+              <caret line="168" column="10" lean-forward="true" selection-start-line="168" selection-start-column="10" selection-end-line="168" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="statisticsPatent.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/JS/statistics/statisticsPatent.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="127">
+              <caret line="164" column="58" lean-forward="false" selection-start-line="164" selection-start-column="58" selection-end-line="164" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ajaxSelect.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxSelect.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="331">
+              <caret line="197" column="22" lean-forward="true" selection-start-line="197" selection-start-column="22" selection-end-line="197" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -179,55 +313,42 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>save</find>
-      <find>class=&quot;accessoryPath&quot;</find>
-      <find>accessoryPath</find>
-      <find>Pname</find>
-      <find>Patent</find>
-      <find>重新</find>
-      <find>left-main</find>
-      <find>Pmoneyjson</find>
-      <find>right-product</find>
-      <find>pmoney_bar</find>
-      <find>保存</find>
-      <find>alterSave</find>
-      <find>Pleader</find>
-      <find>web_debug</find>
-      <find>D:/</find>
-      <find>web_info.</find>
-      <find>1</find>
-      <find>web_info.log</find>
-      <find>log.path</find>
-      <find>%d{yyyy-MM-dd}.%i.log</find>
-      <find>web</find>
+      <find>String</find>
+      <find>Integer pasearchnum</find>
+      <find>@Param(&quot;message&quot;)</find>
+      <find>String majorkey</find>
+      <find>String Pasearchnum</find>
+      <find>String pasearchnum</find>
+      <find>String hsn</find>
+      <find>String Hsn</find>
+      <find>Detail</find>
+      <find>成果</find>
       <find>CONSOLE_LOG_PATTERN</find>
-      <find>web_error</find>
-      <find>${log.path}</find>
-      <find>encoder</find>
-      <find>当前条件下</find>
+      <find>PARSER_ERROR</find>
+      <find>15</find>
+      <find>inse</find>
+      <find>alter</find>
+      <find>checkPasearchnum</find>
+      <find>Pmember</find>
+      <find>元</find>
       <find>专利</find>
-      <find>logback.groovy</find>
-      <find>论文</find>
-      <find>esources</find>
+      <find>option:selected</find>
+      <find>insert</find>
+      <find>update</find>
+      <find>其他论文</find>
+      <find>updateOne</find>
+      <find>login_txtbx</find>
+      <find>con</find>
+      <find>检索号</find>
+      <find>getRecentYearsCount</find>
+      <find>cons</find>
+      <find>['2016', '2017', '2018', '2019', '2020']</find>
     </findStrings>
     <replaceStrings>
-      <replace>Integer</replace>
-      <replace>hsn</replace>
-      <replace>hcompany</replace>
-      <replace>paremarks</replace>
-      <replace>i+4</replace>
-      <replace>i+5</replace>
-      <replace>patendate</replace>
-      <replace>pleader</replace>
-      <replace>pmoney</replace>
-      <replace>getTname()</replace>
-      <replace>教师信息</replace>
-      <replace>Teacher</replace>
       <replace>teacher</replace>
       <replace>i+8</replace>
       <replace>Cname</replace>
       <replace>/teacher/audit.do?</replace>
-      <replace>成果</replace>
       <replace>id=&quot;accessoryPath&quot;</replace>
       <replace>Paper</replace>
       <replace>提交</replace>
@@ -235,12 +356,25 @@
       <replace>path</replace>
       <replace>TeacherWeb</replace>
       <replace>${CONSOLE_LOG_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}</replace>
-      <replace>论文</replace>
       <replace>荣誉</replace>
       <replace>教师个人</replace>
-      <replace>其他成果</replace>
       <replace>D:/resource/logs</replace>
       <replace>项目</replace>
+      <replace>String</replace>
+      <replace>Float</replace>
+      <replace>Inter</replace>
+      <replace>Integer majorkey</replace>
+      <replace>Integer Pasearchnum</replace>
+      <replace>Integer pasearchnum</replace>
+      <replace>Integer hsn</replace>
+      <replace>Integer Hsn</replace>
+      <replace>论文</replace>
+      <replace>50</replace>
+      <replace>成果</replace>
+      <replace>万元</replace>
+      <replace>其他成果</replace>
+      <replace>编号</replace>
+      <replace>['2015', '2016', '2017', '2018', '2019']</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -257,57 +391,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/patent/auditPatent.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/paper/auditPaper.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/other/otherList.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/other/detailList.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/other/auditOther.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/honor/honorList.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/honor/auditHonor.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/honor/detailList.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/assets/JS/commonUse.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/PaperMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/paper/detailList.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/paper/detail.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/Teacher.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/honor/honorList.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxPaperData.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/patent/patentList.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/other/otherList.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/HonorMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/model/Honor.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxHonorData.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/paper/paperList.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/paper/paperList.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/mapper/TeacherMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/service/base/IBaseService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/service/ITeacherService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/service/impl/TeacherServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/TeacherMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxTeacherData.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/teacher/teacherList.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/SchoolAdmin.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxSelect.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxPatentData.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/applicationContext.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/util/JsonMsg.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/util/Operation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/util/BookAOP.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/util/Logger.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/base/BaseController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/springmvc.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/PatentController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/PaperController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/HonorController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/ProjectController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/TeacherController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/PoiController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/ExcelController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/FileOperationController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/logback.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/HonorController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/paper/detailList.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/paper/auditPaper.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/honor/honorList.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/honor/detail.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/honor/honorList.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/honor/detailList.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/model/Paper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/PaperMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/PaperController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/paper/paperList.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxPaperData.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/paper/detail.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/model/excel/ExcelPaper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/model/excel/ExcelHonor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/model/excel/ExcelOther.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/model/excel/ExcelPatent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/model/excel/ExcelProject.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/model/excel/ExcelTeacher.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxProjectData.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/project/projectList.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/project/projectList.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/project/detail.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxPatentData.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/Teacher.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/SchoolAdmin.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxOtherData.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/TeacherController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/assets/CSS/style.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/paper/paperList.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/paper/Statistics.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/assets/CSS/login.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxTeacherData.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/util/Test.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/util/TeacherAOP.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/OtherController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/util/CommonUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/teacher/teacherList.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/ProjectController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/assets/JS/statistics/statisticsProject.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/base/BaseController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/assets/JS/statistics/statisticsPatent.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/assets/JS/statistics/statisticsPaper.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/assets/JS/statistics/statisticsOther.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/assets/JS/statistics/statisticsHonor.js" />
       </list>
     </option>
   </component>
@@ -319,7 +453,7 @@
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
-    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_WARNINGS" value="true" />
     <option name="FILTER_INFO" value="true" />
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
@@ -411,10 +545,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -464,64 +596,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="edu" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TeacherWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TeacherWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
               <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TeacherWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TeacherWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TeacherWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TeacherWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TeacherWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TeacherWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TeacherWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TeacherWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TeacherWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TeacherWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="edu" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TeacherWeb" type="b2602c69:ProjectViewProjectNode" />
@@ -535,6 +610,14 @@
               <item name="TeacherWeb" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TeacherWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TeacherWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -562,25 +645,14 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="JS" type="462c0819:PsiDirectoryNode" />
-              <item name="ajax" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TeacherWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TeacherWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TeacherWeb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TeacherWeb" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="statistics" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -592,7 +664,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="SQL Server (Microsoft)" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/slxy/edu/model" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="extract.method.default.visibility" value="public" />
     <property name="ToolWindowDocumentation.ShowToolbar" value="false" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/11149/Desktop/TeacherWeb/src/main/webapp/WEB-INF/view/teacher/Teacher.jsp" />
@@ -635,7 +707,7 @@
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <module />
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.slxy.edu.util.*" />
@@ -722,7 +794,80 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration name="Tomcat 8" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.33" ALTERNATIVE_JRE_ENABLED="false">
+    <configuration name="Tomcat 8" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.1" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
+      <deployment>
+        <artifact name="TeacherWeb:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/TeacherWeb" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_TeacherWeb_3" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="58874" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="TeacherWeb:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <configuration name="Tomcat 9" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.12" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="1.8">
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
@@ -734,7 +879,9 @@
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="Unnamed_TeacherWeb_12" />
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_TeacherWeb_16" />
+        <option name="HTTP_PORT" value="8089" />
+        <option name="JNDI_PORT" value="1101" />
       </server-settings>
       <predefined_log_file id="Tomcat" enabled="true" />
       <predefined_log_file id="Tomcat Catalina" enabled="true" />
@@ -743,7 +890,7 @@
       <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="49733" />
+        <option name="DEBUG_PORT" value="61480" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -802,10 +949,16 @@
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
-    <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Application.Test" />
+    <list size="3">
+      <item index="0" class="java.lang.String" itemvalue="Tomcat Server.Tomcat 9" />
       <item index="1" class="java.lang.String" itemvalue="Tomcat Server.Tomcat 8" />
+      <item index="2" class="java.lang.String" itemvalue="Application.Test" />
     </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Application.Test" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -856,7 +1009,19 @@
       <workItem from="1557937140849" duration="1172000" />
       <workItem from="1558162326343" duration="463000" />
       <workItem from="1558167995040" duration="5142000" />
-      <workItem from="1558191188688" duration="15215000" />
+      <workItem from="1558191188688" duration="16561000" />
+      <workItem from="1558250491550" duration="9507000" />
+      <workItem from="1558267061324" duration="11590000" />
+      <workItem from="1558282910944" duration="4996000" />
+      <workItem from="1558341303648" duration="4613000" />
+      <workItem from="1558439749614" duration="1259000" />
+      <workItem from="1558502562399" duration="374000" />
+      <workItem from="1558674143128" duration="796000" />
+      <workItem from="1558947321354" duration="2237000" />
+      <workItem from="1559043720082" duration="6888000" />
+      <workItem from="1559119544994" duration="7988000" />
+      <workItem from="1559214364910" duration="19522000" />
+      <workItem from="1559272252672" duration="16602000" />
     </task>
     <task id="LOCAL-00001" summary="管理员查询基本完成">
       <created>1556356440066</created>
@@ -907,11 +1072,25 @@
       <option name="project" value="LOCAL" />
       <updated>1558246707331</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="aop结合日志框架">
+      <created>1558246829792</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1558246829792</updated>
+    </task>
+    <task id="LOCAL-00009" summary="aop结合日志框架">
+      <created>1558246978491</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1558246978491</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="468286000" />
+    <option name="totallyTimeSpent" value="556004000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -928,7 +1107,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.3431604" sideWeight="0.50429183" order="14" side_tool="false" content_ui="tabs" x="0" y="0" width="1260" height="1055" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900944" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299356" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23444206" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299356" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -943,10 +1122,10 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900944" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900944" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900944" sideWeight="0.49570817" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35259435" sideWeight="0.49570817" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900944" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32900944" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20064378" sideWeight="0.486535" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900944" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21566524" sideWeight="0.486535" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21620172" sideWeight="0.513465" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
@@ -1012,307 +1191,44 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/paper/detail.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/honor/detail.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="64" column="21" lean-forward="true" selection-start-line="64" selection-start-column="21" selection-end-line="64" selection-end-column="21" />
+        <state relative-caret-position="471">
+          <caret line="103" column="79" lean-forward="false" selection-start-line="103" selection-start-column="79" selection-end-line="103" selection-end-column="79" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/Teacher.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/model/Paper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="98" column="38" lean-forward="false" selection-start-line="98" selection-start-column="38" selection-end-line="98" selection-end-column="38" />
+        <state relative-caret-position="338">
+          <caret line="92" column="18" lean-forward="false" selection-start-line="92" selection-start-column="18" selection-end-line="92" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/paper/detailList.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/PaperMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/honor/detailList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="56" column="58" lean-forward="false" selection-start-line="56" selection-start-column="58" selection-end-line="56" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/paper/auditPaper.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="60" column="28" lean-forward="false" selection-start-line="60" selection-start-column="28" selection-end-line="60" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/patent/patentList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="64" column="40" lean-forward="false" selection-start-line="64" selection-start-column="35" selection-end-line="64" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/paper/paperList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="61" column="46" lean-forward="false" selection-start-line="61" selection-start-column="35" selection-end-line="61" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/paper/paperList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="66" column="43" lean-forward="false" selection-start-line="66" selection-start-column="43" selection-end-line="66" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxProjectData.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="325" column="58" lean-forward="false" selection-start-line="325" selection-start-column="54" selection-end-line="325" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxPaperData.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="287" column="1" lean-forward="true" selection-start-line="287" selection-start-column="1" selection-end-line="287" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/honor/honorList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="62" column="38" lean-forward="false" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/honor/honorList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="61" column="38" lean-forward="false" selection-start-line="61" selection-start-column="35" selection-end-line="61" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/mapper/BaseMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="49" column="60" lean-forward="true" selection-start-line="48" selection-start-column="4" selection-end-line="49" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/mapper/TeacherMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="59" column="60" lean-forward="false" selection-start-line="59" selection-start-column="60" selection-end-line="59" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/service/base/IBaseService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/service/ITeacherService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="58" column="25" lean-forward="false" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/service/impl/TeacherServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="133" column="54" lean-forward="false" selection-start-line="133" selection-start-column="54" selection-end-line="133" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/ProjectMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8120">
-          <caret line="280" column="13" lean-forward="false" selection-start-line="277" selection-start-column="4" selection-end-line="280" selection-end-column="13" />
+        <state relative-caret-position="297">
+          <caret line="92" column="0" lean-forward="true" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
           <folding>
-            <marker date="1557835444510" expanded="true" signature="4070:4272" ph="select Psn,P... Project" />
-            <marker date="1557835444510" expanded="true" signature="4389:4853" ph="UPDATE Project... " />
-            <marker date="1557835444510" expanded="true" signature="4949:5458" ph="insert into Project... " />
-            <marker date="1557835444510" expanded="true" signature="5519:5597" ph="UPDATE Project... " />
-            <marker date="1557835444510" expanded="true" signature="5646:5724" ph="UPDATE Project... " />
-            <marker date="1557835444510" expanded="true" signature="5793:5856" ph="update Project... " />
-            <marker date="1557835444510" expanded="true" signature="5944:5998" ph="SELECT Pacce... Project" />
-            <marker date="1557835444510" expanded="true" signature="6109:6655" ph="select a.Cna... " />
-            <marker date="1557835444510" expanded="true" signature="6763:7676" ph="select a.Dna... " />
-            <marker date="1557835444510" expanded="true" signature="7793:8340" ph="select a.Cna... " />
-            <marker date="1557835444510" expanded="true" signature="8462:9375" ph="select a.Dna... " />
-            <marker date="1557835444510" expanded="true" signature="10223:10770" ph="select SUM(b... Cname" />
-            <marker date="1557835444510" expanded="true" signature="10268:10293" ph="select Cname... College" />
-            <marker date="1557835444510" expanded="true" signature="10308:10406" ph="select Cname... Project" />
-            <marker date="1557835444510" expanded="true" signature="10889:11784" ph="select SUM(b... Dname" />
-            <marker date="1557835444510" expanded="true" signature="10934:10991" ph="select Dname... Sdept" />
-            <marker date="1557835444510" expanded="true" signature="11170:11298" ph="select Dname... Project" />
-            <marker date="1557835444510" expanded="true" signature="11860:11903" ph="DELETE FROM Project... " />
+            <marker date="1559275030107" expanded="true" signature="2757:2964" ph="select Pasea... Paper" />
+            <marker date="1559275030107" expanded="true" signature="3079:3485" ph="UPDATE Paper... " />
+            <marker date="1559275030107" expanded="true" signature="3579:3956" ph="insert into Paper... " />
+            <marker date="1559275030107" expanded="true" signature="5232:5316" ph="UPDATE Paper... " />
+            <marker date="1559275030107" expanded="true" signature="5365:5449" ph="UPDATE Paper... " />
+            <marker date="1559275030107" expanded="true" signature="5518:5587" ph="update Paper... " />
+            <marker date="1559275030107" expanded="true" signature="5675:5735" ph="SELECT Pacce... Paper" />
+            <marker date="1559275030107" expanded="true" signature="5845:6385" ph="select a.Cna... " />
+            <marker date="1559275030107" expanded="true" signature="6493:7400" ph="select a.Dna... " />
+            <marker date="1559275030107" expanded="true" signature="7517:8058" ph="select a.Cna... " />
+            <marker date="1559275030107" expanded="true" signature="8180:9087" ph="select a.Dna... " />
+            <marker date="1559275030107" expanded="true" signature="9799:9848" ph="DELETE FROM Paper... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/TeacherMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5481">
-          <caret line="189" column="0" lean-forward="false" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
-          <folding>
-            <marker date="1557851981886" expanded="true" signature="5036:5395" ph="UPDATE Teacher... " />
-            <marker date="1557851981886" expanded="true" signature="5486:5568" ph="select c.Csn... College" />
-            <marker date="1557851981886" expanded="true" signature="5659:5739" ph="select Dsn f... College" />
-            <marker date="1557851981886" expanded="true" signature="7316:7393" ph="UPDATE Teacher... " />
-            <marker date="1557851981886" expanded="true" signature="7442:7519" ph="UPDATE Teacher... " />
-            <marker date="1557851981886" expanded="true" signature="7613:7726" ph="SELECT Tsn,T... Teacher" />
-            <marker date="1557851981886" expanded="true" signature="7802:7845" ph="DELETE FROM Teacher... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxHonorData.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9309">
-          <caret line="321" column="3" lean-forward="false" selection-start-line="300" selection-start-column="0" selection-end-line="321" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxTeacherData.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="145" column="17" lean-forward="false" selection-start-line="145" selection-start-column="17" selection-end-line="145" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/project/projectList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2262">
-          <caret line="78" column="67" lean-forward="false" selection-start-line="78" selection-start-column="27" selection-end-line="78" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/teacher/teacherList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2030">
-          <caret line="70" column="67" lean-forward="false" selection-start-line="70" selection-start-column="67" selection-end-line="70" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxSelect.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="30" column="50" lean-forward="false" selection-start-line="30" selection-start-column="50" selection-end-line="30" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/SchoolAdmin.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="23" column="57" lean-forward="false" selection-start-line="22" selection-start-column="51" selection-end-line="23" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxPatentData.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5394">
-          <caret line="186" column="37" lean-forward="false" selection-start-line="186" selection-start-column="37" selection-end-line="186" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/util/Logger.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/util/JsonMsg.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1363">
-          <caret line="60" column="5" lean-forward="false" selection-start-line="57" selection-start-column="3" selection-end-line="60" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.12/slf4j-api-1.7.12.jar!/org/slf4j/Logger.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="25" column="24" lean-forward="true" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
-          <folding>
-            <element signature="e#1403#1424#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/util/Operation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="4" column="20" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/nio/charset/Charset.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="270" column="22" lean-forward="false" selection-start-line="270" selection-start-column="22" selection-end-line="270" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-982">
-          <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/springmvc.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-705">
-          <caret line="14" column="28" lean-forward="false" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/db">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/JS/bootstrap-table.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1320,128 +1236,428 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/HonorController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/paper/paperList.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3053">
-          <caret line="147" column="31" lean-forward="false" selection-start-line="147" selection-start-column="31" selection-end-line="147" selection-end-column="31" />
+        <state relative-caret-position="203">
+          <caret line="151" column="47" lean-forward="true" selection-start-line="151" selection-start-column="47" selection-end-line="151" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/TeacherController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/paper/detail.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2038">
-          <caret line="479" column="31" lean-forward="false" selection-start-line="479" selection-start-column="4" selection-end-line="479" selection-end-column="31" />
+        <state relative-caret-position="150">
+          <caret line="95" column="31" lean-forward="true" selection-start-line="95" selection-start-column="31" selection-end-line="99" selection-end-column="38" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/model/excel/ExcelPaper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="182" column="30" lean-forward="false" selection-start-line="182" selection-start-column="30" selection-end-line="182" selection-end-column="30" />
+          <folding>
+            <element signature="e#4249#4250#0" expanded="false" />
+            <element signature="e#4291#4292#0" expanded="false" />
+            <element signature="e#4325#4326#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/model/excel/ExcelOther.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="138" column="30" lean-forward="false" selection-start-line="138" selection-start-column="30" selection-end-line="138" selection-end-column="30" />
+          <folding>
+            <element signature="e#3319#3320#0" expanded="false" />
+            <element signature="e#3361#3362#0" expanded="false" />
+            <element signature="e#3395#3396#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/model/excel/ExcelHonor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="41">
+          <caret line="164" column="31" lean-forward="false" selection-start-line="164" selection-start-column="31" selection-end-line="164" selection-end-column="31" />
+          <folding>
+            <element signature="e#3560#3561#0" expanded="false" />
+            <element signature="e#3604#3605#0" expanded="false" />
+            <element signature="e#3640#3641#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/model/excel/ExcelPatent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="162" column="31" lean-forward="false" selection-start-line="162" selection-start-column="31" selection-end-line="162" selection-end-column="31" />
+          <folding>
+            <element signature="e#3726#3727#0" expanded="false" />
+            <element signature="e#3770#3771#0" expanded="false" />
+            <element signature="e#3806#3807#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/model/excel/ExcelProject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="207" column="31" lean-forward="false" selection-start-line="207" selection-start-column="31" selection-end-line="207" selection-end-column="31" />
+          <folding>
+            <element signature="e#4538#4539#0" expanded="false" />
+            <element signature="e#4582#4583#0" expanded="false" />
+            <element signature="e#4613#4614#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/model/excel/ExcelTeacher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="679">
+          <caret line="130" column="0" lean-forward="true" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+          <folding>
+            <element signature="e#3087#3088#0" expanded="false" />
+            <element signature="e#3115#3116#0" expanded="false" />
+            <element signature="e#3157#3158#0" expanded="false" />
+            <element signature="e#3191#3192#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxProjectData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="217" column="88" lean-forward="false" selection-start-line="217" selection-start-column="88" selection-end-line="217" selection-end-column="88" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/project/projectList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="160" column="34" lean-forward="false" selection-start-line="160" selection-start-column="34" selection-end-line="160" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/project/projectList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2114">
+          <caret line="156" column="34" lean-forward="false" selection-start-line="156" selection-start-column="34" selection-end-line="156" selection-end-column="34" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/project/detail.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="121" column="38" lean-forward="false" selection-start-line="121" selection-start-column="38" selection-end-line="121" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/project/detailList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="79" column="18" lean-forward="true" selection-start-line="79" selection-start-column="18" selection-end-line="79" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/PatentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="25" />
-          <folding>
-            <element signature="e#3099#3112#0" expanded="true" />
-            <element signature="e#6865#6866#0" expanded="true" />
-            <element signature="e#6918#6919#0" expanded="true" />
-            <element signature="e#7091#7092#0" expanded="true" />
-            <element signature="e#7146#7147#0" expanded="true" />
-            <element signature="e#12315#12316#0" expanded="true" />
-            <element signature="e#12371#12372#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="25" />
+        <state relative-caret-position="290">
+          <caret line="166" column="17" lean-forward="true" selection-start-line="166" selection-start-column="17" selection-end-line="166" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/PoiController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/other/detail.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="21" column="27" lean-forward="false" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
+        <state relative-caret-position="-290">
+          <caret line="8" column="34" lean-forward="false" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/ExcelController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/teacher/Teacher.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/FileOperationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-54">
-          <caret line="55" column="23" lean-forward="false" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
+        <state relative-caret-position="355">
+          <caret line="93" column="58" lean-forward="false" selection-start-line="93" selection-start-column="58" selection-end-line="93" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/PaperController.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="732">
+          <caret line="292" column="26" lean-forward="false" selection-start-line="292" selection-start-column="21" selection-end-line="292" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxPatentData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="5" column="43" lean-forward="false" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxOtherData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="72" column="33" lean-forward="false" selection-start-line="72" selection-start-column="33" selection-end-line="72" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/honor/honorList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="19" column="78" lean-forward="true" selection-start-line="19" selection-start-column="78" selection-end-line="19" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/paper/auditPaper.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-54">
+          <caret line="38" column="27" lean-forward="false" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/paper/Statistics.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/SchoolAdmin.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="173" column="28" lean-forward="true" selection-start-line="173" selection-start-column="28" selection-end-line="173" selection-end-column="28" />
+          <folding>
+            <element signature="n#style#0;n#span#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#li#1;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#li#2;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#li#3;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#li#4;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#span#1;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#ul#0;n#div#2;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#div#2;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#li#1;n#ul#0;n#div#2;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#li#2;n#ul#0;n#div#2;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#li#3;n#ul#0;n#div#2;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#li#4;n#ul#0;n#div#2;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/TeacherController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="375" column="17" lean-forward="true" selection-start-line="375" selection-start-column="17" selection-end-line="375" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxPaperData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2233">
+          <caret line="131" column="12" lean-forward="true" selection-start-line="131" selection-start-column="12" selection-end-line="131" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/patent/patentList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="12" column="42" lean-forward="true" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/CSS/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/CSS/login.css">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
-          <caret line="287" column="7" lean-forward="true" selection-start-line="287" selection-start-column="7" selection-end-line="287" selection-end-column="7" />
-          <folding>
-            <marker date="1558241228689" expanded="true" signature="2897:2958" ph="@{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/logback.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="56" column="44" lean-forward="false" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
+          <caret line="26" column="8" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/base/BaseController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/paper/paperList.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="23" column="56" lean-forward="false" selection-start-line="23" selection-start-column="56" selection-end-line="23" selection-end-column="56" />
+        <state relative-caret-position="40">
+          <caret line="44" column="17" lean-forward="false" selection-start-line="44" selection-start-column="17" selection-end-line="44" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/ProjectController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="25" />
-          <folding>
-            <element signature="e#3137#3151#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="21" column="12" lean-forward="false" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/paper/detailList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="44" column="47" lean-forward="false" selection-start-line="44" selection-start-column="47" selection-end-line="44" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxTeacherData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="19" column="3" lean-forward="false" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/util/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/util/TeacherAOP.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state relative-caret-position="407">
+          <caret line="30" column="24" lean-forward="false" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/OtherController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/util/CommonUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+        <state relative-caret-position="291">
+          <caret line="169" column="48" lean-forward="false" selection-start-line="169" selection-start-column="26" selection-end-line="169" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="460" column="4" lean-forward="false" selection-start-line="460" selection-start-column="4" selection-end-line="460" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/admin/teacher/teacherList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="56" column="46" lean-forward="false" selection-start-line="56" selection-start-column="46" selection-end-line="56" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/JS/AdminJS.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1044">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/JS/ajax/ajaxSelect.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="197" column="22" lean-forward="true" selection-start-line="197" selection-start-column="22" selection-end-line="197" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/service/base/IBaseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/ProjectMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="188" column="35" lean-forward="false" selection-start-line="188" selection-start-column="16" selection-end-line="188" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/ProjectController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="208" column="17" lean-forward="true" selection-start-line="208" selection-start-column="17" selection-end-line="208" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/slxy/edu/controller/base/BaseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="18" column="74" lean-forward="false" selection-start-line="18" selection-start-column="74" selection-end-line="18" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/JS/statistics/statisticsProject.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="261" column="56" lean-forward="false" selection-start-line="261" selection-start-column="42" selection-end-line="261" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/JS/statistics/statisticsPatent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="164" column="58" lean-forward="false" selection-start-line="164" selection-start-column="58" selection-end-line="164" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/JS/statistics/statisticsPaper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="164" column="58" lean-forward="false" selection-start-line="164" selection-start-column="58" selection-end-line="164" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/JS/statistics/statisticsOther.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="164" column="58" lean-forward="false" selection-start-line="164" selection-start-column="58" selection-end-line="164" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/JS/statistics/statisticsHonor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1513">
+          <caret line="168" column="10" lean-forward="true" selection-start-line="168" selection-start-column="10" selection-end-line="168" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -1452,7 +1668,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>TeacherWeb:war exploded</last-edited>
+          <last-edited>TeacherWeb:war</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1465,7 +1681,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>Spring</last-edited>
+          <last-edited>Web (TeacherWeb)|Web</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1525,7 +1741,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Maven: org.springframework:spring-expression:4.1.2.RELEASE</last-edited>
+          <last-edited>Maven: log4j:log4j:1.2.17</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

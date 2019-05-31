@@ -11,19 +11,38 @@
     <property name="log.path" value="D:\resource\logs" />
 
 
-    <!--控制台输出的格式设置 -->
-    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
-        <!-- 控制台输出的日志 的格式 -->
-        <encoder>
-            <pattern>[ %highlight(%-5level) ] %green([%date{yyyy-MM-dd HH:mm:ss}]) %boldMagenta([%thread-%logger{96}-%mdc{client}-%line line])  - %cyan(%msg%n)</pattern>
-            <!--<charset>UTF-8</charset>-->
-            <!-- 这我也不知道为啥，浪费怎么多时间真是醉了 -->
+    <!--0. 日志格式和颜色渲染 -->
+    <!-- 彩色日志依赖的渲染类 -->
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter" />
+    <conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter" />
+    <conversionRule conversionWord="wEx" converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter" />
+    <!-- 彩色日志格式 -->
+    <property name="CONSOLE_LOG_PATTERN" value="${CONSOLE_LOG_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
+
+    <!--1. 输出到控制台-->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder charset="UTF-8">
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
         </encoder>
-        <!-- 只是DEBUG级别以上的日志才显示 -->
-        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>DEBUG</level>
-        </filter>
     </appender>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoder的默认实现类是ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{5} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- name值可以是包名或具体的类名：该包（包括子包）下的类或该类将采用此logger -->
+    <logger name="com.slxy" level="INFO">
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+    <!-- root的默认level是DEBUG -->
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+
 
     <!--root： 也是<loger>元素，但是它是根loger。只有一个level属性，应为已经被命名为"root".
     level:用来设置打印级别和写入文件级别，大小写无关：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF，
@@ -89,7 +108,7 @@
     <!-- 2.3 level为 WARN 日志，时间滚动输出  -->
     <appender name="WARN_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!-- 正在记录的日志文档的路径及文档名 -->
-        <file>D:/resource/logs/web_warn.log</file>
+        <file>D:/resource/logs/TeacherWeb_warn.log</file>
         <!--日志文档输出格式-->
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
@@ -115,7 +134,7 @@
     <!-- 2.4 level为 ERROR 日志，时间滚动输出  -->
     <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!-- 正在记录的日志文档的路径及文档名 -->
-        <file>D:/resource/logs/web_error.log</file>
+        <file>D:/resource/logs/TeacherWeb_error.log</file>
         <!--日志文档输出格式-->
         <encoder>
             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>

@@ -50,12 +50,8 @@
                     <th>项目名称</th>
                     <th>负责人</th>
                     <th>级别</th>
-                    <th>类型</th>
-                    <th>经费（元）</th>
+                    <th>经费（万元）</th>
                     <th>立项时间</th>
-                    <th>结题时间</th>
-                    <th>科研状态</th>
-                    <th>合同类型</th>
                     <th>附件</th>
                     <th>操作</th>
                 </tr>
@@ -63,14 +59,10 @@
                     <tr>
                         <td class="Psn"><a href="${pageContext.request.contextPath}/teacher/goProjectDetail.do?psn=${projects.psn}">${projects.psn}</a></td>
                         <td class="Pname">${projects.pname}</td>
-                        <td class="tname">${projects.pleader}</td>
+                        <td class="tname">${projects.tname}</td>
                         <td class="Pgrad">${projects.pgrad}</td>
-                        <td class="Pkind">${projects.pkind}</td>
                         <td class="Pmoney">${projects.pmoney}</td>
                         <td class="Pstatime">${projects.pstatime}</td>
-                        <td class="Pendtime">${projects.pendtime}</td>
-                        <td class="Pcondition">${projects.pcondition}</td>
-                        <td class="contractType">${projects.contractType}</td>
                         <td>
                             <a href="<%=request.getContextPath()%>/file/download.do?model=project&majorkey=${projects.psn}&name=${projects.pname}" class="Download">查看附件</a>
                             <input type="hidden" class="accessoryPath" value="${projects.paccessory}"/>
@@ -143,7 +135,7 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label for="Psn">项目编号</label>
-                                <input type="text" name="Psn" id="Psn" onfocus="showTips('Psn','项目编号为1-20位的数字')"
+                                <input type="text" name="Psn" id="Psn" onfocus="showTips('Psn','项目编号不能超过50个字符')"
                                        onblur="checkPsn('Psn','请按要求输入项目编号')" class="form-control" id="Psn" placeholder="项目编号" readonly>
                                 <div id="Psndiv" style="display:none">
                                     <span id="Psnspan" ></span><br>
@@ -151,7 +143,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="Pname">项目名称</label> <input type="text" name="Pname"
-                                                                       onfocus="showTips('Pname','项目名称不能超过15个字符')"
+                                                                       onfocus="showTips('Pname','项目名称不能超过50个字符')"
                                                                        onblur="checkPname('Pname','请按要求输入项目名称')"
                                                                        class="form-control" id="Pname" placeholder="项目名称">
                                 <div id="Pnamediv" style="display:none">
@@ -162,14 +154,6 @@
                                 <label for="tname">负责人</label> <input type="text"
                                                                         name="tname" class="form-control" id="tname"
                                                                         placeholder="负责人" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="Pmember">成员</label>
-                                <input type="text" name="Pmember" id="Pmember" onfocus="showTips('Pmember','项目成员不能超过50个字符')"
-                                       onblur="checkPmember('Pmember','请按要求输入项目成员')" class="form-control" placeholder="成员">
-                                <div id="Pmembersdiv" style="display:none">
-                                    <span id="Pmemberspan" ></span><br>
-                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="Pgrad">级别</label>
@@ -208,7 +192,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="Pmoney">经费（元）</label>
+                                <label for="Pmoney">经费（万元）</label>
                                 <input type="text" name="Pmoney"
                                        class="form-control" id="Pmoney" placeholder="经费"
                                        onfocus="showTips('Pmoney','项目经费为数字')"

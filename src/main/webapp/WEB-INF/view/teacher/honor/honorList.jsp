@@ -37,10 +37,10 @@
         <div class="col-md-11 col-md-offset-1 ">
             <div class="col-md-10 button-div form-inline">
                 <input type="button" value="新建记录" id="btn_add" class="btn btn-success">
-                <a href="<%=request.getContextPath()%>/poi/getTemplate.do?name=honor" class="btn btn-success">下载模板</a>
+                <%--<a href="<%=request.getContextPath()%>/poi/getTemplate.do?name=honor" class="btn btn-success">下载模板</a>--%>
                 <form method="post" enctype="multipart/form-data" action="<%=request.getContextPath()%>/honor/importExcel.do" class="form-group importform">
                     <input type="file" id="file" name="file" class="btn btn-info" style="display: none" onchange="$('.importform').submit()">
-                    <input type="button" name="" value="导入" class="btn btn-info" id="importFileButton">
+                    <%--<input type="button" name="" value="导入" class="btn btn-info" id="importFileButton">--%>
                 </form>
                 <form action="<%=request.getContextPath()%>/teacher/exportHonor.do?&tsn=<%=tsn%>" method="post" id="ProjectForm" class="form-group">
                     <input type="submit" value="导出" id="submitChecked" class="btn btn-info">
@@ -51,9 +51,7 @@
                     <th>编号</th>
                     <th>名称</th>
                     <th>第一完成人</th>
-                    <th>第一完成单位</th>
                     <th>时间</th>
-                    <th>授奖单位</th>
                     <th>等级</th>
                     <th>附件</th>
                     <th>操作</th>
@@ -63,9 +61,7 @@
                         <td class="Hsn"><a href="${pageContext.request.contextPath}/teacher/goHonorDetail.do?hsn=${honors.hsn}">${honors.hsn}</a></td>
                         <td>${honors.hname}</td>
                         <td>${honors.tname}</td>
-                        <td>${honors.department}</td>
                         <td>${honors.hdate}</td>
-                        <td>${honors.hcompany}</td>
                         <td>${honors.hgrad}</td>
                         <td>
                             <a href="<%=request.getContextPath()%>/file/download.do?model=honor&majorkey=${honors.hsn}&name=${honors.hname}" class="Download">查看附件</a>
@@ -131,20 +127,10 @@
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="Hsn">荣誉编号</label>
-                                <input type="text" name="Hsn"
-                                       class="form-control" id="Hsn" placeholder="荣誉编号"
-                                       onfocus="showTips('Hsn','荣誉编号为1-20位的数字')"
-                                       onblur="checkHsn('Hsn','请按要求输入荣誉编号')">
-                                <div id="Hsndiv" style="display:none">
-                                    <span id="Hsnspan" ></span><br>
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <label for="Hname">荣誉名称</label>
                                 <input type="text" name="Hname"
                                        class="form-control" id="Hname" placeholder="荣誉名称"
-                                       onfocus="showTips('Hname','荣誉名称不能超过15个字符')"
+                                       onfocus="showTips('Hname','荣誉名称不能超过50个字符')"
                                        onblur="checkHname('Hname','请按要求输入荣誉名称')">
                                 <div id="Hnamediv" style="display:none">
                                     <span id="Hnamespan" ></span><br>

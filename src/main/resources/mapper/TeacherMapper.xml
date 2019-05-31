@@ -145,11 +145,11 @@
     <!--导入excel-->
     <insert id="importExcel" parameterType="java.util.List">
         insert into Teacher
-        (Tsn,Tname,Tsex,Tdegree,Tedubackground,Tresdirection,Tdateofbirth,JobTitle,Csn,Dsn)
+        (Tsn,Tname,Tsex,Tdegree,Tedubackground,Tresdirection,Tdateofbirth,JobTitle,Csn,Dsn,audit)
         values
         <foreach collection="list" item="item" index="index" separator=",">
             (#{item.tsn,jdbcType=CHAR},#{item.tname,jdbcType=CHAR},#{item.tsex,jdbcType=CHAR},#{item.tdegree,jdbcType=CHAR},#{item.tedubackground,jdbcType=CHAR}
-            ,#{item.tresdirection,jdbcType=CHAR} ,#{item.tdateofbirth,jdbcType=CHAR} ,#{item.jobTitle,jdbcType=CHAR},#{item.csn,jdbcType=CHAR} ,#{item.dsn,jdbcType=CHAR}
+            ,#{item.tresdirection,jdbcType=CHAR} ,#{item.tdateofbirth,jdbcType=VARCHAR} ,#{item.jobTitle,jdbcType=CHAR},#{item.csn,jdbcType=CHAR} ,#{item.dsn,jdbcType=CHAR},1
             )
         </foreach>
     </insert>

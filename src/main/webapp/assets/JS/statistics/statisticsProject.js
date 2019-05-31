@@ -118,9 +118,7 @@ $(function() {
     // 校管理员与院管理员text显示不同
     var text = "项目经费统计图";
     // 解析json
-    console.log(Pmoneyjson)
     Pmoneyjson = $.parseJSON(Pmoneyjson);
-    console.log(Pmoneyjson)
     var keyArr = new Array(); // 学院名
     var valueArr = new Array();// 项目经费
     var jsonArr = [];
@@ -172,7 +170,7 @@ $(function() {
         series : [ {
             name : '项目经费',
             type : 'bar',
-            data : valueArr
+            data : valueArr.toFixed(4)
         } ]
     };
     // 使用刚指定的配置项和数据显示图表。
@@ -261,7 +259,7 @@ $(function () {
         xAxis: {
             type: 'category',
             boundaryGap: false,
-            data: ['2016', '2017', '2018', '2019', '2020']
+            data: ['2015','2016', '2017', '2018', '2019']
         },
         yAxis: {
             type: 'value'

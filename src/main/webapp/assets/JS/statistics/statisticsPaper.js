@@ -162,7 +162,7 @@ $(function () {
         xAxis: {
             type: 'category',
             boundaryGap: false,
-            data: ['2016', '2017', '2018', '2019', '2020']
+            data: ['2015', '2016', '2017', '2018', '2019']
         },
         yAxis: {
             type: 'value'

@@ -15,7 +15,6 @@ $(document).on("click",".saveNewMsg",function(){
 	alert('输入不合法！')
 	return;
 }
-	var Hsn = $("#Hsn").val();
 	var Hname = $("#Hname").val();
 	var Hwinner = $("#Hwinner").val();
 	var Hdate = $("#Hdate").val();
@@ -28,7 +27,6 @@ $(document).on("click",".saveNewMsg",function(){
         type:"post",
         datatype:"json",
         data:{
-            "Hsn" : Hsn,
             "Hname" : Hname,
             "Hwinner" :Hwinner,
             "Hdate" : Hdate,
@@ -56,7 +54,7 @@ $(document).on("click","#btn_add",function () {
     $('#myModal').modal();
 })
 
-//修改信息按钮的事件
+//重新提交信息按钮的事件
 $(document).on("click","#btn_update",function () {
     $("#myModalLabel").text("修改荣誉信息");
     $('#myModal').modal();
@@ -151,42 +149,9 @@ $(document).on("click",".alterSave",function(){
     });
 });
 //表单验证
-function checkHsn(id,info){
-    var uValue = document.getElementById(id).value.trim();
-    if(!/^\d{1,20}$/.test(uValue)){
-        document.getElementById(id+"span").innerHTML="<font color='red' size='2'>"+info+"</font>";
-        document.getElementById(id+"div").style.display="block";
-        return true
-    }else{
-        document.getElementById(id+"span").innerHTML="<font color='green' size='3'>输入格式正确</font>";
-        return false
-    }
-}
 function checkHname(id,info){
     var uValue = document.getElementById(id).value.trim();
-    if(!/^.{1,15}$/.test(uValue)){
-        document.getElementById(id+"span").innerHTML="<font color='red' size='2'>"+info+"</font>";
-        document.getElementById(id+"div").style.display="block";
-        return true
-    }else{
-        document.getElementById(id+"span").innerHTML="<font color='green' size='3'>输入格式正确</font>";
-        return false
-    }
-}
-function checkHwinner(id,info){
-    var uValue = document.getElementById(id).value.trim();
     if(!/^.{1,50}$/.test(uValue)){
-        document.getElementById(id+"span").innerHTML="<font color='red' size='2'>"+info+"</font>";
-        document.getElementById(id+"div").style.display="block";
-        return true
-    }else{
-        document.getElementById(id+"span").innerHTML="<font color='green' size='3'>输入格式正确</font>";
-        return false
-    }
-}
-function checkHcompany(id,info){
-    var uValue = document.getElementById(id).value.trim();
-    if(!/^.{1,16}$/.test(uValue)){
         document.getElementById(id+"span").innerHTML="<font color='red' size='2'>"+info+"</font>";
         document.getElementById(id+"div").style.display="block";
         return true
@@ -201,7 +166,7 @@ function showTips(id,info){
     document.getElementById(id+"span").innerHTML="<font color='gray' size='2'>"+info+"</font>";
 }
 function check() {
-    var check = checkHsn('Hsn','请按要求输入荣誉编号') || checkHname('Hname','请按要求输入荣誉名称') || checkHwinner('Hwinner','请按要求输入获奖者') || checkHcompany('Hcompany','请按要求输入颁发单位');
+    var check = checkHname('Hname','请按要求输入荣誉名称');
     return check;
 }
 

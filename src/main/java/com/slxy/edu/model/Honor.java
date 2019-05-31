@@ -4,7 +4,7 @@ package com.slxy.edu.model;
 public class Honor {
 
   private long hnum;
-  private String hsn;
+  private Integer hsn;
   private String hname;
   private String hwinner;
   private String hdate;
@@ -22,7 +22,7 @@ public class Honor {
   private String dnane;
 
   //select
-  public Honor(String hsn, String hname, String hwinner, String hdate, String hcompany, String hgrad, String hremarks, String haudit, String haccessory, String message, String department, String tname, String cname, String dnane) {
+  public Honor(Integer hsn, String hname, String hwinner, String hdate, String hcompany, String hgrad, String hremarks, String haudit, String haccessory, String message, String department, String tname, String cname, String dnane) {
     this.hsn = hsn;
     this.hname = hname;
     this.hwinner = hwinner;
@@ -40,7 +40,7 @@ public class Honor {
   }
 
   //update
-  public Honor(String hsn, String hname, String hwinner, String hdate, String hcompany, String hgrad, String hremarks,String haudit, String department) {
+  public Honor(Integer hsn, String hname, String hwinner, String hdate, String hcompany, String hgrad, String hremarks,String haudit, String department) {
     this.hsn = hsn;
     this.hname = hname;
     this.hwinner = hwinner;
@@ -52,8 +52,8 @@ public class Honor {
     this.department = department;
   }
 
-  //insert
-  public Honor(String hsn, String hname, String hwinner, String hdate, String hcompany, String hgrad, String hremarks,String tsn,String haudit, String department) {
+  //teacher select
+  public Honor(Integer hsn, String hname, String hwinner, String hdate, String hcompany, String hgrad, String hremarks,String tsn,String haudit, String department) {
     this.hsn = hsn;
     this.hname = hname;
     this.hwinner = hwinner;
@@ -66,7 +66,20 @@ public class Honor {
     this.department = department;
   }
 
-  public Honor(String hsn, String hname, String hwinner, String hdate, String hcompany, String hgrad, String hremarks, String tsn, String haudit, String message, String department,String tname) {
+  //insert
+  public Honor(String hname, String hwinner, String hdate, String hcompany, String hgrad, String hremarks,String tsn,String haudit, String department) {
+    this.hname = hname;
+    this.hwinner = hwinner;
+    this.hdate = hdate;
+    this.hcompany = hcompany;
+    this.hgrad = hgrad;
+    this.hremarks = hremarks;
+    this.tsn = tsn;
+    this.haudit = haudit;
+    this.department = department;
+  }
+
+  public Honor(Integer hsn, String hname, String hwinner, String hdate, String hcompany, String hgrad, String hremarks, String tsn, String haudit, String message, String department,String tname) {
     this.hsn = hsn;
     this.hname = hname;
     this.hwinner = hwinner;
@@ -90,11 +103,11 @@ public class Honor {
     this.hnum = hnum;
   }
 
-  public String getHsn() {
+  public Integer getHsn() {
     return hsn;
   }
 
-  public void setHsn(String hsn) {
+  public void setHsn(Integer hsn) {
     this.hsn = hsn;
   }
 

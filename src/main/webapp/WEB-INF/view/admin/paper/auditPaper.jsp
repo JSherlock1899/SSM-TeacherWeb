@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>成果审核</title>
+    <title>论文审核</title>
     <link rel="stylesheet" href="<%=request.getContextPath()%>/assets/CSS/bootstrap.css">
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="<%=request.getContextPath()%>/assets/JS/ajax/ajaxPaperData.js"></script>
@@ -29,14 +29,14 @@
         <ol class="breadcrumb">
             <li><a href="#">主页</a></li>
             <li><a href="#">审核</a></li>
-            <li class="active">成果审核</li>
+            <li class="active">论文审核</li>
         </ol>
     </div>
     <div class="row">
         <div class="col-md-11 col-md-offset-1 ">
             <table border="1" id="table" class="table table-striped table-bordered table-hover table-condensed">
                 <tr class="info">
-                    <th>检索号</th>
+                    <th>编号</th>
                     <th>名称</th>
                     <th>第一作者</th>
                     <th>通讯作者</th>

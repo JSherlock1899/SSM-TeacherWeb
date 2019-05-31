@@ -23,10 +23,10 @@
                 AND Hdate &lt;= #{endtime}
             </if>
             <if test="cname!=null">
-                AND Haudit = '0'
+                AND Haudit = '1'
             </if>
             <if test="cname==null">
-                AND Haudit = '0'
+                AND Haudit = '1'
             </if>
         </where>
     </select>
@@ -78,9 +78,8 @@
     </update>
 
     <insert id="insertOne" parameterType="com.slxy.edu.model.Honor">
-        insert into Honor (Hsn,Hname,Hwinner,Hdate,Hcompany,department,Hgrad,Hremarks,Tsn,Haudit)
-        VALUES (#{entity.hsn},
-        #{entity.hname},
+        insert into Honor (Hname,Hwinner,Hdate,Hcompany,department,Hgrad,Hremarks,Tsn,Haudit)
+        VALUES (#{entity.hname},
         #{entity.hwinner},
         #{entity.hdate},
         #{entity.hcompany},
@@ -222,11 +221,11 @@
     <!--导入excel-->
     <insert id="importExcel" parameterType="java.util.List">
         insert into Honor
-        (hsn,hname,tsn,department,hdate,hcompany,hgrad,hremarks
+        (hname,tsn,department,hdate,hcompany,hgrad,hremarks,Haudit
         )values
         <foreach collection="list" item="item" index="index" separator=",">
-            (#{item.hsn,jdbcType=CHAR},#{item.hname,jdbcType=CHAR},#{item.tsn,jdbcType=CHAR},#{item.department,jdbcType=CHAR}
-            ,#{item.hdate,jdbcType=CHAR},#{item.hcompany,jdbcType=CHAR},#{item.hgrad,jdbcType=CHAR},#{item.hremarks,jdbcType=CHAR}
+            (#{item.hname,jdbcType=CHAR},#{item.tsn,jdbcType=CHAR},#{item.department,jdbcType=CHAR}
+            ,#{item.hdate,jdbcType=CHAR},#{item.hcompany,jdbcType=CHAR},#{item.hgrad,jdbcType=CHAR},#{item.hremarks,jdbcType=CHAR},1
             )
         </foreach>
     </insert>

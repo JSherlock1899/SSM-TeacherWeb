@@ -74,12 +74,38 @@
     <!-- 启用注解事务 -->
     <tx:annotation-driven transaction-manager="tx" />
 
-
-
-
-
-
-
-
-
+    <!--事务管理-->
+    <!--声明式的 XML配置aop事务 -->
+    <!-- 配置事务通知 -->
+    <tx:advice id="txAdvice" transaction-manager="tx">
+        <tx:attributes>
+            <!-- REQUIRED意思是如果当前事务不存在，就创建一个事务 -->
+            <tx:method name="alter*" propagation="REQUIRED" />
+            <tx:method name="transfer*" propagation="REQUIRED"/>
+            <tx:method name="save*" propagation="REQUIRED"/>
+            <tx:method name="add*" propagation="REQUIRED"/>
+            <tx:method name="insert*" propagation="REQUIRED"/>
+            <tx:method name="create*" propagation="REQUIRED"/>
+            <tx:method name="update*" propagation="REQUIRED"/>
+            <tx:method name="modify*" propagation="REQUIRED"/>
+            <tx:method name="edit*" propagation="REQUIRED"/>
+            <tx:method name="delete*" propagation="REQUIRED"/>
+            <tx:method name="remove*" propagation="REQUIRED"/>
+            <tx:method name="drop*" propagation="REQUIRED"/>
+            <tx:method name="pay*" propagation="REQUIRED"/>
+            <!-- SUPPORTS意思是 如果当前没有事务存在，就以非事务的方式执行 -->
+            <tx:method name="select*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="get*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="find*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="query*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="search*" propagation="SUPPORTS" read-only="true"/>
+        </tx:attributes>
+    </tx:advice>
+    <!-- 配置织入 -->
+    <aop:config>
+        <!-- 配置切点表达式 -->
+        <aop:pointcut expression="execution(* com.slxy.edu.service.impl.*ServiceImpl.*(..))" id="txPc" />
+        <!-- 配置切面 : 通知+切点 advice-ref:通知的名称 pointcut-ref:切点的名称 -->
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPc" />
+    </aop:config>
 </beans>

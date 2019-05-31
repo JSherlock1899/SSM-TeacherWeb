@@ -9,7 +9,7 @@ package com.slxy.edu.model.excel;
 
 public class ExcelPaper {
 
-    private String pasearchnum;
+    private Integer pasearchnum;
     private String paname;
     private String tsn;
     private String tname;
@@ -24,8 +24,9 @@ public class ExcelPaper {
     private String Tedubackground;//学历
     private String JobTitle;//职称
     private String paremarks;
+    private String audit;
 
-    public ExcelPaper(String pasearchnum, String paname, String tsn, String tname, String pawriter, String papublish, String padate, String pagrad, String pdisvol, String dependence, String cname, String dnane, String tedubackground, String jobTitle, String paremarks) {
+    public ExcelPaper(Integer pasearchnum, String paname, String tsn, String tname, String pawriter, String papublish, String padate, String pagrad, String pdisvol, String dependence, String cname, String dnane, String tedubackground, String jobTitle, String paremarks) {
         this.pasearchnum = pasearchnum;
         this.paname = paname;
         this.tsn = tsn;
@@ -46,8 +47,7 @@ public class ExcelPaper {
     //    导入
 
 
-    public ExcelPaper(String pasearchnum, String paname, String tsn, String pawriter, String papublish, String padate, String pagrad, String pdisvol, String dependence, String paremarks) {
-        this.pasearchnum = pasearchnum;
+    public ExcelPaper(String paname, String tsn, String pawriter, String papublish, String padate, String pagrad, String pdisvol, String dependence, String paremarks,String audit) {
         this.paname = paname;
         this.tsn = tsn;
         this.pawriter = pawriter;
@@ -57,6 +57,7 @@ public class ExcelPaper {
         this.pdisvol = pdisvol;
         this.dependence = dependence;
         this.paremarks = paremarks;
+        this.audit = audit;
     }
 
     public String getTname() {
@@ -75,11 +76,11 @@ public class ExcelPaper {
         this.tsn = tsn;
     }
 
-    public String getPasearchnum() {
+    public Integer getPasearchnum() {
         return pasearchnum;
     }
 
-    public void setPasearchnum(String pasearchnum) {
+    public void setPasearchnum(Integer pasearchnum) {
         this.pasearchnum = pasearchnum;
     }
 
@@ -177,5 +178,13 @@ public class ExcelPaper {
 
     public void setParemarks(String paremarks) {
         this.paremarks = paremarks;
+    }
+
+    public String getAudit() {
+        return audit;
+    }
+
+    public void setAudit(String audit) {
+        this.audit = audit;
     }
 }

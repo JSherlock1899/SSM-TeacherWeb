@@ -42,6 +42,7 @@ $(document).on("click","#pass",function(){
         },
         success : function(result){
             alert("操作成功");
+            location.reload();
         },
         error:function(result){
             alert('请求出现错误...');
@@ -63,6 +64,7 @@ $(document).on("click","#nopass",function(){
         },
         success : function(result){
             alert("操作成功");
+            location.reload();
         },
         error:function(result){
             alert('请求出现错误...');
@@ -103,6 +105,7 @@ $(document).on("click",".save",function(){
         },
         success : function(result){
                 alert("提交成功，请等待管理员审核！");
+            location.reload();
         },
         error:function(result){  
             alert('请求出现错误...');  
@@ -188,9 +191,8 @@ $(document).on("click",".saveNewMsg",function(){
         },
 
         success : function(result){
-            if (result.code==100){
                 alert("新建成功，请等待管理员审核！");
-            }
+            location.reload();
         },
         error:function(result){
             alert('请求出现错误...');

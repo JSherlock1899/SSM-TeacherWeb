@@ -4,7 +4,7 @@ package com.slxy.edu.model;
 public class Paper {
 
   private long panum;
-  private String pasearchnum;
+  private Integer pasearchnum;
   private String paname;
   private String pawriter;
   private String papublish;
@@ -21,7 +21,7 @@ public class Paper {
   private String cname;
   private String dnane;
 
-  public Paper(String pasearchnum, String paname, String pawriter, String papublish, String padate, String pagrad, String paremarks, String paudit, String pdisvol, String paccessory, String message, String dependence, String tname, String cname, String dnane,String tsn) {
+  public Paper(Integer pasearchnum, String paname, String pawriter, String papublish, String padate, String pagrad, String paremarks, String paudit, String pdisvol, String paccessory, String message, String dependence, String tname, String cname, String dnane,String tsn) {
     this.pasearchnum = pasearchnum;
     this.paname = paname;
     this.pawriter = pawriter;
@@ -41,7 +41,7 @@ public class Paper {
   }
 
 //  审核
-  public Paper(String pasearchnum, String paname, String pawriter, String papublish, String padate, String pagrad, String paremarks, String paudit, String pdisvol, String paccessory, String message, String dependence, String tname, String cname, String dnane) {
+  public Paper(Integer pasearchnum, String paname, String pawriter, String papublish, String padate, String pagrad, String paremarks, String paudit, String pdisvol, String paccessory, String message, String dependence, String tname, String cname, String dnane) {
     this.pasearchnum = pasearchnum;
     this.paname = paname;
     this.pawriter = pawriter;
@@ -59,7 +59,7 @@ public class Paper {
     this.dnane = dnane;
   }
 
-  public Paper(String pasearchnum, String paname, String pawriter, String papublish, String padate, String pagrad, String paremarks, String pdisvol, String paccessory, String dependence, String tname) {
+  public Paper(Integer pasearchnum, String paname, String pawriter, String papublish, String padate, String pagrad, String paremarks, String pdisvol, String paccessory, String dependence, String tname) {
     this.pasearchnum = pasearchnum;
     this.paname = paname;
     this.pawriter = pawriter;
@@ -73,7 +73,7 @@ public class Paper {
     this.tname = tname;
   }
 
-  public Paper(String pasearchnum, String paname, String pawriter, String papublish, String padate, String pagrad, String tsn, String paremarks, String paudit, String pdisvol, String paccessory, String message, String dependence,String tname) {
+  public Paper(Integer pasearchnum, String paname, String pawriter, String papublish, String padate, String pagrad, String tsn, String paremarks, String paudit, String pdisvol, String paccessory, String message, String dependence,String tname) {
     this.pasearchnum = pasearchnum;
     this.paname = paname;
     this.pawriter = pawriter;
@@ -90,8 +90,8 @@ public class Paper {
     this.tname = tname;
   }
 
-  public Paper(String pasearchnum, String paname, String pawriter, String papublish, String padate, String pagrad, String tsn, String paremarks, String paudit, String pdisvol, String message, String dependence) {
-    this.pasearchnum = pasearchnum;
+  //teacher insert
+  public Paper( String paname, String pawriter, String papublish, String padate, String pagrad, String tsn, String paremarks, String paudit, String pdisvol, String message, String dependence) {
     this.paname = paname;
     this.pawriter = pawriter;
     this.papublish = papublish;
@@ -105,7 +105,7 @@ public class Paper {
     this.dependence = dependence;
   }
 
-  public Paper(String pasearchnum, String paname, String pawriter, String papublish, String padate, String pagrad, String paremarks, String paudit, String pdisvol, String dependence) {
+  public Paper(Integer pasearchnum, String paname, String pawriter, String papublish, String padate, String pagrad, String paremarks, String paudit, String pdisvol, String dependence) {
     this.pasearchnum = pasearchnum;
     this.paname = paname;
     this.pawriter = pawriter;
@@ -126,11 +126,11 @@ public class Paper {
     this.panum = panum;
   }
 
-  public String getPasearchnum() {
+  public Integer getPasearchnum() {
     return pasearchnum;
   }
 
-  public void setPasearchnum(String pasearchnum) {
+  public void setPasearchnum(Integer pasearchnum) {
     this.pasearchnum = pasearchnum;
   }
 
